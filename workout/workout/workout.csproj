@@ -107,5 +107,8 @@
     <Folder Include="CapaEntidad\" />
     <Folder Include="CapaNegocio\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ScriptBD\workout.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

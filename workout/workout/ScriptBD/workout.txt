@@ -1,0 +1,70 @@
+
+CREATE TABLE ALUMNO
+(
+  dni INT NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  fecha_nac DATE NOT NULL,
+  detalles VARCHAR(100) NOT NULL,
+  correo VARCHAR(30) NOT NULL,
+  genero VARCHAR(30) NOT NULL,
+  PRIMARY KEY (dni)
+);
+
+CREATE TABLE EJERCICIO
+(
+  id_ejercicio INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  serie INT NOT NULL,
+  repeticiones INT NOT NULL,
+  descanso VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id_ejercicio)
+);
+
+CREATE TABLE MEMBRESIA
+(
+  id_membresia INT NOT NULL,
+  fecha_pago DATE NOT NULL,
+  fecha_venc DATE NOT NULL,
+  monto FLOAT NOT NULL,
+  dni INT NOT NULL,
+  PRIMARY KEY (id_membresia),
+  FOREIGN KEY (dni) REFERENCES ALUMNO(dni)
+);
+
+CREATE TABLE Entrenador
+(
+  id_entrenador INT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  dni INT NOT NULL,
+  fecha_nac DATE NOT NULL,
+  horario_disp DATE NOT NULL,
+  dias_disp VARCHAR(100) NOT NULL,
+  detalles VARCHAR(100) NOT NULL,
+  id_rutina INT NOT NULL,
+  PRIMARY KEY (id_entrenador),
+  FOREIGN KEY (id_rutina) REFERENCES EJERCICIO(id_ejercicio)
+);
+
+CREATE TABLE ADMINISTRADOR
+(
+  id_administrador INT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  dni INT NOT NULL,
+  fecha_nac DATE NOT NULL,
+  id_usuario INT NOT NULL,
+  PRIMARY KEY (id_administrador),
+  FOREIGN KEY (id_usuario) REFERENCES Entrenador(id_entrenador)
+);
+
+CREATE TABLE RUTINA
+(
+  dia VARCHAR(30) NOT NULL,
+  dni INT NOT NULL,
+  id_ejercicio INT NOT NULL,
+  PRIMARY KEY (dni, id_ejercicio),
+  FOREIGN KEY (dni) REFERENCES ALUMNO(dni),
+  FOREIGN KEY (id_ejercicio) REFERENCES EJERCICIO(id_ejercicio)
+);
