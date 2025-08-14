@@ -39,6 +39,7 @@
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -147,7 +148,6 @@
             // 
             // picMascota
             // 
-            this.picMascota.Image = global::workout.Properties.Resources.quiero_una_mascota_en_caricatura_con_una_pesa_de_gym_para_usar_como_icono_con_tonalidades_azules_y_c_removebg_preview;
             this.picMascota.Location = new System.Drawing.Point(68, 21);
             this.picMascota.Name = "picMascota";
             this.picMascota.Size = new System.Drawing.Size(73, 78);
@@ -159,6 +159,12 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
             // FrmPrincipal
             // 
@@ -197,6 +203,7 @@
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }
 
