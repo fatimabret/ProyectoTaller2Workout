@@ -9,3 +9,14 @@ C:\taller2\workout\workout\bin\Debug\workout.pdb
 C:\taller2\workout\workout\obj\Debug\workout.exe
 C:\taller2\workout\workout\obj\Debug\workout.pdb
 C:\taller2\workout\workout\obj\Debug\workout.exe.config
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\workout.exe.config
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\workout.exe
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\workout.pdb
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.csproj.AssemblyReference.cache
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.exe.config
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.Form1.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.Properties.Resources.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.csproj.GenerateResource.cache
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.csproj.CoreCompileInputs.cache
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.exe
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.pdb

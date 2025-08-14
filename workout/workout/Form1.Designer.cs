@@ -1,6 +1,6 @@
 ﻿namespace workout
 {
-    partial class Form1
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,40 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.lblBienvenida = new System.Windows.Forms.Label();
+            this.lblSubtituloBienvenida = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnConsultarMembresia = new System.Windows.Forms.Button();
+            this.btnConsultarRutina = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
+            this.picMascota = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblBienvenida
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(256, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 55);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "¡Bienvenido a Workout!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenida.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBienvenida.Location = new System.Drawing.Point(256, 100);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(318, 55);
+            this.lblBienvenida.TabIndex = 1;
+            this.lblBienvenida.Text = "¡Bienvenido a Workout!";
+            this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBienvenida.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lblSubtituloBienvenida
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(310, 155);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Consulte su Membresia o su Rutina";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblSubtituloBienvenida.AutoSize = true;
+            this.lblSubtituloBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtituloBienvenida.Location = new System.Drawing.Point(310, 155);
+            this.lblSubtituloBienvenida.Name = "lblSubtituloBienvenida";
+            this.lblSubtituloBienvenida.Size = new System.Drawing.Size(202, 15);
+            this.lblSubtituloBienvenida.TabIndex = 2;
+            this.lblSubtituloBienvenida.Text = "Consulte su Membresia o su Rutina";
+            this.lblSubtituloBienvenida.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtDni
             // 
@@ -74,36 +77,36 @@
             this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
+            // btnConsultarMembresia
             // 
-            this.button1.AutoEllipsis = true;
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(313, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "CONSULTAR MEMBRESIA";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnConsultarMembresia.AutoEllipsis = true;
+            this.btnConsultarMembresia.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnConsultarMembresia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnConsultarMembresia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultarMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarMembresia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(313, 250);
+            this.btnConsultarMembresia.Name = "btnConsultarMembresia";
+            this.btnConsultarMembresia.Size = new System.Drawing.Size(196, 29);
+            this.btnConsultarMembresia.TabIndex = 4;
+            this.btnConsultarMembresia.Text = "CONSULTAR MEMBRESIA";
+            this.btnConsultarMembresia.UseVisualStyleBackColor = false;
+            this.btnConsultarMembresia.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnConsultarRutina
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(313, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 29);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "CONSULTAR RUTINA";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnConsultarRutina.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnConsultarRutina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultarRutina.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConsultarRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarRutina.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConsultarRutina.Location = new System.Drawing.Point(313, 285);
+            this.btnConsultarRutina.Name = "btnConsultarRutina";
+            this.btnConsultarRutina.Size = new System.Drawing.Size(196, 29);
+            this.btnConsultarRutina.TabIndex = 5;
+            this.btnConsultarRutina.Text = "CONSULTAR RUTINA";
+            this.btnConsultarRutina.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -127,50 +130,56 @@
             this.linkLabel1.Text = "Iniciar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // button3
+            // btnIniciarSesion
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(603, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 29);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "INICIAR SESION";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(603, 39);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(135, 29);
+            this.btnIniciarSesion.TabIndex = 8;
+            this.btnIniciarSesion.Text = "INICIAR SESION";
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.button3_Click);
             // 
-            // pictureBox1
+            // picMascota
             // 
-            this.pictureBox1.Image = global::workout.Properties.Resources.quiero_una_mascota_en_caricatura_con_una_pesa_de_gym_para_usar_como_icono_con_tonalidades_azules_y_c_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picMascota.Image = global::workout.Properties.Resources.quiero_una_mascota_en_caricatura_con_una_pesa_de_gym_para_usar_como_icono_con_tonalidades_azules_y_c_removebg_preview;
+            this.picMascota.Location = new System.Drawing.Point(68, 21);
+            this.picMascota.Name = "picMascota";
+            this.picMascota.Size = new System.Drawing.Size(73, 78);
+            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMascota.TabIndex = 9;
+            this.picMascota.TabStop = false;
+            this.picMascota.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // Form1
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.picMascota);
+            this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConsultarRutina);
+            this.Controls.Add(this.btnConsultarMembresia);
             this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Controls.Add(this.lblSubtituloBienvenida);
+            this.Controls.Add(this.lblBienvenida);
+            this.Name = "FrmPrincipal";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,15 +187,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBienvenida;
+        private System.Windows.Forms.Label lblSubtituloBienvenida;
         private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConsultarMembresia;
+        private System.Windows.Forms.Button btnConsultarRutina;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnIniciarSesion;
+        private System.Windows.Forms.PictureBox picMascota;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

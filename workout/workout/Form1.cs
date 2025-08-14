@@ -12,9 +12,9 @@ using System.Xml.Linq;
 
 namespace workout
 {
-    public partial class Form1 : Form
+    public partial class FrmPrincipal : Form
     {
-        public Form1()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -31,17 +31,15 @@ namespace workout
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Dim valor as Integer 
-                if (int.TryParse(txtDni.Text, out valor))
+            //declaración de variable
+            int dni;
+            //Valida que los datos que ingrese el usuario sean números
+            if (!int.TryParse(txtDni.Text, out dni))
             {
-                // Valid integer input
-                MessageBox.Show("Valid DNI: " + valor);
+                // Mensaje de error si no es un número
+                errorProvider1.SetError(txtDni, "Solo puede contener numeros");
             }
-            else
-            {
-                // Invalid input
-                MessageBox.Show("Solo puede contener numeros");
-            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -65,6 +63,11 @@ namespace workout
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
