@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarAlumno));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblApellidoAlumno = new System.Windows.Forms.Label();
@@ -47,7 +48,13 @@
             this.txtDetallesAlumn = new System.Windows.Forms.TextBox();
             this.txtDniAlumno = new System.Windows.Forms.TextBox();
             this.lblDniAlumno = new System.Windows.Forms.Label();
+            this.ePDniAlumno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePApeAlumno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePNomAlumno = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -152,6 +159,7 @@
             this.txtApeAlumno.Name = "txtApeAlumno";
             this.txtApeAlumno.Size = new System.Drawing.Size(192, 20);
             this.txtApeAlumno.TabIndex = 11;
+            this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
             // 
             // txtNombAlumno
             // 
@@ -159,6 +167,7 @@
             this.txtNombAlumno.Name = "txtNombAlumno";
             this.txtNombAlumno.Size = new System.Drawing.Size(192, 20);
             this.txtNombAlumno.TabIndex = 12;
+            this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged);
             // 
             // txtCorreo
             // 
@@ -214,6 +223,7 @@
             this.txtDniAlumno.Name = "txtDniAlumno";
             this.txtDniAlumno.Size = new System.Drawing.Size(192, 20);
             this.txtDniAlumno.TabIndex = 19;
+            this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
             // 
             // lblDniAlumno
             // 
@@ -224,6 +234,18 @@
             this.lblDniAlumno.Size = new System.Drawing.Size(41, 25);
             this.lblDniAlumno.TabIndex = 18;
             this.lblDniAlumno.Text = "Dni";
+            // 
+            // ePDniAlumno
+            // 
+            this.ePDniAlumno.ContainerControl = this;
+            // 
+            // ePApeAlumno
+            // 
+            this.ePApeAlumno.ContainerControl = this;
+            // 
+            // ePNomAlumno
+            // 
+            this.ePNomAlumno.ContainerControl = this;
             // 
             // FrmRegistrarAlumno
             // 
@@ -251,6 +273,9 @@
             this.Name = "FrmRegistrarAlumno";
             this.Text = "Registrar Alumno";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +301,8 @@
         private System.Windows.Forms.TextBox txtDetallesAlumn;
         private System.Windows.Forms.TextBox txtDniAlumno;
         private System.Windows.Forms.Label lblDniAlumno;
+        private System.Windows.Forms.ErrorProvider ePDniAlumno;
+        private System.Windows.Forms.ErrorProvider ePApeAlumno;
+        private System.Windows.Forms.ErrorProvider ePNomAlumno;
     }
 }
