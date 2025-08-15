@@ -47,34 +47,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaPresentacion\FrmEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmEjercicio.Designer.cs">
+      <DependentUpon>FrmEjercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmListAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CapaPresentacion\FrmListAlumnos.Designer.cs">
       <DependentUpon>FrmListAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\frmMembresia.cs">
+    <Compile Include="CapaPresentacion\FrmMembresia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\frmMembresia.Designer.cs">
-      <DependentUpon>frmMembresia.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\FrmMembresia.Designer.cs">
+      <DependentUpon>FrmMembresia.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\frmPrincipal.cs">
+    <Compile Include="CapaPresentacion\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarAlumno.Designer.cs">
+      <DependentUpon>FrmRegistrarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarEntrenador.Designer.cs">
+      <DependentUpon>FrmRegistrarEntrenador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CapaPresentacion\FrmEjercicio.resx">
+      <DependentUpon>FrmEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmListAlumnos.resx">
       <DependentUpon>FrmListAlumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\frmMembresia.resx">
-      <DependentUpon>frmMembresia.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\FrmMembresia.resx">
+      <DependentUpon>FrmMembresia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmRegistrarAlumno.resx">
+      <DependentUpon>FrmRegistrarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmRegistrarEntrenador.resx">
+      <DependentUpon>FrmRegistrarEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

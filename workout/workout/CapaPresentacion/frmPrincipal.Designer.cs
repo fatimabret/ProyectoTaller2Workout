@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.lblSubtituloBienvenida = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -148,6 +149,7 @@
             // 
             // picMascota
             // 
+            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
             this.picMascota.Location = new System.Drawing.Point(68, 21);
             this.picMascota.Name = "picMascota";
             this.picMascota.Size = new System.Drawing.Size(73, 78);
@@ -182,7 +184,7 @@
             this.Controls.Add(this.lblSubtituloBienvenida);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmPrincipal";
-            this.Text = "Form1";
+            this.Text = "Workout";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

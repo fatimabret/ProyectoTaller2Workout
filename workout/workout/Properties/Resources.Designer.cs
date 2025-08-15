@@ -63,10 +63,19 @@ namespace workout.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap quiero_una_mascota_en_caricatura_con_una_pesa_de_gym_para_usar_como_icono_con_tonalidades_azules_y_c_removebg_preview {
+        internal static System.Drawing.Bitmap masc {
             get {
-                object obj = ResourceManager.GetObject("quiero_una_mascota_en_caricatura_con_una_pesa_de_gym_para_usar_como_icono_con_ton" +
-                        "alidades_azules_y_c-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("masc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap masc1 {
+            get {
+                object obj = ResourceManager.GetObject("masc1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace workout.CapaPresentacion
 {
-    public partial class frmMembresia : Form
+    public partial class FrmMembresia : Form
     {
-        public frmMembresia()
+        public FrmMembresia()
         {
             InitializeComponent();
         }
@@ -33,6 +33,16 @@ namespace workout.CapaPresentacion
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMembresia_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

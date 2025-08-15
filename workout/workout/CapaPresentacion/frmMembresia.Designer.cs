@@ -1,6 +1,6 @@
 ﻿namespace workout.CapaPresentacion
 {
-    partial class frmMembresia
+    partial class FrmMembresia
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Estado de la Membresia";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -88,7 +89,7 @@
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // frmMembresia
+            // FrmMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,8 +99,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmMembresia";
-            this.Text = "frmMembresia";
+            this.Name = "FrmMembresia";
+            this.Text = "Membresia";
+            this.Load += new System.EventHandler(this.frmMembresia_Load);
             this.ResumeLayout(false);
 
         }

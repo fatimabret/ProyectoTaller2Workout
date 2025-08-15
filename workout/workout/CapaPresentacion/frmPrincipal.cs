@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
+using workout.CapaPresentacion;
 
 namespace workout
 {
@@ -59,7 +60,10 @@ namespace workout
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
+            FrmMembresia frm = new FrmMembresia();
+            frm.ShowDialog();
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
