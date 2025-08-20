@@ -16,5 +16,10 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

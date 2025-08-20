@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMembresia));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.picMascota = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(124, 31);
+            this.label1.Location = new System.Drawing.Point(172, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 23);
             this.label1.TabIndex = 0;
@@ -89,11 +92,22 @@
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // picMascota
+            // 
+            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
+            this.picMascota.Location = new System.Drawing.Point(63, 25);
+            this.picMascota.Name = "picMascota";
+            this.picMascota.Size = new System.Drawing.Size(73, 78);
+            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMascota.TabIndex = 22;
+            this.picMascota.TabStop = false;
+            // 
             // FrmMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 260);
+            this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -102,6 +116,7 @@
             this.Name = "FrmMembresia";
             this.Text = "Membresia";
             this.Load += new System.EventHandler(this.frmMembresia_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +128,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox picMascota;
     }
 }

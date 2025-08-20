@@ -31,101 +31,43 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarAlumno));
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblApellidoAlumno = new System.Windows.Forms.Label();
-            this.lblNombreAlumno = new System.Windows.Forms.Label();
-            this.lblFechaNac = new System.Windows.Forms.Label();
-            this.lblCorreo = new System.Windows.Forms.Label();
-            this.lblGenero = new System.Windows.Forms.Label();
-            this.lblDetalles = new System.Windows.Forms.Label();
             this.btnRegistrarAlumno = new System.Windows.Forms.Button();
-            this.picMascota = new System.Windows.Forms.PictureBox();
             this.txtApeAlumno = new System.Windows.Forms.TextBox();
-            this.txtNombAlumno = new System.Windows.Forms.TextBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.btnHombre = new System.Windows.Forms.RadioButton();
             this.btnMujer = new System.Windows.Forms.RadioButton();
             this.btnOtro = new System.Windows.Forms.RadioButton();
-            this.txtDetallesAlumn = new System.Windows.Forms.TextBox();
             this.txtDniAlumno = new System.Windows.Forms.TextBox();
-            this.lblDniAlumno = new System.Windows.Forms.Label();
             this.ePDniAlumno = new System.Windows.Forms.ErrorProvider(this.components);
             this.ePApeAlumno = new System.Windows.Forms.ErrorProvider(this.components);
             this.ePNomAlumno = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            this.picMascota = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(185, 35);
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(160, 37);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(227, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(247, 31);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Datos del Alumno";
-            // 
-            // lblApellidoAlumno
-            // 
-            this.lblApellidoAlumno.AutoSize = true;
-            this.lblApellidoAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidoAlumno.Location = new System.Drawing.Point(31, 147);
-            this.lblApellidoAlumno.Name = "lblApellidoAlumno";
-            this.lblApellidoAlumno.Size = new System.Drawing.Size(82, 25);
-            this.lblApellidoAlumno.TabIndex = 1;
-            this.lblApellidoAlumno.Text = "Apellido";
-            // 
-            // lblNombreAlumno
-            // 
-            this.lblNombreAlumno.AutoSize = true;
-            this.lblNombreAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreAlumno.Location = new System.Drawing.Point(32, 197);
-            this.lblNombreAlumno.Name = "lblNombreAlumno";
-            this.lblNombreAlumno.Size = new System.Drawing.Size(81, 25);
-            this.lblNombreAlumno.TabIndex = 2;
-            this.lblNombreAlumno.Text = "Nombre";
-            // 
-            // lblFechaNac
-            // 
-            this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaNac.Location = new System.Drawing.Point(31, 257);
-            this.lblFechaNac.Name = "lblFechaNac";
-            this.lblFechaNac.Size = new System.Drawing.Size(196, 25);
-            this.lblFechaNac.TabIndex = 4;
-            this.lblFechaNac.Text = "Fecha de Nacimiento";
-            // 
-            // lblCorreo
-            // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(32, 310);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(173, 25);
-            this.lblCorreo.TabIndex = 3;
-            this.lblCorreo.Text = "Correo Electronico";
-            // 
-            // lblGenero
-            // 
-            this.lblGenero.AutoSize = true;
-            this.lblGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenero.Location = new System.Drawing.Point(32, 359);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(77, 25);
-            this.lblGenero.TabIndex = 6;
-            this.lblGenero.Text = "Genero";
-            // 
-            // lblDetalles
-            // 
-            this.lblDetalles.AutoSize = true;
-            this.lblDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalles.Location = new System.Drawing.Point(33, 413);
-            this.lblDetalles.Name = "lblDetalles";
-            this.lblDetalles.Size = new System.Drawing.Size(82, 25);
-            this.lblDetalles.TabIndex = 5;
-            this.lblDetalles.Text = "Detalles";
+            this.lblTitulo.Text = "Registrar Alumno ";
             // 
             // btnRegistrarAlumno
             // 
@@ -136,50 +78,26 @@
             this.btnRegistrarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarAlumno.Location = new System.Drawing.Point(191, 492);
+            this.btnRegistrarAlumno.Location = new System.Drawing.Point(179, 542);
             this.btnRegistrarAlumno.Name = "btnRegistrarAlumno";
             this.btnRegistrarAlumno.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarAlumno.TabIndex = 7;
-            this.btnRegistrarAlumno.Text = "REGISTRAR ALUMNO";
+            this.btnRegistrarAlumno.Text = "REGISTRAR";
             this.btnRegistrarAlumno.UseVisualStyleBackColor = false;
-            // 
-            // picMascota
-            // 
-            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
-            this.picMascota.Location = new System.Drawing.Point(462, 12);
-            this.picMascota.Name = "picMascota";
-            this.picMascota.Size = new System.Drawing.Size(73, 78);
-            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMascota.TabIndex = 10;
-            this.picMascota.TabStop = false;
             // 
             // txtApeAlumno
             // 
-            this.txtApeAlumno.Location = new System.Drawing.Point(155, 147);
+            this.txtApeAlumno.Location = new System.Drawing.Point(131, 201);
             this.txtApeAlumno.Name = "txtApeAlumno";
-            this.txtApeAlumno.Size = new System.Drawing.Size(192, 20);
+            this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtApeAlumno.TabIndex = 11;
+            this.txtApeAlumno.Text = "Ej.: Juan";
             this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
-            // 
-            // txtNombAlumno
-            // 
-            this.txtNombAlumno.Location = new System.Drawing.Point(155, 197);
-            this.txtNombAlumno.Name = "txtNombAlumno";
-            this.txtNombAlumno.Size = new System.Drawing.Size(192, 20);
-            this.txtNombAlumno.TabIndex = 12;
-            this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(229, 310);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(187, 20);
-            this.txtCorreo.TabIndex = 13;
             // 
             // btnHombre
             // 
             this.btnHombre.AutoSize = true;
-            this.btnHombre.Location = new System.Drawing.Point(156, 366);
+            this.btnHombre.Location = new System.Drawing.Point(139, 498);
             this.btnHombre.Name = "btnHombre";
             this.btnHombre.Size = new System.Drawing.Size(62, 17);
             this.btnHombre.TabIndex = 14;
@@ -190,7 +108,7 @@
             // btnMujer
             // 
             this.btnMujer.AutoSize = true;
-            this.btnMujer.Location = new System.Drawing.Point(243, 367);
+            this.btnMujer.Location = new System.Drawing.Point(226, 499);
             this.btnMujer.Name = "btnMujer";
             this.btnMujer.Size = new System.Drawing.Size(51, 17);
             this.btnMujer.TabIndex = 15;
@@ -201,7 +119,7 @@
             // btnOtro
             // 
             this.btnOtro.AutoSize = true;
-            this.btnOtro.Location = new System.Drawing.Point(319, 366);
+            this.btnOtro.Location = new System.Drawing.Point(302, 498);
             this.btnOtro.Name = "btnOtro";
             this.btnOtro.Size = new System.Drawing.Size(45, 17);
             this.btnOtro.TabIndex = 16;
@@ -209,31 +127,14 @@
             this.btnOtro.Text = "Otro";
             this.btnOtro.UseVisualStyleBackColor = true;
             // 
-            // txtDetallesAlumn
-            // 
-            this.txtDetallesAlumn.Location = new System.Drawing.Point(170, 418);
-            this.txtDetallesAlumn.Multiline = true;
-            this.txtDetallesAlumn.Name = "txtDetallesAlumn";
-            this.txtDetallesAlumn.Size = new System.Drawing.Size(178, 20);
-            this.txtDetallesAlumn.TabIndex = 17;
-            // 
             // txtDniAlumno
             // 
-            this.txtDniAlumno.Location = new System.Drawing.Point(155, 104);
+            this.txtDniAlumno.Location = new System.Drawing.Point(131, 141);
             this.txtDniAlumno.Name = "txtDniAlumno";
-            this.txtDniAlumno.Size = new System.Drawing.Size(192, 20);
+            this.txtDniAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtDniAlumno.TabIndex = 19;
+            this.txtDniAlumno.Text = "Ej.: 12123123";
             this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
-            // 
-            // lblDniAlumno
-            // 
-            this.lblDniAlumno.AutoSize = true;
-            this.lblDniAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDniAlumno.Location = new System.Drawing.Point(31, 104);
-            this.lblDniAlumno.Name = "lblDniAlumno";
-            this.lblDniAlumno.Size = new System.Drawing.Size(41, 25);
-            this.lblDniAlumno.TabIndex = 18;
-            this.lblDniAlumno.Text = "Dni";
             // 
             // ePDniAlumno
             // 
@@ -247,35 +148,165 @@
             // 
             this.ePNomAlumno.ContainerControl = this;
             // 
+            // picMascota
+            // 
+            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
+            this.picMascota.Location = new System.Drawing.Point(62, 23);
+            this.picMascota.Name = "picMascota";
+            this.picMascota.Size = new System.Drawing.Size(73, 78);
+            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMascota.TabIndex = 22;
+            this.picMascota.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(119, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(256, 24);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Ingrese sú DNI sin puntos ni espacio";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(122, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(203, 21);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Ingrese sú Nombre completo";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(122, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(206, 25);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Ingrese sú Apellido completo";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(131, 263);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(326, 20);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.Text = "Ej.: Perez";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(119, 295);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(228, 25);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Ingrese sú Fecha de nacimiento";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(447, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.SystemColors.Info;
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(416, 74);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(111, 26);
+            this.btnCerrarSesion.TabIndex = 28;
+            this.btnCerrarSesion.Text = "CERRAR SESION";
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(131, 323);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 30;
+            this.dateTimePicker1.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(119, 355);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(203, 31);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Ingrese Detalles adicionales";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(131, 389);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(326, 59);
+            this.textBox2.TabIndex = 32;
+            this.textBox2.Text = "Ej.: Dolor de rodilla, hernia de disco, etc";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(122, 464);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(253, 31);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Seleccione Genero correspondiente";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmRegistrarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 562);
+            this.ClientSize = new System.Drawing.Size(560, 597);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnCerrarSesion);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.picMascota);
             this.Controls.Add(this.txtDniAlumno);
-            this.Controls.Add(this.lblDniAlumno);
-            this.Controls.Add(this.txtDetallesAlumn);
             this.Controls.Add(this.btnOtro);
             this.Controls.Add(this.btnMujer);
             this.Controls.Add(this.btnHombre);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.txtNombAlumno);
             this.Controls.Add(this.txtApeAlumno);
-            this.Controls.Add(this.picMascota);
             this.Controls.Add(this.btnRegistrarAlumno);
-            this.Controls.Add(this.lblGenero);
-            this.Controls.Add(this.lblDetalles);
-            this.Controls.Add(this.lblFechaNac);
-            this.Controls.Add(this.lblCorreo);
-            this.Controls.Add(this.lblNombreAlumno);
-            this.Controls.Add(this.lblApellidoAlumno);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmRegistrarAlumno";
-            this.Text = "Registrar Alumno";
-            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,25 +315,26 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblApellidoAlumno;
-        private System.Windows.Forms.Label lblNombreAlumno;
-        private System.Windows.Forms.Label lblFechaNac;
-        private System.Windows.Forms.Label lblCorreo;
-        private System.Windows.Forms.Label lblGenero;
-        private System.Windows.Forms.Label lblDetalles;
         private System.Windows.Forms.Button btnRegistrarAlumno;
-        private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.TextBox txtApeAlumno;
-        private System.Windows.Forms.TextBox txtNombAlumno;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.RadioButton btnHombre;
         private System.Windows.Forms.RadioButton btnMujer;
         private System.Windows.Forms.RadioButton btnOtro;
-        private System.Windows.Forms.TextBox txtDetallesAlumn;
         private System.Windows.Forms.TextBox txtDniAlumno;
-        private System.Windows.Forms.Label lblDniAlumno;
         private System.Windows.Forms.ErrorProvider ePDniAlumno;
         private System.Windows.Forms.ErrorProvider ePApeAlumno;
         private System.Windows.Forms.ErrorProvider ePNomAlumno;
+        private System.Windows.Forms.PictureBox picMascota;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

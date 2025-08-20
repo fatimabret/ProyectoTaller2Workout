@@ -100,7 +100,7 @@
             // 
             this.btnConsultarRutina.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnConsultarRutina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultarRutina.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConsultarRutina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarRutina.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnConsultarRutina.Location = new System.Drawing.Point(313, 285);
@@ -136,7 +136,7 @@
             // 
             this.btnIniciarSesion.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnIniciarSesion.Location = new System.Drawing.Point(603, 39);
@@ -184,7 +184,7 @@
             this.Controls.Add(this.lblSubtituloBienvenida);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmPrincipal";
-            this.Text = "Workout";
+            this.Text = "+";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

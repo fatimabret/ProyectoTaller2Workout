@@ -43,5 +43,10 @@ namespace workout.CapaPresentacion
                 ePNomAlumno.SetError(txtNombAlumno, "Solo puede contener letras de A-Z");
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

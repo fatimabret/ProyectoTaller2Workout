@@ -41,7 +41,7 @@
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
-            this.picMascota.Location = new System.Drawing.Point(377, 25);
+            this.picMascota.Location = new System.Drawing.Point(63, 25);
             this.picMascota.Name = "picMascota";
             this.picMascota.Size = new System.Drawing.Size(73, 78);
             this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +94,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(22, 92);
+            this.lblDescripcion.Location = new System.Drawing.Point(22, 106);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(114, 25);
             this.lblDescripcion.TabIndex = 34;
