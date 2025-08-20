@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaEntidad\Administrador.cs" />
+    <Compile Include="CapaEntidad\Alumno.cs" />
+    <Compile Include="CapaEntidad\Ejercicio.cs" />
+    <Compile Include="CapaEntidad\Entrenador.cs" />
+    <Compile Include="CapaEntidad\Membresia.cs" />
+    <Compile Include="CapaEntidad\Rutina.cs" />
     <Compile Include="CapaPresentacion\FrmEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CapaDatos\" />
-    <Folder Include="CapaEntidad\" />
     <Folder Include="CapaNegocio\" />
   </ItemGroup>
   <ItemGroup>
