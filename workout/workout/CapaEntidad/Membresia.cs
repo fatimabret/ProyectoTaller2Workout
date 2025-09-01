@@ -12,6 +12,7 @@ namespace workout.CapaEntidad
         private DateTime fecha_pago { get; set; }
         private DateTime fecha_venc { get; set; }
         private double monto { get; set; }
-        
+        private int id_alumno { get; set; }
+        private int id_estado { get; set; }
     }
 }

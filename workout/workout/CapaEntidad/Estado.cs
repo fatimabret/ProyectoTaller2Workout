@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace workout.CapaEntidad
 {
-    public class Administrador : Usuario
+    public class Estado
     {
-        private int id_administrador { get; set; }
-        private int id_usuario { get; set; }
+        private int id_estado { get; set; }
+        private string descripcion { get; set; }
+        private int tipo { get; set; }
     }
 }
