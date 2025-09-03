@@ -47,8 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaDatos\CD_Administrador.cs" />
+    <Compile Include="CapaDatos\CD_Ejercicio.cs" />
+    <Compile Include="CapaDatos\CD_Entrenador.cs" />
+    <Compile Include="CapaDatos\CD_Estado.cs" />
+    <Compile Include="CapaDatos\CD_Membresia.cs" />
+    <Compile Include="CapaDatos\CD_MetodoPago.cs" />
+    <Compile Include="CapaDatos\CD_Pago.cs" />
+    <Compile Include="CapaDatos\CD_Recepcionista.cs" />
+    <Compile Include="CapaDatos\CD_Rol.cs" />
+    <Compile Include="CapaDatos\CD_Rutina.cs" />
     <Compile Include="CapaEntidad\Administrador.cs" />
     <Compile Include="CapaEntidad\Alumno.cs" />
+    <Compile Include="CapaDatos\CD_Alumno.cs" />
     <Compile Include="CapaEntidad\Estado.cs" />
     <Compile Include="CapaEntidad\Metodo_Pago.cs" />
     <Compile Include="CapaEntidad\Pago.cs" />
@@ -59,6 +70,7 @@
     <Compile Include="CapaEntidad\Entrenador.cs" />
     <Compile Include="CapaEntidad\Membresia.cs" />
     <Compile Include="CapaEntidad\Rutina.cs" />
+    <Compile Include="CapaNegocio\CN_Alumno.cs" />
     <Compile Include="CapaPresentacion\FrmEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,10 +162,7 @@
   <ItemGroup>
     <None Include="Resources\masc.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CapaDatos\" />
-    <Folder Include="CapaNegocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="ScriptBD\workout.txt" />
   </ItemGroup>
