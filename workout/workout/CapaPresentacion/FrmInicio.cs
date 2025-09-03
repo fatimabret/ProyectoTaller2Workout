@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace workout.CapaPresentacion
 {
-    public partial class FrmInicio : Form
+    public partial class FrmInicioRec : Form
     {
-        public FrmInicio()
+        public FrmInicioRec()
         {
             InitializeComponent();
         }
 
         private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBienvenida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }

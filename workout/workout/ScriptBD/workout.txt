@@ -1,24 +1,32 @@
-
-CREATE TABLE ALUMNO
+CREATE TABLE ESTADO
 (
-  dni INT NOT NULL,
+  id_estado INT NOT NULL,
+  tipo INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id_estado)
+);
+
+CREATE TABLE USUARIO
+(
+  id_usuario INT NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   fecha_nac DATE NOT NULL,
-  detalles VARCHAR(100) NOT NULL,
-  correo VARCHAR(30) NOT NULL,
-  genero VARCHAR(30) NOT NULL,
-  PRIMARY KEY (dni)
+  correo VARCHAR(50) NOT NULL,
+  contrasena VARCHAR(150) NOT NULL,
+  id_estado INT NOT NULL,
+  PRIMARY KEY (id_usuario),
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
 );
 
-CREATE TABLE EJERCICIO
+CREATE TABLE ALUMNO
 (
-  id_ejercicio INT NOT NULL,
-  descripcion VARCHAR(30) NOT NULL,
-  serie INT NOT NULL,
-  repeticiones INT NOT NULL,
-  descanso VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id_ejercicio)
+  id_alumno INT NOT NULL,
+  detalles VARCHAR(100) NOT NULL,
+  genero VARCHAR(30) NOT NULL,
+  id_usuario INT NOT NULL,
+  PRIMARY KEY (id_alumno),
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
 CREATE TABLE MEMBRESIA
@@ -27,44 +35,95 @@ CREATE TABLE MEMBRESIA
   fecha_pago DATE NOT NULL,
   fecha_venc DATE NOT NULL,
   monto FLOAT NOT NULL,
-  dni INT NOT NULL,
+  id_alumno INT NOT NULL,
+  id_estado INT NOT NULL,
   PRIMARY KEY (id_membresia),
-  FOREIGN KEY (dni) REFERENCES ALUMNO(dni)
+  FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
 );
 
 CREATE TABLE ENTRENADOR
 (
   id_entrenador INT NOT NULL,
-  nombre VARCHAR(30) NOT NULL,
-  apellido VARCHAR(30) NOT NULL,
-  dni INT NOT NULL,
-  fecha_nac DATE NOT NULL,
   horario_disp DATE NOT NULL,
-  dias_disp VARCHAR(100) NOT NULL,
-  detalles VARCHAR(100) NOT NULL,
-  id_rutina INT NOT NULL,
+  detalles VARCHAR(30) NOT NULL,
+  dias_disp DATE NOT NULL,
+  cupo INT NOT NULL,
+  id_usuario INT NOT NULL,
   PRIMARY KEY (id_entrenador),
-  FOREIGN KEY (id_rutina) REFERENCES EJERCICIO(id_ejercicio)
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
-CREATE TABLE ADMINISTRADOR
+CREATE TABLE EJERCICIO
 (
-  id_administrador INT NOT NULL,
-  nombre VARCHAR(30) NOT NULL,
-  apellido VARCHAR(30) NOT NULL,
-  dni INT NOT NULL,
-  fecha_nac DATE NOT NULL,
-  id_usuario INT NOT NULL,
-  PRIMARY KEY (id_administrador),
-  FOREIGN KEY (id_usuario) REFERENCES Entrenador(id_entrenador)
+  id_ejercicio INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  serie INT NOT NULL,
+  repeticiones INT NOT NULL,
+  descanso INT NOT NULL,
+  id_entrenador INT NOT NULL,
+  PRIMARY KEY (id_ejercicio),
+  FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR(id_entrenador)
 );
 
 CREATE TABLE RUTINA
 (
   dia VARCHAR(30) NOT NULL,
-  dni INT NOT NULL,
+  id_alumno INT NOT NULL,
   id_ejercicio INT NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (dni, id_ejercicio),
   FOREIGN KEY (dni) REFERENCES ALUMNO(dni),
   FOREIGN KEY (id_ejercicio) REFERENCES EJERCICIO(id_ejercicio)
+=======
+  id_estado INT NOT NULL,
+  PRIMARY KEY (id_alumno, id_ejercicio),
+  FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
+  FOREIGN KEY (id_ejercicio) REFERENCES EJERCICIO(id_ejercicio),
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
+);
+
+CREATE TABLE ROL
+(
+  id_rol INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  id_usuario INT NOT NULL,
+  PRIMARY KEY (id_rol),
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+);
+
+CREATE TABLE RECEPCIONISTA
+(
+  id_recepcionista INT NOT NULL,
+  id_usuario INT NOT NULL,
+  PRIMARY KEY (id_recepcionista),
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+);
+
+CREATE TABLE ADMINISTRADOR
+(
+  id_administrador INT NOT NULL,
+  id_usuario INT NOT NULL,
+  PRIMARY KEY (id_administrador),
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+);
+
+CREATE TABLE METODO_PAGO
+(
+  id_metodo_pago INT NOT NULL,
+  tipo VARCHAR(30) NOT NULL,
+  import FLOAT NOT NULL,
+  PRIMARY KEY (id_metodo_pago)
+);
+
+CREATE TABLE PAGO
+(
+  id_pago INT NOT NULL,
+  total FLOAT NOT NULL,
+  id_metodo_pago INT NOT NULL,
+  id_membresia INT NOT NULL,
+  PRIMARY KEY (id_pago),
+  FOREIGN KEY (id_metodo_pago) REFERENCES METODO_PAGO(id_metodo_pago),
+  FOREIGN KEY (id_membresia) REFERENCES MEMBRESIA(id_membresia)
+>>>>>>> ee7ac10c2c2da223413a94e1efd4e0bd127df94b
 );

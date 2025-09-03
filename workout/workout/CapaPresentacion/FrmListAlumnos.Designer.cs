@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListAlumnos));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -46,31 +48,16 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DNI,
+            this.Column2,
             this.PAGO,
-            this.VENCIMIENTO});
-            this.dataGridView1.Location = new System.Drawing.Point(87, 105);
+            this.VENCIMIENTO,
+            this.Column1});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 115);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(379, 362);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(479, 362);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // PAGO
-            // 
-            this.PAGO.HeaderText = "PAGO";
-            this.PAGO.Name = "PAGO";
-            this.PAGO.ReadOnly = true;
-            // 
-            // VENCIMIENTO
-            // 
-            this.VENCIMIENTO.HeaderText = "VENCIMIENTO";
-            this.VENCIMIENTO.Name = "VENCIMIENTO";
-            this.VENCIMIENTO.ReadOnly = true;
             // 
             // label1
             // 
@@ -92,6 +79,34 @@
             this.picMascota.TabIndex = 22;
             this.picMascota.TabStop = false;
             // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "NOMB_APELL";
+            this.Column2.Name = "Column2";
+            // 
+            // PAGO
+            // 
+            this.PAGO.HeaderText = "PAGO";
+            this.PAGO.Name = "PAGO";
+            this.PAGO.ReadOnly = true;
+            // 
+            // VENCIMIENTO
+            // 
+            this.VENCIMIENTO.HeaderText = "VENCIMIENTO";
+            this.VENCIMIENTO.Name = "VENCIMIENTO";
+            this.VENCIMIENTO.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ENTRENADOR";
+            this.Column1.Name = "Column1";
+            // 
             // FrmListAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,10 +127,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VENCIMIENTO;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picMascota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VENCIMIENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

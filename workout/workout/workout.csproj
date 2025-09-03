@@ -47,12 +47,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaDatos\CD_Administrador.cs" />
+    <Compile Include="CapaDatos\CD_Ejercicio.cs" />
+    <Compile Include="CapaDatos\CD_Entrenador.cs" />
+    <Compile Include="CapaDatos\CD_Estado.cs" />
+    <Compile Include="CapaDatos\CD_Membresia.cs" />
+    <Compile Include="CapaDatos\CD_MetodoPago.cs" />
+    <Compile Include="CapaDatos\CD_Pago.cs" />
+    <Compile Include="CapaDatos\CD_Recepcionista.cs" />
+    <Compile Include="CapaDatos\CD_Rol.cs" />
+    <Compile Include="CapaDatos\CD_Rutina.cs" />
     <Compile Include="CapaEntidad\Administrador.cs" />
     <Compile Include="CapaEntidad\Alumno.cs" />
+    <Compile Include="CapaDatos\CD_Alumno.cs" />
+    <Compile Include="CapaEntidad\Estado.cs" />
+    <Compile Include="CapaEntidad\Metodo_Pago.cs" />
+    <Compile Include="CapaEntidad\Pago.cs" />
+    <Compile Include="CapaEntidad\Rol.cs" />
+    <Compile Include="CapaEntidad\Recepcionista.cs" />
+    <Compile Include="CapaEntidad\Usuario.cs" />
     <Compile Include="CapaEntidad\Ejercicio.cs" />
     <Compile Include="CapaEntidad\Entrenador.cs" />
     <Compile Include="CapaEntidad\Membresia.cs" />
     <Compile Include="CapaEntidad\Rutina.cs" />
+    <Compile Include="CapaNegocio\CN_Alumno.cs" />
+    <Compile Include="CapaPresentacion\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicioEntr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicioEntr.Designer.cs">
+      <DependentUpon>FrmInicioEntr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmAlumnosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmAlumnosList.Designer.cs">
+      <DependentUpon>FrmAlumnosList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicioAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmInicioAdm.Designer.cs">
+      <DependentUpon>FrmInicioAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +139,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CapaPresentacion\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmInicioEntr.resx">
+      <DependentUpon>FrmInicioEntr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmAlumnosList.resx">
+      <DependentUpon>FrmAlumnosList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmInicioAdm.resx">
+      <DependentUpon>FrmInicioAdm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmEjercicio.resx">
       <DependentUpon>FrmEjercicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,10 +198,7 @@
   <ItemGroup>
     <None Include="Resources\masc.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CapaDatos\" />
-    <Folder Include="CapaNegocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="ScriptBD\workout.txt" />
   </ItemGroup>

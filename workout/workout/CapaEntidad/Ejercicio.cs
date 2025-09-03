@@ -13,5 +13,6 @@ namespace workout.CapaEntidad
         private int serie { get; set; }
         private int repeticiones { get; set; }
         private string descanso { get; set; }
+        private int id_entrenador { get; set; }
     }
 }

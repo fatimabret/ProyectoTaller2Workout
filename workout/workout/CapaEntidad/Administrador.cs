@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace workout.CapaEntidad
 {
-    public class Administrador
+    public class Administrador : Usuario
     {
         private int id_administrador { get; set; }
-        private string nombreo { get; set; }
-        private string apellido { get; set; }
-        private int dni { get; set; }
-        private DateTime fecha_nac { get; set; }
+        private int id_usuario { get; set; }
     }
 }

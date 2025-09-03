@@ -1,6 +1,6 @@
 ﻿namespace workout.CapaPresentacion
 {
-    partial class FrmInicio
+    partial class FrmInicioRec
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioRec));
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnEntrenadores = new System.Windows.Forms.Button();
@@ -38,10 +38,11 @@
             this.btnConsultarMembresia = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picMascota = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBienvenida
@@ -52,8 +53,9 @@
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(318, 78);
             this.lblBienvenida.TabIndex = 2;
-            this.lblBienvenida.Text = "¡Bienvenido a Workout!\r\nAdministrador";
+            this.lblBienvenida.Text = "¡Bienvenido a Workout!\r\nRecepcionista";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBienvenida.Click += new System.EventHandler(this.lblBienvenida_Click);
             // 
             // btnCerrarSesion
             // 
@@ -76,7 +78,7 @@
             this.btnEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEntrenadores.Location = new System.Drawing.Point(225, 374);
+            this.btnEntrenadores.Location = new System.Drawing.Point(225, 345);
             this.btnEntrenadores.Name = "btnEntrenadores";
             this.btnEntrenadores.Size = new System.Drawing.Size(179, 29);
             this.btnEntrenadores.TabIndex = 13;
@@ -90,7 +92,7 @@
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlumnos.Location = new System.Drawing.Point(225, 327);
+            this.btnAlumnos.Location = new System.Drawing.Point(225, 310);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(179, 29);
             this.btnAlumnos.TabIndex = 14;
@@ -142,7 +144,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(424, 327);
+            this.button1.Location = new System.Drawing.Point(424, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 29);
             this.button1.TabIndex = 18;
@@ -156,22 +158,12 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(424, 374);
+            this.button2.Location = new System.Drawing.Point(424, 345);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 29);
             this.button2.TabIndex = 19;
             this.button2.Text = "LISTA ENTRENADORES";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(669, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
             // 
             // picMascota
             // 
@@ -183,11 +175,36 @@
             this.picMascota.TabIndex = 21;
             this.picMascota.TabStop = false;
             // 
-            // FrmInicio
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(669, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(308, 380);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(179, 29);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "RENOVAR MEMBRESIA";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // FrmInicioRec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 448);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
@@ -199,10 +216,10 @@
             this.Controls.Add(this.btnEntrenadores);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.lblBienvenida);
-            this.Name = "FrmInicio";
-            this.Text = "Workout";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Name = "FrmInicioRec";
+            this.Text = "Workout Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +238,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox picMascota;
+        private System.Windows.Forms.Button button3;
     }
 }
