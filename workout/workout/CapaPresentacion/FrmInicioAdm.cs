@@ -16,5 +16,23 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarAlumno frm = new FrmRegistrarAlumno();
+            frm.ShowDialog();
+        }
+
+        private void btnEntrenadores_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarEntrenador frm = new FrmRegistrarEntrenador();
+            frm.ShowDialog();
+        }
+
+        private void btnListaAlumnos_Click(object sender, EventArgs e)
+        {
+            FrmAlumnosList frm = new FrmAlumnosList();
+            frm.ShowDialog();
+        }
     }
 }

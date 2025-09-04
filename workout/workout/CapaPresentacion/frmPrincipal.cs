@@ -73,6 +73,14 @@ namespace workout
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FrmIniciarSesion frm = new FrmIniciarSesion();
+            frm.ShowDialog();
+        }
+
+        private void btnConsultarRutina_Click(object sender, EventArgs e)
+        {
+            FrmEjercicio frm = new FrmEjercicio();
+            frm.ShowDialog();
 
         }
     }

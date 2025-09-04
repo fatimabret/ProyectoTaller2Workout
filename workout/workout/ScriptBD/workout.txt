@@ -71,11 +71,6 @@ CREATE TABLE RUTINA
   dia VARCHAR(30) NOT NULL,
   id_alumno INT NOT NULL,
   id_ejercicio INT NOT NULL,
-<<<<<<< HEAD
-  PRIMARY KEY (dni, id_ejercicio),
-  FOREIGN KEY (dni) REFERENCES ALUMNO(dni),
-  FOREIGN KEY (id_ejercicio) REFERENCES EJERCICIO(id_ejercicio)
-=======
   id_estado INT NOT NULL,
   PRIMARY KEY (id_alumno, id_ejercicio),
   FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
@@ -125,5 +120,4 @@ CREATE TABLE PAGO
   PRIMARY KEY (id_pago),
   FOREIGN KEY (id_metodo_pago) REFERENCES METODO_PAGO(id_metodo_pago),
   FOREIGN KEY (id_membresia) REFERENCES MEMBRESIA(id_membresia)
->>>>>>> ee7ac10c2c2da223413a94e1efd4e0bd127df94b
 );

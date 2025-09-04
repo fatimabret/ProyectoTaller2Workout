@@ -109,6 +109,7 @@
             this.btnConsultarRutina.TabIndex = 5;
             this.btnConsultarRutina.Text = "CONSULTAR RUTINA";
             this.btnConsultarRutina.UseVisualStyleBackColor = false;
+            this.btnConsultarRutina.Click += new System.EventHandler(this.btnConsultarRutina_Click);
             // 
             // label3
             // 

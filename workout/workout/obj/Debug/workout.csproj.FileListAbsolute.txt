@@ -32,3 +32,8 @@ C:\taller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmMembresia.resou
 C:\taller2\workout\workout\obj\Debug\workout.FrmPrincipal.resources
 C:\taller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarAlumno.resources
 C:\taller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarEntrenador.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.Form1.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmInicioEntr.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmAlumnosList.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmInicioAdm.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmInicioRec.resources

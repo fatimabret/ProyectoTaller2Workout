@@ -29,67 +29,67 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioAdm));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnConsultarMembresia = new System.Windows.Forms.Button();
+            this.btnListaEntrenadores = new System.Windows.Forms.Button();
+            this.btnRegistrarRecepcionista = new System.Windows.Forms.Button();
+            this.btnConsultarPago = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlumnos = new System.Windows.Forms.Button();
             this.btnEntrenadores = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.btnListaAlumnos = new System.Windows.Forms.Button();
+            this.btnListaRecepcionista = new System.Windows.Forms.Button();
+            this.btnListaPagos = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnListaEntrenadores
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(402, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 29);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "LISTA ENTRENADORES";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnListaEntrenadores.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnListaEntrenadores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListaEntrenadores.Location = new System.Drawing.Point(402, 374);
+            this.btnListaEntrenadores.Name = "btnListaEntrenadores";
+            this.btnListaEntrenadores.Size = new System.Drawing.Size(195, 29);
+            this.btnListaEntrenadores.TabIndex = 30;
+            this.btnListaEntrenadores.Text = "LISTA ENTRENADORES";
+            this.btnListaEntrenadores.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnRegistrarRecepcionista
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(201, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 29);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "REGISTRAR RECEPCIONISTA";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRegistrarRecepcionista.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRegistrarRecepcionista.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(201, 409);
+            this.btnRegistrarRecepcionista.Name = "btnRegistrarRecepcionista";
+            this.btnRegistrarRecepcionista.Size = new System.Drawing.Size(195, 29);
+            this.btnRegistrarRecepcionista.TabIndex = 29;
+            this.btnRegistrarRecepcionista.Text = "REGISTRAR RECEPCIONISTA";
+            this.btnRegistrarRecepcionista.UseVisualStyleBackColor = false;
             // 
-            // btnConsultarMembresia
+            // btnConsultarPago
             // 
-            this.btnConsultarMembresia.AutoEllipsis = true;
-            this.btnConsultarMembresia.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnConsultarMembresia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnConsultarMembresia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultarMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarMembresia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConsultarMembresia.Location = new System.Drawing.Point(300, 268);
-            this.btnConsultarMembresia.Name = "btnConsultarMembresia";
-            this.btnConsultarMembresia.Size = new System.Drawing.Size(196, 29);
-            this.btnConsultarMembresia.TabIndex = 28;
-            this.btnConsultarMembresia.Text = "CONSULTAR PAGO";
-            this.btnConsultarMembresia.UseVisualStyleBackColor = false;
+            this.btnConsultarPago.AutoEllipsis = true;
+            this.btnConsultarPago.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnConsultarPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnConsultarPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarPago.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConsultarPago.Location = new System.Drawing.Point(300, 268);
+            this.btnConsultarPago.Name = "btnConsultarPago";
+            this.btnConsultarPago.Size = new System.Drawing.Size(196, 29);
+            this.btnConsultarPago.TabIndex = 28;
+            this.btnConsultarPago.Text = "CONSULTAR PAGO";
+            this.btnConsultarPago.UseVisualStyleBackColor = false;
             // 
             // txtDni
             // 
@@ -125,6 +125,7 @@
             this.btnAlumnos.TabIndex = 25;
             this.btnAlumnos.Text = "REGISTRAR ALUMNO";
             this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // btnEntrenadores
             // 
@@ -139,6 +140,7 @@
             this.btnEntrenadores.TabIndex = 24;
             this.btnEntrenadores.Text = "REGISTRAR ENTRENADOR";
             this.btnEntrenadores.UseVisualStyleBackColor = false;
+            this.btnEntrenadores.Click += new System.EventHandler(this.btnEntrenadores_Click);
             // 
             // btnCerrarSesion
             // 
@@ -165,6 +167,49 @@
             this.lblBienvenida.Text = "¡Bienvenido a Workout!\r\nAdministrador";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnListaAlumnos
+            // 
+            this.btnListaAlumnos.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnListaAlumnos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListaAlumnos.Location = new System.Drawing.Point(402, 339);
+            this.btnListaAlumnos.Name = "btnListaAlumnos";
+            this.btnListaAlumnos.Size = new System.Drawing.Size(195, 29);
+            this.btnListaAlumnos.TabIndex = 33;
+            this.btnListaAlumnos.Text = "LISTA ALUMNO";
+            this.btnListaAlumnos.UseVisualStyleBackColor = false;
+            this.btnListaAlumnos.Click += new System.EventHandler(this.btnListaAlumnos_Click);
+            // 
+            // btnListaRecepcionista
+            // 
+            this.btnListaRecepcionista.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnListaRecepcionista.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListaRecepcionista.Location = new System.Drawing.Point(402, 409);
+            this.btnListaRecepcionista.Name = "btnListaRecepcionista";
+            this.btnListaRecepcionista.Size = new System.Drawing.Size(195, 29);
+            this.btnListaRecepcionista.TabIndex = 34;
+            this.btnListaRecepcionista.Text = "LISTA RECEPCIONISTA";
+            this.btnListaRecepcionista.UseVisualStyleBackColor = false;
+            // 
+            // btnListaPagos
+            // 
+            this.btnListaPagos.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnListaPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaPagos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListaPagos.Location = new System.Drawing.Point(301, 444);
+            this.btnListaPagos.Name = "btnListaPagos";
+            this.btnListaPagos.Size = new System.Drawing.Size(195, 29);
+            this.btnListaPagos.TabIndex = 35;
+            this.btnListaPagos.Text = "LISTA PAGOS";
+            this.btnListaPagos.UseVisualStyleBackColor = false;
+            // 
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
@@ -185,61 +230,19 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(402, 339);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 29);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "LISTA ALUMNO";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(402, 409);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 29);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "LISTA RECEPCIONISTA";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(301, 444);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 29);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "LISTA PAGOS";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
             // FrmInicioAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 492);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnListaPagos);
+            this.Controls.Add(this.btnListaRecepcionista);
+            this.Controls.Add(this.btnListaAlumnos);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnConsultarMembresia);
+            this.Controls.Add(this.btnListaEntrenadores);
+            this.Controls.Add(this.btnRegistrarRecepcionista);
+            this.Controls.Add(this.btnConsultarPago);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlumnos);
@@ -247,7 +250,7 @@
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioAdm";
-            this.Text = "Workout Recepcionista";
+            this.Text = "Workout Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -259,17 +262,17 @@
 
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnConsultarMembresia;
+        private System.Windows.Forms.Button btnListaEntrenadores;
+        private System.Windows.Forms.Button btnRegistrarRecepcionista;
+        private System.Windows.Forms.Button btnConsultarPago;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAlumnos;
         private System.Windows.Forms.Button btnEntrenadores;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblBienvenida;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnListaAlumnos;
+        private System.Windows.Forms.Button btnListaRecepcionista;
+        private System.Windows.Forms.Button btnListaPagos;
     }
 }
