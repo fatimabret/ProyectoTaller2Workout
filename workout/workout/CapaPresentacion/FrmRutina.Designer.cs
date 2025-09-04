@@ -1,6 +1,6 @@
 ﻿namespace workout.CapaPresentacion
 {
-    partial class Form1
+    partial class FrmRutina
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRutina));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,8 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +54,7 @@
             this.Column2,
             this.Column3});
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(57, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(61, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(401, 393);
@@ -136,19 +138,53 @@
             this.lblTitulo.TabIndex = 38;
             this.lblTitulo.Text = "Rutina de Usuario:";
             // 
-            // Form1
+            // btnEditar
+            // 
+            this.btnEditar.AutoEllipsis = true;
+            this.btnEditar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditar.Location = new System.Drawing.Point(61, 538);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(196, 29);
+            this.btnEditar.TabIndex = 46;
+            this.btnEditar.Text = "EDITAR RUTINA";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.AutoEllipsis = true;
+            this.btnEliminar.BackColor = System.Drawing.Color.Brown;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminar.Location = new System.Drawing.Point(263, 538);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(196, 29);
+            this.btnEliminar.TabIndex = 47;
+            this.btnEliminar.Text = "ELIMINAR RUTINA";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // FrmRutina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 450);
+            this.ClientSize = new System.Drawing.Size(530, 609);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FrmRutina";
+            this.Text = "Rutinas Entrenador";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
@@ -168,5 +204,7 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

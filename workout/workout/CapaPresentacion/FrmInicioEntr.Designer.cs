@@ -88,7 +88,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 34);
             this.label1.TabIndex = 37;
-            this.label1.Text = "Consulte Membresia del Alumno";
+            this.label1.Text = "Consulte Rutina del Alumno";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnEntrenadores

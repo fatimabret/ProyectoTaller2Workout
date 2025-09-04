@@ -151,7 +151,7 @@
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmEjercicio";
-            this.Text = "Ejercicio";
+            this.Text = "Mis Rutinas";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

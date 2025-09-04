@@ -82,7 +82,7 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "NOMB_APELL";
+            this.Column2.HeaderText = "NOMB APELL";
             this.Column2.Name = "Column2";
             // 
             // detalles

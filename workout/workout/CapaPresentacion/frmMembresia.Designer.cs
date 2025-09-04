@@ -86,7 +86,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 0);
+            this.label5.Location = new System.Drawing.Point(30, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 23);
             this.label5.TabIndex = 4;
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 260);
+            this.ClientSize = new System.Drawing.Size(435, 271);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

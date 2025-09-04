@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace workout.CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class FrmRutina : Form
     {
-        public Form1()
+        public FrmRutina()
         {
             InitializeComponent();
         }
