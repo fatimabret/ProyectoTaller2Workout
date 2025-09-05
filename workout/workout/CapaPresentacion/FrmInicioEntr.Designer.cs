@@ -112,12 +112,13 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(630, 102);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(634, 102);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(111, 26);
             this.btnCerrarSesion.TabIndex = 34;
             this.btnCerrarSesion.Text = "CERRAR SESION";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // lblBienvenida
             // 

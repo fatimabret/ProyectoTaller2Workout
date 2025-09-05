@@ -185,7 +185,7 @@
             this.Controls.Add(this.lblSubtituloBienvenida);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmPrincipal";
-            this.Text = "+";
+            this.Text = "Workout";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

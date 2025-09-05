@@ -35,6 +35,7 @@
             this.txtCorreoInicioSes = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCredenciales = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@
             this.btnIniciarSesion.TabIndex = 47;
             this.btnIniciarSesion.Text = "ACCEDER";
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // txtCorreoInicioSes
             // 
@@ -104,11 +106,21 @@
             this.label1.Text = "Inicie sesión como Administrador, Recepcionista o Entrenador";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblCredenciales
+            // 
+            this.lblCredenciales.AutoSize = true;
+            this.lblCredenciales.ForeColor = System.Drawing.Color.Red;
+            this.lblCredenciales.Location = new System.Drawing.Point(130, 333);
+            this.lblCredenciales.Name = "lblCredenciales";
+            this.lblCredenciales.Size = new System.Drawing.Size(0, 13);
+            this.lblCredenciales.TabIndex = 50;
+            // 
             // FrmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 392);
+            this.Controls.Add(this.lblCredenciales);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtContraseña);
@@ -116,6 +128,7 @@
             this.Controls.Add(this.txtCorreoInicioSes);
             this.Controls.Add(this.lblInicioSesion);
             this.Name = "FrmIniciarSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.TextBox txtCorreoInicioSes;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCredenciales;
     }
 }

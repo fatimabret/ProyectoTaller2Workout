@@ -16,35 +16,11 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmMembresia_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            lblPagado.Text = "Pagado el " + DateTime.Now.ToString("dd/MM/yyyy");
+            lblVence.Text = "Vence el " + DateTime.Now.AddMonths(1).ToString("dd/MM/yyyy");
+            lblPrecio.Text = "Precio de la cuota a Pagar: $5000";
         }
     }
 }

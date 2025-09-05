@@ -60,8 +60,9 @@ namespace workout
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //Llama al formulario de membresía
             FrmMembresia frm = new FrmMembresia();
+
             frm.ShowDialog();
             
         }
@@ -73,12 +74,19 @@ namespace workout
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //Llama al formulario de iniciar sesión
             FrmIniciarSesion frm = new FrmIniciarSesion();
+            //Oculta el formulario actual
+            this.Hide();
+            //Setea el nuevo formulario como el actual
             frm.ShowDialog();
+            //Cierra el formulario anterior
+            this.Close();
         }
 
         private void btnConsultarRutina_Click(object sender, EventArgs e)
         {
+            //Llama al formulario de rutina
             FrmEjercicio frm = new FrmEjercicio();
             frm.ShowDialog();
 

@@ -70,6 +70,7 @@
             this.btnCerrarSesion.TabIndex = 9;
             this.btnCerrarSesion.Text = "CERRAR SESION";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnRegistrarEntrenador
             // 
