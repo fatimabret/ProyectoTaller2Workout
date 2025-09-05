@@ -38,7 +38,9 @@ namespace workout.CapaPresentacion
             //Llama al formulario de inicio de sesión
             FrmPrincipal frm = new FrmPrincipal();
             this.Hide();
+            //Setea el nuevo formulario como el actual
             frm.ShowDialog();
+            //Cierra el formulario anterior
             this.Close();
         }
     }
