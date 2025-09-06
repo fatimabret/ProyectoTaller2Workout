@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioRec));
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
@@ -41,8 +42,10 @@
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRenovarMembresia = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBienvenida
@@ -85,6 +88,7 @@
             this.btnRegistrarEntrenador.TabIndex = 13;
             this.btnRegistrarEntrenador.Text = "REGISTRAR ENTRENADOR";
             this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
+            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
             // 
             // btnRegistrarAlumno
             // 
@@ -121,6 +125,8 @@
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 16;
             this.txtDni.Text = "Ingrese su DNI";
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // btnConsultarMembresia
             // 
@@ -137,6 +143,7 @@
             this.btnConsultarMembresia.TabIndex = 17;
             this.btnConsultarMembresia.Text = "CONSULTAR MEMBRESIA";
             this.btnConsultarMembresia.UseVisualStyleBackColor = false;
+            this.btnConsultarMembresia.Click += new System.EventHandler(this.btnConsultarMembresia_Click);
             // 
             // btnListarAlumnos
             // 
@@ -151,6 +158,7 @@
             this.btnListarAlumnos.TabIndex = 18;
             this.btnListarAlumnos.Text = "LISTA ALUMNOS";
             this.btnListarAlumnos.UseVisualStyleBackColor = false;
+            this.btnListarAlumnos.Click += new System.EventHandler(this.btnListarAlumnos_Click);
             // 
             // btnListarEntrenadores
             // 
@@ -165,6 +173,7 @@
             this.btnListarEntrenadores.TabIndex = 19;
             this.btnListarEntrenadores.Text = "LISTA ENTRENADORES";
             this.btnListarEntrenadores.UseVisualStyleBackColor = false;
+            this.btnListarEntrenadores.Click += new System.EventHandler(this.btnListarEntrenadores_Click);
             // 
             // picMascota
             // 
@@ -200,6 +209,10 @@
             this.btnRenovarMembresia.Text = "RENOVAR MEMBRESIA";
             this.btnRenovarMembresia.UseVisualStyleBackColor = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmInicioRec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +234,7 @@
             this.Text = "Workout Recepcionista";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +254,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Button btnRenovarMembresia;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

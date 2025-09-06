@@ -31,7 +31,7 @@ namespace workout.CapaPresentacion
 
         private void btnListaAlumnos_Click(object sender, EventArgs e)
         {
-            FrmAlumnosList frm = new FrmAlumnosList();
+            FrmListAlumnos frm = new FrmListAlumnos();
             frm.ShowDialog();
         }
 
@@ -44,6 +44,41 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
             //Cierra el formulario anterior
             this.Close();
+        }
+
+        private void btnRegistrarRecepcionista_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListaEntrenadores_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de membresía
+            FrmListEntrenador frm = new FrmListEntrenador();
+
+            frm.ShowDialog();
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            string dni = txtDni.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
+            {
+                errorProvider1.SetError(txtDni, "El DNI es obligatorio");
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDni, "");
         }
     }
 }

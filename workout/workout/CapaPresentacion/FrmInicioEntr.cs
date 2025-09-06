@@ -27,5 +27,48 @@ namespace workout.CapaPresentacion
             //Cierra el formulario anterior
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de membresía
+            FrmRutina frm = new FrmRutina();
+
+            frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de membresía
+            FrmListAlumnos frm = new FrmListAlumnos();
+
+            frm.ShowDialog();
+        }
+
+        private void btnEntrenadores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            string dni = txtDni.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
+            {
+                errorProvider1.SetError(txtDni, "El DNI es obligatorio");
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDni, "");
+        }
     }
 }

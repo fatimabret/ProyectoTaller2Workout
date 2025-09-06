@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioAdm));
             this.btnListaEntrenadores = new System.Windows.Forms.Button();
             this.btnRegistrarRecepcionista = new System.Windows.Forms.Button();
@@ -43,8 +44,10 @@
             this.btnListaPagos = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnListaEntrenadores
@@ -60,6 +63,7 @@
             this.btnListaEntrenadores.TabIndex = 30;
             this.btnListaEntrenadores.Text = "LISTA ENTRENADORES";
             this.btnListaEntrenadores.UseVisualStyleBackColor = false;
+            this.btnListaEntrenadores.Click += new System.EventHandler(this.btnListaEntrenadores_Click);
             // 
             // btnRegistrarRecepcionista
             // 
@@ -74,6 +78,7 @@
             this.btnRegistrarRecepcionista.TabIndex = 29;
             this.btnRegistrarRecepcionista.Text = "REGISTRAR RECEPCIONISTA";
             this.btnRegistrarRecepcionista.UseVisualStyleBackColor = false;
+            this.btnRegistrarRecepcionista.Click += new System.EventHandler(this.btnRegistrarRecepcionista_Click);
             // 
             // btnConsultarPago
             // 
@@ -100,6 +105,7 @@
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 27;
             this.txtDni.Text = "Ingrese su DNI";
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // label1
             // 
@@ -231,6 +237,10 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmInicioAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +264,7 @@
             this.Text = "Workout Administrador";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +286,6 @@
         private System.Windows.Forms.Button btnListaAlumnos;
         private System.Windows.Forms.Button btnListaRecepcionista;
         private System.Windows.Forms.Button btnListaPagos;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

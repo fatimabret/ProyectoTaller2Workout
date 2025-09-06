@@ -26,5 +26,102 @@ namespace workout.CapaPresentacion
         {
 
         }
+
+        private void txtDniAlumno_TextChanged(object sender, EventArgs e)
+        {
+            string dni = txtDniAlumno.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI es obligatorio");
+                return;
+            }
+
+            // Si no son números
+            if (!dni.All(char.IsDigit))
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI solo puede contener números");
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI debe tener entre 7 y 8 dígitos");
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDniAlumno, "");
+        }
+
+        private void txtApeAlumno_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbHorarioDisponible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmRegistrarEntrenador_Load(object sender, EventArgs e)
+        {
+            // Configurar los ComboBox para que no permitan edición manual
+            cmbHorarioDisponible.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDiasDisponibles.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEspecializacion.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Cargar opciones de Horario
+            cmbHorarioDisponible.Items.AddRange(new string[]
+            {
+                "Mañana (08:00 - 12:00)",
+                "Tarde (14:00 - 18:00)",
+                "Noche (18:00 - 22:00)"
+            });
+
+            // Cargar opciones de Días
+            cmbDiasDisponibles.Items.AddRange(new string[]
+            {
+                "Lunes a Viernes",
+                "Lunes, Miércoles y Viernes",
+                "Martes y Jueves",
+                "Sábados"
+            });
+
+            // Cargar opciones de Especialización
+            cmbEspecializacion.Items.AddRange(new string[]
+            {
+                "Musculación",
+                "Crossfit",
+                "Pilates",
+                "Cardio Funcional"
+            });
+
+            // Seleccionar la primera opción por defecto (índice 0)
+            cmbHorarioDisponible.SelectedIndex = 0;
+            cmbDiasDisponibles.SelectedIndex = 0;
+            cmbEspecializacion.SelectedIndex = 0;
+        }
+
+        private void txtDniAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números y teclas de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

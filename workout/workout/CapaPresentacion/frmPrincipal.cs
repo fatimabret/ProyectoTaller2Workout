@@ -33,14 +33,38 @@ namespace workout
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //declaración de variable
-            int dni;
+            //int dni;
             //Valida que los datos que ingrese el usuario sean números
-            if (!int.TryParse(txtDni.Text, out dni))
+            //if (!int.TryParse(txtDni.Text, out dni))
+            //{
+            // Mensaje de error si no es un número
+            //errorProvider1.SetError(txtDni, "Solo puede contener numeros");
+            //}
+            string dni = txtDni.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
             {
-                // Mensaje de error si no es un número
-                errorProvider1.SetError(txtDni, "Solo puede contener numeros");
+                errorProvider1.SetError(txtDni, "El DNI es obligatorio");
+                return;
             }
-            
+
+            // Si no son números
+            if (!dni.All(char.IsDigit))
+            {
+                errorProvider1.SetError(txtDni, "El DNI solo puede contener números");
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDni, "");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -90,6 +114,15 @@ namespace workout
             FrmEjercicio frm = new FrmEjercicio();
             frm.ShowDialog();
 
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números y teclas de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarEntrenador));
             this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -43,13 +44,15 @@
             this.txtApeAlumno = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cmbHorarioDisponible = new System.Windows.Forms.ComboBox();
+            this.cmbDiasDisponibles = new System.Windows.Forms.ComboBox();
+            this.cmbEspecializacion = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegistrarEntrenador
@@ -61,7 +64,7 @@
             this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(190, 604);
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(184, 563);
             this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
             this.btnRegistrarEntrenador.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarEntrenador.TabIndex = 27;
@@ -78,6 +81,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(326, 20);
             this.dateTimePicker1.TabIndex = 42;
             this.dateTimePicker1.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -121,6 +125,7 @@
             this.textBox1.Size = new System.Drawing.Size(326, 20);
             this.textBox1.TabIndex = 38;
             this.textBox1.Text = "Ej.: Perez";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -172,6 +177,8 @@
             this.txtDniAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtDniAlumno.TabIndex = 33;
             this.txtDniAlumno.Text = "Ej.: 12123123";
+            this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
+            this.txtDniAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniAlumno_KeyPress);
             // 
             // txtApeAlumno
             // 
@@ -180,6 +187,7 @@
             this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtApeAlumno.TabIndex = 32;
             this.txtApeAlumno.Text = "Ej.: Juan";
+            this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
             // 
             // lblTitulo
             // 
@@ -203,14 +211,6 @@
             this.label5.Text = "Ingrese sú Horario disponible";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(127, 385);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(326, 20);
-            this.dateTimePicker2.TabIndex = 45;
-            // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,44 +222,56 @@
             this.label6.Text = "Ingrese sus Días disponibles";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(127, 513);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 59);
-            this.textBox2.TabIndex = 49;
-            this.textBox2.Text = "Ej.: Crossfit, Funcional, etc";
-            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(115, 479);
+            this.label7.Location = new System.Drawing.Point(118, 479);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(175, 31);
             this.label7.TabIndex = 48;
             this.label7.Text = "Ingrese Especialización";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // cmbHorarioDisponible
             // 
-            this.textBox3.Location = new System.Drawing.Point(127, 444);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(326, 20);
-            this.textBox3.TabIndex = 50;
-            this.textBox3.Text = "Ej.: Lun, Mar, Mié, etc";
+            this.cmbHorarioDisponible.FormattingEnabled = true;
+            this.cmbHorarioDisponible.Location = new System.Drawing.Point(127, 389);
+            this.cmbHorarioDisponible.Name = "cmbHorarioDisponible";
+            this.cmbHorarioDisponible.Size = new System.Drawing.Size(326, 21);
+            this.cmbHorarioDisponible.TabIndex = 49;
+            this.cmbHorarioDisponible.SelectedIndexChanged += new System.EventHandler(this.cmbHorarioDisponible_SelectedIndexChanged);
+            // 
+            // cmbDiasDisponibles
+            // 
+            this.cmbDiasDisponibles.FormattingEnabled = true;
+            this.cmbDiasDisponibles.Location = new System.Drawing.Point(127, 444);
+            this.cmbDiasDisponibles.Name = "cmbDiasDisponibles";
+            this.cmbDiasDisponibles.Size = new System.Drawing.Size(326, 21);
+            this.cmbDiasDisponibles.TabIndex = 50;
+            // 
+            // cmbEspecializacion
+            // 
+            this.cmbEspecializacion.FormattingEnabled = true;
+            this.cmbEspecializacion.Location = new System.Drawing.Point(127, 513);
+            this.cmbEspecializacion.Name = "cmbEspecializacion";
+            this.cmbEspecializacion.Size = new System.Drawing.Size(326, 21);
+            this.cmbEspecializacion.TabIndex = 51;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmRegistrarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 658);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(560, 620);
+            this.Controls.Add(this.cmbEspecializacion);
+            this.Controls.Add(this.cmbDiasDisponibles);
+            this.Controls.Add(this.cmbHorarioDisponible);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox1);
@@ -276,8 +288,10 @@
             this.Controls.Add(this.btnRegistrarEntrenador);
             this.Name = "FrmRegistrarEntrenador";
             this.Text = "Registrar Entrenador";
+            this.Load += new System.EventHandler(this.FrmRegistrarEntrenador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,10 +312,11 @@
         private System.Windows.Forms.TextBox txtApeAlumno;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cmbHorarioDisponible;
+        private System.Windows.Forms.ComboBox cmbDiasDisponibles;
+        private System.Windows.Forms.ComboBox cmbEspecializacion;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -78,6 +78,7 @@
             this.txtDni.TabIndex = 3;
             this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // btnConsultarMembresia
             // 

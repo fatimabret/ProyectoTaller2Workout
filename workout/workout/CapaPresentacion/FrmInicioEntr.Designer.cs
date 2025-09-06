@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioEntr));
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,8 +39,10 @@
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -55,6 +58,7 @@
             this.button2.TabIndex = 41;
             this.button2.Text = "CONSULTAR RUTINA";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -69,6 +73,7 @@
             this.button1.TabIndex = 40;
             this.button1.Text = "LISTA ALUMNOS";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtDni
             // 
@@ -79,6 +84,7 @@
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 38;
             this.txtDni.Text = "Ingrese su DNI";
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // label1
             // 
@@ -104,6 +110,7 @@
             this.btnEntrenadores.TabIndex = 35;
             this.btnEntrenadores.Text = "REGISTRAR RUTINA";
             this.btnEntrenadores.UseVisualStyleBackColor = false;
+            this.btnEntrenadores.Click += new System.EventHandler(this.btnEntrenadores_Click);
             // 
             // btnCerrarSesion
             // 
@@ -151,6 +158,10 @@
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmInicioEntr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +180,7 @@
             this.Text = "Workout Entrenador";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Button btnEntrenadores;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblBienvenida;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
