@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Taller\\workout\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capapresentacion\\frminicioadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminicioadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frminiciarsesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminiciarsesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capapresentacion\\frminicioadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminicioadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frminiciarsesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminiciarsesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capapresentacion\\frminicioentr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminicioentr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capapresentacion\\frminicioentr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frminicioentr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmdetallealumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmdetallealumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +34,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmInicioEntr.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwEYAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T03:54:26.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmInicioEntr.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmInicioEntr.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioEntr.cs [Dise\u00F1o]",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmInicioEntr.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T04:07:46.895Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmInicioAdm.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAwAAAAAAAAAA==",
+              "Title": "FrmIniciarSesion.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T04:08:09.845Z",
+              "WhenOpened": "2025-09-06T20:46:33.506Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmInicioAdm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmInicioAdm.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmInicioAdm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmInicioAdm.cs [Dise\u00F1o]",
+              "Title": "FrmIniciarSesion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmIniciarSesion.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmIniciarSesion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmIniciarSesion.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T04:07:43.941Z",
+              "WhenOpened": "2025-09-06T20:46:30.05Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmEjercicio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmEjercicio.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmEjercicio.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmEjercicio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmEjercicio.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T20:45:52.147Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmDetalleAlumo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmDetalleAlumo.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmDetalleAlumo.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmDetalleAlumo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmDetalleAlumo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T20:45:35.935Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

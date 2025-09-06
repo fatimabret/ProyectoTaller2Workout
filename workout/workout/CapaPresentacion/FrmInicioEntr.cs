@@ -30,7 +30,7 @@ namespace workout.CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Llama al formulario de membresía
+            //Llama al formulario de rutina
             FrmRutina frm = new FrmRutina();
 
             frm.ShowDialog();
@@ -38,7 +38,7 @@ namespace workout.CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Llama al formulario de membresía
+            //Llama al formulario de lista de alumnos
             FrmListAlumnos frm = new FrmListAlumnos();
 
             frm.ShowDialog();

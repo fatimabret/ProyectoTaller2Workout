@@ -16,5 +16,18 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnVerMembresia_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de membresía
+            FrmMembresia frm = new FrmMembresia();
+
+            frm.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

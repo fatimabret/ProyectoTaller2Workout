@@ -58,6 +58,7 @@
             this.label1.Size = new System.Drawing.Size(180, 20);
             this.label1.TabIndex = 24;
             this.label1.Text = "LISTA DE ALUMNOS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 

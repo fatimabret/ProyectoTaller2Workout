@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIniciarSesion));
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblInicioSesion = new System.Windows.Forms.Label();
@@ -36,7 +37,9 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCredenciales = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // picMascota
@@ -84,16 +87,18 @@
             this.txtCorreoInicioSes.Size = new System.Drawing.Size(301, 25);
             this.txtCorreoInicioSes.TabIndex = 46;
             this.txtCorreoInicioSes.Text = "Ingrese su correo";
+            this.txtCorreoInicioSes.TextChanged += new System.EventHandler(this.txtCorreoInicioSes_TextChanged);
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.Location = new System.Drawing.Point(64, 248);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(301, 25);
+            this.txtContraseña.Size = new System.Drawing.Size(301, 24);
             this.txtContraseña.TabIndex = 48;
-            this.txtContraseña.Text = "Ingrese su contraseña";
+            this.txtContraseña.Text = " *******";
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // label1
             // 
@@ -115,6 +120,10 @@
             this.lblCredenciales.Size = new System.Drawing.Size(0, 13);
             this.lblCredenciales.TabIndex = 50;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +140,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +155,6 @@
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCredenciales;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

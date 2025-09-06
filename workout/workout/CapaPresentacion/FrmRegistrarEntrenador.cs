@@ -123,5 +123,16 @@ namespace workout.CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            FrmPrincipal frm = new FrmPrincipal();
+            //Oculta el formulario actual
+            this.Hide();
+            //Setea el nuevo formulario como el actual
+            frm.ShowDialog();
+            //Cierra el formulario anterior
+            this.Close();
+        }
     }
 }
