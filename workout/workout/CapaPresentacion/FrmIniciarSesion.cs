@@ -27,13 +27,29 @@ namespace workout.CapaPresentacion
                 errorProvider1.SetError(txtCorreoInicioSes, "Debe ingresar un correo electrónico");
                 return;
             }
+            else if (!EsCorreoValido(txtCorreoInicioSes.Text))
+            {
+                errorProvider1.SetError(txtCorreoInicioSes, "Formato de correo inválido");
+                return;
+            }
             else
             {
                 errorProvider1.SetError(txtCorreoInicioSes, "");
             }
 
+            // Validar contraseña
+            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+            {
+                errorProvider1.SetError(txtContraseña, "Debe ingresar la contraseña");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContraseña, "");
+            }
+
             //Verifica que el correo y la contraseña sean correctos
-            if ((txtCorreoInicioSes.Text == "arielgonzalezr9@gmail.com") && (txtContraseña.Text == "12345"))
+            if ((txtCorreoInicioSes.Text == "arielgonzalez@gmail.com") && (txtContraseña.Text == "12345"))
             {
                 //Llama al formulario de administrador
                 FrmInicioAdm frmAdmin = new FrmInicioAdm();
@@ -55,7 +71,7 @@ namespace workout.CapaPresentacion
                 //cierra el formulario anterior
                 this.Close();
 
-            }else if ((txtCorreoInicioSes.Text == "bongio22@gmail.com") && (txtContraseña.Text == "12345"))
+            }else if ((txtCorreoInicioSes.Text == "bongio@gmail.com") && (txtContraseña.Text == "12345"))
             {
                 FrmInicioEntr frmEntr = new FrmInicioEntr();
                 //oculta el formulario actual
@@ -107,6 +123,11 @@ namespace workout.CapaPresentacion
             {
                 errorProvider1.SetError(txtContraseña, "");
             }
+        }
+
+        private void lblInicioSesion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

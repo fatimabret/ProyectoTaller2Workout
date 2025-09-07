@@ -31,17 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarEntrenador));
             this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.dateEntrenador = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtApeEntrenador = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
-            this.txtDniAlumno = new System.Windows.Forms.TextBox();
-            this.txtApeAlumno = new System.Windows.Forms.TextBox();
+            this.txtDniEntrenador = new System.Windows.Forms.TextBox();
+            this.txtNomEntrenador = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +48,6 @@
             this.cmbDiasDisponibles = new System.Windows.Forms.ComboBox();
             this.cmbEspecializacion = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -71,42 +68,17 @@
             this.btnRegistrarEntrenador.Text = "REGISTRAR";
             this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker1
+            // dateEntrenador
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(127, 324);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(326, 20);
-            this.dateTimePicker1.TabIndex = 42;
-            this.dateTimePicker1.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(443, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 41;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.SystemColors.Info;
-            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(412, 75);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(111, 26);
-            this.btnCerrarSesion.TabIndex = 40;
-            this.btnCerrarSesion.Text = "CERRAR SESION";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            this.dateEntrenador.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateEntrenador.Location = new System.Drawing.Point(127, 324);
+            this.dateEntrenador.MaxDate = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateEntrenador.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.dateEntrenador.Name = "dateEntrenador";
+            this.dateEntrenador.Size = new System.Drawing.Size(326, 20);
+            this.dateEntrenador.TabIndex = 42;
+            this.dateEntrenador.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateEntrenador.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label4
             // 
@@ -119,14 +91,14 @@
             this.label4.Text = "Ingrese sú Fecha de nacimiento";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtApeEntrenador
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 264);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 20);
-            this.textBox1.TabIndex = 38;
-            this.textBox1.Text = "Ej.: Perez";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtApeEntrenador.Location = new System.Drawing.Point(127, 264);
+            this.txtApeEntrenador.Name = "txtApeEntrenador";
+            this.txtApeEntrenador.Size = new System.Drawing.Size(326, 20);
+            this.txtApeEntrenador.TabIndex = 38;
+            this.txtApeEntrenador.Text = "Ej.: Perez";
+            this.txtApeEntrenador.TextChanged += new System.EventHandler(this.txtApeEntrenador_TextChanged);
             // 
             // label3
             // 
@@ -171,24 +143,24 @@
             this.picMascota.TabIndex = 34;
             this.picMascota.TabStop = false;
             // 
-            // txtDniAlumno
+            // txtDniEntrenador
             // 
-            this.txtDniAlumno.Location = new System.Drawing.Point(127, 142);
-            this.txtDniAlumno.Name = "txtDniAlumno";
-            this.txtDniAlumno.Size = new System.Drawing.Size(326, 20);
-            this.txtDniAlumno.TabIndex = 33;
-            this.txtDniAlumno.Text = "Ej.: 12123123";
-            this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
-            this.txtDniAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniAlumno_KeyPress);
+            this.txtDniEntrenador.Location = new System.Drawing.Point(127, 142);
+            this.txtDniEntrenador.Name = "txtDniEntrenador";
+            this.txtDniEntrenador.Size = new System.Drawing.Size(326, 20);
+            this.txtDniEntrenador.TabIndex = 33;
+            this.txtDniEntrenador.Text = "Ej.: 12123123";
+            this.txtDniEntrenador.TextChanged += new System.EventHandler(this.txtDniEntrenador_TextChanged);
+            this.txtDniEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniEntrenador_KeyPress);
             // 
-            // txtApeAlumno
+            // txtNomEntrenador
             // 
-            this.txtApeAlumno.Location = new System.Drawing.Point(127, 202);
-            this.txtApeAlumno.Name = "txtApeAlumno";
-            this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
-            this.txtApeAlumno.TabIndex = 32;
-            this.txtApeAlumno.Text = "Ej.: Juan";
-            this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
+            this.txtNomEntrenador.Location = new System.Drawing.Point(127, 202);
+            this.txtNomEntrenador.Name = "txtNomEntrenador";
+            this.txtNomEntrenador.Size = new System.Drawing.Size(326, 20);
+            this.txtNomEntrenador.TabIndex = 32;
+            this.txtNomEntrenador.Text = "Ej.: Juan";
+            this.txtNomEntrenador.TextChanged += new System.EventHandler(this.txtNomEntrenador_TextChanged);
             // 
             // lblTitulo
             // 
@@ -274,23 +246,20 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnCerrarSesion);
+            this.Controls.Add(this.dateEntrenador);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtApeEntrenador);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picMascota);
-            this.Controls.Add(this.txtDniAlumno);
-            this.Controls.Add(this.txtApeAlumno);
+            this.Controls.Add(this.txtDniEntrenador);
+            this.Controls.Add(this.txtNomEntrenador);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnRegistrarEntrenador);
             this.Name = "FrmRegistrarEntrenador";
             this.Text = "Registrar Entrenador";
             this.Load += new System.EventHandler(this.FrmRegistrarEntrenador_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -300,17 +269,15 @@
 
         #endregion
         private System.Windows.Forms.Button btnRegistrarEntrenador;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.DateTimePicker dateEntrenador;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtApeEntrenador;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picMascota;
-        private System.Windows.Forms.TextBox txtDniAlumno;
-        private System.Windows.Forms.TextBox txtApeAlumno;
+        private System.Windows.Forms.TextBox txtDniEntrenador;
+        private System.Windows.Forms.TextBox txtNomEntrenador;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

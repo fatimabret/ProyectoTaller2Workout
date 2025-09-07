@@ -46,17 +46,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombAlumno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDetallesAlum = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -108,7 +105,7 @@
             // btnMujer
             // 
             this.btnMujer.AutoSize = true;
-            this.btnMujer.Location = new System.Drawing.Point(226, 499);
+            this.btnMujer.Location = new System.Drawing.Point(222, 498);
             this.btnMujer.Name = "btnMujer";
             this.btnMujer.Size = new System.Drawing.Size(51, 17);
             this.btnMujer.TabIndex = 15;
@@ -135,6 +132,7 @@
             this.txtDniAlumno.TabIndex = 19;
             this.txtDniAlumno.Text = "Ej.: 12123123";
             this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
+            this.txtDniAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniAlumno_KeyPress);
             // 
             // ePDniAlumno
             // 
@@ -198,6 +196,7 @@
             this.txtNombAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtNombAlumno.TabIndex = 26;
             this.txtNombAlumno.Text = "Ej.: Perez";
+            this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged_1);
             // 
             // label4
             // 
@@ -210,40 +209,15 @@
             this.label4.Text = "Ingrese sú Fecha de nacimiento";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(447, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.SystemColors.Info;
-            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(416, 74);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(111, 26);
-            this.btnCerrarSesion.TabIndex = 28;
-            this.btnCerrarSesion.Text = "CERRAR SESION";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(131, 323);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 30;
-            this.dateTimePicker1.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label5
@@ -257,14 +231,15 @@
             this.label5.Text = "Ingrese Detalles adicionales";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // txtDetallesAlum
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 389);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 59);
-            this.textBox2.TabIndex = 32;
-            this.textBox2.Text = "Ej.: Dolor de rodilla, hernia de disco, etc";
+            this.txtDetallesAlum.Location = new System.Drawing.Point(131, 389);
+            this.txtDetallesAlum.Multiline = true;
+            this.txtDetallesAlum.Name = "txtDetallesAlum";
+            this.txtDetallesAlum.Size = new System.Drawing.Size(326, 59);
+            this.txtDetallesAlum.TabIndex = 32;
+            this.txtDetallesAlum.Text = "Ej.: Dolor de rodilla, hernia de disco, etc";
+            this.txtDetallesAlum.TextChanged += new System.EventHandler(this.txtDetallesAlum_TextChanged);
             // 
             // label6
             // 
@@ -283,11 +258,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 597);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDetallesAlum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNombAlumno);
             this.Controls.Add(this.label3);
@@ -307,7 +280,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,10 +303,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombAlumno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDetallesAlum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
     }

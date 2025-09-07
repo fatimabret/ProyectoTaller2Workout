@@ -80,5 +80,14 @@ namespace workout.CapaPresentacion
             // Si es correcto
             errorProvider1.SetError(txtDni, "");
         }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Solo permitir números y la tecla Backspace
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea el caracter
+            }
+        }
     }
 }

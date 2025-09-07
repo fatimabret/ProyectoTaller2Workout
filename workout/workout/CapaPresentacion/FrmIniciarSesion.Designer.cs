@@ -62,6 +62,7 @@
             this.lblInicioSesion.TabIndex = 45;
             this.lblInicioSesion.Text = "¡Bienvenido a Workout!";
             this.lblInicioSesion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInicioSesion.Click += new System.EventHandler(this.lblInicioSesion_Click);
             // 
             // btnIniciarSesion
             // 

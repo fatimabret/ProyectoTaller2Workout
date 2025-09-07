@@ -44,6 +44,15 @@ namespace workout.CapaPresentacion
             }
         }
 
+        private void txtNombAlumno_TextChanged_1(object sender, EventArgs e)
+        {
+            //Validar que el apellido solo contenga letras
+            if (int.TryParse(txtNombAlumno.Text, out int nombre))
+            {
+                ePNomAlumno.SetError(txtNombAlumno, "Solo puede contener letras de A-Z");
+            }
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -58,6 +67,20 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
             //Cierra el formulario anterior
             this.Close();
+        }
+
+        private void txtDniAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números y teclas de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDetallesAlum_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -106,6 +106,7 @@
             this.txtDni.TabIndex = 27;
             this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // label1
             // 
