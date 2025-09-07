@@ -81,6 +81,7 @@
             this.btnRegistrarAlumno.TabIndex = 7;
             this.btnRegistrarAlumno.Text = "REGISTRAR";
             this.btnRegistrarAlumno.UseVisualStyleBackColor = false;
+            this.btnRegistrarAlumno.Click += new System.EventHandler(this.btnRegistrarAlumno_Click);
             // 
             // txtApeAlumno
             // 

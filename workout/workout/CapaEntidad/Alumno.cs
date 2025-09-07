@@ -8,9 +8,9 @@ namespace workout.CapaEntidad
 {
     public class Alumno : Usuario
     {
-        private int id_alumno { get; set; }
-        private string detalles { get; set; }
-        private char genero { get; set; }
-        private int id_usuario { get; set; }
+        public int id_alumno { get; set; }
+        public string detalles { get; set; }
+        public string genero { get; set; }
+        public int id_usuario { get; set; }
     }
 }

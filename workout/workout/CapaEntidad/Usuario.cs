@@ -8,12 +8,12 @@ namespace workout.CapaEntidad
 {
     public class Usuario
     {
-        private int id_usuario { get; set; }
-        private string nombre { get; set; }
-        private string apellido { get; set; }
-        private DateTime fecha_nac { get; set; }
-        private string correo { get; set; }
-        private string contrasenia { get; set; }
-        private int id_estado { get; set; }
+        public int id_usuario { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public DateTime fecha_nac { get; set; }
+        public string correo { get; set; }
+        public string contrasenia { get; set; }
+        public int id_estado { get; set; }
     }
 }
