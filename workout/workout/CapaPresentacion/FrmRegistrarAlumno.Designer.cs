@@ -33,9 +33,9 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnRegistrarAlumno = new System.Windows.Forms.Button();
             this.txtApeAlumno = new System.Windows.Forms.TextBox();
-            this.btnHombre = new System.Windows.Forms.RadioButton();
-            this.btnMujer = new System.Windows.Forms.RadioButton();
-            this.btnOtro = new System.Windows.Forms.RadioButton();
+            this.rbHombre = new System.Windows.Forms.RadioButton();
+            this.rbMujer = new System.Windows.Forms.RadioButton();
+            this.rbOtro = new System.Windows.Forms.RadioButton();
             this.txtDniAlumno = new System.Windows.Forms.TextBox();
             this.ePDniAlumno = new System.Windows.Forms.ErrorProvider(this.components);
             this.ePApeAlumno = new System.Windows.Forms.ErrorProvider(this.components);
@@ -46,10 +46,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombAlumno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.fechaNacAlumno = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDetallesAlum = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtCorreoAlum = new System.Windows.Forms.TextBox();
+            this.lblCorreoAlum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
@@ -75,7 +77,7 @@
             this.btnRegistrarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarAlumno.Location = new System.Drawing.Point(179, 542);
+            this.btnRegistrarAlumno.Location = new System.Drawing.Point(185, 608);
             this.btnRegistrarAlumno.Name = "btnRegistrarAlumno";
             this.btnRegistrarAlumno.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarAlumno.TabIndex = 7;
@@ -92,38 +94,38 @@
             this.txtApeAlumno.Text = "Ej.: Juan";
             this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
             // 
-            // btnHombre
+            // rbHombre
             // 
-            this.btnHombre.AutoSize = true;
-            this.btnHombre.Location = new System.Drawing.Point(139, 498);
-            this.btnHombre.Name = "btnHombre";
-            this.btnHombre.Size = new System.Drawing.Size(62, 17);
-            this.btnHombre.TabIndex = 14;
-            this.btnHombre.TabStop = true;
-            this.btnHombre.Text = "Hombre";
-            this.btnHombre.UseVisualStyleBackColor = true;
+            this.rbHombre.AutoSize = true;
+            this.rbHombre.Location = new System.Drawing.Point(145, 564);
+            this.rbHombre.Name = "rbHombre";
+            this.rbHombre.Size = new System.Drawing.Size(62, 17);
+            this.rbHombre.TabIndex = 14;
+            this.rbHombre.TabStop = true;
+            this.rbHombre.Text = "Hombre";
+            this.rbHombre.UseVisualStyleBackColor = true;
             // 
-            // btnMujer
+            // rbMujer
             // 
-            this.btnMujer.AutoSize = true;
-            this.btnMujer.Location = new System.Drawing.Point(222, 498);
-            this.btnMujer.Name = "btnMujer";
-            this.btnMujer.Size = new System.Drawing.Size(51, 17);
-            this.btnMujer.TabIndex = 15;
-            this.btnMujer.TabStop = true;
-            this.btnMujer.Text = "Mujer";
-            this.btnMujer.UseVisualStyleBackColor = true;
+            this.rbMujer.AutoSize = true;
+            this.rbMujer.Location = new System.Drawing.Point(228, 564);
+            this.rbMujer.Name = "rbMujer";
+            this.rbMujer.Size = new System.Drawing.Size(51, 17);
+            this.rbMujer.TabIndex = 15;
+            this.rbMujer.TabStop = true;
+            this.rbMujer.Text = "Mujer";
+            this.rbMujer.UseVisualStyleBackColor = true;
             // 
-            // btnOtro
+            // rbOtro
             // 
-            this.btnOtro.AutoSize = true;
-            this.btnOtro.Location = new System.Drawing.Point(302, 498);
-            this.btnOtro.Name = "btnOtro";
-            this.btnOtro.Size = new System.Drawing.Size(45, 17);
-            this.btnOtro.TabIndex = 16;
-            this.btnOtro.TabStop = true;
-            this.btnOtro.Text = "Otro";
-            this.btnOtro.UseVisualStyleBackColor = true;
+            this.rbOtro.AutoSize = true;
+            this.rbOtro.Location = new System.Drawing.Point(308, 564);
+            this.rbOtro.Name = "rbOtro";
+            this.rbOtro.Size = new System.Drawing.Size(45, 17);
+            this.rbOtro.TabIndex = 16;
+            this.rbOtro.TabStop = true;
+            this.rbOtro.Text = "Otro";
+            this.rbOtro.UseVisualStyleBackColor = true;
             // 
             // txtDniAlumno
             // 
@@ -203,29 +205,29 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(119, 295);
+            this.label4.Location = new System.Drawing.Point(125, 361);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(228, 25);
             this.label4.TabIndex = 27;
             this.label4.Text = "Ingrese sú Fecha de nacimiento";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dateTimePicker1
+            // fechaNacAlumno
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(131, 323);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 30;
-            this.dateTimePicker1.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.fechaNacAlumno.Location = new System.Drawing.Point(137, 389);
+            this.fechaNacAlumno.MaxDate = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
+            this.fechaNacAlumno.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.fechaNacAlumno.Name = "fechaNacAlumno";
+            this.fechaNacAlumno.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacAlumno.TabIndex = 30;
+            this.fechaNacAlumno.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
+            this.fechaNacAlumno.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(119, 355);
+            this.label5.Location = new System.Drawing.Point(125, 421);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(203, 31);
             this.label5.TabIndex = 31;
@@ -234,7 +236,7 @@
             // 
             // txtDetallesAlum
             // 
-            this.txtDetallesAlum.Location = new System.Drawing.Point(131, 389);
+            this.txtDetallesAlum.Location = new System.Drawing.Point(137, 455);
             this.txtDetallesAlum.Multiline = true;
             this.txtDetallesAlum.Name = "txtDetallesAlum";
             this.txtDetallesAlum.Size = new System.Drawing.Size(326, 59);
@@ -246,22 +248,43 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(122, 464);
+            this.label6.Location = new System.Drawing.Point(128, 530);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(253, 31);
             this.label6.TabIndex = 33;
             this.label6.Text = "Seleccione Genero correspondiente";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtCorreoAlum
+            // 
+            this.txtCorreoAlum.Location = new System.Drawing.Point(134, 327);
+            this.txtCorreoAlum.Name = "txtCorreoAlum";
+            this.txtCorreoAlum.Size = new System.Drawing.Size(326, 20);
+            this.txtCorreoAlum.TabIndex = 35;
+            this.txtCorreoAlum.Text = "Ej.: juanPerez@gmail.com";
+            // 
+            // lblCorreoAlum
+            // 
+            this.lblCorreoAlum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreoAlum.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCorreoAlum.Location = new System.Drawing.Point(125, 299);
+            this.lblCorreoAlum.Name = "lblCorreoAlum";
+            this.lblCorreoAlum.Size = new System.Drawing.Size(206, 25);
+            this.lblCorreoAlum.TabIndex = 34;
+            this.lblCorreoAlum.Text = "Ingrese sú Correo Electronico";
+            this.lblCorreoAlum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmRegistrarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 597);
+            this.ClientSize = new System.Drawing.Size(560, 653);
+            this.Controls.Add(this.txtCorreoAlum);
+            this.Controls.Add(this.lblCorreoAlum);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDetallesAlum);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.fechaNacAlumno);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNombAlumno);
             this.Controls.Add(this.label3);
@@ -269,9 +292,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.txtDniAlumno);
-            this.Controls.Add(this.btnOtro);
-            this.Controls.Add(this.btnMujer);
-            this.Controls.Add(this.btnHombre);
+            this.Controls.Add(this.rbOtro);
+            this.Controls.Add(this.rbMujer);
+            this.Controls.Add(this.rbHombre);
             this.Controls.Add(this.txtApeAlumno);
             this.Controls.Add(this.btnRegistrarAlumno);
             this.Controls.Add(this.lblTitulo);
@@ -291,9 +314,9 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnRegistrarAlumno;
         private System.Windows.Forms.TextBox txtApeAlumno;
-        private System.Windows.Forms.RadioButton btnHombre;
-        private System.Windows.Forms.RadioButton btnMujer;
-        private System.Windows.Forms.RadioButton btnOtro;
+        private System.Windows.Forms.RadioButton rbHombre;
+        private System.Windows.Forms.RadioButton rbMujer;
+        private System.Windows.Forms.RadioButton rbOtro;
         private System.Windows.Forms.TextBox txtDniAlumno;
         private System.Windows.Forms.ErrorProvider ePDniAlumno;
         private System.Windows.Forms.ErrorProvider ePApeAlumno;
@@ -304,9 +327,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombAlumno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker fechaNacAlumno;
         private System.Windows.Forms.TextBox txtDetallesAlum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCorreoAlum;
+        private System.Windows.Forms.Label lblCorreoAlum;
     }
 }

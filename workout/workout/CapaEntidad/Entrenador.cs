@@ -8,11 +8,10 @@ namespace workout.CapaEntidad
 {
     public class Entrenador : Usuario
     {
-        private int id_entrenador { get; set; }
-        private string horario_disp { get; set; }
-        private string dias_disp { get; set; }
-        private string detalles { get; set; }
-        private int id_usuario { get; set; }
-        private int cupo { get; set; }
+        public int id_entrenador { get; set; }
+        public string horario_disp { get; set; }
+        public string dias_disp { get; set; }
+        public string detalles { get; set; }
+        public int cupo { get; set; }
     }
 }

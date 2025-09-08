@@ -13,7 +13,7 @@ namespace workout.CapaEntidad
         public string apellido { get; set; }
         public DateTime fecha_nac { get; set; }
         public string correo { get; set; }
-        public string contrasenia { get; set; }
+        public string contrasena { get; set; }
         public int id_estado { get; set; }
     }
 }

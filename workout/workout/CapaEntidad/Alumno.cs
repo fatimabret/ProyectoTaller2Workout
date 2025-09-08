@@ -11,6 +11,5 @@ namespace workout.CapaEntidad
         public int id_alumno { get; set; }
         public string detalles { get; set; }
         public string genero { get; set; }
-        public int id_usuario { get; set; }
     }
 }

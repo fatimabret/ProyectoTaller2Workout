@@ -8,7 +8,6 @@ namespace workout.CapaEntidad
 {
     public class Recepcionista : Usuario
     {
-        private int id_recepcionista { get; set; }
-        private int id_usuario { get; set; }
+        public int id_recepcionista { get; set; }
     }
 }

@@ -86,37 +86,32 @@ namespace workout.CapaPresentacion
 
         private void btnRegistrarAlumno_Click(object sender, EventArgs e)
         {
+            //Variable de la logica de negocios
             CN_Alumno logicaAlumno = new CN_Alumno();
-            try
+            //Obtiene los datos de los campos de la vista
+            int dni = int.Parse(txtDniAlumno.Text);
+            string nombre = txtNombAlumno.Text;
+            string apellido = txtApeAlumno.Text;
+            DateTime fechaNac = fechaNacAlumno.Value;
+            string detalles = txtDetallesAlum.Text;
+            string correo = txtCorreoAlum.Text;
+            string genero;
+            
+            //Evalua si es hombre o mujer
+            if (rbHombre.Checked)
             {
-                int dni = int.Parse(txtDniAlumno.Text);
-                string nombre = txtNombAlumno.Text;
-                string apellido = txtApeAlumno.Text;
-                string detalles = txtDetallesAlum.Text;
-                int idAlumno = logicaAlumno.registrar(dni, nombre, apellido, correo, genero, detalles);
-                if (idAlumno > 0)
-                {
-                    MessageBox.Show("Alumno registrado correctamente. ID: " + idAlumno);
-                    // Limpiar los campos después del registro exitoso
-                    txtDniAlumno.Clear();
-                    txtNombAlumno.Clear();
-                    txtApeAlumno.Clear();
-                    txtCorreoAlum.Clear();
-                    cmbGeneroAlum.SelectedIndex = -1;
-                    txtDetallesAlum.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Error al registrar el alumno.");
-                }
-            }
-            catch (FormatException)
+                genero = "Hombre";
+            }else if (rbMujer.Checked)
             {
-                MessageBox.Show("Por favor, ingrese un DNI válido.");
+                genero = "Mujer";
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                genero = "Otro";
             }
+            //Le pasa los datos a la logica de negocio
+            int idAlumno = logicaAlumno.registrar(dni, nombre, apellido, fechaNac, correo, genero, detalles);
+        }
+            
     }
 }

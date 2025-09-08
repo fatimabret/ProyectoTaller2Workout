@@ -1,19 +1,21 @@
+CREATE DATABASE workout;
+use workout;
 CREATE TABLE ESTADO
 (
-  id_estado INT NOT NULL,
+  id_estado INT IDENTITY(1,1)  NOT NULL,
   tipo INT NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   PRIMARY KEY (id_estado)
 );
 
 CREATE TABLE USUARIO
-(
-  id_usuario INT NOT NULL,
+(   
+  id_usuario INT IDENTITY(1,1) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   fecha_nac DATE NOT NULL,
   correo VARCHAR(50) NOT NULL,
-  contrasena VARCHAR(150) NOT NULL,
+  contrasena VARCHAR(150) NULL,
   id_estado INT NOT NULL,
   PRIMARY KEY (id_usuario),
   FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
@@ -21,7 +23,7 @@ CREATE TABLE USUARIO
 
 CREATE TABLE ALUMNO
 (
-  id_alumno INT NOT NULL,
+  id_alumno INT IDENTITY(1,1) NOT NULL,
   detalles VARCHAR(100) NOT NULL,
   genero VARCHAR(30) NOT NULL,
   id_usuario INT NOT NULL,
@@ -121,3 +123,82 @@ CREATE TABLE PAGO
   FOREIGN KEY (id_metodo_pago) REFERENCES METODO_PAGO(id_metodo_pago),
   FOREIGN KEY (id_membresia) REFERENCES MEMBRESIA(id_membresia)
 );
+
+
+
+/*PROCEDIMIENTOS ALMACENADOS*/
+/* REGISTRO DE ALUMNO */
+GO
+CREATE PROC SP_REGISTRARALUMNO
+(
+@id_alumno int,
+@detalles varchar(100),
+@genero varchar (30),
+@id_usuario int
+)
+AS
+BEGIN
+
+    
+    INSERT INTO dbo.Alumno (genero, detalles,id_usuario) 
+    VALUES (@genero, @detalles, @id_usuario)
+END
+GO
+/* Registro de Usuario */
+
+GO
+CREATE PROC SP_REGISTRAR
+(
+@nombre varchar(30),
+@apellido varchar(30),
+@contrasena varchar(150) = NULL,
+@id_estado int = 1,
+@fecha_nac Date,
+@correo varchar(50)
+)
+AS
+BEGIN
+    INSERT INTO dbo.Usuario(nombre,apellido, contrasena, id_estado,fecha_nac,correo) 
+    VALUES (@nombre, @apellido,@contrasena,@id_estado,@fecha_nac,@correo)
+END
+GO
+
+/* ELIMINAR DE MENU*/
+GO
+CREATE PROC SP_ELIMINARMENU
+(
+@id_menu int,
+@Respuesta bit output,
+@Mensaje varchar(200) output
+)
+AS
+BEGIN
+    SET @Respuesta = 1
+
+    -- Verificar si el menu ya está eliminado (activo = 0)
+    IF EXISTS (SELECT * FROM dbo.Menu WHERE id_menu = @id_menu AND activo = 0)
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El Menú ya se encuentra eliminado.';
+        RETURN;
+    END
+
+    -- Para validar que no exista una asociacion del menu en otras tablas
+    IF NOT EXISTS(SELECT * FROM dbo.menu menu 
+					INNER JOIN dbo.producto producto 
+					ON producto.Id_Menu = menu.Id_Menu
+					WHERE menu.Id_Menu = @id_menu)
+		BEGIN
+			UPDATE dbo.Menu SET activo = 0
+			WHERE Id_Menu = @id_menu
+	
+			SET @Mensaje = 'Menú eliminada exitosamente.'
+			SET @Respuesta = 1
+		END
+	ELSE
+		BEGIN
+			SET @Respuesta = 0
+			SET @Mensaje = 'Menú asociada a información en productos.'
+		END
+END 
+GO

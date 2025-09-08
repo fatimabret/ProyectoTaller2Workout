@@ -25,10 +25,11 @@ namespace workout.CapaDatos
                 cmd.Parameters.AddWithValue("nombre", p_Usuario.nombre);
                 cmd.Parameters.AddWithValue("fecha_nac", p_Usuario.fecha_nac);
                 cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
-                cmd.Parameters.AddWithValue("contrasenia", p_Usuario.contrasenia);
+                cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
                 cmd.Parameters.AddWithValue("id_estado", p_Usuario.id_estado);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //Obtiene el id del usuario registrado
                 idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
                 
             }

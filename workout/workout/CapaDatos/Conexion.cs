@@ -9,6 +9,6 @@ namespace workout.CapaDatos
 {
     public class Conexion
     {
-        public static string CadenaConexion = ConfigurationManager.ConnectionStrings["BaseDatos"].ConnectionString();
+        public static string CadenaConexion = ConfigurationManager.ConnectionStrings["BaseDatos"].ConnectionString;
     }
 }
