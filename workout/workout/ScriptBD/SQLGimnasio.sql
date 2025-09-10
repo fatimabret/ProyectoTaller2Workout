@@ -2,8 +2,7 @@ CREATE DATABASE workout;
 use workout;
 CREATE TABLE ESTADO
 (
-  id_estado INT IDENTITY(1,1)  NOT NULL,
-  tipo INT NOT NULL,
+  id_estado INT   NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   PRIMARY KEY (id_estado)
 );
@@ -11,7 +10,7 @@ CREATE TABLE ESTADO
 CREATE TABLE USUARIO
 (   
   id_usuario INT IDENTITY(1,1) NOT NULL,
-  dni VARCHAR(20) NOT NULL,
+  dni INT NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   fecha_nac DATE NOT NULL,
@@ -126,7 +125,7 @@ CREATE TABLE PAGO
 );
 
 
-INSERT INTO ESTADO (tipo, descripcion) VALUES 
+INSERT INTO ESTADO (id_estado, descripcion) VALUES 
 (0, 'Usuario inactivo'),
 (1, 'Usuario activo'),
 (2, 'Usuario suspendido');
@@ -137,7 +136,7 @@ INSERT INTO ESTADO (tipo, descripcion) VALUES
 CREATE PROC SP_LISTARESTADOS
 AS
 BEGIN
-    SELECT id_estado, tipo, descripcion FROM ESTADO;
+    SELECT id_estado, descripcion FROM ESTADO;
 END
 
 /* REGISTRO DE ALUMNO */
@@ -145,90 +144,49 @@ END
 GO
 CREATE PROC SP_REGISTRARALUMNO
 (
-@id_alumno int,
-@detalles varchar(100),
 @genero varchar (30),
+@detalles varchar(100),
 @id_usuario int
 )
 AS
 BEGIN
-
-    
-    INSERT INTO dbo.Alumno (genero, detalles,id_usuario) 
-    VALUES (@genero, @detalles, @id_usuario)
+    INSERT INTO dbo.Alumno (detalles, genero, id_usuario) 
+    VALUES (@detalles, @genero, @id_usuario)
 END
 GO
 /* Registro de Usuario */
 
 GO
-CREATE PROC SP_REGISTRAR
+CREATE PROCEDURE SP_REGISTRAR
 (
+@dni int,
 @nombre varchar(30),
 @apellido varchar(30),
-@contrasena varchar(150) = NULL,
-@tipo_estado INT = 1,
+@contrasena varchar(150),
+@id_estado int,
 @fecha_nac Date,
 @correo varchar(50)
 )
 AS
 BEGIN
-    DECLARE @id_estado INT
+  
 
     -- Buscar el id_estado correspondiente al tipo
     SELECT @id_estado = id_estado
     FROM ESTADO
-    WHERE tipo = @tipo_estado
+    WHERE id_estado = @id_estado
 
-    INSERT INTO dbo.Usuario(nombre,apellido, contrasena, id_estado,fecha_nac,correo) 
-    VALUES (@nombre, @apellido,@contrasena,@tipo_estado,@fecha_nac,@correo)
-END
-GO
+    INSERT INTO dbo.Usuario(dni,nombre,apellido, contrasena, id_estado,fecha_nac,correo) 
+    VALUES (@dni,@nombre, @apellido,@contrasena,@id_estado,@fecha_nac,@correo)
 
-ALTER PROCEDURE SP_REGISTRAR
-(
-    @apellido VARCHAR(30),
-    @nombre VARCHAR(30),
-    @fecha_nac DATE,
-    @correo VARCHAR(50),
-    @contrasena VARCHAR(150),
-    @id_estado INT,
-    @dni VARCHAR(20) -- Nuevo parámetro para el DNI
-)
-AS
-BEGIN
-    SET NOCOUNT ON;
-    DECLARE @idusuario INT;
-    
-    -- Se inserta un nuevo usuario en la tabla USUARIO
-    INSERT INTO USUARIO(
-        apellido,
-        nombre,
-        fecha_nac,
-        correo,
-        contrasena,
-        id_estado,
-        dni
-    )
-    VALUES (
-        @apellido,
-        @nombre,
-        @fecha_nac,
-        @correo,
-        @contrasena,
-        @id_estado,
-        @dni
-    );
-    
-    -- Se obtiene el ID del usuario recién insertado
-    SET @idusuario = SCOPE_IDENTITY();
-    
-    -- Retorna el ID del usuario
-    SELECT @idusuario;
+     SELECT SCOPE_IDENTITY() AS id_usuario;
 END
 GO
 
 
 
+SELECT * FROM alumno
+SELECT * FROM usuario
 
 
 /* ELIMINAR DE MENU

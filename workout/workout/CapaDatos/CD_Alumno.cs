@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using workout.CapaDatos;
-using workout.CapaEntidad;  
+using workout.CapaNegocio;
 
 namespace workout.CapaEntidad
 {
     public class CD_Alumno
     {
-        private CD_Usuario usuario = new CD_Usuario();
+        private CN_Usuario usuario = new CN_Usuario();
         public int RegistrarAlumno(Alumno p_Alumno)
         {
             //Crea el usuario asociado antes de registrar el alumno
-            int idUsuario = usuario.Registrar(p_Alumno);
+            int idUsuario = usuario.registrarUsuario(p_Alumno);
 
             int idAlumno = 0;
             
@@ -29,8 +29,7 @@ namespace workout.CapaEntidad
                 //Pasa los parametros a la consulta
                 cmd.Parameters.AddWithValue("detalles", p_Alumno.detalles);
                 cmd.Parameters.AddWithValue("genero", p_Alumno.genero);
-                cmd.Parameters.AddWithValue("correo", p_Alumno.correo);
-                cmd.Parameters.AddWithValue("idUsuario", idUsuario);
+                cmd.Parameters.AddWithValue("id_usuario", idUsuario);
                 //cmd.Parameters.AddWithValue("id_estado", p_Alumno.id_estado);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;

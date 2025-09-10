@@ -100,7 +100,7 @@ namespace workout.CapaPresentacion
                 //Le pasa los datos a la logica de negocio
                 int idAlumno = logicaAlumno.registrar(dni, nombre, apellido, fechaNac, correo, genero, detalles);
 
-                if (idAlumno > 0)
+                if (idAlumno >= 0)
                     MessageBox.Show("Alumno registrado con éxito");
                 else
                     MessageBox.Show("Error al registrar el alumno");

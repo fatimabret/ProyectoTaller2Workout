@@ -15,7 +15,7 @@ namespace workout.CapaNegocio
             //Crea un nuevo alumno
             Alumno alumno = new Alumno();
             //Setea los datos de la vista
-            alumno.id_alumno = p_dni;
+            alumno.dni = p_dni;
             alumno.nombre = p_nombre;
             alumno.apellido = p_apellido;
             alumno.genero = p_genero;

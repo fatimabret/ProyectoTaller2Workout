@@ -3,31 +3,43 @@
   "WorkspaceRootPath": "C:\\Taller\\workout\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capadatos\\cd_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capaentidad\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capaentidad\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capaentidad\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capaentidad\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capadatos\\cd_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capanegocio\\cn_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capanegocio\\cn_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capanegocio\\cn_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capadatos\\cd_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmregistraralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmregistraralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capanegocio\\cn_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capanegocio\\cn_alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capaentidad\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capaentidad\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capanegocio\\cn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capanegocio\\cn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capaentidad\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capaentidad\\alumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmregistraralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmregistraralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capadatos\\cd_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|C:\\Taller\\workout\\workout\\capanegocio\\cn_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capanegocio\\cn_estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +58,97 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CN_Alumno.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Alumno.cs",
+              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Alumno.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Alumno.cs",
+              "RelativeToolTip": "workout\\CapaNegocio\\CN_Alumno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:29:17.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmRegistrarAlumno.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAwFcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:21:38.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CD_Usuario.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Usuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
+              "RelativeToolTip": "workout\\CapaDatos\\CD_Usuario.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T20:01:50.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CD_Alumno.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Alumno.cs",
+              "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Alumno.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Alumno.cs",
+              "RelativeToolTip": "workout\\CapaDatos\\CD_Alumno.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA0wB8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T19:58:55.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaEntidad\\Usuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaEntidad\\Usuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaEntidad\\Usuario.cs",
+              "RelativeToolTip": "workout\\CapaEntidad\\Usuario.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:48:05.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CN_Usuario.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Usuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Usuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Usuario.cs",
+              "RelativeToolTip": "workout\\CapaNegocio\\CN_Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:12:43.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FrmRegistrarAlumno.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmRegistrarAlumno.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmRegistrarAlumno.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmRegistrarAlumno.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:11:18.949Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Alumno.cs",
               "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaEntidad\\Alumno.cs",
               "RelativeDocumentMoniker": "workout\\CapaEntidad\\Alumno.cs",
@@ -59,20 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CN_Estado.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Estado.cs",
-              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Estado.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Estado.cs",
-              "RelativeToolTip": "workout\\CapaNegocio\\CN_Estado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T03:38:12.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "CD_Estado.cs",
               "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Estado.cs",
               "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Estado.cs",
@@ -85,55 +174,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CN_Alumno.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Alumno.cs",
-              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Alumno.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Alumno.cs",
-              "RelativeToolTip": "workout\\CapaNegocio\\CN_Alumno.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "CN_Estado.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Estado.cs",
+              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Estado.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Estado.cs",
+              "RelativeToolTip": "workout\\CapaNegocio\\CN_Estado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T21:37:12.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CD_Alumno.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Alumno.cs",
-              "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Alumno.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Alumno.cs",
-              "RelativeToolTip": "workout\\CapaDatos\\CD_Alumno.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T19:58:55.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CD_Usuario.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
-              "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Usuario.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
-              "RelativeToolTip": "workout\\CapaDatos\\CD_Usuario.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T20:01:50.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaEntidad\\Usuario.cs",
-              "RelativeDocumentMoniker": "workout\\CapaEntidad\\Usuario.cs",
-              "ToolTip": "C:\\Taller\\workout\\workout\\CapaEntidad\\Usuario.cs",
-              "RelativeToolTip": "workout\\CapaEntidad\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T03:48:05.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T03:38:12.229Z"
             }
           ]
         }

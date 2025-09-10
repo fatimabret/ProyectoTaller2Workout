@@ -23,10 +23,11 @@ namespace workout.CapaDatos
                 //Pasa los parametros a la consulta
                 cmd.Parameters.AddWithValue("apellido", p_Usuario.apellido);
                 cmd.Parameters.AddWithValue("nombre", p_Usuario.nombre);
+                cmd.Parameters.AddWithValue("dni", p_Usuario.dni);
                 cmd.Parameters.AddWithValue("fecha_nac", p_Usuario.fecha_nac);
                 cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
                 cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
-                cmd.Parameters.AddWithValue("id_estado", p_Usuario.id_estado);
+                cmd.Parameters.AddWithValue("id_estado", 1);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //Obtiene el id del usuario registrado
