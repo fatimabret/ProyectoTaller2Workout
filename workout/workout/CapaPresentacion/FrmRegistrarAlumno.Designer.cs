@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarAlumno));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnRegistrarAlumno = new System.Windows.Forms.Button();
-            this.txtApeAlumno = new System.Windows.Forms.TextBox();
+            this.txtNombAlumno = new System.Windows.Forms.TextBox();
             this.rbHombre = new System.Windows.Forms.RadioButton();
             this.rbMujer = new System.Windows.Forms.RadioButton();
             this.rbOtro = new System.Windows.Forms.RadioButton();
@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNombAlumno = new System.Windows.Forms.TextBox();
+            this.txtApeAlumno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.fechaNacAlumno = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,10 +52,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtCorreoAlum = new System.Windows.Forms.TextBox();
             this.lblCorreoAlum = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -85,14 +87,14 @@
             this.btnRegistrarAlumno.UseVisualStyleBackColor = false;
             this.btnRegistrarAlumno.Click += new System.EventHandler(this.btnRegistrarAlumno_Click);
             // 
-            // txtApeAlumno
+            // txtNombAlumno
             // 
-            this.txtApeAlumno.Location = new System.Drawing.Point(131, 201);
-            this.txtApeAlumno.Name = "txtApeAlumno";
-            this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
-            this.txtApeAlumno.TabIndex = 11;
-            this.txtApeAlumno.Text = "Ej.: Juan";
-            this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
+            this.txtNombAlumno.Location = new System.Drawing.Point(131, 201);
+            this.txtNombAlumno.Name = "txtNombAlumno";
+            this.txtNombAlumno.Size = new System.Drawing.Size(326, 20);
+            this.txtNombAlumno.TabIndex = 11;
+            this.txtNombAlumno.Text = "Ej.: Juan";
+            this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged);
             // 
             // rbHombre
             // 
@@ -192,14 +194,14 @@
             this.label3.Text = "Ingrese sú Apellido completo";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtNombAlumno
+            // txtApeAlumno
             // 
-            this.txtNombAlumno.Location = new System.Drawing.Point(131, 263);
-            this.txtNombAlumno.Name = "txtNombAlumno";
-            this.txtNombAlumno.Size = new System.Drawing.Size(326, 20);
-            this.txtNombAlumno.TabIndex = 26;
-            this.txtNombAlumno.Text = "Ej.: Perez";
-            this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged_1);
+            this.txtApeAlumno.Location = new System.Drawing.Point(131, 263);
+            this.txtApeAlumno.Name = "txtApeAlumno";
+            this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
+            this.txtApeAlumno.TabIndex = 26;
+            this.txtApeAlumno.Text = "Ej.: Perez";
+            this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
             // 
             // label4
             // 
@@ -262,6 +264,7 @@
             this.txtCorreoAlum.Size = new System.Drawing.Size(326, 20);
             this.txtCorreoAlum.TabIndex = 35;
             this.txtCorreoAlum.Text = "Ej.: juanPerez@gmail.com";
+            this.txtCorreoAlum.TextChanged += new System.EventHandler(this.txtCorreoAlum_TextChanged);
             // 
             // lblCorreoAlum
             // 
@@ -273,6 +276,10 @@
             this.lblCorreoAlum.TabIndex = 34;
             this.lblCorreoAlum.Text = "Ingrese sú Correo Electronico";
             this.lblCorreoAlum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FrmRegistrarAlumno
             // 
@@ -286,7 +293,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.fechaNacAlumno);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNombAlumno);
+            this.Controls.Add(this.txtApeAlumno);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -295,7 +302,7 @@
             this.Controls.Add(this.rbOtro);
             this.Controls.Add(this.rbMujer);
             this.Controls.Add(this.rbHombre);
-            this.Controls.Add(this.txtApeAlumno);
+            this.Controls.Add(this.txtNombAlumno);
             this.Controls.Add(this.btnRegistrarAlumno);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmRegistrarAlumno";
@@ -304,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,7 +321,7 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnRegistrarAlumno;
-        private System.Windows.Forms.TextBox txtApeAlumno;
+        private System.Windows.Forms.TextBox txtNombAlumno;
         private System.Windows.Forms.RadioButton rbHombre;
         private System.Windows.Forms.RadioButton rbMujer;
         private System.Windows.Forms.RadioButton rbOtro;
@@ -325,7 +333,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNombAlumno;
+        private System.Windows.Forms.TextBox txtApeAlumno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker fechaNacAlumno;
         private System.Windows.Forms.TextBox txtDetallesAlum;
@@ -333,5 +341,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCorreoAlum;
         private System.Windows.Forms.Label lblCorreoAlum;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

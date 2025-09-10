@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using workout.CapaDatos;
+using workout.CapaEntidad;  
 
 namespace workout.CapaEntidad
 {
@@ -30,7 +31,8 @@ namespace workout.CapaEntidad
                 cmd.Parameters.AddWithValue("genero", p_Alumno.genero);
                 cmd.Parameters.AddWithValue("correo", p_Alumno.correo);
                 cmd.Parameters.AddWithValue("idUsuario", idUsuario);
-                
+                //cmd.Parameters.AddWithValue("id_estado", p_Alumno.id_estado);
+
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //Obtiene el id del alumno registrado
                 idAlumno = Convert.ToInt32(cmd.ExecuteScalar());

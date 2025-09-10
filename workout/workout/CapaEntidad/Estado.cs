@@ -8,8 +8,8 @@ namespace workout.CapaEntidad
 {
     public class Estado
     {
-        private int id_estado { get; set; }
-        private string descripcion { get; set; }
-        private int tipo { get; set; }
+        public int id_estado { get; set; }
+        public string descripcion { get; set; }
+        public int tipo { get; set; }
     }
 }

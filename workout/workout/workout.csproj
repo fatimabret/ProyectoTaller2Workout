@@ -74,6 +74,7 @@
     <Compile Include="CapaEntidad\Membresia.cs" />
     <Compile Include="CapaEntidad\Rutina.cs" />
     <Compile Include="CapaNegocio\CN_Alumno.cs" />
+    <Compile Include="CapaNegocio\CN_Estado.cs" />
     <Compile Include="CapaNegocio\CN_Usuario.cs" />
     <Compile Include="CapaPresentacion\FrmListEntrenador.cs">
       <SubType>Form</SubType>

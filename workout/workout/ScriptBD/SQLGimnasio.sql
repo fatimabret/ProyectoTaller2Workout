@@ -192,7 +192,7 @@ ALTER PROCEDURE SP_REGISTRAR
     @correo VARCHAR(50),
     @contrasena VARCHAR(150),
     @id_estado INT,
-    @dni VARCHAR(20) -- Nuevo parÃ¡metro para el DNI
+    @dni VARCHAR(20) -- Nuevo parámetro para el DNI
 )
 AS
 BEGIN
@@ -219,7 +219,7 @@ BEGIN
         @dni
     );
     
-    -- Se obtiene el ID del usuario reciÃ©n insertado
+    -- Se obtiene el ID del usuario recién insertado
     SET @idusuario = SCOPE_IDENTITY();
     
     -- Retorna el ID del usuario
@@ -243,11 +243,11 @@ AS
 BEGIN
     SET @Respuesta = 1
 
-    -- Verificar si el menu ya estÃ¡ eliminado (activo = 0)
+    -- Verificar si el menu ya está eliminado (activo = 0)
     IF EXISTS (SELECT * FROM dbo.Menu WHERE id_menu = @id_menu AND activo = 0)
     BEGIN
         SET @Respuesta = 0;
-        SET @Mensaje = 'El MenÃº ya se encuentra eliminado.';
+        SET @Mensaje = 'El Menú ya se encuentra eliminado.';
         RETURN;
     END
 
@@ -260,13 +260,13 @@ BEGIN
 			UPDATE dbo.Menu SET activo = 0
 			WHERE Id_Menu = @id_menu
 	
-			SET @Mensaje = 'MenÃº eliminada exitosamente.'
+			SET @Mensaje = 'Menú eliminada exitosamente.'
 			SET @Respuesta = 1
 		END
 	ELSE
 		BEGIN
 			SET @Respuesta = 0
-			SET @Mensaje = 'MenÃº asociada a informaciÃ³n en productos.'
+			SET @Mensaje = 'Menú asociada a información en productos.'
 		END
 END 
 GO
