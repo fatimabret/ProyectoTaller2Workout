@@ -2,33 +2,24 @@ CREATE DATABASE workout;
 use workout;
 CREATE TABLE ESTADO
 (
-  id_estado INT   NOT NULL,
+  id_estado INT NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   PRIMARY KEY (id_estado)
 );
 
-CREATE TABLE USUARIO
-(   
-  id_usuario INT IDENTITY(1,1) NOT NULL,
-  dni INT NOT NULL,
-  apellido VARCHAR(30) NOT NULL,
-  nombre VARCHAR(30) NOT NULL,
-  fecha_nac DATE NOT NULL,
-  correo VARCHAR(50) NOT NULL,
-  contrasena VARCHAR(150) NULL,
-  id_estado INT NOT NULL,
-  PRIMARY KEY (id_usuario),
-  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
-);
-
 CREATE TABLE ALUMNO
 (
-  id_alumno INT IDENTITY(1,1) NOT NULL,
+  id_alumno INT NOT NULL,
   detalles VARCHAR(100) NOT NULL,
   genero VARCHAR(30) NOT NULL,
-  id_usuario INT NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  correo VARCHAR(30) NOT NULL,
+  fecha_nac DATE NOT NULL,
+  dni INT NOT NULL,
+  id_estado INT NOT NULL,
   PRIMARY KEY (id_alumno),
-  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
 );
 
 CREATE TABLE MEMBRESIA
@@ -42,6 +33,28 @@ CREATE TABLE MEMBRESIA
   PRIMARY KEY (id_membresia),
   FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
   FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
+);
+
+CREATE TABLE ROL
+(
+  id_rol INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id_rol)
+);
+
+CREATE TABLE USUARIO
+(
+  id_usuario INT NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  correo VARCHAR(50) NOT NULL,
+  contrasena VARCHAR(150) NOT NULL,
+  dni INT NOT NULL,
+  id_estado INT NOT NULL,
+  id_rol INT NOT NULL,
+  PRIMARY KEY (id_usuario),
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado),
+  FOREIGN KEY (id_rol) REFERENCES ROL(id_rol)
 );
 
 CREATE TABLE ENTRENADOR
@@ -80,43 +93,19 @@ CREATE TABLE RUTINA
   FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
 );
 
-CREATE TABLE ROL
-(
-  id_rol INT NOT NULL,
-  descripcion VARCHAR(30) NOT NULL,
-  id_usuario INT NOT NULL,
-  PRIMARY KEY (id_rol),
-  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
-);
-
-CREATE TABLE RECEPCIONISTA
-(
-  id_recepcionista INT NOT NULL,
-  id_usuario INT NOT NULL,
-  PRIMARY KEY (id_recepcionista),
-  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
-);
-
-CREATE TABLE ADMINISTRADOR
-(
-  id_administrador INT NOT NULL,
-  id_usuario INT NOT NULL,
-  PRIMARY KEY (id_administrador),
-  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
-);
-
 CREATE TABLE METODO_PAGO
 (
   id_metodo_pago INT NOT NULL,
-  tipo VARCHAR(30) NOT NULL,
-  import FLOAT NOT NULL,
-  PRIMARY KEY (id_metodo_pago)
+  descripcion VARCHAR(30) NOT NULL,
+  id_estado INT NOT NULL,
+  PRIMARY KEY (id_metodo_pago),
+  FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
 );
 
 CREATE TABLE PAGO
 (
   id_pago INT NOT NULL,
-  total FLOAT NOT NULL,
+  importe FLOAT NOT NULL,
   id_metodo_pago INT NOT NULL,
   id_membresia INT NOT NULL,
   PRIMARY KEY (id_pago),
@@ -125,11 +114,26 @@ CREATE TABLE PAGO
 );
 
 
+/*INSERTS NECESARIOS*/
+INSERT INTO ROL (id_rol,descripcion) VALUES
+(1,'Administrador'),
+(2,'Recepcionista'),
+(3,'Entrenador');
+select * from ROL;
+
+/*
+INSERT INTO METODO_PAGO(id_metodo_pago,descripcion,id_estado) VALUES
+(1,'',1),
+(2,'',1),
+(3,'',1);
+select * from METODO_PAGO;
+*/
+
 INSERT INTO ESTADO (id_estado, descripcion) VALUES 
 (0, 'Usuario inactivo'),
 (1, 'Usuario activo'),
 (2, 'Usuario suspendido');
-
+select * from ESTADO;
 
 /*PROCEDIMIENTOS ALMACENADOS*/
 
@@ -154,8 +158,10 @@ BEGIN
     VALUES (@detalles, @genero, @id_usuario)
 END
 GO
-/* Registro de Usuario */
 
+
+/* Registro de Usuario */
+/*
 GO
 CREATE PROCEDURE SP_REGISTRAR
 (
@@ -182,7 +188,28 @@ BEGIN
      SELECT SCOPE_IDENTITY() AS id_usuario;
 END
 GO
+*/
+GO
+CREATE PROCEDURE SP_REGISTRAR_USUARIO
+(
+  @id_usuario INT,
+  @apellido VARCHAR(30),
+  @nombre VARCHAR(30),
+  @correo VARCHAR(50),
+  @contrasena VARCHAR(150),
+  @dni INT,
+  @id_estado INT,
+  @id_rol INT
+)
+AS
+BEGIN
+    INSERT INTO dbo.Usuario (id_usuario, apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
+    VALUES (@id_usuario, @apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
+    -- Devolvemos el id_usuario insertado para confirmación
+    SELECT @id_usuario AS id_usuario;
+END
+GO
 
 
 SELECT * FROM alumno
