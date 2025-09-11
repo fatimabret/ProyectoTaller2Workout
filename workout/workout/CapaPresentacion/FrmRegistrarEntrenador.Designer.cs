@@ -46,6 +46,7 @@
             this.cmbDiasDisponibles = new System.Windows.Forms.ComboBox();
             this.cmbEspecializacion = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -211,11 +212,29 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.AutoEllipsis = true;
+            this.btnLimpiar.BackColor = System.Drawing.Color.Red;
+            this.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpiar.Location = new System.Drawing.Point(194, 549);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(196, 29);
+            this.btnLimpiar.TabIndex = 52;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmRegistrarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 597);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.cmbEspecializacion);
             this.Controls.Add(this.cmbDiasDisponibles);
             this.Controls.Add(this.cmbHorarioDisponible);
@@ -258,5 +277,6 @@
         private System.Windows.Forms.ComboBox cmbDiasDisponibles;
         private System.Windows.Forms.ComboBox cmbEspecializacion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

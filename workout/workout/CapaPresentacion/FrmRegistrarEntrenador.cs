@@ -182,10 +182,8 @@ namespace workout.CapaPresentacion
             int dni = int.Parse(txtDniEntrenador.Text);
             string nombre = txtNomEntrenador.Text.Trim();
             string apellido = txtApeEntrenador.Text.Trim();
-            //Modificar
-            DateTime fechaNac = fechaNacAlumno.Value;
-            string detalles = txtDetallesAlum.Text.Trim();
-            string correo = txtCorreoAlum.Text.Trim();
+            //Modificar los que faltan
+            
 
             try
             {
@@ -201,6 +199,13 @@ namespace workout.CapaPresentacion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtApeEntrenador.Clear();
+            txtDniEntrenador.Clear();
+            txtNomEntrenador.Clear();
         }
     }
 }

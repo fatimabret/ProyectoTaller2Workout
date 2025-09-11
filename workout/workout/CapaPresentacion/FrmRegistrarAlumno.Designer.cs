@@ -53,6 +53,7 @@
             this.txtCorreoAlum = new System.Windows.Forms.TextBox();
             this.lblCorreoAlum = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ePDniAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePApeAlumno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNomAlumno)).BeginInit();
@@ -281,11 +282,29 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.AutoEllipsis = true;
+            this.btnLimpiar.BackColor = System.Drawing.Color.Red;
+            this.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpiar.Location = new System.Drawing.Point(185, 643);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(196, 29);
+            this.btnLimpiar.TabIndex = 36;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmRegistrarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 653);
+            this.ClientSize = new System.Drawing.Size(560, 685);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtCorreoAlum);
             this.Controls.Add(this.lblCorreoAlum);
             this.Controls.Add(this.label6);
@@ -342,5 +361,6 @@
         private System.Windows.Forms.TextBox txtCorreoAlum;
         private System.Windows.Forms.Label lblCorreoAlum;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

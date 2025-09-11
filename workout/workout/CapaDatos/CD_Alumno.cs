@@ -45,5 +45,28 @@ namespace workout.CapaEntidad
             }
             return id_alumno;
         }
+
+        public int BuscarAlumno(string p_nombre, string p_apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                //Abre la conexion a la base de datos
+                conexion.Open();
+                //Se define el comando SQL para registrar el usuario
+                SqlCommand cmd = new SqlCommand("SP_BUSCAR_ALUMNO", conexion);
+                //Pasa los parametros a la consulta
+                cmd.Parameters.AddWithValue("nombre", p_nombre);
+                cmd.Parameters.AddWithValue("apellido", p_apellido);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                // Parámetro para capturar el RETURN
+                SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
+                returnValue.Direction = ParameterDirection.ReturnValue;
+                // Ejecutar el SP
+                cmd.ExecuteNonQuery();
+                // Lee el valor devuelto por la BD
+                id_alumno = (int)returnValue.Value;
+            }
+            return id_alumno;
+        }
     }
 }

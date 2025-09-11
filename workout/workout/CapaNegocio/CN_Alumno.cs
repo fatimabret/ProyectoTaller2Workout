@@ -17,5 +17,10 @@ namespace workout.CapaNegocio
             //Le pasa los datos a la capa de datos
             return alumnoDatos.RegistrarAlumno(alumno);
         }
+
+        public int buscarAlumno(string p_nombre, string p_apellido)
+        {
+            return alumnoDatos.BuscarAlumno(p_nombre, p_apellido);
+        }
     }
 }

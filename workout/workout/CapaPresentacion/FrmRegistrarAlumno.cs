@@ -129,5 +129,15 @@ namespace workout.CapaPresentacion
                 errorProvider1.SetError(txtCorreoAlum, "");
             }
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            // Limpia todos los campos del formulario
+            txtDniAlumno.Clear();
+            txtApeAlumno.Clear();
+            txtNombAlumno.Clear();
+            txtCorreoAlum.Clear();
+            txtDetallesAlum.Clear();
+        }
     }
 }
