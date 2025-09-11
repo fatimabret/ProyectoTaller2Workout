@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -168,6 +169,37 @@ namespace workout.CapaPresentacion
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
+        {
+
+            //Variable de la logica de negocios
+            CN_Entrenador logicaEntrenador = new CN_Entrenador();
+
+            //Obtiene los datos de los campos de la vista
+            int dni = int.Parse(txtDniEntrenador.Text);
+            string nombre = txtNomEntrenador.Text.Trim();
+            string apellido = txtApeEntrenador.Text.Trim();
+            //Modificar
+            DateTime fechaNac = fechaNacAlumno.Value;
+            string detalles = txtDetallesAlum.Text.Trim();
+            string correo = txtCorreoAlum.Text.Trim();
+
+            try
+            {
+                //Le pasa los datos a la logica de negocio
+                int id_alumno = logicaEntrenador.registrarEntrenador(nombre, apellido, dni, fechaNac, correo, detalles);
+
+                if (id_alumno >= 0)
+                    MessageBox.Show("Alumno registrado con éxito");
+                else
+                    MessageBox.Show("El Alumno ya esta registrado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
     }

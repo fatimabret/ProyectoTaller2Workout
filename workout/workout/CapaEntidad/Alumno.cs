@@ -17,5 +17,17 @@ namespace workout.CapaEntidad
         public int id_estado { get; set; }
         public string detalles { get; set; }
         public string genero { get; set; }
+
+        public Alumno(string p_nombre, string p_apellido, int p_dni, DateTime p_fecha_nac, string p_genero, string p_correo,string p_detalles)
+        {
+            this.nombre = p_nombre;
+            this.apellido = p_apellido;
+            this.dni = p_dni;
+            this.correo = p_correo;
+            this.fecha_nac = p_fecha_nac;
+            this.id_estado = 1;
+            this.detalles = p_detalles;
+            this.genero = p_genero;
+        }
     }
 }

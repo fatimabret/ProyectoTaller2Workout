@@ -166,14 +166,13 @@ AS
 BEGIN
 	IF EXISTS(SELECT dni FROM ALUMNO WHERE alumno.dni = @dni)
 	BEGIN
-		SET @dni = -1;
-		RETURN
+		RETURN -1;
 	END
 
-    INSERT INTO dbo.Alumno (nombre, apellido, dni, fecha_nac, genero, correo, detalles) 
-    VALUES (@nombre,@apellido,@dni,@fecha_nac,@genero,@correo,@detalles);
+    INSERT INTO dbo.Alumno (nombre, apellido, dni, fecha_nac, genero, correo, detalles,id_estado) 
+    VALUES (@nombre,@apellido,@dni,@fecha_nac,@genero,@correo,@detalles,@id_estado);
 
-	SELECT SCOPE_IDENTITY() AS id_alumno;
+	RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
 
@@ -193,15 +192,14 @@ BEGIN
 	
 	IF EXISTS(SELECT dni FROM USUARIO WHERE USUARIO.dni = @dni)
 	BEGIN
-		SET @dni = -1;
-		RETURN
+		RETURN -1;
 	END
 
     INSERT INTO dbo.Usuario ( apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
     VALUES (@apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
     -- Devolvemos el id_usuario insertado para confirmación
-    SELECT SCOPE_IDENTITY() AS id_usuario;
+    RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
 

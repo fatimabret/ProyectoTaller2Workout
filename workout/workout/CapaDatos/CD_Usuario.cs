@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using workout.CapaEntidad;
+using workout.CapaNegocio;
 
 namespace workout.CapaDatos
 {
     public class CD_Usuario
     {
+        int id_usuario = 0;
         public int Registrar(Usuario p_Usuario)
         {
 
-            int idUsuario = 0;
+            
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 //Abre la conexion a la base de datos
@@ -24,17 +27,23 @@ namespace workout.CapaDatos
                 cmd.Parameters.AddWithValue("apellido", p_Usuario.apellido);
                 cmd.Parameters.AddWithValue("nombre", p_Usuario.nombre);
                 cmd.Parameters.AddWithValue("dni", p_Usuario.dni);
-                cmd.Parameters.AddWithValue("fecha_nac", p_Usuario.fecha_nac);
                 cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
                 cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
                 cmd.Parameters.AddWithValue("id_estado", 1);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //Obtiene el id del usuario registrado
-                idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
-                
+                // Parámetro para capturar el RETURN
+                SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
+                returnValue.Direction = ParameterDirection.ReturnValue;
+
+                // Ejecutar el SP
+                cmd.ExecuteNonQuery();
+
+                // Lee el valor devuelto por la BD
+                id_usuario = (int)returnValue.Value;
+
             }
-            return idUsuario;
+            return id_usuario;
         }
     }
 }

@@ -86,8 +86,8 @@ namespace workout.CapaPresentacion
 
             //Obtiene los datos de los campos de la vista
             int dni = int.Parse(txtDniAlumno.Text);
-            string nombre = txtApeAlumno.Text.Trim();
-            string apellido = txtNombAlumno.Text.Trim();
+            string nombre = txtNombAlumno.Text.Trim();
+            string apellido = txtApeAlumno.Text.Trim();
             DateTime fechaNac = fechaNacAlumno.Value;
             string detalles = txtDetallesAlum.Text.Trim();
             string correo = txtCorreoAlum.Text.Trim();
@@ -98,12 +98,12 @@ namespace workout.CapaPresentacion
             try
             {
                 //Le pasa los datos a la logica de negocio
-                int idAlumno = logicaAlumno.registrar(dni, nombre, apellido, fechaNac, correo, genero, detalles);
+                int id_alumno = logicaAlumno.registrar(nombre, apellido, dni, fechaNac, genero , correo, detalles);
 
-                if (idAlumno >= 0)
+                if (id_alumno >= 0)
                     MessageBox.Show("Alumno registrado con éxito");
                 else
-                    MessageBox.Show("Error al registrar el alumno");
+                    MessageBox.Show("El Alumno ya esta registrado");
             }
             catch (Exception ex)
             {

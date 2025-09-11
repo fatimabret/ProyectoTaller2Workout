@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarEntrenador));
             this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
-            this.dateEntrenador = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtApeEntrenador = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,35 +59,13 @@
             this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(184, 563);
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(194, 514);
             this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
             this.btnRegistrarEntrenador.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarEntrenador.TabIndex = 27;
             this.btnRegistrarEntrenador.Text = "REGISTRAR";
             this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
-            // 
-            // dateEntrenador
-            // 
-            this.dateEntrenador.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateEntrenador.Location = new System.Drawing.Point(127, 324);
-            this.dateEntrenador.MaxDate = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
-            this.dateEntrenador.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.dateEntrenador.Name = "dateEntrenador";
-            this.dateEntrenador.Size = new System.Drawing.Size(326, 20);
-            this.dateEntrenador.TabIndex = 42;
-            this.dateEntrenador.Value = new System.DateTime(2025, 8, 20, 0, 0, 0, 0);
-            this.dateEntrenador.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(115, 296);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 25);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Ingrese sú Fecha de nacimiento";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
             // 
             // txtApeEntrenador
             // 
@@ -177,7 +153,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(121, 361);
+            this.label5.Location = new System.Drawing.Point(121, 305);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(203, 21);
             this.label5.TabIndex = 44;
@@ -188,7 +164,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(118, 420);
+            this.label6.Location = new System.Drawing.Point(118, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(200, 21);
             this.label6.TabIndex = 46;
@@ -199,7 +175,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(118, 479);
+            this.label7.Location = new System.Drawing.Point(118, 423);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(175, 31);
             this.label7.TabIndex = 48;
@@ -209,7 +185,7 @@
             // cmbHorarioDisponible
             // 
             this.cmbHorarioDisponible.FormattingEnabled = true;
-            this.cmbHorarioDisponible.Location = new System.Drawing.Point(127, 389);
+            this.cmbHorarioDisponible.Location = new System.Drawing.Point(127, 333);
             this.cmbHorarioDisponible.Name = "cmbHorarioDisponible";
             this.cmbHorarioDisponible.Size = new System.Drawing.Size(326, 21);
             this.cmbHorarioDisponible.TabIndex = 49;
@@ -218,7 +194,7 @@
             // cmbDiasDisponibles
             // 
             this.cmbDiasDisponibles.FormattingEnabled = true;
-            this.cmbDiasDisponibles.Location = new System.Drawing.Point(127, 444);
+            this.cmbDiasDisponibles.Location = new System.Drawing.Point(127, 388);
             this.cmbDiasDisponibles.Name = "cmbDiasDisponibles";
             this.cmbDiasDisponibles.Size = new System.Drawing.Size(326, 21);
             this.cmbDiasDisponibles.TabIndex = 50;
@@ -226,7 +202,7 @@
             // cmbEspecializacion
             // 
             this.cmbEspecializacion.FormattingEnabled = true;
-            this.cmbEspecializacion.Location = new System.Drawing.Point(127, 513);
+            this.cmbEspecializacion.Location = new System.Drawing.Point(127, 457);
             this.cmbEspecializacion.Name = "cmbEspecializacion";
             this.cmbEspecializacion.Size = new System.Drawing.Size(326, 21);
             this.cmbEspecializacion.TabIndex = 51;
@@ -239,15 +215,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 620);
+            this.ClientSize = new System.Drawing.Size(560, 597);
             this.Controls.Add(this.cmbEspecializacion);
             this.Controls.Add(this.cmbDiasDisponibles);
             this.Controls.Add(this.cmbHorarioDisponible);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateEntrenador);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtApeEntrenador);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -269,8 +243,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnRegistrarEntrenador;
-        private System.Windows.Forms.DateTimePicker dateEntrenador;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtApeEntrenador;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

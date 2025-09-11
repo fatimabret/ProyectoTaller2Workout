@@ -13,7 +13,6 @@ namespace workout.CapaNegocio
         public CD_Usuario usuarioDatos = new CD_Usuario();
         public int registrarUsuario(Usuario p_usuario)
         {
-            //Lógica de negocio para registrar un usuario
             p_usuario.contrasena = " ";
             return usuarioDatos.Registrar(p_usuario); // Retorna el ID del usuario registrado (simulado)
         }

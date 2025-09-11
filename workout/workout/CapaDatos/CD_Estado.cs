@@ -37,7 +37,6 @@ namespace workout.CapaDatos
                             lista.Add(new Estado()
                             {
                                 id_estado = Convert.ToInt32(dr["id_estado"]),
-                                tipo = Convert.ToInt32(dr["tipo"]),
                                 descripcion = dr["descripcion"].ToString()
                             });
                         }
