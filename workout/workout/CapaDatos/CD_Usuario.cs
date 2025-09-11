@@ -15,8 +15,6 @@ namespace workout.CapaDatos
         int id_usuario = 0;
         public int Registrar(Usuario p_Usuario)
         {
-
-            
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 //Abre la conexion a la base de datos
@@ -29,7 +27,7 @@ namespace workout.CapaDatos
                 cmd.Parameters.AddWithValue("dni", p_Usuario.dni);
                 cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
                 cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
-                cmd.Parameters.AddWithValue("id_estado", 1);
+                cmd.Parameters.AddWithValue("id_estado", p_Usuario.id_estado);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 // Parámetro para capturar el RETURN
@@ -44,6 +42,51 @@ namespace workout.CapaDatos
 
             }
             return id_usuario;
+        }
+
+        public Usuario IniciarSesion(string p_correo, string p_contrasena)
+        {
+            Usuario usuario = null;
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                try
+                {
+                    //Abre la conexion a la base de datos
+                    conexion.Open();
+                    //Se define el comando SQL para iniciar sesion
+                    SqlCommand cmd = new SqlCommand("SP_INICIAR_SESION", conexion);
+                    //Pasa los parametros a la consulta
+                    cmd.Parameters.AddWithValue("correo", p_correo);
+                    cmd.Parameters.AddWithValue("contrasena", p_contrasena);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    // Ejecutar el SP y obtener el resultado
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Si se encuentra un usuario con las credenciales proporcionadas, crear el objeto Usuario
+                            usuario = new Usuario(
+                                reader["nombre"].ToString(),
+                                reader["apellido"].ToString(),
+                                Convert.ToInt32(reader["dni"]),
+                                reader["correo"].ToString(),
+                                reader["contrasena"].ToString(),
+                                Convert.ToInt32(reader["id_rol"])
+                            )
+                            {
+                                id_usuario = Convert.ToInt32(reader["id_usuario"]),
+                                id_estado = Convert.ToInt32(reader["id_estado"])
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de errores (puedes registrar el error o mostrar un mensaje)
+                    Console.WriteLine("Error al iniciar sesión: " + ex.Message);
+                }
+            }
+            return usuario; // Retorna el objeto Usuario o null si no se encontró
         }
     }
 }

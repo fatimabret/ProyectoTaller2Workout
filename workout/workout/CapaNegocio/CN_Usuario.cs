@@ -15,5 +15,10 @@ namespace workout.CapaNegocio
         {
             return usuarioDatos.Registrar(p_usuario); // Retorna el ID del usuario registrado 
         }
+
+        public Usuario iniciarSesion(string p_correo,string p_contrasena)
+        {
+            return usuarioDatos.IniciarSesion(p_correo, p_contrasena);
+        }
     }
 }

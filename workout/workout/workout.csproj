@@ -48,14 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapaDatos\CD_Administrador.cs" />
     <Compile Include="CapaDatos\CD_Ejercicio.cs" />
     <Compile Include="CapaDatos\CD_Entrenador.cs" />
     <Compile Include="CapaDatos\CD_Estado.cs" />
     <Compile Include="CapaDatos\CD_Membresia.cs" />
     <Compile Include="CapaDatos\CD_MetodoPago.cs" />
     <Compile Include="CapaDatos\CD_Pago.cs" />
-    <Compile Include="CapaDatos\CD_Recepcionista.cs" />
     <Compile Include="CapaDatos\CD_Rol.cs" />
     <Compile Include="CapaDatos\CD_Rutina.cs" />
     <Compile Include="CapaDatos\CD_Usuario.cs" />

@@ -12,7 +12,7 @@ namespace workout.CapaDatos
 {
     public class CD_Entrenador
     {
-        public int id_entrenador = 0;
+        int id_entrenador = 0;
         public int RegistrarEntrenador(Entrenador p_Entrenador)
         {
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
