@@ -19,7 +19,7 @@ namespace workout.CapaDatos
                 //Abre la conexion a la base de datos
                 conexion.Open();
                 //Se define el comando SQL para registrar el usuario
-                SqlCommand cmd = new SqlCommand("SP_REGISTRAR", conexion);
+                SqlCommand cmd = new SqlCommand("SP_REGISTRAR_USUARIO", conexion);
                 //Pasa los parametros a la consulta
                 cmd.Parameters.AddWithValue("apellido", p_Usuario.apellido);
                 cmd.Parameters.AddWithValue("nombre", p_Usuario.nombre);

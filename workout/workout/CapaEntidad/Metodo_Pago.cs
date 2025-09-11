@@ -9,7 +9,7 @@ namespace workout.CapaEntidad
     public class Metodo_Pago
     {
         private int id_metodo_pago { get; set; }
-        private string tipo { get; set; }
-        private double importe { get; set; }
+        private string descripcion { get; set; }
+        private int id_estado { get; set; }
     }
 }

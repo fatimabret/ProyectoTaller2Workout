@@ -10,6 +10,5 @@ namespace workout.CapaEntidad
     {
         public int id_estado { get; set; }
         public string descripcion { get; set; }
-        public int tipo { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace workout.CapaEntidad
 {
     public class Pago
     {
-        private int id_pago { get; set; }
-        private double total { get; set; }
-        private int id_membresia { get; set; }
-        private int id_metodo_pago { get; set; }
+        public int id_pago { get; set; }
+        public double importe { get; set; }
+        public int id_membresia { get; set; }
+        public int id_metodo_pago { get; set; }
     }
 }

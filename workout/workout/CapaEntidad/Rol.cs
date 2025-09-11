@@ -10,6 +10,5 @@ namespace workout.CapaEntidad
     {
         private int id_rol { get; set; }
         private string descripcion { get; set; }
-        private int id_usuario { get; set; }
     }
 }

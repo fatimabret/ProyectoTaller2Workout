@@ -1,5 +1,7 @@
 CREATE DATABASE workout;
 use workout;
+
+/*DECLARACION DE TABLAS*/
 CREATE TABLE ESTADO
 (
   id_estado INT NOT NULL,
@@ -9,7 +11,7 @@ CREATE TABLE ESTADO
 
 CREATE TABLE ALUMNO
 (
-  id_alumno INT NOT NULL,
+  id_alumno INT IDENTITY(1,1) NOT NULL,
   detalles VARCHAR(100) NOT NULL,
   genero VARCHAR(30) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
@@ -24,7 +26,7 @@ CREATE TABLE ALUMNO
 
 CREATE TABLE MEMBRESIA
 (
-  id_membresia INT NOT NULL,
+  id_membresia INT IDENTITY(1,1) NOT NULL,
   fecha_pago DATE NOT NULL,
   fecha_venc DATE NOT NULL,
   monto FLOAT NOT NULL,
@@ -44,7 +46,7 @@ CREATE TABLE ROL
 
 CREATE TABLE USUARIO
 (
-  id_usuario INT NOT NULL,
+  id_usuario INT IDENTITY(1,1) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   correo VARCHAR(50) NOT NULL,
@@ -59,7 +61,7 @@ CREATE TABLE USUARIO
 
 CREATE TABLE ENTRENADOR
 (
-  id_entrenador INT NOT NULL,
+  id_entrenador INT IDENTITY(1,1) NOT NULL,
   horario_disp DATE NOT NULL,
   detalles VARCHAR(30) NOT NULL,
   dias_disp DATE NOT NULL,
@@ -71,7 +73,7 @@ CREATE TABLE ENTRENADOR
 
 CREATE TABLE EJERCICIO
 (
-  id_ejercicio INT NOT NULL,
+  id_ejercicio INT IDENTITY(1,1) NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   serie INT NOT NULL,
   repeticiones INT NOT NULL,
@@ -104,7 +106,7 @@ CREATE TABLE METODO_PAGO
 
 CREATE TABLE PAGO
 (
-  id_pago INT NOT NULL,
+  id_pago INT IDENTITY(1,1) NOT NULL,
   importe FLOAT NOT NULL,
   id_metodo_pago INT NOT NULL,
   id_membresia INT NOT NULL,
@@ -114,7 +116,7 @@ CREATE TABLE PAGO
 );
 
 
-/*INSERTS NECESARIOS*/
+/*INSERTS*/
 INSERT INTO ROL (id_rol,descripcion) VALUES
 (1,'Administrador'),
 (2,'Recepcionista'),
@@ -130,35 +132,84 @@ select * from METODO_PAGO;
 */
 
 INSERT INTO ESTADO (id_estado, descripcion) VALUES 
-(0, 'Usuario inactivo'),
-(1, 'Usuario activo'),
-(2, 'Usuario suspendido');
+(0, 'Inactivo'),
+(1, 'Activo'),
+(2, 'Suspendido');
 select * from ESTADO;
 
-/*PROCEDIMIENTOS ALMACENADOS*/
+INSERT INTO METODO_PAGO (id_metodo_pago, descripcion, id_estado) VALUES (1,'Debito',1),(2,'Credito',1),(3,'Transferencia',1);
 
-CREATE PROC SP_LISTARESTADOS
+
+
+/*PROCEDIMIENTOS ALMACENADOS*/
+GO
+CREATE PROC SP_LISTAR_ESTADOS
 AS
 BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
 END
-
-/* REGISTRO DE ALUMNO */
-
 GO
-CREATE PROC SP_REGISTRARALUMNO
+/* REGISTRO DE ALUMNO */
+GO
+CREATE PROC SP_REGISTRAR_ALUMNO
 (
-@genero varchar (30),
-@detalles varchar(100),
-@id_usuario int
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30),
+	@correo VARCHAR(30),
+	@detalles VARCHAR(100),
+	@genero VARCHAR(30),
+	@fecha_nac DATE,
+	@dni INT,
+	@id_estado INT
 )
 AS
 BEGIN
-    INSERT INTO dbo.Alumno (detalles, genero, id_usuario) 
-    VALUES (@detalles, @genero, @id_usuario)
+	IF EXISTS(SELECT dni FROM ALUMNO WHERE alumno.dni = @dni)
+	BEGIN
+		SET @dni = -1;
+		RETURN
+	END
+
+    INSERT INTO dbo.Alumno (nombre, apellido, dni, fecha_nac, genero, correo, detalles) 
+    VALUES (@nombre,@apellido,@dni,@fecha_nac,@genero,@correo,@detalles);
+
+	SELECT SCOPE_IDENTITY() AS id_alumno;
 END
 GO
 
+GO
+CREATE PROCEDURE SP_REGISTRAR_USUARIO
+(
+  @apellido VARCHAR(30),
+  @nombre VARCHAR(30),
+  @correo VARCHAR(50),
+  @contrasena VARCHAR(150),
+  @dni INT,
+  @id_estado INT,
+  @id_rol INT
+)
+AS
+BEGIN
+	
+	IF EXISTS(SELECT dni FROM USUARIO WHERE USUARIO.dni = @dni)
+	BEGIN
+		SET @dni = -1;
+		RETURN
+	END
+
+    INSERT INTO dbo.Usuario ( apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
+    VALUES (@apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
+
+    -- Devolvemos el id_usuario insertado para confirmación
+    SELECT SCOPE_IDENTITY() AS id_usuario;
+END
+GO
+
+/*SELECTS*/
+SELECT * FROM alumno;
+SELECT * FROM estado;
+SELECT * FROM metodo_pago;
+SELECT * FROM usuario;
 
 /* Registro de Usuario */
 /*
@@ -189,31 +240,7 @@ BEGIN
 END
 GO
 */
-GO
-CREATE PROCEDURE SP_REGISTRAR_USUARIO
-(
-  @id_usuario INT,
-  @apellido VARCHAR(30),
-  @nombre VARCHAR(30),
-  @correo VARCHAR(50),
-  @contrasena VARCHAR(150),
-  @dni INT,
-  @id_estado INT,
-  @id_rol INT
-)
-AS
-BEGIN
-    INSERT INTO dbo.Usuario (id_usuario, apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
-    VALUES (@id_usuario, @apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
-    -- Devolvemos el id_usuario insertado para confirmación
-    SELECT @id_usuario AS id_usuario;
-END
-GO
-
-
-SELECT * FROM alumno
-SELECT * FROM usuario
 
 
 /* ELIMINAR DE MENU

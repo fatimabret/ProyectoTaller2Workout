@@ -60,14 +60,12 @@
     <Compile Include="CapaDatos\CD_Rutina.cs" />
     <Compile Include="CapaDatos\CD_Usuario.cs" />
     <Compile Include="CapaDatos\Conexion.cs" />
-    <Compile Include="CapaEntidad\Administrador.cs" />
     <Compile Include="CapaEntidad\Alumno.cs" />
     <Compile Include="CapaDatos\CD_Alumno.cs" />
     <Compile Include="CapaEntidad\Estado.cs" />
     <Compile Include="CapaEntidad\Metodo_Pago.cs" />
     <Compile Include="CapaEntidad\Pago.cs" />
     <Compile Include="CapaEntidad\Rol.cs" />
-    <Compile Include="CapaEntidad\Recepcionista.cs" />
     <Compile Include="CapaEntidad\Usuario.cs" />
     <Compile Include="CapaEntidad\Ejercicio.cs" />
     <Compile Include="CapaEntidad\Entrenador.cs" />

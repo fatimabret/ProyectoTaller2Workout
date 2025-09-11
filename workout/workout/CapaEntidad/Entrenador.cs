@@ -13,5 +13,6 @@ namespace workout.CapaEntidad
         public string dias_disp { get; set; }
         public string detalles { get; set; }
         public int cupo { get; set; }
+        public int id_usuario { get; set; }
     }
 }
