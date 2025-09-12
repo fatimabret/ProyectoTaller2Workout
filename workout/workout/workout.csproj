@@ -73,6 +73,18 @@
     <Compile Include="CapaNegocio\CN_Entrenador.cs" />
     <Compile Include="CapaNegocio\CN_Estado.cs" />
     <Compile Include="CapaNegocio\CN_Usuario.cs" />
+    <Compile Include="CapaPresentacion\FrmEstadisticaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmEstadisticaAlumno.Designer.cs">
+      <DependentUpon>FrmEstadisticaAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmEstadisticaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmEstadisticaPago.Designer.cs">
+      <DependentUpon>FrmEstadisticaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmListEntrenador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,18 @@
     </Compile>
     <Compile Include="CapaPresentacion\FrmDetalleAlumo.Designer.cs">
       <DependentUpon>FrmDetalleAlumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmListPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmListPago.Designer.cs">
+      <DependentUpon>FrmListPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmPago.Designer.cs">
+      <DependentUpon>FrmPago.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmRutina.cs">
       <SubType>Form</SubType>
@@ -164,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmListEntrenador.resx">
       <DependentUpon>FrmListEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmListPago.resx">
+      <DependentUpon>FrmListPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRutina.resx">
       <DependentUpon>FrmRutina.cs</DependentUpon>

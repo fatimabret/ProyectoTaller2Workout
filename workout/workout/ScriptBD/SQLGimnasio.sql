@@ -1,7 +1,6 @@
 CREATE DATABASE workout;
 use workout;
 
-/*DECLARACION DE TABLAS*/
 CREATE TABLE ESTADO
 (
   id_estado INT NOT NULL,
@@ -11,7 +10,7 @@ CREATE TABLE ESTADO
 
 CREATE TABLE ALUMNO
 (
-  id_alumno INT IDENTITY(1,1) NOT NULL,
+  id_alumno INT NOT NULL,
   detalles VARCHAR(100) NOT NULL,
   genero VARCHAR(30) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
@@ -26,7 +25,7 @@ CREATE TABLE ALUMNO
 
 CREATE TABLE MEMBRESIA
 (
-  id_membresia INT IDENTITY(1,1) NOT NULL,
+  id_membresia INT NOT NULL,
   fecha_pago DATE NOT NULL,
   fecha_venc DATE NOT NULL,
   monto FLOAT NOT NULL,
@@ -46,7 +45,7 @@ CREATE TABLE ROL
 
 CREATE TABLE USUARIO
 (
-  id_usuario INT IDENTITY(1,1) NOT NULL,
+  id_usuario INT NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   correo VARCHAR(50) NOT NULL,
@@ -61,19 +60,21 @@ CREATE TABLE USUARIO
 
 CREATE TABLE ENTRENADOR
 (
-  id_entrenador INT IDENTITY(1,1) NOT NULL,
-  horario_disp DATE NOT NULL,
+  id_entrenador INT NOT NULL,
+  horario_disp VARCHAR(30) NOT NULL,
   detalles VARCHAR(30) NOT NULL,
-  dias_disp DATE NOT NULL,
+  dias_disp VARCHAR(30) NOT NULL,
   cupo INT NOT NULL,
   id_usuario INT NOT NULL,
+  id_alumno INT NOT NULL,
   PRIMARY KEY (id_entrenador),
-  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario),
+  FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno)
 );
 
 CREATE TABLE EJERCICIO
 (
-  id_ejercicio INT IDENTITY(1,1) NOT NULL,
+  id_ejercicio INT NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   serie INT NOT NULL,
   repeticiones INT NOT NULL,
@@ -98,7 +99,7 @@ CREATE TABLE RUTINA
 CREATE TABLE METODO_PAGO
 (
   id_metodo_pago INT NOT NULL,
-  descripcion VARCHAR(30) NOT NULL,
+  tipo VARCHAR(30) NOT NULL,
   id_estado INT NOT NULL,
   PRIMARY KEY (id_metodo_pago),
   FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
@@ -106,7 +107,7 @@ CREATE TABLE METODO_PAGO
 
 CREATE TABLE PAGO
 (
-  id_pago INT IDENTITY(1,1) NOT NULL,
+  id_pago INT NOT NULL,
   importe FLOAT NOT NULL,
   id_metodo_pago INT NOT NULL,
   id_membresia INT NOT NULL,
@@ -115,7 +116,6 @@ CREATE TABLE PAGO
   FOREIGN KEY (id_membresia) REFERENCES MEMBRESIA(id_membresia)
 );
 
-
 /*INSERTS*/
 INSERT INTO ROL (id_rol,descripcion) VALUES
 (1,'Administrador'),
@@ -123,21 +123,16 @@ INSERT INTO ROL (id_rol,descripcion) VALUES
 (3,'Entrenador');
 select * from ROL;
 
-/*
-INSERT INTO METODO_PAGO(id_metodo_pago,descripcion,id_estado) VALUES
-(1,'',1),
-(2,'',1),
-(3,'',1);
-select * from METODO_PAGO;
-*/
-
 INSERT INTO ESTADO (id_estado, descripcion) VALUES 
 (0, 'Inactivo'),
 (1, 'Activo'),
 (2, 'Suspendido');
 select * from ESTADO;
 
-INSERT INTO METODO_PAGO (id_metodo_pago, descripcion, id_estado) VALUES (1,'Debito',1),(2,'Credito',1),(3,'Transferencia',1);
+INSERT INTO METODO_PAGO (id_metodo_pago, descripcion, id_estado) VALUES 
+(1,'Debito',1),
+(2,'Credito',1),
+(3,'Transferencia',1);
 
 
 
@@ -151,6 +146,15 @@ END
 GO
 
 GO
+CREATE PROC SP_LISTAR_ALUMNOS
+AS
+BEGIN
+    SELECT * FROM ALUMNO;
+END
+GO
+
+/*
+GO
 CREATE PROC SP_INICIAR_SESION
 (
 )
@@ -158,6 +162,8 @@ AS
 BEGIN
 	IF EXISTS(SELECT * FROM USUARIO WHERE USUARIO.correo == @correo AND USUARIO.contrasena == @contrasena)
 GO
+*/
+
 /* REGISTRO DE ALUMNO */
 GO
 CREATE PROC SP_REGISTRAR_ALUMNO
@@ -209,6 +215,18 @@ BEGIN
 
     -- Devolvemos el id_usuario insertado para confirmación
     RETURN CAST(SCOPE_IDENTITY() AS INT);
+END
+GO
+
+GO
+CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
+(
+	@horario_disp VARCHAR(50), 
+	@dias_disp VARCHAR(50), 
+	@detalles VARCHAR(30)
+)
+BEGIN
+    INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp)
 END
 GO
 

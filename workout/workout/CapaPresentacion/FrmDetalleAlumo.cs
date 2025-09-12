@@ -36,5 +36,19 @@ namespace workout.CapaPresentacion
 
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            CN_Alumno logicaAlumno = new CN_Alumno();
+
+            // Trae todos los alumnos
+            DataTable dt = logicaAlumno.listarAlumnos();
+
+            // Usamos BindingSource para manejar los registros
+            BindingSource binding = new BindingSource();
+            binding.DataSource = dt;
+
+            // Enlazamos los TextBox con las columnas de la tabla
+            txtNombre.DataBindings.Add("Text", binding, "nombre");
+        }
     }
 }

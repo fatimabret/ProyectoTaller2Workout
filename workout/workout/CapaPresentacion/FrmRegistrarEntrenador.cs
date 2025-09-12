@@ -16,6 +16,7 @@ namespace workout.CapaPresentacion
         public FrmRegistrarEntrenador()
         {
             InitializeComponent();
+            txtContrasena.PasswordChar = '●';
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -182,18 +183,22 @@ namespace workout.CapaPresentacion
             int dni = int.Parse(txtDniEntrenador.Text);
             string nombre = txtNomEntrenador.Text.Trim();
             string apellido = txtApeEntrenador.Text.Trim();
-            //Modificar los que faltan
-            
+            string horario_disp = cmbHorarioDisponible.SelectedItem?.ToString();
+            string dias_disp = cmbDiasDisponibles.SelectedItem?.ToString();
+            string detalles = cmbEspecializacion.SelectedItem.ToString();
+            string contrasena = txtContrasena.Text.Trim();
+            string correo = txtCorreo.Text.Trim();
+
 
             try
             {
                 //Le pasa los datos a la logica de negocio
-                int id_alumno = logicaEntrenador.registrarEntrenador(nombre, apellido, dni, fechaNac, correo, detalles);
+                int id_entrenador = logicaEntrenador.registrarEntrenador(nombre, apellido, dni, correo, contrasena, horario_disp, dias_disp, detalles);
 
-                if (id_alumno >= 0)
-                    MessageBox.Show("Alumno registrado con éxito");
+                if (id_entrenador >= 0)
+                    MessageBox.Show("Entrenador registrado con éxito");
                 else
-                    MessageBox.Show("El Alumno ya esta registrado");
+                    MessageBox.Show("El entrenador ya esta registrado");
             }
             catch (Exception ex)
             {
@@ -206,6 +211,18 @@ namespace workout.CapaPresentacion
             txtApeEntrenador.Clear();
             txtDniEntrenador.Clear();
             txtNomEntrenador.Clear();
+            txtContrasena.Clear();
+            txtCorreo.Clear();
+        }
+
+        private void cmbEspecializacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

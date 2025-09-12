@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace workout.CapaNegocio
         public int buscarAlumno(string p_nombre, string p_apellido)
         {
             return alumnoDatos.BuscarAlumno(p_nombre, p_apellido);
+        }
+
+        public DataTable listarAlumnos()
+        {
+            return alumnoDatos.ListarAlumnos();
         }
     }
 }

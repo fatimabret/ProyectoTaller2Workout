@@ -43,14 +43,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnBajaAlum = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.picMascota = new System.Windows.Forms.PictureBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtFecha_nac = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFecha_nac = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.picMascota = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -238,6 +238,56 @@
             this.panel1.Size = new System.Drawing.Size(273, 254);
             this.panel1.TabIndex = 58;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(160, 202);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 59;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(69, 168);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 58;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(91, 141);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 57;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(107, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 56;
+            // 
+            // txtFecha_nac
+            // 
+            this.txtFecha_nac.Location = new System.Drawing.Point(160, 85);
+            this.txtFecha_nac.Name = "txtFecha_nac";
+            this.txtFecha_nac.Size = new System.Drawing.Size(100, 20);
+            this.txtFecha_nac.TabIndex = 55;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(91, 50);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 54;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(91, 19);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 53;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            // 
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
@@ -247,55 +297,6 @@
             this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMascota.TabIndex = 44;
             this.picMascota.TabStop = false;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(91, 19);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 53;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(91, 50);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 54;
-            // 
-            // txtFecha_nac
-            // 
-            this.txtFecha_nac.Location = new System.Drawing.Point(160, 85);
-            this.txtFecha_nac.Name = "txtFecha_nac";
-            this.txtFecha_nac.Size = new System.Drawing.Size(100, 20);
-            this.txtFecha_nac.TabIndex = 55;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(107, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 56;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(91, 141);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 57;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(69, 168);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 58;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(160, 202);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 59;
             // 
             // FrmDetalleAlumo
             // 

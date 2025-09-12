@@ -68,5 +68,20 @@ namespace workout.CapaEntidad
             }
             return id_alumno;
         }
+
+        public DataTable ListarAlumnos()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Alumno", conexion);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
     }
 }

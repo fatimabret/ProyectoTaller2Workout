@@ -47,6 +47,10 @@
             this.cmbEspecializacion = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +64,7 @@
             this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(194, 514);
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(190, 656);
             this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
             this.btnRegistrarEntrenador.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarEntrenador.TabIndex = 27;
@@ -207,6 +211,7 @@
             this.cmbEspecializacion.Name = "cmbEspecializacion";
             this.cmbEspecializacion.Size = new System.Drawing.Size(326, 21);
             this.cmbEspecializacion.TabIndex = 51;
+            this.cmbEspecializacion.SelectedIndexChanged += new System.EventHandler(this.cmbEspecializacion_SelectedIndexChanged);
             // 
             // errorProvider1
             // 
@@ -221,7 +226,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimpiar.Location = new System.Drawing.Point(194, 549);
+            this.btnLimpiar.Location = new System.Drawing.Point(190, 691);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(196, 29);
             this.btnLimpiar.TabIndex = 52;
@@ -229,11 +234,54 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Location = new System.Drawing.Point(127, 592);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(326, 20);
+            this.txtContrasena.TabIndex = 56;
+            this.txtContrasena.Text = "********";
+            this.txtContrasena.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(118, 564);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 25);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Ingrese una Contraseña";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(118, 500);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 21);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Ingrese sú Correo";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(127, 524);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(326, 20);
+            this.txtCorreo.TabIndex = 53;
+            this.txtCorreo.Text = "Ej.: juanperez@example.ar";
+            // 
             // FrmRegistrarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 597);
+            this.ClientSize = new System.Drawing.Size(560, 749);
+            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.cmbEspecializacion);
             this.Controls.Add(this.cmbDiasDisponibles);
@@ -278,5 +326,9 @@
         private System.Windows.Forms.ComboBox cmbEspecializacion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCorreo;
     }
 }

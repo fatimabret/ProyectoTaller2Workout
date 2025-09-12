@@ -12,10 +12,10 @@ namespace workout.CapaNegocio
     public class CN_Entrenador
     {
         CD_Entrenador entrenadorDatos = new CD_Entrenador();
-        public int registrarEntrenador(string p_nombre, string p_apellido, int p_dni, string p_correo, string p_contrasena, DateTime p_horario_disp, DateTime p_dias_disp, string p_detalles, int p_cupo)
+        public int registrarEntrenador(string p_nombre, string p_apellido, int p_dni, string p_correo, string p_contrasena, string p_horario_disp, string p_dias_disp, string p_detalles)
         {
             //Crea un nuevo entrenador y setea los dato
-            Entrenador entrenador = new Entrenador(p_nombre, p_apellido, p_dni, p_correo, p_contrasena, p_horario_disp, p_dias_disp, p_detalles, p_cupo);
+            Entrenador entrenador = new Entrenador(p_nombre, p_apellido, p_dni, p_correo, p_contrasena, p_horario_disp, p_dias_disp, p_detalles);
             
             //Le pasa los datos a la capa de datos
             return entrenadorDatos.RegistrarEntrenador(entrenador); // Retorna el ID del entrenador registrado (simulado)
