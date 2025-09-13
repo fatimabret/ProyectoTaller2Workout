@@ -59,7 +59,6 @@
             this.lblPagado.TabIndex = 1;
             this.lblPagado.Text = "Pagado el";
             this.lblPagado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-    
             // 
             // lblVence
             // 
