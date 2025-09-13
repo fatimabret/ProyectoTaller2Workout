@@ -47,7 +47,7 @@
             this.cmbEspecializacion = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -80,6 +80,7 @@
             this.txtApeEntrenador.TabIndex = 38;
             this.txtApeEntrenador.Text = "Ej.: Perez";
             this.txtApeEntrenador.TextChanged += new System.EventHandler(this.txtApeEntrenador_TextChanged);
+            this.txtApeEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtApeEntrenador_Validating);
             // 
             // label3
             // 
@@ -131,8 +132,8 @@
             this.txtDniEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtDniEntrenador.TabIndex = 33;
             this.txtDniEntrenador.Text = "Ej.: 12123123";
-            this.txtDniEntrenador.TextChanged += new System.EventHandler(this.txtDniEntrenador_TextChanged);
             this.txtDniEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniEntrenador_KeyPress);
+            this.txtDniEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtDniEntrenador_Validating);
             // 
             // txtNomEntrenador
             // 
@@ -141,7 +142,7 @@
             this.txtNomEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtNomEntrenador.TabIndex = 32;
             this.txtNomEntrenador.Text = "Ej.: Juan";
-            this.txtNomEntrenador.TextChanged += new System.EventHandler(this.txtNomEntrenador_TextChanged);
+            this.txtNomEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomEntrenador_Validating);
             // 
             // lblTitulo
             // 
@@ -234,14 +235,15 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtContrasena
+            // txtContraseña
             // 
-            this.txtContrasena.Location = new System.Drawing.Point(127, 592);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(326, 20);
-            this.txtContrasena.TabIndex = 56;
-            this.txtContrasena.Text = "********";
-            this.txtContrasena.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
+            this.txtContraseña.Location = new System.Drawing.Point(127, 592);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(326, 20);
+            this.txtContraseña.TabIndex = 56;
+            this.txtContraseña.Text = "********";
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
+            this.txtContraseña.Validating += new System.ComponentModel.CancelEventHandler(this.txtContrasena_Validating);
             // 
             // label4
             // 
@@ -272,13 +274,14 @@
             this.txtCorreo.Size = new System.Drawing.Size(326, 20);
             this.txtCorreo.TabIndex = 53;
             this.txtCorreo.Text = "Ej.: juanperez@example.ar";
+            this.txtCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCorreo_Validating);
             // 
             // FrmRegistrarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 749);
-            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtCorreo);
@@ -326,7 +329,7 @@
         private System.Windows.Forms.ComboBox cmbEspecializacion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCorreo;

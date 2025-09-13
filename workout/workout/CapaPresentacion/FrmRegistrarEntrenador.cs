@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using workout.CapaNegocio;
@@ -16,7 +17,7 @@ namespace workout.CapaPresentacion
         public FrmRegistrarEntrenador()
         {
             InitializeComponent();
-            txtContrasena.PasswordChar = '●';
+            txtContraseña.PasswordChar = '●';
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -95,73 +96,9 @@ namespace workout.CapaPresentacion
             this.Close();
         }
 
-        private void txtDniEntrenador_TextChanged(object sender, EventArgs e)
-        {
-            string dni = txtDniEntrenador.Text.Trim();
-
-            // Si está vacío
-            if (string.IsNullOrEmpty(dni))
-            {
-                errorProvider1.SetError(txtDniEntrenador, "El DNI es obligatorio");
-                return;
-            }
-
-            // Si no son números
-            if (!dni.All(char.IsDigit))
-            {
-                errorProvider1.SetError(txtDniEntrenador, "El DNI solo puede contener números");
-                return;
-            }
-
-            // Si la longitud no es válida
-            if (dni.Length < 7 || dni.Length > 8)
-            {
-                errorProvider1.SetError(txtDniEntrenador, "El DNI debe tener entre 7 y 8 dígitos");
-                return;
-            }
-
-            // Si es correcto
-            errorProvider1.SetError(txtDniEntrenador, "");
-        }
-
         private void txtApeEntrenador_TextChanged(object sender, EventArgs e)
         {
-            //Validar que el apellido solo contenga letras
-            string apellido = txtApeEntrenador.Text.Trim();
-
-            if (string.IsNullOrEmpty(apellido))
-            {
-                errorProvider1.SetError(txtApeEntrenador, "El apellido es obligatorio");
-                return;
-            }
-
-            if (!apellido.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
-            {
-                errorProvider1.SetError(txtApeEntrenador, "Solo puede contener letras y espacios");
-                return;
-            }
-
-            errorProvider1.SetError(txtApeEntrenador, "");
-        }
-
-        private void txtNomEntrenador_TextChanged(object sender, EventArgs e)
-        {
-            //Validar que el nombre solo contenga letras
-            string nombre = txtNomEntrenador.Text.Trim();
-
-            if (string.IsNullOrEmpty(nombre))
-            {
-                errorProvider1.SetError(txtNomEntrenador, "El nombre es obligatorio");
-                return;
-            }
-
-            if (!nombre.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
-            {
-                errorProvider1.SetError(txtNomEntrenador, "Solo puede contener letras y espacios");
-                return;
-            }
-
-            errorProvider1.SetError(txtNomEntrenador, "");
+         
         }
 
         private void txtDniEntrenador_KeyPress(object sender, KeyPressEventArgs e)
@@ -186,7 +123,7 @@ namespace workout.CapaPresentacion
             string horario_disp = cmbHorarioDisponible.SelectedItem?.ToString();
             string dias_disp = cmbDiasDisponibles.SelectedItem?.ToString();
             string detalles = cmbEspecializacion.SelectedItem.ToString();
-            string contrasena = txtContrasena.Text.Trim();
+            string contrasena = txtContraseña.Text.Trim();
             string correo = txtCorreo.Text.Trim();
 
 
@@ -211,7 +148,7 @@ namespace workout.CapaPresentacion
             txtApeEntrenador.Clear();
             txtDniEntrenador.Clear();
             txtNomEntrenador.Clear();
-            txtContrasena.Clear();
+            txtContraseña.Clear();
             txtCorreo.Clear();
         }
 
@@ -223,6 +160,122 @@ namespace workout.CapaPresentacion
         private void txtContrasena_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtDniEntrenador_Validating(object sender, CancelEventArgs e)
+        {
+            string dni = txtDniEntrenador.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
+            {
+                errorProvider1.SetError(txtDniEntrenador, "El DNI es obligatorio");
+                e.Cancel = true;
+                return;
+            }
+
+            // Si no son números
+            if (!dni.All(char.IsDigit))
+            {
+                errorProvider1.SetError(txtDniEntrenador, "El DNI solo puede contener números");
+                e.Cancel = true;
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDniEntrenador, "El DNI debe tener entre 7 y 8 dígitos");
+                e.Cancel = true;
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDniEntrenador, "");
+        }
+
+        private void txtNomEntrenador_Validating(object sender, CancelEventArgs e)
+        {
+            //Validar que el nombre solo contenga letras
+            string nombre = txtNomEntrenador.Text.Trim();
+
+            if (string.IsNullOrEmpty(nombre))
+            {
+                errorProvider1.SetError(txtNomEntrenador, "El nombre es obligatorio");
+                e.Cancel = true;
+                return;
+            }
+
+            if (!nombre.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                errorProvider1.SetError(txtNomEntrenador, "Solo puede contener letras y espacios");
+                e.Cancel = true;
+                return;
+            }
+
+            errorProvider1.SetError(txtNomEntrenador, "");
+        }
+
+        private void txtApeEntrenador_Validating(object sender, CancelEventArgs e)
+        {
+            //Validar que el apellido solo contenga letras
+            string apellido = txtApeEntrenador.Text.Trim();
+
+            if (string.IsNullOrEmpty(apellido))
+            {
+                errorProvider1.SetError(txtApeEntrenador, "El apellido es obligatorio");
+                e.Cancel = true;
+                return;
+            }
+
+            if (!apellido.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                errorProvider1.SetError(txtApeEntrenador, "Solo puede contener letras y espacios");
+                e.Cancel = true;
+                return;
+            }
+
+            errorProvider1.SetError(txtApeEntrenador, "");
+        }
+        private bool EsCorreoValido(string correo)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(correo, patron);
+        }
+
+        private void txtCorreo_Validating(object sender, CancelEventArgs e)
+        {
+            // Validar correo
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "Debe ingresar un correo electrónico");
+                e.Cancel = true;
+                return;
+            }
+            else if (!EsCorreoValido(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "Formato de correo inválido");
+                e.Cancel = true;
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtCorreo, "");
+            }
+        }
+
+        private void txtContrasena_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+            {
+                errorProvider1.SetError(txtContraseña, "Debe ingresar la contraseña");
+                e.Cancel = true;
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtContraseña, "");
+            }
         }
     }
 }

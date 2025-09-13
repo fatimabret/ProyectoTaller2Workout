@@ -129,13 +129,15 @@ INSERT INTO ESTADO (id_estado, descripcion) VALUES
 (2, 'Suspendido');
 select * from ESTADO;
 
-INSERT INTO METODO_PAGO (id_metodo_pago, descripcion, id_estado) VALUES 
+INSERT INTO METODO_PAGO (id_metodo_pago, tipo, id_estado) VALUES 
 (1,'Debito',1),
 (2,'Credito',1),
 (3,'Transferencia',1);
 
-
-
+INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values (1,'Gonzalez','Ariel','arielgonzalez@gmail.com','12345',48715624,1,1);
+INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values (2,'Bret','Fatima','fatimabret@gmail.com','12345',41234723,1,2);
+INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values (3,'Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
+SELECT * FROM USUARIO;
 /*PROCEDIMIENTOS ALMACENADOS*/
 GO
 CREATE PROC SP_LISTAR_ESTADOS
@@ -153,16 +155,28 @@ BEGIN
 END
 GO
 
-/*
+
 GO
 CREATE PROC SP_INICIAR_SESION
 (
+    @correo VARCHAR(30),
+    @contrasena VARCHAR(30)
 )
 AS
 BEGIN
-	IF EXISTS(SELECT * FROM USUARIO WHERE USUARIO.correo == @correo AND USUARIO.contrasena == @contrasena)
+    IF EXISTS(SELECT 1 FROM USUARIO WHERE correo = @correo AND contrasena = @contrasena)
+    BEGIN
+        SELECT id_rol
+        FROM USUARIO
+        WHERE correo = @correo AND contrasena = @contrasena;
+    END
+    ELSE
+    BEGIN
+        SELECT -1 AS id_rol;
+    END
+END
 GO
-*/
+
 
 /* REGISTRO DE ALUMNO */
 GO
@@ -225,8 +239,9 @@ CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
 	@dias_disp VARCHAR(50), 
 	@detalles VARCHAR(30)
 )
+AS
 BEGIN
-    INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp)
+    INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp) VALUES(@horario_disp,@detalles,@dias_disp);
 END
 GO
 

@@ -25,6 +25,7 @@ namespace workout.CapaPresentacion
             if (!int.TryParse(txtDniAlumno.Text,out int dni))
             {
                 ePDniAlumno.SetError(txtDniAlumno, "Solo puede contener numeros");
+                
             }
         }
 

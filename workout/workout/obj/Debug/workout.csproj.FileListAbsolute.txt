@@ -64,3 +64,4 @@ C:\Taller\workout\workout\obj\Debug\workout.csproj.GenerateResource.cache
 C:\Taller\workout\workout\obj\Debug\workout.csproj.CoreCompileInputs.cache
 C:\Taller\workout\workout\obj\Debug\workout.exe
 C:\Taller\workout\workout\obj\Debug\workout.pdb
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmListPago.resources

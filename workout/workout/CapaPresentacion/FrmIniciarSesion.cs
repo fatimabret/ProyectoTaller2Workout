@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -18,38 +19,12 @@ namespace workout.CapaPresentacion
             InitializeComponent();
             txtContraseña.PasswordChar = '●';
         }
+        CN_Usuario logicaUsuario = new CN_Usuario();
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            // Validar correo
-            if (string.IsNullOrWhiteSpace(txtCorreoInicioSes.Text))
-            {
-                errorProvider1.SetError(txtCorreoInicioSes, "Debe ingresar un correo electrónico");
-                return;
-            }
-            else if (!EsCorreoValido(txtCorreoInicioSes.Text))
-            {
-                errorProvider1.SetError(txtCorreoInicioSes, "Formato de correo inválido");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(txtCorreoInicioSes, "");
-            }
-
-            // Validar contraseña
-            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
-            {
-                errorProvider1.SetError(txtContraseña, "Debe ingresar la contraseña");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(txtContraseña, "");
-            }
-
             //Verifica que el correo y la contraseña sean correctos
-            if ((txtCorreoInicioSes.Text == "arielgonzalez@gmail.com") && (txtContraseña.Text == "12345"))
+            if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text,txtContraseña.Text) == 1)
             {
                 //Llama al formulario de administrador
                 FrmInicioAdm frmAdmin = new FrmInicioAdm();
@@ -60,7 +35,7 @@ namespace workout.CapaPresentacion
                 //cierra el formulario anterior
                 this.Close();
                 
-            }else if ((txtCorreoInicioSes.Text == "fatimabret@gmail.com") && (txtContraseña.Text == "12345"))
+            }else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 2)
             {
                 //Llama al formulario de recepcionista
                 FrmInicioRec frmRecep = new FrmInicioRec();
@@ -71,7 +46,7 @@ namespace workout.CapaPresentacion
                 //cierra el formulario anterior
                 this.Close();
 
-            }else if ((txtCorreoInicioSes.Text == "bongio@gmail.com") && (txtContraseña.Text == "12345"))
+            }else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 3)
             {
                 FrmInicioEntr frmEntr = new FrmInicioEntr();
                 //oculta el formulario actual
@@ -93,17 +68,25 @@ namespace workout.CapaPresentacion
             return Regex.IsMatch(correo, patron);
         }
 
-        private void txtCorreoInicioSes_TextChanged(object sender, EventArgs e)
+
+        private void lblInicioSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCorreoInicioSes_Validating(object sender, CancelEventArgs e)
         {
             // Validar correo
             if (string.IsNullOrWhiteSpace(txtCorreoInicioSes.Text))
             {
                 errorProvider1.SetError(txtCorreoInicioSes, "Debe ingresar un correo electrónico");
+                e.Cancel = true;    
                 return;
             }
             else if (!EsCorreoValido(txtCorreoInicioSes.Text))
             {
                 errorProvider1.SetError(txtCorreoInicioSes, "Formato de correo inválido");
+                e.Cancel = true;
                 return;
             }
             else
@@ -112,22 +95,19 @@ namespace workout.CapaPresentacion
             }
         }
 
-        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        private void txtContraseña_Validating(object sender, CancelEventArgs e)
         {
+            // Validar contraseña
             if (string.IsNullOrWhiteSpace(txtContraseña.Text))
             {
                 errorProvider1.SetError(txtContraseña, "Debe ingresar la contraseña");
+                e.Cancel = true;
                 return;
             }
             else
             {
                 errorProvider1.SetError(txtContraseña, "");
             }
-        }
-
-        private void lblInicioSesion_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
