@@ -20,5 +20,10 @@ namespace workout.CapaNegocio
             //Le pasa los datos a la capa de datos
             return entrenadorDatos.RegistrarEntrenador(entrenador); // Retorna el ID del entrenador registrado (simulado)
         }
+
+        public List<Entrenador> listarEntrenadores(List<Alumno> p_alumnos)
+        {
+            return entrenadorDatos.ListarEntrenadores(p_alumnos);
+        }
     }
 }

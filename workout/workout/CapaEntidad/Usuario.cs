@@ -28,5 +28,7 @@ namespace workout.CapaEntidad
             this.id_estado = 1; //Activo por defecto
             this.id_rol = p_id_rol;
         }
+
+        public Usuario() { }
     }
 }

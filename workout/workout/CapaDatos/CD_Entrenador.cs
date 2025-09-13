@@ -46,5 +46,42 @@ namespace workout.CapaDatos
             }
             return id_entrenador;
         }
+
+        public List<Entrenador> ListarEntrenadores(List<Alumno> p_alumnos)
+        {
+            List<Entrenador> listaEntrenadores = new List<Entrenador>();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+
+                foreach (Alumno alumno in p_alumnos)
+                {
+                    SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADORES", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Paso el parámetro del alumno actual
+                    cmd.Parameters.AddWithValue("@id_alumno", alumno.id_alumno);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        listaEntrenadores.Add(new Entrenador()
+                        {
+                            id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
+                            nombre = dr["nombre"].ToString(),
+                            apellido = dr["apellido"].ToString(),
+                            id_alumno = alumno.id_alumno   
+                        });
+                    }
+
+                    dr.Close();
+                }
+            }
+
+            return listaEntrenadores;
+        }
+
     }
 }

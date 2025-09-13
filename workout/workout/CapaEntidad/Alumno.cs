@@ -29,5 +29,7 @@ namespace workout.CapaEntidad
             this.detalles = p_detalles;
             this.genero = p_genero;
         }
+
+        public Alumno() { }
     }
 }

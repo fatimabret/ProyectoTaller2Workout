@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
+using workout.CapaEntidad;
 
 namespace workout.CapaPresentacion
 {
@@ -16,15 +18,12 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        CN_Alumno logicaAlumno = new CN_Alumno();
+        CN_Entrenador logicaEntrenador = new CN_Entrenador();
+        private void FrmListAlumnos_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
+            List<Alumno> listaAlumnos = logicaAlumno.listarAlumnos();
+            List<Entrenador> listaEntrenadores = logicaEntrenador.listarEntrenadores(listaAlumnos);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace workout.CapaEntidad
         public string dias_disp { get; set; }
         public string detalles { get; set; }
         public int cupo { get; set; }
+        public int id_alumno { get; set; }
         //Constructor
         public Entrenador(string p_nombre, string p_apellido, int p_dni, string p_correo, string p_contrasena, string p_horario_disp, string p_dias_disp, string p_detalles)
             //LLama al constructor de la clase base (Usuario)
@@ -26,5 +27,6 @@ namespace workout.CapaEntidad
             this.id_estado = 1; //Activo por defecto
             
         }
+        public Entrenador() { }
     }
 }

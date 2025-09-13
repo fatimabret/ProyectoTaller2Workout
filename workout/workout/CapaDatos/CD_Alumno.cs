@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -69,18 +70,31 @@ namespace workout.CapaEntidad
             return id_alumno;
         }
 
-        public DataTable ListarAlumnos()
+        public List<Alumno> ListarAlumnos()
         {
-            DataTable dt = new DataTable();
+            List<Alumno> listaAlumnos = new List<Alumno>();
 
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Alumno", conexion);
-                da.Fill(dt);
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_ALUMNOS", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    listaAlumnos.Add(new Alumno()
+                    {
+                        id_alumno = Convert.ToInt32(dr["id_alumno"]),
+                        nombre = dr["nombre"].ToString(),
+                        apellido = dr["apellido"].ToString(),
+                        dni = Convert.ToInt32(dr["dni"]),
+                    });
+                }
             }
 
-            return dt;
+            return listaAlumnos;
         }
 
     }

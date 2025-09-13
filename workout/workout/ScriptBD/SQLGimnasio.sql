@@ -155,6 +155,24 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_LISTAR_ENTRENADORES
+    @id_alumno INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        u.id_usuario AS Id_Entrenador,
+        u.nombre,
+        u.apellido
+    FROM Usuario u
+    INNER JOIN Alumno ae ON ae.id_usuario = u.id_Usuario
+    WHERE ae.Id_Alumno = @id_alumno
+      AND u.Id_Rol = 2;  -- 2 = Entrenador
+END
+GO
+
+
 GO
 CREATE PROC SP_INICIAR_SESION
 (

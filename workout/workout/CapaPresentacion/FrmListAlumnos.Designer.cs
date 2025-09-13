@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListAlumnos));
             this.listAlumnos = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
@@ -57,17 +57,6 @@
             this.listAlumnos.RowHeadersVisible = false;
             this.listAlumnos.Size = new System.Drawing.Size(479, 362);
             this.listAlumnos.TabIndex = 0;
-            this.listAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(188, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "LISTA DE ALUMNOS";
             // 
             // DNI
             // 
@@ -97,6 +86,16 @@
             this.Column1.HeaderText = "ENTRENADOR";
             this.Column1.Name = "Column1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(188, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "LISTA DE ALUMNOS";
+            // 
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
@@ -117,6 +116,7 @@
             this.Controls.Add(this.listAlumnos);
             this.Name = "FrmListAlumnos";
             this.Text = "Lista Alumnos";
+            this.Load += new System.EventHandler(this.FrmListAlumnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
