@@ -121,5 +121,10 @@ namespace workout.CapaPresentacion
                 return;
             }
         }
+
+        private void btnRenovarMembresia_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -209,6 +209,7 @@
             this.btnRenovarMembresia.TabIndex = 22;
             this.btnRenovarMembresia.Text = "RENOVAR MEMBRESIA";
             this.btnRenovarMembresia.UseVisualStyleBackColor = false;
+            this.btnRenovarMembresia.Click += new System.EventHandler(this.btnRenovarMembresia_Click);
             // 
             // errorProvider1
             // 

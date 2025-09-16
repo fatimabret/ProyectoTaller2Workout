@@ -23,8 +23,12 @@ namespace workout.CapaPresentacion
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+            //var resultado = logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text);
+            //int idUsuario = resultado.idUsuario;
+            //int idRol = resultado.idRol;
+
             //Verifica que el correo y la contraseña sean correctos
-            if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text,txtContraseña.Text) == 1)
+            if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 1)
             {
                 //Llama al formulario de administrador
                 FrmInicioAdm frmAdmin = new FrmInicioAdm();
@@ -34,8 +38,9 @@ namespace workout.CapaPresentacion
                 frmAdmin.ShowDialog();
                 //cierra el formulario anterior
                 this.Close();
-                
-            }else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 2)
+
+            }
+            else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 2)
             {
                 //Llama al formulario de recepcionista
                 FrmInicioRec frmRecep = new FrmInicioRec();
@@ -46,8 +51,11 @@ namespace workout.CapaPresentacion
                 //cierra el formulario anterior
                 this.Close();
 
-            }else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 3)
+            }
+            else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 3)
             {
+                //int idEntrenador = ObtenerIdEntrenadorPorUsuario(idUsuario);
+
                 FrmInicioEntr frmEntr = new FrmInicioEntr();
                 //oculta el formulario actual
                 this.Hide();
@@ -80,7 +88,7 @@ namespace workout.CapaPresentacion
             if (string.IsNullOrWhiteSpace(txtCorreoInicioSes.Text))
             {
                 errorProvider1.SetError(txtCorreoInicioSes, "Debe ingresar un correo electrónico");
-                e.Cancel = true;    
+                e.Cancel = true;
                 return;
             }
             else if (!EsCorreoValido(txtCorreoInicioSes.Text))
@@ -109,5 +117,11 @@ namespace workout.CapaPresentacion
                 errorProvider1.SetError(txtContraseña, "");
             }
         }
+
+        private void txtCorreoInicioSes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

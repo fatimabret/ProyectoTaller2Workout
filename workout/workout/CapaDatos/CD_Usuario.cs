@@ -72,6 +72,30 @@ namespace workout.CapaDatos
             return id_rol; // Devuelve el rol del usuario, o si no existe
         }
 
+        /*  Estas modificaciones son para retornar id_usuario e id_rol,
+         *  pero complican el manejo en la capa de negocio y presentación
+         *  
+         *  public (int idUsuario, int idRol) IniciarSesion(string correo, string contrasena)
+         *  {
+         *      using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+         *      {
+         *          conexion.Open();
+         *          SqlCommand cmd = new SqlCommand("SP_INICIAR_SESION", conexion);
+         *          cmd.CommandType = CommandType.StoredProcedure;
+         *          cmd.Parameters.AddWithValue("@correo", correo);
+         *          cmd.Parameters.AddWithValue("@contrasena", contrasena);
+         *          SqlDataReader dr = cmd.ExecuteReader();
+         *          if (dr.Read())
+         *          {
+         *              return (Convert.ToInt32(dr["id_usuario"]), Convert.ToInt32(dr["id_rol"]));
+         *          }
+         *          else
+         *          {
+         *              return (-1, -1);
+         *          }
+         *      }
+         *  }
+         */
     }
 }
 

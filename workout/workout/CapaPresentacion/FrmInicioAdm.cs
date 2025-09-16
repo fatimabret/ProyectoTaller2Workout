@@ -89,5 +89,10 @@ namespace workout.CapaPresentacion
                 e.Handled = true; // Bloquea el caracter
             }
         }
+
+        private void btnConsultarPago_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

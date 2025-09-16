@@ -153,6 +153,7 @@
             this.btnEditar.TabIndex = 46;
             this.btnEditar.Text = "EDITAR RUTINA";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -169,6 +170,7 @@
             this.btnEliminar.TabIndex = 47;
             this.btnEliminar.Text = "ELIMINAR RUTINA";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FrmRutina
             // 

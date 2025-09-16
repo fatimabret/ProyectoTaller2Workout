@@ -88,7 +88,7 @@
             this.txtCorreoInicioSes.Size = new System.Drawing.Size(301, 25);
             this.txtCorreoInicioSes.TabIndex = 46;
             this.txtCorreoInicioSes.Text = "Ingrese su correo";
-
+            this.txtCorreoInicioSes.TextChanged += new System.EventHandler(this.txtCorreoInicioSes_TextChanged);
             this.txtCorreoInicioSes.Validating += new System.ComponentModel.CancelEventHandler(this.txtCorreoInicioSes_Validating);
             // 
             // txtContraseña

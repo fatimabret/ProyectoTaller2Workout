@@ -192,6 +192,9 @@
     <EmbeddedResource Include="CapaPresentacion\FrmListPago.resx">
       <DependentUpon>FrmListPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmPago.resx">
+      <DependentUpon>FrmPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRutina.resx">
       <DependentUpon>FrmRutina.cs</DependentUpon>
     </EmbeddedResource>

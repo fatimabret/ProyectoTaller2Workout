@@ -39,7 +39,7 @@ namespace workout.CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Llama al formulario de lista de alumnos
-            FrmListAlumnos frm = new FrmListAlumnos();
+            FrmAlumnosList frm = new FrmAlumnosList();
 
             frm.ShowDialog();
         }

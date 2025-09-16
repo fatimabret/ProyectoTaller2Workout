@@ -96,6 +96,23 @@ namespace workout.CapaEntidad
 
             return listaAlumnos;
         }
+        public DataTable ListarAlumnosPorEntrenador(int idEntrenador)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_ALUMNOS_POR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_entrenador", idEntrenador);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+            }
+
+            return tabla;
+        }
 
     }
 }

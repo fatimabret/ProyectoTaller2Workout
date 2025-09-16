@@ -95,6 +95,7 @@
             this.btnConsultarPago.TabIndex = 28;
             this.btnConsultarPago.Text = "CONSULTAR PAGO";
             this.btnConsultarPago.UseVisualStyleBackColor = false;
+            this.btnConsultarPago.Click += new System.EventHandler(this.btnConsultarPago_Click);
             // 
             // txtDni
             // 

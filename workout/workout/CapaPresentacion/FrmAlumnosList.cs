@@ -7,17 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
     public partial class FrmAlumnosList : Form
     {
-        public FrmAlumnosList()
+        private int idEntrenador;
+
+        public FrmAlumnosList(int idEntrenador)
         {
             InitializeComponent();
+            this.idEntrenador = idEntrenador;
+        }
+
+        private void FrmAlumnosList_Load(object sender, EventArgs e)
+        {
+            CN_Alumno logicaAlumno = new CN_Alumno();
+            DataTable alumnos = logicaAlumno.listarAlumnosPorEntrenador(idEntrenador);
+
+            dataGridView1.DataSource = alumnos;
+
+            // Opcional: cambiar los encabezados de las columnas
+            dataGridView1.Columns["DNI"].HeaderText = "DNI";
+            dataGridView1.Columns["nombre"].HeaderText = "NOMB";
+            dataGridView1.Columns["apellido"].HeaderText = "APELL";
+            dataGridView1.Columns["detalles"].HeaderText = "DETALLES";
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

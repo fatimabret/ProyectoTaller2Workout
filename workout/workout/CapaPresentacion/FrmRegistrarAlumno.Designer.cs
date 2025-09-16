@@ -100,6 +100,7 @@
             // rbHombre
             // 
             this.rbHombre.AutoSize = true;
+            this.rbHombre.Checked = true;
             this.rbHombre.Location = new System.Drawing.Point(145, 564);
             this.rbHombre.Name = "rbHombre";
             this.rbHombre.Size = new System.Drawing.Size(62, 17);

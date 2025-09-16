@@ -28,5 +28,11 @@ namespace workout.CapaNegocio
         {
             return alumnoDatos.ListarAlumnos();
         }
+
+        public DataTable listarAlumnosPorEntrenador(int idEntrenador)
+        {
+            return alumnoDatos.ListarAlumnosPorEntrenador(idEntrenador);
+        }
+
     }
 }
