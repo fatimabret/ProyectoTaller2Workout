@@ -12,27 +12,28 @@ namespace workout.CapaDatos
 {
     public class CD_Entrenador
     {
-        int id_entrenador = 0;
+        
         public int RegistrarEntrenador(Entrenador p_Entrenador)
         {
+            int id_entrenador = 0;
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 CD_Usuario usuarioDatos = new CD_Usuario();
-                //Crea el usuario y obtiene su ID
+
+                // Crea el usuario y obtiene su ID
                 int id_usuario = usuarioDatos.Registrar(p_Entrenador);
-                //Abre la conexion a la base de datos
+
                 conexion.Open();
+
                 //Se define el comando SQL para registrar el usuario
-                SqlCommand cmd = new SqlCommand("SP_REGISTRAR_ALUMNO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_REGISTRAR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                //Pasa los parametros a la consulta
-                cmd.Parameters.AddWithValue("horario_disp", p_Entrenador.horario_disp);
-                cmd.Parameters.AddWithValue("dias_disp", p_Entrenador.dias_disp);
-                cmd.Parameters.AddWithValue("cupo", p_Entrenador.cupo);
-                cmd.Parameters.AddWithValue("detalles", p_Entrenador.detalles);
-                cmd.Parameters.AddWithValue("id_usuario", id_usuario);
-
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@horario_disp", p_Entrenador.horario_disp);
+                cmd.Parameters.AddWithValue("@dias_disp", p_Entrenador.dias_disp);
+                cmd.Parameters.AddWithValue("@cupo", p_Entrenador.cupo);
+                cmd.Parameters.AddWithValue("@detalles", p_Entrenador.detalles);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
 
                 // Parámetro para capturar el RETURN
                 SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
@@ -44,44 +45,99 @@ namespace workout.CapaDatos
                 // Lee el valor devuelto por la BD
                 id_entrenador = (int)returnValue.Value;
             }
+
             return id_entrenador;
         }
-
-        public List<Entrenador> ListarEntrenadores(List<Alumno> p_alumnos)
+        public Entrenador ObtenerEntrenadorPorAlumno(int id_alumno)
         {
-            List<Entrenador> listaEntrenadores = new List<Entrenador>();
+            Entrenador entrenador = null;
 
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADOR_POR_ALUMNO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_alumno", id_alumno);
 
-                foreach (Alumno alumno in p_alumnos)
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    entrenador = new Entrenador()
+                    {
+                        id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
+                        nombre = dr["nombre"].ToString(),
+                        apellido = dr["apellido"].ToString()
+                    };
+                }
+            }
+
+            return entrenador;
+        }
+
+        public int ObtenerIdEntrenadorPorUsuario(int id_usuario)
+        {
+            int id_entrenador = -1;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_ID_ENTRENADOR_POR_USUARIO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    id_entrenador = Convert.ToInt32(result);
+                }
+            }
+
+            return id_entrenador;
+        }
+
+        public DataTable ListarAlumnosPorEntrenador(int id_entrenador)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_ALUMNOS_POR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_entrenador", id_entrenador);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+            }
+
+            return tabla;
+        }
+
+        //esto seguro esta mal, no le des mucha bola, despues lo arreglo
+        public List<Entrenador> ListarEntrenadores(List<Alumno> p_alumnos)
+        {
+            List<Entrenador> listaEntrenadores = new List<Entrenador>();
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open(); foreach (Alumno alumno in p_alumnos)
                 {
                     SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADORES", conexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Paso el parámetro del alumno actual
+                    cmd.CommandType = CommandType.StoredProcedure; // Paso el parámetro del alumno actual
                     cmd.Parameters.AddWithValue("@id_alumno", alumno.id_alumno);
-
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
+                    SqlDataReader dr = cmd.ExecuteReader(); while (dr.Read())
                     {
                         listaEntrenadores.Add(new Entrenador()
                         {
                             id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
                             nombre = dr["nombre"].ToString(),
                             apellido = dr["apellido"].ToString(),
-                            id_alumno = alumno.id_alumno   
+                            id_alumno = alumno.id_alumno
                         });
                     }
-
                     dr.Close();
                 }
             }
-
             return listaEntrenadores;
         }
-
     }
 }

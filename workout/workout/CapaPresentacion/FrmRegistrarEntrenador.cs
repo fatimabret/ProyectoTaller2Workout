@@ -126,11 +126,14 @@ namespace workout.CapaPresentacion
             string contrasena = txtContraseña.Text.Trim();
             string correo = txtCorreo.Text.Trim();
 
+            //esto esta hardcodeado porque no se pide en el formulario (esta mal)
+            int cupo = 0;
 
             try
             {
                 //Le pasa los datos a la logica de negocio
-                int id_entrenador = logicaEntrenador.registrarEntrenador(nombre, apellido, dni, correo, contrasena, horario_disp, dias_disp, detalles);
+                int id_entrenador = logicaEntrenador.RegistrarEntrenador(nombre, apellido, dni, correo, contrasena, horario_disp, dias_disp, detalles, cupo);
+
 
                 if (id_entrenador >= 0)
                     MessageBox.Show("Entrenador registrado con éxito");

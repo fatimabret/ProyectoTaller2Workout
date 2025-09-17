@@ -12,9 +12,12 @@ namespace workout.CapaPresentacion
 {
     public partial class FrmInicioEntr : Form
     {
-        public FrmInicioEntr()
+        private int idEntrenador;
+
+        public FrmInicioEntr(int idEntrenador)
         {
             InitializeComponent();
+            this.idEntrenador = idEntrenador;
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -39,8 +42,7 @@ namespace workout.CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Llama al formulario de lista de alumnos
-            FrmAlumnosList frm = new FrmAlumnosList();
-
+            FrmAlumnosList frm = new FrmAlumnosList(this.idEntrenador);
             frm.ShowDialog();
         }
 
@@ -78,6 +80,19 @@ namespace workout.CapaPresentacion
             {
                 e.Handled = true; // Bloquea el caracter
             }
+        }
+
+        private void ConslRutina_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de rutina
+            FrmRutina frm = new FrmRutina();
+
+            frm.ShowDialog();
+        }
+
+        private void AlumnosList_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

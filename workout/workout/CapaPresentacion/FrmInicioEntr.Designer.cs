@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioEntr));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConslRutina = new System.Windows.Forms.Button();
+            this.btnAlumnosList = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEntrenadores = new System.Windows.Forms.Button();
+            this.btnRutina = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
@@ -45,35 +45,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnConslRutina
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(305, 268);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 29);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "CONSULTAR RUTINA";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnConslRutina.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnConslRutina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConslRutina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConslRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConslRutina.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConslRutina.Location = new System.Drawing.Point(305, 268);
+            this.btnConslRutina.Name = "btnConslRutina";
+            this.btnConslRutina.Size = new System.Drawing.Size(179, 29);
+            this.btnConslRutina.TabIndex = 41;
+            this.btnConslRutina.Text = "CONSULTAR RUTINA";
+            this.btnConslRutina.UseVisualStyleBackColor = false;
+            this.btnConslRutina.Click += new System.EventHandler(this.ConslRutina_Click);
             // 
-            // button1
+            // btnAlumnosList
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(206, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 29);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "LISTA ALUMNOS";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAlumnosList.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAlumnosList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlumnosList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlumnosList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumnosList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAlumnosList.Location = new System.Drawing.Point(206, 339);
+            this.btnAlumnosList.Name = "btnAlumnosList";
+            this.btnAlumnosList.Size = new System.Drawing.Size(179, 29);
+            this.btnAlumnosList.TabIndex = 40;
+            this.btnAlumnosList.Text = "LISTA ALUMNOS";
+            this.btnAlumnosList.UseVisualStyleBackColor = false;
+            this.btnAlumnosList.Click += new System.EventHandler(this.AlumnosList_Click);
             // 
             // txtDni
             // 
@@ -98,20 +98,20 @@
             this.label1.Text = "Consulte Rutina del Alumno";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnEntrenadores
+            // btnRutina
             // 
-            this.btnEntrenadores.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnEntrenadores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEntrenadores.Location = new System.Drawing.Point(416, 339);
-            this.btnEntrenadores.Name = "btnEntrenadores";
-            this.btnEntrenadores.Size = new System.Drawing.Size(179, 29);
-            this.btnEntrenadores.TabIndex = 35;
-            this.btnEntrenadores.Text = "REGISTRAR RUTINA";
-            this.btnEntrenadores.UseVisualStyleBackColor = false;
-            this.btnEntrenadores.Click += new System.EventHandler(this.btnEntrenadores_Click);
+            this.btnRutina.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRutina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRutina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRutina.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRutina.Location = new System.Drawing.Point(416, 339);
+            this.btnRutina.Name = "btnRutina";
+            this.btnRutina.Size = new System.Drawing.Size(179, 29);
+            this.btnRutina.TabIndex = 35;
+            this.btnRutina.Text = "REGISTRAR RUTINA";
+            this.btnRutina.UseVisualStyleBackColor = false;
+            this.btnRutina.Click += new System.EventHandler(this.btnEntrenadores_Click);
             // 
             // btnCerrarSesion
             // 
@@ -170,11 +170,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConslRutina);
+            this.Controls.Add(this.btnAlumnosList);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnEntrenadores);
+            this.Controls.Add(this.btnRutina);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioEntr";
@@ -191,11 +191,11 @@
 
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConslRutina;
+        private System.Windows.Forms.Button btnAlumnosList;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEntrenadores;
+        private System.Windows.Forms.Button btnRutina;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.ErrorProvider errorProvider1;

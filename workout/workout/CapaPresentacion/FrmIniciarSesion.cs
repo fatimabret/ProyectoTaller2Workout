@@ -23,12 +23,11 @@ namespace workout.CapaPresentacion
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            //var resultado = logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text);
-            //int idUsuario = resultado.idUsuario;
-            //int idRol = resultado.idRol;
+            var resultado = logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text);
+            int idUsuario = resultado.idUsuario;
+            int idRol = resultado.idRol;
 
-            //Verifica que el correo y la contraseña sean correctos
-            if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 1)
+            if (idRol == 1)
             {
                 //Llama al formulario de administrador
                 FrmInicioAdm frmAdmin = new FrmInicioAdm();
@@ -38,9 +37,8 @@ namespace workout.CapaPresentacion
                 frmAdmin.ShowDialog();
                 //cierra el formulario anterior
                 this.Close();
-
             }
-            else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 2)
+            else if (idRol == 2)
             {
                 //Llama al formulario de recepcionista
                 FrmInicioRec frmRecep = new FrmInicioRec();
@@ -50,13 +48,14 @@ namespace workout.CapaPresentacion
                 frmRecep.ShowDialog();
                 //cierra el formulario anterior
                 this.Close();
-
             }
-            else if (logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text) == 3)
+            else if (idRol == 3)
             {
-                //int idEntrenador = ObtenerIdEntrenadorPorUsuario(idUsuario);
+                // Antes de abrir el inicio del entrenador, buscamos su id_entrenador
+                CN_Entrenador logicaEntrenador = new CN_Entrenador();
+                int idEntrenador = logicaEntrenador.ObtenerIdEntrenadorPorUsuario(idUsuario);
 
-                FrmInicioEntr frmEntr = new FrmInicioEntr();
+                FrmInicioEntr frmEntr = new FrmInicioEntr(idEntrenador);
                 //oculta el formulario actual
                 this.Hide();
                 //setea el nuevo formulario como el actual
@@ -68,6 +67,7 @@ namespace workout.CapaPresentacion
             {
                 lblCredenciales.Text = "CREDENCIALES INVALIDAS!!!!";
             }
+
         }
 
         private bool EsCorreoValido(string correo)

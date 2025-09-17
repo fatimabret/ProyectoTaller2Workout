@@ -16,17 +16,10 @@ namespace workout.CapaNegocio
             return usuarioDatos.Registrar(p_usuario); // Retorna el ID del usuario registrado 
         }
 
-        public int iniciarSesion(string p_correo,string p_contrasena)
+        public (int idUsuario, int idRol) iniciarSesion(string correo, string contrasena)
         {
-            Usuario usuario = new Usuario("","",0,p_correo,p_contrasena,0);
-            return usuarioDatos.IniciarSesion(usuario.correo,usuario.contrasena);
+            return usuarioDatos.IniciarSesion(correo, contrasena);
         }
 
-        /* Nuevo método que retorna una tupla con idUsuario e idRol
-         * public (int idUsuario, int idRol) iniciarSesion(string correo, string contrasena)
-         * {
-         *      return usuarioDatos.IniciarSesion(correo, contrasena);
-         * }
-         */
     }
 }

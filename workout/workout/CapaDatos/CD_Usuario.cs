@@ -44,58 +44,31 @@ namespace workout.CapaDatos
             return id_usuario;
         }
 
-        public int IniciarSesion(string p_correo, string p_contrasena)
+        public (int idUsuario, int idRol) IniciarSesion(string correo, string contrasena)
         {
-            int id_rol = 0; // 0 = no encontrado o sin rol asignado
-
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_INICIAR_SESION", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.Parameters.AddWithValue("@contrasena", contrasena);
 
-                using (SqlCommand cmd = new SqlCommand("SP_INICIAR_SESION", conexion))
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
                 {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@correo", p_correo);
-                    cmd.Parameters.AddWithValue("@contrasena", p_contrasena);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // Solo devolvemos el id_rol
-                            id_rol = Convert.ToInt32(reader["id_rol"]);
-                        }
-                    }
+                    return (
+                        Convert.ToInt32(dr["id_usuario"]),
+                        Convert.ToInt32(dr["id_rol"])
+                    );
+                }
+                else
+                {
+                    return (-1, -1); // Devuelve el rol del usuario, o -1 si no existe
                 }
             }
-
-            return id_rol; // Devuelve el rol del usuario, o si no existe
         }
-
-        /*  Estas modificaciones son para retornar id_usuario e id_rol,
-         *  pero complican el manejo en la capa de negocio y presentación
-         *  
-         *  public (int idUsuario, int idRol) IniciarSesion(string correo, string contrasena)
-         *  {
-         *      using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
-         *      {
-         *          conexion.Open();
-         *          SqlCommand cmd = new SqlCommand("SP_INICIAR_SESION", conexion);
-         *          cmd.CommandType = CommandType.StoredProcedure;
-         *          cmd.Parameters.AddWithValue("@correo", correo);
-         *          cmd.Parameters.AddWithValue("@contrasena", contrasena);
-         *          SqlDataReader dr = cmd.ExecuteReader();
-         *          if (dr.Read())
-         *          {
-         *              return (Convert.ToInt32(dr["id_usuario"]), Convert.ToInt32(dr["id_rol"]));
-         *          }
-         *          else
-         *          {
-         *              return (-1, -1);
-         *          }
-         *      }
-         *  }
-         */
+        
     }
 }
 

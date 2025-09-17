@@ -148,7 +148,7 @@ SELECT * FROM USUARIO;
 
 /* Listados simples */
 GO
-CREATE PROC SP_LISTAR_ESTADOS
+CREATE PROC SP_LISTAR_ESTADOS -- todos los tipos de listados
 AS
 BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
@@ -156,15 +156,16 @@ END
 GO
 
 GO
-CREATE PROC SP_LISTAR_ALUMNOS
+CREATE PROC SP_LISTAR_ALUMNOS -- todos los alumnos del sistema
 AS
 BEGIN
     SELECT * FROM ALUMNO ORDER BY ALUMNO.apellido ASC;
 END
 GO
 
+/*
 GO
-CREATE PROCEDURE SP_LISTAR_ENTRENADORES
+CREATE PROCEDURE SP_LISTAR_ENTRENADORES -- todos los entrenadores del sistema
     @id_alumno INT
 AS
 BEGIN
@@ -179,9 +180,10 @@ BEGIN
         e.cupo
     FROM ENTRENADOR e
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
-    WHERE e.id_alumno = @id_alumno;
+    WHERE e.id_alumno = @id_alumno; -- TENGO QUE MODIFICAR ESTE PARAMETRO QUE NO ESTA EN LA TABLA ENTRENADOR
 END
 GO
+*/
 
 /*      Listados entre tablas       */
 /*  ENTRENADOR ASIGNADO A UN ALUMNO EN ESPECIFICO  */
@@ -199,6 +201,19 @@ BEGIN
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
     INNER JOIN ALUMNO a ON a.id_entrenador = e.id_entrenador
     WHERE a.id_alumno = @id_alumno;
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
+    @id_usuario INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT id_entrenador
+    FROM ENTRENADOR
+    WHERE id_usuario = @id_usuario;
 END
 GO
 
@@ -223,6 +238,7 @@ BEGIN
 END
 GO
 
+/*      INICIAR SESION    */
 GO
 CREATE PROC SP_INICIAR_SESION
 (
