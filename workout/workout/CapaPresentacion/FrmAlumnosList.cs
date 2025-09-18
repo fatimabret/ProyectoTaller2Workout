@@ -33,6 +33,7 @@ namespace workout.CapaPresentacion
             dataGridView1.Columns["nombre"].HeaderText = "NOMB";
             dataGridView1.Columns["apellido"].HeaderText = "APELL";
             dataGridView1.Columns["detalles"].HeaderText = "DETALLES";
+
         }
 
         private void label1_Click(object sender, EventArgs e)

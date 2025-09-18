@@ -113,31 +113,32 @@ namespace workout.CapaDatos
             return tabla;
         }
 
-        //esto seguro esta mal, no le des mucha bola, despues lo arreglo
-        public List<Entrenador> ListarEntrenadores(List<Alumno> p_alumnos)
+        public List<Entrenador> ListarEntrenadores()
         {
-            List<Entrenador> listaEntrenadores = new List<Entrenador>();
+            List<Entrenador> lista = new List<Entrenador>();
+
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
-                conexion.Open(); foreach (Alumno alumno in p_alumnos)
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADORES", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADORES", conexion);
-                    cmd.CommandType = CommandType.StoredProcedure; // Paso el parámetro del alumno actual
-                    cmd.Parameters.AddWithValue("@id_alumno", alumno.id_alumno);
-                    SqlDataReader dr = cmd.ExecuteReader(); while (dr.Read())
+                    lista.Add(new Entrenador
                     {
-                        listaEntrenadores.Add(new Entrenador()
-                        {
-                            id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
-                            nombre = dr["nombre"].ToString(),
-                            apellido = dr["apellido"].ToString(),
-                            id_alumno = alumno.id_alumno
-                        });
-                    }
-                    dr.Close();
+                        id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
+                        nombre = dr["nombre"].ToString(),
+                        apellido = dr["apellido"].ToString(),
+                        horario_disp = dr["horario_disp"].ToString(),
+                        dias_disp = dr["dias_disp"].ToString()
+                    });
                 }
             }
-            return listaEntrenadores;
+
+            return lista;
         }
+
     }
 }

@@ -23,7 +23,7 @@ namespace workout.CapaPresentacion
         private void FrmListAlumnos_Load(object sender, EventArgs e)
         {
             List<Alumno> listaAlumnos = logicaAlumno.listarAlumnos();
-            List<Entrenador> listaEntrenadores = logicaEntrenador.listarEntrenadores(listaAlumnos);
+            List<Entrenador> listaEntrenadores = logicaEntrenador.ListarEntrenadores();
         }
     }
 }

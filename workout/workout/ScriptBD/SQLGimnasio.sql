@@ -1,48 +1,18 @@
 CREATE DATABASE workout;
 use workout;
 
-CREATE TABLE ESTADO
-(
-  id_estado INT NOT NULL,
-  descripcion VARCHAR(30) NOT NULL,
-  CONSTRAINT PK_estado PRIMARY KEY (id_estado)
-);
-
-CREATE TABLE ALUMNO
-(
-  id_alumno INT NOT NULL,
-  detalles VARCHAR(100) NOT NULL,
-  genero VARCHAR(30) NOT NULL,
-  apellido VARCHAR(30) NOT NULL,
-  nombre VARCHAR(30) NOT NULL,
-  correo VARCHAR(30) NOT NULL,
-  fecha_nac DATE NOT NULL,
-  dni INT NOT NULL,
-  id_estado INT NOT NULL,
-  id_entrenador INT NOT NULL,
-  CONSTRAINT PK_alumno PRIMARY KEY (id_alumno),
-  CONSTRAINT FK_alumno_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado),
-  CONSTRAINT FK_ALUMNO_ENTRENADOR FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR(id_entrenador)
-);
-
-CREATE TABLE MEMBRESIA
-(
-  id_membresia INT NOT NULL,
-  fecha_pago DATE NOT NULL,
-  fecha_venc DATE NOT NULL,
-  monto FLOAT NOT NULL,
-  id_alumno INT NOT NULL,
-  id_estado INT NOT NULL,
-  CONSTRAINT PK_membresia PRIMARY KEY (id_membresia),
-  CONSTRAINT FK_membresia_alumno FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
-  CONSTRAINT FK_membresia_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
-);
-
 CREATE TABLE ROL
 (
   id_rol INT NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   CONSTRAINT PK_rol PRIMARY KEY (id_rol)
+);
+
+CREATE TABLE ESTADO
+(
+  id_estado INT NOT NULL,
+  descripcion VARCHAR(30) NOT NULL,
+  CONSTRAINT PK_estado PRIMARY KEY (id_estado)
 );
 
 CREATE TABLE USUARIO
@@ -72,6 +42,36 @@ CREATE TABLE ENTRENADOR
   CONSTRAINT FK_entrenador_usuario FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
+CREATE TABLE ALUMNO
+(
+  id_alumno INT IDENTITY(1,1) NOT NULL,
+  detalles VARCHAR(100) NOT NULL,
+  genero VARCHAR(30) NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  correo VARCHAR(30) NOT NULL,
+  fecha_nac DATE NOT NULL,
+  dni INT NOT NULL,
+  id_estado INT NOT NULL,
+  id_entrenador INT NOT NULL,
+  CONSTRAINT PK_alumno PRIMARY KEY (id_alumno),
+  CONSTRAINT FK_alumno_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado),
+  CONSTRAINT FK_ALUMNO_ENTRENADOR FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR(id_entrenador)
+);
+
+CREATE TABLE MEMBRESIA
+(
+  id_membresia INT NOT NULL,
+  fecha_pago DATE NOT NULL,
+  fecha_venc DATE NOT NULL,
+  monto FLOAT NOT NULL,
+  id_alumno INT NOT NULL,
+  id_estado INT NOT NULL,
+  CONSTRAINT PK_membresia PRIMARY KEY (id_membresia),
+  CONSTRAINT FK_membresia_alumno FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
+  CONSTRAINT FK_membresia_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
+);
+
 CREATE TABLE EJERCICIO
 (
   id_ejercicio INT NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE RUTINA
   id_alumno INT NOT NULL,
   id_ejercicio INT NOT NULL,
   id_estado INT NOT NULL,
-  CONSTRAINT PK_ejercicio PRIMARY KEY (id_alumno, id_ejercicio),
+  CONSTRAINT PK_rutina PRIMARY KEY (id_alumno, id_ejercicio),
   CONSTRAINT FK_rutina_alumno FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
   CONSTRAINT FK_rutina_ejercicio FOREIGN KEY (id_ejercicio) REFERENCES EJERCICIO(id_ejercicio),
   CONSTRAINT FK_rutina_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
@@ -143,6 +143,9 @@ INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_est
 (3,'Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
 SELECT * FROM USUARIO;
 
+INSERT INTO ENTRENADOR(id_entrenador,horario_disp, detalles, dias_disp, cupo, id_usuario) values 
+(1,'Mañana (08:00 - 12:00)','Crossfit','Lunes, Miércoles y Viernes',15,3);
+SELECT * FROM ENTRENADOR;
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
@@ -154,6 +157,7 @@ BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
 END
 GO
+EXEC SP_LISTAR_ESTADOS;
 
 GO
 CREATE PROC SP_LISTAR_ALUMNOS -- todos los alumnos del sistema
@@ -162,11 +166,9 @@ BEGIN
     SELECT * FROM ALUMNO ORDER BY ALUMNO.apellido ASC;
 END
 GO
+--EXEC SP_LISTAR_ALUMNOS;
 
-/*
-GO
-CREATE PROCEDURE SP_LISTAR_ENTRENADORES -- todos los entrenadores del sistema
-    @id_alumno INT
+CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADORES
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -176,14 +178,13 @@ BEGIN
         u.nombre,
         u.apellido,
         e.horario_disp,
-        e.dias_disp,
-        e.cupo
+        e.dias_disp
     FROM ENTRENADOR e
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
-    WHERE e.id_alumno = @id_alumno; -- TENGO QUE MODIFICAR ESTE PARAMETRO QUE NO ESTA EN LA TABLA ENTRENADOR
+    WHERE u.id_estado = 1 
+    ORDER BY u.apellido, u.nombre;
 END
-GO
-*/
+EXEC SP_LISTAR_ENTRENADORES;
 
 /*      Listados entre tablas       */
 /*  ENTRENADOR ASIGNADO A UN ALUMNO EN ESPECIFICO  */
@@ -217,7 +218,7 @@ BEGIN
 END
 GO
 
-/*  LISTADO DE ALUMNOS DE UN ENTRENADOR  */
+/*  LISTADO DE TODOS LOS ALUMNOS DE UN ENTRENADOR  */
 GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
     @id_entrenador INT
@@ -279,7 +280,8 @@ AS
 BEGIN
 	IF EXISTS(SELECT dni FROM ALUMNO WHERE alumno.dni = @dni)
 	BEGIN
-		RETURN -1;
+		SELECT -1 AS id_alumno; -- ya existe
+    RETURN;
 	END
 
     INSERT INTO dbo.Alumno (nombre, apellido, dni, fecha_nac, genero, correo, detalles,id_estado, id_entrenador) 
@@ -334,6 +336,9 @@ SELECT * FROM alumno;
 SELECT * FROM estado;
 SELECT * FROM metodo_pago;
 SELECT * FROM usuario;
+SELECT * FROM ENTRENADOR;
+--prueba
+EXEC SP_LISTAR_ALUMNOS_POR_ENTRENADOR @id_entrenador = 1;
 
 /* Registro de Usuario */
 /*

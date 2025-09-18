@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaEntidad;
 using workout.CapaNegocio;
-using System.Text.RegularExpressions;
 
 namespace workout.CapaPresentacion
 {
@@ -17,8 +18,24 @@ namespace workout.CapaPresentacion
         public FrmRegistrarAlumno()
         {
             InitializeComponent();
+            CargarEntrenadores();
         }
+        private void CargarEntrenadores()
+        {
+            CN_Entrenador logicaEntrenador = new CN_Entrenador();
+            List<Entrenador> listaEntrenadores = logicaEntrenador.ListarEntrenadores();
 
+            if (listaEntrenadores.Count > 0)
+            {
+                AsigEntrenador.DataSource = listaEntrenadores;
+                AsigEntrenador.DisplayMember = "InfoCompleta"; // nombre, apellido, horario_disp, dias_disp
+                AsigEntrenador.ValueMember = "id_entrenador";
+            }
+            else
+            {
+                MessageBox.Show("No hay entrenadores registrados. Registre uno para continuar.", "Aviso");
+            }
+        }
         private void txtDniAlumno_TextChanged(object sender, EventArgs e)
         {
             //Validar que el DNI solo contenga números
@@ -27,6 +44,7 @@ namespace workout.CapaPresentacion
                 ePDniAlumno.SetError(txtDniAlumno, "Solo puede contener numeros");
                 
             }
+
         }
 
         private void txtApeAlumno_TextChanged(object sender, EventArgs e)
@@ -78,9 +96,39 @@ namespace workout.CapaPresentacion
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(correo, patron);
         }
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(txtDniAlumno.Text))
+            {
+                MessageBox.Show("El campo DNI no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDniAlumno.Focus();
+                return false;
+            }
+
+            if (!int.TryParse(txtDniAlumno.Text, out _))
+            {
+                MessageBox.Show("El DNI debe contener solo números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDniAlumno.Focus();
+                return false;
+            }
+
+            // Puedes agregar más validaciones aquí
+            if (AsigEntrenador.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un entrenador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AsigEntrenador.Focus();
+                return false;
+            }
+
+            return true;
+        }
 
         private void btnRegistrarAlumno_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                return;
+            }
 
             //Variable de la logica de negocios
             CN_Alumno logicaAlumno = new CN_Alumno();
@@ -96,10 +144,13 @@ namespace workout.CapaPresentacion
             //Evalua si es hombre o mujer
             string genero = rbHombre.Checked ? "Hombre" : rbMujer.Checked ? "Mujer" : "Otro";
 
+            int idEntrenador = (int)AsigEntrenador.SelectedValue;
+
             try
             {
                 //Le pasa los datos a la logica de negocio
-                int id_alumno = logicaAlumno.registrar(nombre, apellido, dni, fechaNac, genero , correo, detalles);
+                int id_alumno = logicaAlumno.registrar(
+                    nombre, apellido, dni, fechaNac, genero , correo, detalles, idEntrenador);
 
                 if (id_alumno >= 0)
                     MessageBox.Show("Alumno registrado con éxito");
@@ -139,6 +190,11 @@ namespace workout.CapaPresentacion
             txtNombAlumno.Clear();
             txtCorreoAlum.Clear();
             txtDetallesAlum.Clear();
+        }
+
+        private void AsigEntrenador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

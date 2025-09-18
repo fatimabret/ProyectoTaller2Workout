@@ -49,9 +49,9 @@ namespace workout.CapaNegocio
         {
             return entrenadorDatos.ListarAlumnosPorEntrenador(id_entrenador);
         }
-        public List<Entrenador> listarEntrenadores(List<Alumno> p_alumnos)
+        public List<Entrenador> ListarEntrenadores()
         {
-            return entrenadorDatos.ListarEntrenadores(p_alumnos);
+            return entrenadorDatos.ListarEntrenadores();
         }
     }
 }

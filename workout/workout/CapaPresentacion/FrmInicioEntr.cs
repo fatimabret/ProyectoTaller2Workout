@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -29,21 +30,6 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
             //Cierra el formulario anterior
             this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Llama al formulario de rutina
-            FrmRutina frm = new FrmRutina();
-
-            frm.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Llama al formulario de lista de alumnos
-            FrmAlumnosList frm = new FrmAlumnosList(this.idEntrenador);
-            frm.ShowDialog();
         }
 
         private void btnEntrenadores_Click(object sender, EventArgs e)
@@ -92,7 +78,11 @@ namespace workout.CapaPresentacion
 
         private void AlumnosList_Click(object sender, EventArgs e)
         {
+            //Llama al formulario de lista de alumnos
+            FrmAlumnosList frm = new FrmAlumnosList(this.idEntrenador);
+            frm.ShowDialog();
 
         }
+
     }
 }
