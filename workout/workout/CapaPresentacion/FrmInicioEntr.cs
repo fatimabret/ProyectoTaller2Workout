@@ -32,11 +32,6 @@ namespace workout.CapaPresentacion
             this.Close();
         }
 
-        private void btnEntrenadores_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
             string dni = txtDni.Text.Trim();
@@ -81,8 +76,18 @@ namespace workout.CapaPresentacion
             //Llama al formulario de lista de alumnos
             FrmAlumnosList frm = new FrmAlumnosList(this.idEntrenador);
             frm.ShowDialog();
-
         }
 
+        private void btnRutinas_Click(object sender, EventArgs e)
+        {
+            //Llama al formulario de registrar rutina
+            FrmRegistrarRutina frm = new FrmRegistrarRutina();
+            //Oculta el formulario actual
+            this.Hide();
+            //Setea el nuevo formulario como el actual
+            frm.ShowDialog();
+            //Cierra el formulario anterior
+            this.Close();
+        }
     }
 }

@@ -132,6 +132,7 @@
             this.txtDniEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtDniEntrenador.TabIndex = 33;
             this.txtDniEntrenador.Text = "Ej.: 12123123";
+            this.txtDniEntrenador.TextChanged += new System.EventHandler(this.txtDniEntrenador_TextChanged);
             this.txtDniEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniEntrenador_KeyPress);
             this.txtDniEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtDniEntrenador_Validating);
             // 
@@ -142,6 +143,7 @@
             this.txtNomEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtNomEntrenador.TabIndex = 32;
             this.txtNomEntrenador.Text = "Ej.: Juan";
+            this.txtNomEntrenador.TextChanged += new System.EventHandler(this.txtNomEntrenador_TextChanged);
             this.txtNomEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomEntrenador_Validating);
             // 
             // lblTitulo

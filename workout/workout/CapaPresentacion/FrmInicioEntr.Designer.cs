@@ -111,7 +111,7 @@
             this.btnRutina.TabIndex = 35;
             this.btnRutina.Text = "REGISTRAR RUTINA";
             this.btnRutina.UseVisualStyleBackColor = false;
-            this.btnRutina.Click += new System.EventHandler(this.btnEntrenadores_Click);
+            this.btnRutina.Click += new System.EventHandler(this.btnRutinas_Click);
             // 
             // btnCerrarSesion
             // 

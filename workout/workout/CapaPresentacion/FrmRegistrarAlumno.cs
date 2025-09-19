@@ -20,6 +20,12 @@ namespace workout.CapaPresentacion
             InitializeComponent();
             CargarEntrenadores();
         }
+        private void AsigEntrenador_SelectedIndexChanged(object sender, EventArgs e)
+        { }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        { }
+        private void txtDetallesAlum_TextChanged(object sender, EventArgs e)
+        { }
         private void CargarEntrenadores()
         {
             CN_Entrenador logicaEntrenador = new CN_Entrenador();
@@ -42,28 +48,25 @@ namespace workout.CapaPresentacion
             if (!int.TryParse(txtDniAlumno.Text,out int dni))
             {
                 ePDniAlumno.SetError(txtDniAlumno, "Solo puede contener numeros");
-                
             }
-
         }
 
         private void txtApeAlumno_TextChanged(object sender, EventArgs e)
         {
-
+            //Validar que el nombre solo contenga letras
+            if (int.TryParse(txtApeAlumno.Text, out int nombre))
+            {
+                ePApeAlumno.SetError(txtApeAlumno, "Solo puede contener letras de A-Z");
+            }
         }
 
         private void txtNombAlumno_TextChanged(object sender, EventArgs e)
         {
             //Validar que el nombre solo contenga letras
-            if (int.TryParse(txtApeAlumno.Text, out int nombre))
+            if (int.TryParse(txtNombAlumno.Text, out int nombre))
             {
-                ePNomAlumno.SetError(txtApeAlumno, "Solo puede contener letras de A-Z");
+                ePNomAlumno.SetError(txtNombAlumno, "Solo puede contener letras de A-Z");
             }
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -86,11 +89,6 @@ namespace workout.CapaPresentacion
             }
         }
 
-        private void txtDetallesAlum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private bool EsCorreoValido(string correo)
         {
             string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -105,14 +103,34 @@ namespace workout.CapaPresentacion
                 return false;
             }
 
-            if (!int.TryParse(txtDniAlumno.Text, out _))
+            if (string.IsNullOrWhiteSpace(txtApeAlumno.Text))
             {
-                MessageBox.Show("El DNI debe contener solo números.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDniAlumno.Focus();
+                MessageBox.Show("El campo APELLIDO no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApeAlumno.Focus();
                 return false;
             }
 
-            // Puedes agregar más validaciones aquí
+            if (string.IsNullOrWhiteSpace(txtCorreoAlum.Text))
+            {
+                MessageBox.Show("El campo CORREO no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCorreoAlum.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDetallesAlum.Text))
+            {
+                MessageBox.Show("El campo DETALLES no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDetallesAlum.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNombAlumno.Text))
+            {
+                MessageBox.Show("El campo NOMBRE no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombAlumno.Focus();
+                return false;
+            }
+
             if (AsigEntrenador.SelectedValue == null)
             {
                 MessageBox.Show("Debe seleccionar un entrenador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -134,7 +152,16 @@ namespace workout.CapaPresentacion
             CN_Alumno logicaAlumno = new CN_Alumno();
 
             //Obtiene los datos de los campos de la vista
-            int dni = int.Parse(txtDniAlumno.Text);
+            if (!int.TryParse(txtDniAlumno.Text, out int dni))
+            {
+                MessageBox.Show("El DNI ingresado no tiene un formato numérico válido.",
+                                "Error de formato",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtDniAlumno.Focus();
+                return;
+            }
+
             string nombre = txtNombAlumno.Text.Trim();
             string apellido = txtApeAlumno.Text.Trim();
             DateTime fechaNac = fechaNacAlumno.Value;
@@ -152,10 +179,10 @@ namespace workout.CapaPresentacion
                 int id_alumno = logicaAlumno.registrar(
                     nombre, apellido, dni, fechaNac, genero , correo, detalles, idEntrenador);
 
-                if (id_alumno >= 0)
+                if (id_alumno > 0)
                     MessageBox.Show("Alumno registrado con éxito");
                 else
-                    MessageBox.Show("El Alumno ya esta registrado");
+                    MessageBox.Show("El Alumno fue registrado previamente");
             }
             catch (Exception ex)
             {
@@ -168,7 +195,7 @@ namespace workout.CapaPresentacion
             // Validar Correo
             if (string.IsNullOrWhiteSpace(txtCorreoAlum.Text))
             {
-                errorProvider1.SetError(txtCorreoAlum, "Debe ingresar un correo");
+                errorProvider1.SetError(txtCorreoAlum, "Debe ingresar un correo electrónico");
                 return;
             }
             else if (!EsCorreoValido(txtCorreoAlum.Text.Trim()))
@@ -190,11 +217,6 @@ namespace workout.CapaPresentacion
             txtNombAlumno.Clear();
             txtCorreoAlum.Clear();
             txtDetallesAlum.Clear();
-        }
-
-        private void AsigEntrenador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

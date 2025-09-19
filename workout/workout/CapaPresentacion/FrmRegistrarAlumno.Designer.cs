@@ -305,9 +305,9 @@
             // AsigEntrenador
             // 
             this.AsigEntrenador.FormattingEnabled = true;
-            this.AsigEntrenador.Location = new System.Drawing.Point(101, 609);
+            this.AsigEntrenador.Location = new System.Drawing.Point(104, 609);
             this.AsigEntrenador.Name = "AsigEntrenador";
-            this.AsigEntrenador.Size = new System.Drawing.Size(391, 21);
+            this.AsigEntrenador.Size = new System.Drawing.Size(374, 21);
             this.AsigEntrenador.TabIndex = 37;
             this.AsigEntrenador.SelectedIndexChanged += new System.EventHandler(this.AsigEntrenador_SelectedIndexChanged);
             // 

@@ -28,6 +28,7 @@ namespace workout.CapaDatos
                 cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
                 cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
                 cmd.Parameters.AddWithValue("id_estado", p_Usuario.id_estado);
+                cmd.Parameters.AddWithValue("id_rol", p_Usuario.id_rol);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 // Parámetro para capturar el RETURN

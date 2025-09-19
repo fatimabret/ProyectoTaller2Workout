@@ -17,7 +17,7 @@ CREATE TABLE ESTADO
 
 CREATE TABLE USUARIO
 (
-  id_usuario INT NOT NULL,
+  id_usuario INT IDENTITY(1,1) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   correo VARCHAR(50) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE USUARIO
 
 CREATE TABLE ENTRENADOR
 (
-  id_entrenador INT NOT NULL,
+  id_entrenador INT IDENTITY(1,1) NOT NULL,
   horario_disp VARCHAR(30) NOT NULL,
   detalles VARCHAR(30) NOT NULL,
   dias_disp VARCHAR(30) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE ALUMNO
 
 CREATE TABLE MEMBRESIA
 (
-  id_membresia INT NOT NULL,
+  id_membresia INT IDENTITY(1,1) NOT NULL,
   fecha_pago DATE NOT NULL,
   fecha_venc DATE NOT NULL,
   monto FLOAT NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE MEMBRESIA
 
 CREATE TABLE EJERCICIO
 (
-  id_ejercicio INT NOT NULL,
+  id_ejercicio INT IDENTITY(1,1) NOT NULL,
   descripcion VARCHAR(30) NOT NULL,
   serie INT NOT NULL,
   repeticiones INT NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE METODO_PAGO
 
 CREATE TABLE PAGO
 (
-  id_pago INT NOT NULL,
+  id_pago INT IDENTITY(1,1) NOT NULL,
   importe FLOAT NOT NULL,
   id_metodo_pago INT NOT NULL,
   id_membresia INT NOT NULL,
@@ -135,23 +135,24 @@ INSERT INTO METODO_PAGO (id_metodo_pago, tipo, id_estado) VALUES
 (3,'Transferencia',1);
 select * from METODO_PAGO;
 
-INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
-(1,'Gonzalez','Ariel','arielgonzalez@gmail.com','12345',48715624,1,1);
-INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
-(2,'Bret','Fatima','fatimabret@gmail.com','12345',41234723,1,2);
-INSERT INTO USUARIO(id_usuario,apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
-(3,'Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
+INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
+('Gonzalez','Ariel','arielgonzalez@gmail.com','12345',48715624,1,1);
+INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
+('Bret','Fatima','fatimabret@gmail.com','12345',41234723,1,2);
+INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
+('Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
 SELECT * FROM USUARIO;
 
-INSERT INTO ENTRENADOR(id_entrenador,horario_disp, detalles, dias_disp, cupo, id_usuario) values 
-(1,'Mañana (08:00 - 12:00)','Crossfit','Lunes, Miércoles y Viernes',15,3);
+INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
+('Mañana (08:00 - 12:00)','Crossfit','Lunes, Miércoles y Viernes',15,3);
 SELECT * FROM ENTRENADOR;
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
 /* Listados simples */
-GO
-CREATE PROC SP_LISTAR_ESTADOS -- todos los tipos de listados
+ -- todos los tipos de listados
+ GO
+CREATE PROC SP_LISTAR_ESTADOS
 AS
 BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
@@ -159,15 +160,18 @@ END
 GO
 EXEC SP_LISTAR_ESTADOS;
 
+ -- todos los alumnos del sistema
 GO
-CREATE PROC SP_LISTAR_ALUMNOS -- todos los alumnos del sistema
+CREATE PROC SP_LISTAR_ALUMNOS
 AS
 BEGIN
     SELECT * FROM ALUMNO ORDER BY ALUMNO.apellido ASC;
 END
 GO
---EXEC SP_LISTAR_ALUMNOS;
+EXEC SP_LISTAR_ALUMNOS;
 
+ -- todos los entrenadores del sistema
+GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADORES
 AS
 BEGIN
@@ -204,6 +208,7 @@ BEGIN
     WHERE a.id_alumno = @id_alumno;
 END
 GO
+EXEC SP_LISTAR_ENTRENADOR_POR_ALUMNO 1; -- alumno con id = 1, ejemplo
 
 GO
 CREATE OR ALTER PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
@@ -217,6 +222,7 @@ BEGIN
     WHERE id_usuario = @id_usuario;
 END
 GO
+EXEC SP_OBTENER_ID_ENTRENADOR_POR_USUARIO 3; -- entrenador con usuario con id = 3, ejemplo
 
 /*  LISTADO DE TODOS LOS ALUMNOS DE UN ENTRENADOR  */
 GO
@@ -238,6 +244,7 @@ BEGIN
     ORDER BY a.apellido ASC, a.nombre ASC;
 END
 GO
+EXEC SP_LISTAR_ALUMNOS_POR_ENTRENADOR 1; -- entrenador con id = 1, ejemplo
 
 /*      INICIAR SESION    */
 GO
@@ -292,7 +299,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_REGISTRAR_USUARIO
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_USUARIO
 (
   @apellido VARCHAR(30),
   @nombre VARCHAR(30),
@@ -304,16 +311,19 @@ CREATE PROCEDURE SP_REGISTRAR_USUARIO
 )
 AS
 BEGIN
-	
-	IF EXISTS(SELECT dni FROM USUARIO WHERE USUARIO.dni = @dni)
-	BEGIN
-		RETURN -1;
-	END
+    IF EXISTS(SELECT 1 FROM USUARIO WHERE dni = @dni)
+    BEGIN
+        RETURN -1; -- Ya existe
+    END
 
-    INSERT INTO dbo.Usuario ( apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
+    IF NOT EXISTS(SELECT 1 FROM ROL WHERE id_rol = @id_rol)
+    BEGIN
+        RETURN -2; -- Rol inválido
+    END
+
+    INSERT INTO dbo.Usuario (apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
     VALUES (@apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
-    -- Devolvemos el id_usuario insertado para confirmación
     RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
@@ -323,11 +333,16 @@ CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
 (
 	@horario_disp VARCHAR(50), 
 	@dias_disp VARCHAR(50), 
-	@detalles VARCHAR(30)
+	@detalles VARCHAR(30),
+	@cupo INT,
+	@id_usuario INT
 )
 AS
 BEGIN
-    INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp) VALUES(@horario_disp,@detalles,@dias_disp);
+    INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp, cupo, id_usuario)
+    VALUES (@horario_disp, @detalles, @dias_disp, @cupo, @id_usuario);
+
+    RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
 
@@ -337,8 +352,7 @@ SELECT * FROM estado;
 SELECT * FROM metodo_pago;
 SELECT * FROM usuario;
 SELECT * FROM ENTRENADOR;
---prueba
-EXEC SP_LISTAR_ALUMNOS_POR_ENTRENADOR @id_entrenador = 1;
+SELECT * FROM ROL;
 
 /* Registro de Usuario */
 /*

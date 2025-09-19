@@ -17,7 +17,8 @@ namespace workout.CapaNegocio
         public int RegistrarEntrenador(string p_nombre, string p_apellido, int p_dni, string p_correo,
                                        string p_contrasena, string p_horario_disp, string p_dias_disp,
                                        string p_detalles, int p_cupo)
-        {
+        { 
+
             // Crea un nuevo entrenador y setea los datos
             Entrenador entrenador = new Entrenador
             {
