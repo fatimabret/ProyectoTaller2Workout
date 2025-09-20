@@ -12,10 +12,11 @@ namespace workout.CapaDatos
 {
     public class CD_Entrenador
     {
-        
+
         public int RegistrarEntrenador(Entrenador p_Entrenador)
         {
             int id_entrenador = 0;
+
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 CD_Usuario usuarioDatos = new CD_Usuario();
@@ -23,31 +24,40 @@ namespace workout.CapaDatos
                 // Crea el usuario y obtiene su ID
                 int id_usuario = usuarioDatos.Registrar(p_Entrenador);
 
+                // Validar si la creación del usuario fue exitosa
+                if (id_usuario < 0)
+                {
+                    return id_usuario; // Retorna -1, -2, etc. según el SP de usuario
+                }
+
                 conexion.Open();
 
-                //Se define el comando SQL para registrar el usuario
+                // Se define el comando SQL para registrar el entrenador
                 SqlCommand cmd = new SqlCommand("SP_REGISTRAR_ENTRENADOR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                // Parámetros de entrada
                 cmd.Parameters.AddWithValue("@horario_disp", p_Entrenador.horario_disp);
                 cmd.Parameters.AddWithValue("@dias_disp", p_Entrenador.dias_disp);
                 cmd.Parameters.AddWithValue("@cupo", p_Entrenador.cupo);
                 cmd.Parameters.AddWithValue("@detalles", p_Entrenador.detalles);
                 cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
 
-                // Parámetro para capturar el RETURN
-                SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
-                returnValue.Direction = ParameterDirection.ReturnValue;
+                // Parámetro para capturar el RETURN VALUE del SP
+                SqlParameter returnParam = new SqlParameter("@ReturnVal", SqlDbType.Int);
+                returnParam.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(returnParam);
 
                 // Ejecutar el SP
                 cmd.ExecuteNonQuery();
 
-                // Lee el valor devuelto por la BD
-                id_entrenador = (int)returnValue.Value;
+                // Leer el valor de retorno
+                id_entrenador = (int)returnParam.Value;
             }
 
             return id_entrenador;
         }
+
         public Entrenador ObtenerEntrenadorPorAlumno(int id_alumno)
         {
             Entrenador entrenador = null;

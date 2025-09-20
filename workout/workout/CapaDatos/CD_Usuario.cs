@@ -17,31 +17,31 @@ namespace workout.CapaDatos
         {
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
-                //Abre la conexion a la base de datos
                 conexion.Open();
-                //Se define el comando SQL para registrar el usuario
                 SqlCommand cmd = new SqlCommand("SP_REGISTRAR_USUARIO", conexion);
-                //Pasa los parametros a la consulta
-                cmd.Parameters.AddWithValue("apellido", p_Usuario.apellido);
-                cmd.Parameters.AddWithValue("nombre", p_Usuario.nombre);
-                cmd.Parameters.AddWithValue("dni", p_Usuario.dni);
-                cmd.Parameters.AddWithValue("correo", p_Usuario.correo);
-                cmd.Parameters.AddWithValue("contrasena", p_Usuario.contrasena);
-                cmd.Parameters.AddWithValue("id_estado", p_Usuario.id_estado);
-                cmd.Parameters.AddWithValue("id_rol", p_Usuario.id_rol);
-
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                // Parámetro para capturar el RETURN
-                SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
-                returnValue.Direction = ParameterDirection.ReturnValue;
 
-                // Ejecutar el SP
+                // Parámetros de entrada
+                cmd.Parameters.AddWithValue("@apellido", p_Usuario.apellido);
+                cmd.Parameters.AddWithValue("@nombre", p_Usuario.nombre);
+                cmd.Parameters.AddWithValue("@dni", p_Usuario.dni);
+                cmd.Parameters.AddWithValue("@correo", p_Usuario.correo);
+                cmd.Parameters.AddWithValue("@contrasena", p_Usuario.contrasena);
+                cmd.Parameters.AddWithValue("@id_estado", p_Usuario.id_estado);
+                cmd.Parameters.AddWithValue("@id_rol", p_Usuario.id_rol);
+
+                // Parámetro para capturar RETURN VALUE
+                SqlParameter returnParam = new SqlParameter("@ReturnVal", SqlDbType.Int);
+                returnParam.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(returnParam);
+
+                // Ejecutar SP
                 cmd.ExecuteNonQuery();
 
-                // Lee el valor devuelto por la BD
-                id_usuario = (int)returnValue.Value;
-
+                // Leer el valor de retorno
+                id_usuario = (int)returnParam.Value;
             }
+
             return id_usuario;
         }
 

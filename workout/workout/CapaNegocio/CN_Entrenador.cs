@@ -16,7 +16,7 @@ namespace workout.CapaNegocio
         
         public int RegistrarEntrenador(string p_nombre, string p_apellido, int p_dni, string p_correo,
                                        string p_contrasena, string p_horario_disp, string p_dias_disp,
-                                       string p_detalles, int p_cupo)
+                                       string p_detalles)
         { 
 
             // Crea un nuevo entrenador y setea los datos
@@ -30,7 +30,8 @@ namespace workout.CapaNegocio
                 horario_disp = p_horario_disp,
                 dias_disp = p_dias_disp,
                 detalles = p_detalles,
-                cupo = p_cupo
+                id_rol = 3, // Rol de entrenador,
+                cupo = 15, // Cupo inicial
             };
 
             // Le pasa los datos a la capa de datos

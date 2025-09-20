@@ -24,7 +24,6 @@ namespace workout.CapaEntidad
             this.detalles = p_detalles;
             this.cupo = 15; //Cupo inicial
             this.id_estado = 1; //Activo por defecto
-            
         }
 
         public string InfoCompleta

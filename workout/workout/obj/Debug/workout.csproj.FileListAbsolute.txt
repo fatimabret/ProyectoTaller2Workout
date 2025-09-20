@@ -69,3 +69,6 @@ C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmListPago.resourc
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmPago.resources
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarEjercicio.resources
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRutina.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmPago.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarEjercicio.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRutina.resources

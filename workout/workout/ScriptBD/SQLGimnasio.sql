@@ -39,7 +39,7 @@ CREATE TABLE ENTRENADOR
   cupo INT NOT NULL,
   id_usuario INT NOT NULL,
   CONSTRAINT PK_entrenador PRIMARY KEY (id_entrenador),
-  CONSTRAINT FK_entrenador_usuario FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+  CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
 CREATE TABLE ALUMNO
@@ -332,16 +332,17 @@ GO
 GO
 CREATE OR ALTER PROCEDURE SP_REGISTRAR_USUARIO
 (
-  @apellido VARCHAR(30),
-  @nombre VARCHAR(30),
-  @correo VARCHAR(50),
-  @contrasena VARCHAR(150),
-  @dni INT,
-  @id_estado INT,
-  @id_rol INT
+    @apellido VARCHAR(30),
+    @nombre VARCHAR(30),
+    @correo VARCHAR(50),
+    @contrasena VARCHAR(150),
+    @dni INT,
+    @id_estado INT,
+    @id_rol INT
 )
 AS
 BEGIN
+    -- Validaciones
     IF EXISTS(SELECT 1 FROM USUARIO WHERE dni = @dni)
     BEGIN
         RETURN -1; -- Ya existe
@@ -352,27 +353,30 @@ BEGIN
         RETURN -2; -- Rol inválido
     END
 
+    -- Inserción
     INSERT INTO dbo.Usuario (apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
     VALUES (@apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
-    RETURN CAST(SCOPE_IDENTITY() AS INT);
+    -- Devuelve el ID generado
+    RETURN CONVERT(INT, SCOPE_IDENTITY());
 END
 GO
-
 GO
-CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_ENTRENADOR
 (
-	@horario_disp VARCHAR(50), 
-	@dias_disp VARCHAR(50), 
-	@detalles VARCHAR(30),
-	@cupo INT,
-	@id_usuario INT
+    @horario_disp VARCHAR(50), 
+    @dias_disp VARCHAR(50), 
+    @detalles VARCHAR(30),
+    @cupo INT,
+    @id_usuario INT
 )
 AS
 BEGIN
+    -- Inserción
     INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp, cupo, id_usuario)
     VALUES (@horario_disp, @detalles, @dias_disp, @cupo, @id_usuario);
 
+    -- Devuelve el ID generado
     RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
