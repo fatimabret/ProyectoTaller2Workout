@@ -70,6 +70,7 @@
     <Compile Include="CapaEntidad\Membresia.cs" />
     <Compile Include="CapaEntidad\Rutina.cs" />
     <Compile Include="CapaNegocio\CN_Alumno.cs" />
+    <Compile Include="CapaNegocio\CN_Ejercicio.cs" />
     <Compile Include="CapaNegocio\CN_Entrenador.cs" />
     <Compile Include="CapaNegocio\CN_Estado.cs" />
     <Compile Include="CapaNegocio\CN_Usuario.cs" />

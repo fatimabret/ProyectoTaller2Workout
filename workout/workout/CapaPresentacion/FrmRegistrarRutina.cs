@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaDatos;
+using workout.CapaEntidad;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -14,6 +17,7 @@ namespace workout.CapaPresentacion
     {
         public FrmRegistrarRutina()
         {
+            //CargarEjercicio();
             InitializeComponent();
         }
 
@@ -33,5 +37,23 @@ namespace workout.CapaPresentacion
         {
 
         }
+        /*
+        private void CargarEjercicio()
+        {
+            CN_Ejercicio logicaEjercicio = new CN_Ejercicio();
+            List<Ejercicio> logicaEjercicio = logicaEjercicio.ListarEjercicios();
+
+            if (listaEjercicios.Count > 0)
+            {
+                AsigEjercicio.DataSource = ListarEjercicios;
+                //AsigEjercicio.DisplayMember = "InfoCompleta"; descripcion,serie,repeticiones,descanso
+                AsigEjercicio.ValueMember = "id_ejercicio";
+            }
+            else
+            {
+                MessageBox.Show("No hay ejercicios registrados. Registre uno para continuar.", "Aviso");
+            }
+        }
+        */
     }
 }

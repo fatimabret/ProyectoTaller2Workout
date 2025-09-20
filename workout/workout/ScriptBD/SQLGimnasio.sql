@@ -147,6 +147,15 @@ INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) valu
 ('Mañana (08:00 - 12:00)','Crossfit','Lunes, Miércoles y Viernes',15,3);
 SELECT * FROM ENTRENADOR;
 
+
+INSERT INTO EJERCICIO(descripcion,serie,repeticiones,descanso,id_entrenador) VALUES
+('Press Banca',3,10,3,1),
+('Peso Muerto Rumano',3,10,3,1),
+('Sentadilla Trasera',3,8,4,1),
+('Fondos en Paralelas',3,10,2,1),
+('Pantorrillas con Mancuerna',3,8,2,1);
+select * from EJERCICIO;
+
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
 /* Listados simples */
@@ -172,7 +181,7 @@ EXEC SP_LISTAR_ALUMNOS;
 
  -- todos los entrenadores del sistema
 GO
-CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADORES
+CREATE PROCEDURE SP_LISTAR_ENTRENADORES
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -188,7 +197,29 @@ BEGIN
     WHERE u.id_estado = 1 
     ORDER BY u.apellido, u.nombre;
 END
+GO
 EXEC SP_LISTAR_ENTRENADORES;
+
+-- esto esta mal pero despues arreglo
+GO
+CREATE PROCEDURE SP_LISTAR_EJERCICIOS
+    @id_entrenador INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        u.id_ejercicio,
+        u.descripcion,
+        u.serie,
+        u.repeticiones,
+        u.descanso
+    FROM EJERCICIO u
+    INNER JOIN ENTRENADOR e ON e.id_entrenador = u.id_entrenador
+    ORDER BY u.id_ejercicio;
+END
+GO
+EXEC SP_LISTAR_EJERCICIOS 1;
 
 /*      Listados entre tablas       */
 /*  ENTRENADOR ASIGNADO A UN ALUMNO EN ESPECIFICO  */
