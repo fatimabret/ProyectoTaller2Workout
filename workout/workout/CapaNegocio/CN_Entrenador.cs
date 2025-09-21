@@ -51,7 +51,7 @@ namespace workout.CapaNegocio
         {
             return entrenadorDatos.ListarAlumnosPorEntrenador(id_entrenador);
         }
-        public List<Entrenador> ListarEntrenadores()
+        public DataTable ListarEntrenadores()
         {
             return entrenadorDatos.ListarEntrenadores();
         }

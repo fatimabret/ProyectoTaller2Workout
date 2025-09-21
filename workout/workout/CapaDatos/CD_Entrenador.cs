@@ -123,31 +123,19 @@ namespace workout.CapaDatos
             return tabla;
         }
 
-        public List<Entrenador> ListarEntrenadores()
+        public DataTable ListarEntrenadores()
         {
-            List<Entrenador> lista = new List<Entrenador>();
-
+            DataTable tablaEntrenadores = new DataTable();
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_LISTAR_ENTRENADORES", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    lista.Add(new Entrenador
-                    {
-                        id_entrenador = Convert.ToInt32(dr["id_entrenador"]),
-                        nombre = dr["nombre"].ToString(),
-                        apellido = dr["apellido"].ToString(),
-                        horario_disp = dr["horario_disp"].ToString(),
-                        dias_disp = dr["dias_disp"].ToString()
-                    });
-                }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tablaEntrenadores);
             }
 
-            return lista;
+            return tablaEntrenadores;
         }
 
     }

@@ -1,6 +1,7 @@
 CREATE DATABASE workout;
 use workout;
 
+/*DEFINICON DE TABLAS*/
 CREATE TABLE ROL
 (
   id_rol INT NOT NULL,
@@ -116,56 +117,81 @@ CREATE TABLE PAGO
   CONSTRAINT FK_pago_metodo_pago FOREIGN KEY (id_metodo_pago) REFERENCES METODO_PAGO(id_metodo_pago),
   CONSTRAINT FK_pago_membresia FOREIGN KEY (id_membresia) REFERENCES MEMBRESIA(id_membresia)
 );
+/*DEFINICION DE TABLAS*/
+
 
 /*INSERTS*/
+
+/*ROLES*/
 INSERT INTO ROL (id_rol,descripcion) VALUES
 (1,'Administrador'),
 (2,'Recepcionista'),
 (3,'Entrenador');
-select * from ROL;
 
+/*ESTADOS*/
 INSERT INTO ESTADO (id_estado, descripcion) VALUES 
 (0, 'Inactivo'),
 (1, 'Activo'),
 (2, 'Suspendido');
-select * from ESTADO;
 
+/*METODOS DE PAGO*/
 INSERT INTO METODO_PAGO (id_metodo_pago, tipo, id_estado) VALUES 
 (1,'Debito',1),
 (2,'Credito',1),
 (3,'Transferencia',1);
-select * from METODO_PAGO;
 
+/*USUARIOS*/
 INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
 ('Gonzalez','Ariel','arielgonzalez@gmail.com','12345',48715624,1,1);
+
 INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
 ('Bret','Fatima','fatimabret@gmail.com','12345',41234723,1,2);
+
 INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
 ('Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
+
 INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
 ('Perez','Adrian','adrianperez@gmail.com','12345',47832121,1,3);
-SELECT * FROM USUARIO;
 
-INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
-(43782712,'Marcos','Perez','Hernia de disco, Dolor de rodilla','Hombre','marcosgonzalez@gmail.com',1,1,'1995-04-12');
-INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
-(42735725,'Samantha','Vazquez','Dolor de rodilla','Mujer','samvazquez@gmail.com',1,2,'2000-08-12');
-SELECT * FROM ALUMNO;
-
+/*ENTRENADOR*/
 INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
 ('Mañana (08:00 - 12:00)','Musculacion','Lunes, Miercoles y Jueves',15,3);
 
 INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
 ('Mañana (08:00 - 12:00)','Musculacion','Martes y Jueves',15,4);
-SELECT * FROM ENTRENADOR;
 
+/*ALUMNOS*/
+INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
+(43782712,'Marcos','Perez','Hernia de disco, Dolor de rodilla','Hombre','marcosgonzalez@gmail.com',1,1,'1995-04-12');
+
+INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
+(42735725,'Samantha','Vazquez','Dolor de rodilla','Mujer','samvazquez@gmail.com',1,2,'2000-08-12');
+
+/*MEMBRESIAS*/
+INSERT INTO MEMBRESIA(fecha_pago,fecha_venc,monto,id_alumno,id_estado) VALUES
+('2025-09-21','2025-10-21',20000,1,1);
+INSERT INTO MEMBRESIA(fecha_pago,fecha_venc,monto,id_alumno,id_estado) VALUES
+('2025-09-21','2025-10-21',20000,2,1);
+/*EJERCICIOS*/
 INSERT INTO EJERCICIO(descripcion,serie,repeticiones,descanso,id_entrenador) VALUES
 ('Press Banca',3,10,3,1),
 ('Peso Muerto Rumano',3,10,3,1),
 ('Sentadilla Trasera',3,8,4,1),
 ('Fondos en Paralelas',3,10,2,1),
 ('Pantorrillas con Mancuerna',3,8,2,1);
-select * from EJERCICIO;
+/*INSERTS*/
+
+/*SELECTS*/
+SELECT * FROM USUARIO;
+SELECT * FROM ENTRENADOR;
+SELECT * FROM ROL;
+SELECT * FROM ALUMNO;
+SELECT * FROM ESTADO;
+SELECT * FROM METODO_PAGO;
+SELECT * FROM MEMBRESIA;
+SELECT * FROM RUTINA;
+SELECT * FROM EJERCICIO;
+/*SELECTS*/
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
@@ -178,40 +204,35 @@ BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
 END
 GO
-EXEC SP_LISTAR_ESTADOS;
 
- -- todos los alumnos del sistema
 GO
 CREATE PROC SP_LISTAR_ALUMNOS
 AS
 BEGIN
-    SELECT * FROM ALUMNO ORDER BY ALUMNO.apellido ASC;
+    SELECT a.dni, a.nombre,a.apellido,m.fecha_pago,m.fecha_venc, u.nombre FROM ALUMNO a 
+	INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+	INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
+	INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario  ORDER BY a.apellido ASC;
 END
 GO
-EXEC SP_LISTAR_ALUMNOS;
 
- -- todos los entrenadores del sistema
 GO
 CREATE PROCEDURE SP_LISTAR_ENTRENADORES
 AS
 BEGIN
-    SET NOCOUNT ON;
-
     SELECT 
-        e.id_entrenador,
         u.nombre,
         u.apellido,
         e.horario_disp,
-        e.dias_disp
+        e.dias_disp,
+		e.cupo
     FROM ENTRENADOR e
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
     WHERE u.id_estado = 1 
     ORDER BY u.apellido, u.nombre;
 END
 GO
-EXEC SP_LISTAR_ENTRENADORES;
 
--- esto esta mal pero despues arreglo
 GO
 CREATE PROCEDURE SP_LISTAR_EJERCICIOS
     @id_entrenador INT
@@ -230,10 +251,7 @@ BEGIN
     ORDER BY e.id_ejercicio;
 END
 GO
-EXEC SP_LISTAR_EJERCICIOS 1;
 
-/*      Listados entre tablas       */
-/*  ENTRENADOR ASIGNADO A UN ALUMNO EN ESPECIFICO  */
 GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
     @id_alumno INT
@@ -250,7 +268,6 @@ BEGIN
     WHERE a.id_alumno = @id_alumno;
 END
 GO
-EXEC SP_LISTAR_ENTRENADOR_POR_ALUMNO 1; -- alumno con id = 1, ejemplo
 
 GO
 CREATE OR ALTER PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
@@ -263,11 +280,6 @@ BEGIN
     FROM ENTRENADOR
     WHERE id_usuario = @id_usuario;
 END
-GO
-
-EXEC SP_OBTENER_ID_ENTRENADOR_POR_USUARIO 3; -- entrenador con usuario con id = 3, ejemplo
-
-/*  LISTADO DE TODOS LOS ALUMNOS DE UN ENTRENADOR  */
 GO
 
 GO
@@ -290,8 +302,6 @@ BEGIN
 END
 GO
 
-EXEC SP_LISTAR_ALUMNOS_POR_ENTRENADOR 1; -- entrenador con id = 1, ejemplo
-
 /*      INICIAR SESION    */
 GO
 CREATE PROC SP_INICIAR_SESION
@@ -313,7 +323,6 @@ BEGIN
     END
 END
 GO
-
 
 /*      REGISTROS       */
 GO
@@ -396,85 +405,4 @@ BEGIN
     RETURN CAST(SCOPE_IDENTITY() AS INT);
 END
 GO
-
-/*SELECTS*/
-SELECT * FROM alumno;
-SELECT * FROM estado;
-SELECT * FROM metodo_pago;
-SELECT * FROM usuario;
-SELECT * FROM ENTRENADOR;
-SELECT * FROM ROL;
-SELECT * FROM RUTINA;
-
-/* Registro de Usuario */
-/*
-GO
-CREATE PROCEDURE SP_REGISTRAR
-(
-@dni int,
-@nombre varchar(30),
-@apellido varchar(30),
-@contrasena varchar(150),
-@id_estado int,
-@fecha_nac Date,
-@correo varchar(50)
-)
-AS
-BEGIN
-  
-
-    -- Buscar el id_estado correspondiente al tipo
-    SELECT @id_estado = id_estado
-    FROM ESTADO
-    WHERE id_estado = @id_estado
-
-    INSERT INTO dbo.Usuario(dni,nombre,apellido, contrasena, id_estado,fecha_nac,correo) 
-    VALUES (@dni,@nombre, @apellido,@contrasena,@id_estado,@fecha_nac,@correo)
-
-     SELECT SCOPE_IDENTITY() AS id_usuario;
-END
-GO
-*/
-
-
-
-/* ELIMINAR DE MENU
-GO
-CREATE PROC SP_ELIMINARMENU
-(
-@id_menu int,
-@Respuesta bit output,
-@Mensaje varchar(200) output
-)
-AS
-BEGIN
-    SET @Respuesta = 1
-
-    -- Verificar si el menu ya está eliminado (activo = 0)
-    IF EXISTS (SELECT * FROM dbo.Menu WHERE id_menu = @id_menu AND activo = 0)
-    BEGIN
-        SET @Respuesta = 0;
-        SET @Mensaje = 'El Menú ya se encuentra eliminado.';
-        RETURN;
-    END
-
-    -- Para validar que no exista una asociacion del menu en otras tablas
-    IF NOT EXISTS(SELECT * FROM dbo.menu menu 
-					INNER JOIN dbo.producto producto 
-					ON producto.Id_Menu = menu.Id_Menu
-					WHERE menu.Id_Menu = @id_menu)
-		BEGIN
-			UPDATE dbo.Menu SET activo = 0
-			WHERE Id_Menu = @id_menu
-	
-			SET @Mensaje = 'Menú eliminada exitosamente.'
-			SET @Respuesta = 1
-		END
-	ELSE
-		BEGIN
-			SET @Respuesta = 0
-			SET @Mensaje = 'Menú asociada a información en productos.'
-		END
-END 
-GO
-*/
+/*PROCEDIMIENTOS ALMACENADOS*/

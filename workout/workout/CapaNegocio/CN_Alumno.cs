@@ -24,7 +24,7 @@ namespace workout.CapaNegocio
             return alumnoDatos.BuscarAlumno(p_nombre, p_apellido);
         }
 
-        public List<Alumno> listarAlumnos()
+        public DataTable listarAlumnos()
         {
             return alumnoDatos.ListarAlumnos();
         }

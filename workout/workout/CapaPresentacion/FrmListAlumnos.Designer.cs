@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListAlumnos));
             this.listAlumnos = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
@@ -46,46 +41,12 @@
             this.listAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listAlumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.listAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DNI,
-            this.Column2,
-            this.PAGO,
-            this.VENCIMIENTO,
-            this.Column1});
             this.listAlumnos.Location = new System.Drawing.Point(29, 115);
             this.listAlumnos.Name = "listAlumnos";
             this.listAlumnos.RowHeadersVisible = false;
             this.listAlumnos.Size = new System.Drawing.Size(479, 362);
             this.listAlumnos.TabIndex = 0;
             this.listAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listAlumnos_CellContentClick);
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NOMB APELL";
-            this.Column2.Name = "Column2";
-            // 
-            // PAGO
-            // 
-            this.PAGO.HeaderText = "PAGO";
-            this.PAGO.Name = "PAGO";
-            this.PAGO.ReadOnly = true;
-            // 
-            // VENCIMIENTO
-            // 
-            this.VENCIMIENTO.HeaderText = "VENCIMIENTO";
-            this.VENCIMIENTO.Name = "VENCIMIENTO";
-            this.VENCIMIENTO.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ENTRENADOR";
-            this.Column1.Name = "Column1";
             // 
             // label1
             // 
@@ -130,10 +91,5 @@
         private System.Windows.Forms.DataGridView listAlumnos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picMascota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VENCIMIENTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

@@ -68,9 +68,9 @@ namespace workout.CapaEntidad
             return id_alumno;
         }
 
-        public List<Alumno> ListarAlumnos()
+        public DataTable ListarAlumnos()
         {
-            List<Alumno> listaAlumnos = new List<Alumno>();
+            DataTable tablaAlumnos = new DataTable();
 
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
@@ -78,25 +78,15 @@ namespace workout.CapaEntidad
                 SqlCommand cmd = new SqlCommand("SP_LISTAR_ALUMNOS", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    listaAlumnos.Add(new Alumno()
-                    {
-                        id_alumno = Convert.ToInt32(dr["id_alumno"]),
-                        nombre = dr["nombre"].ToString(),
-                        apellido = dr["apellido"].ToString(),
-                        dni = Convert.ToInt32(dr["dni"]),
-                    });
-                }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tablaAlumnos);
             }
 
-            return listaAlumnos;
+            return tablaAlumnos;
         }
         public DataTable ListarAlumnosPorEntrenador(int idEntrenador)
         {
-            DataTable tabla = new DataTable();
+            DataTable tablaAlumnos = new DataTable();
 
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
@@ -106,10 +96,10 @@ namespace workout.CapaEntidad
                 cmd.Parameters.AddWithValue("@id_entrenador", idEntrenador);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
+                da.Fill(tablaAlumnos);
             }
 
-            return tabla;
+            return tablaAlumnos;
         }
 
     }

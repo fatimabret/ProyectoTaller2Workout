@@ -43,7 +43,6 @@ namespace workout.CapaPresentacion
             {
                 MessageBox.Show("Error al cargar alumnos: " + ex.Message);
             }
-            
         }
 
 

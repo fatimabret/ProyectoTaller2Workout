@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using workout.CapaNegocio;
+using workout.CapaDatos;
 using workout.CapaEntidad;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -17,13 +18,29 @@ namespace workout.CapaPresentacion
         public FrmListAlumnos()
         {
             InitializeComponent();
+            this.Load += new System.EventHandler(this.FrmListAlumnos_Load);
         }
-        CN_Alumno logicaAlumno = new CN_Alumno();
-        CN_Entrenador logicaEntrenador = new CN_Entrenador();
+        
         private void FrmListAlumnos_Load(object sender, EventArgs e)
         {
-            List<Alumno> listaAlumnos = logicaAlumno.listarAlumnos();
-            List<Entrenador> listaEntrenadores = logicaEntrenador.ListarEntrenadores();
+            try
+            {
+                CN_Alumno logicaAlumno = new CN_Alumno();
+                DataTable alumnos = logicaAlumno.listarAlumnos();
+                listAlumnos.DataSource = alumnos;
+                if (alumnos.Rows.Count > 0)
+                {
+                    // Convertir todos los encabezados a mayúsculas
+                    foreach (DataGridViewColumn col in listAlumnos.Columns)
+                    {
+                        col.HeaderText = col.HeaderText.ToUpper();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar alumnos: " + ex.Message);
+            }
         }
 
         private void listAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)

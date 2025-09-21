@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListEntrenador));
             this.label1 = new System.Windows.Forms.Label();
             this.listEntrenadores = new System.Windows.Forms.DataGridView();
-            this.clmEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmdias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmhorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
@@ -55,58 +50,11 @@
             // 
             this.listEntrenadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.listEntrenadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listEntrenadores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmEntrenador,
-            this.clmdias,
-            this.clmhorario,
-            this.clmCategoria,
-            this.clmCupo});
             this.listEntrenadores.Location = new System.Drawing.Point(26, 127);
             this.listEntrenadores.Name = "listEntrenadores";
             this.listEntrenadores.RowHeadersVisible = false;
-            this.listEntrenadores.Size = new System.Drawing.Size(554, 362);
+            this.listEntrenadores.Size = new System.Drawing.Size(503, 362);
             this.listEntrenadores.TabIndex = 0;
-            this.listEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listEntrenadores_CellContentClick);
-            // 
-            // clmEntrenador
-            // 
-            this.clmEntrenador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clmEntrenador.Frozen = true;
-            this.clmEntrenador.HeaderText = "ENTRENADOR";
-            this.clmEntrenador.Name = "clmEntrenador";
-            this.clmEntrenador.Width = 119;
-            // 
-            // clmdias
-            // 
-            this.clmdias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clmdias.Frozen = true;
-            this.clmdias.HeaderText = "DIAS";
-            this.clmdias.Name = "clmdias";
-            this.clmdias.ReadOnly = true;
-            this.clmdias.Width = 119;
-            // 
-            // clmhorario
-            // 
-            this.clmhorario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clmhorario.Frozen = true;
-            this.clmhorario.HeaderText = "HORARIOS";
-            this.clmhorario.Name = "clmhorario";
-            this.clmhorario.ReadOnly = true;
-            this.clmhorario.Width = 119;
-            // 
-            // clmCategoria
-            // 
-            this.clmCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clmCategoria.Frozen = true;
-            this.clmCategoria.HeaderText = "CATEGORIA";
-            this.clmCategoria.Name = "clmCategoria";
-            this.clmCategoria.ReadOnly = true;
-            // 
-            // clmCupo
-            // 
-            this.clmCupo.Frozen = true;
-            this.clmCupo.HeaderText = "CUPO";
-            this.clmCupo.Name = "clmCupo";
             // 
             // picMascota
             // 
@@ -140,10 +88,5 @@
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listEntrenadores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEntrenador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmdias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmhorario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCupo;
     }
 }
