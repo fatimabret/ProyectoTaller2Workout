@@ -15,15 +15,42 @@ namespace workout.CapaPresentacion
 {
     public partial class FrmRegistrarRutina : Form
     {
-        public FrmRegistrarRutina()
+        private int idEntrenador;
+
+        public FrmRegistrarRutina(int idEntrenador)
         {
-            //CargarEjercicio();
             InitializeComponent();
+            this.idEntrenador = idEntrenador;
         }
 
         private void FrmRegistrarRutina_Load(object sender, EventArgs e)
         {
+            // Configurar columnas del DataGridView
+            dgvRutina.AutoGenerateColumns = false;
+            dgvRutina.AllowUserToAddRows = true;
+            dgvRutina.Columns.Clear();
+            cmbDias.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            // Cargar opciones de Días
+            cmbDias.Items.AddRange(new string[]
+            {
+                "Lunes",
+                "Martes",
+                "Miércoles",
+                "Jueves",
+                "Viernes",
+                "Sábados"
+            });
+
+            // Columna ComboBox de ejercicios
+            DataGridViewComboBoxColumn colEjercicios = new DataGridViewComboBoxColumn();
+            colEjercicios.HeaderText = "Ejercicio";
+            colEjercicios.Name = "colEjercicio";
+            colEjercicios.DisplayMember = "InfoCompleta";
+            colEjercicios.ValueMember = "id_ejercicio";
+            dgvRutina.Columns.Add(colEjercicios);
+
+            CargarEjercicio(idEntrenador);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,27 +60,70 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
         }
 
-        private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
-        {
-
-        }
-        /*
-        private void CargarEjercicio()
+        private void CargarEjercicio(int idEntrenador)
         {
             CN_Ejercicio logicaEjercicio = new CN_Ejercicio();
-            List<Ejercicio> logicaEjercicio = logicaEjercicio.ListarEjercicios();
+            List<Ejercicio> listaEjercicios = logicaEjercicio.ListarEjercicios(idEntrenador);
 
             if (listaEjercicios.Count > 0)
             {
-                AsigEjercicio.DataSource = ListarEjercicios;
-                //AsigEjercicio.DisplayMember = "InfoCompleta"; descripcion,serie,repeticiones,descanso
-                AsigEjercicio.ValueMember = "id_ejercicio";
+                // Buscar la columna ComboBox en el DataGridView
+                var colEjercicios = dgvRutina.Columns["colEjercicio"] as DataGridViewComboBoxColumn;
+                if (colEjercicios != null)
+                {
+                    colEjercicios.DataSource = listaEjercicios;
+                    colEjercicios.DisplayMember = "InfoCompleta";
+                    colEjercicios.ValueMember = "id_ejercicio";
+                }
             }
             else
             {
-                MessageBox.Show("No hay ejercicios registrados. Registre uno para continuar.", "Aviso");
+                MessageBox.Show("No hay ejercicios registrados para este entrenador.", "Aviso");
             }
         }
-        */
+
+        private void AsigEjercicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvRutina_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvRutina.Rows.Clear();
+
+            dgvRutina.ClearSelection();
+        }
+
+        private void btnRegistrarRutina_Click(object sender, EventArgs e)
+        {
+            /*
+             * foreach (DataGridViewRow row in dgvRutina.Rows)
+            {
+                if (row.Cells["colEjercicio"].Value != null)
+                {
+                    int idEjercicio = Convert.ToInt32(row.Cells["colEjercicio"].Value);
+
+                    // logicaRutina.RegistrarRutina(id_alumno, idEjercicio, dia);
+                }
+            }
+
+            MessageBox.Show("Rutina guardada con éxito.");
+            */
+        }
+
+        private void cmbDias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

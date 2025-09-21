@@ -171,6 +171,7 @@
             this.btnRegistrarEntrenador.TabIndex = 75;
             this.btnRegistrarEntrenador.Text = "REGISTRAR";
             this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
+            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
             // 
             // FrmRegistrarEjercicio
             // 

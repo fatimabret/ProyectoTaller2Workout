@@ -11,9 +11,10 @@ namespace workout.CapaNegocio
     internal class CN_Ejercicio
     {
         CD_Ejercicio ejercicioDatos = new CD_Ejercicio();
-        public List<Ejercicio> ListarEjercicio()
+
+        public List<Ejercicio> ListarEjercicios(int id_entrenador)
         {
-            return ejercicioDatos.ListarEjercicios();
+            return ejercicioDatos.ListarEjercicios(id_entrenador);
         }
     }
 }

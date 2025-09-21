@@ -160,7 +160,7 @@ select * from EJERCICIO;
 
 /* Listados simples */
  -- todos los tipos de listados
- GO
+GO
 CREATE PROC SP_LISTAR_ESTADOS
 AS
 BEGIN
@@ -209,14 +209,14 @@ BEGIN
     SET NOCOUNT ON;
 
     SELECT 
-        u.id_ejercicio,
-        u.descripcion,
-        u.serie,
-        u.repeticiones,
-        u.descanso
-    FROM EJERCICIO u
-    INNER JOIN ENTRENADOR e ON e.id_entrenador = u.id_entrenador
-    ORDER BY u.id_ejercicio;
+        e.id_ejercicio,
+        e.descripcion,
+        e.serie,
+        e.repeticiones,
+        e.descanso
+    FROM EJERCICIO e
+    WHERE e.id_entrenador = @id_entrenador
+    ORDER BY e.id_ejercicio;
 END
 GO
 EXEC SP_LISTAR_EJERCICIOS 1;
@@ -330,7 +330,7 @@ END
 GO
 
 GO
-CREATE OR ALTER PROCEDURE SP_REGISTRAR_USUARIO
+CREATE PROCEDURE SP_REGISTRAR_USUARIO
 (
     @apellido VARCHAR(30),
     @nombre VARCHAR(30),
@@ -361,8 +361,9 @@ BEGIN
     RETURN CONVERT(INT, SCOPE_IDENTITY());
 END
 GO
+
 GO
-CREATE OR ALTER PROCEDURE SP_REGISTRAR_ENTRENADOR
+CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
 (
     @horario_disp VARCHAR(50), 
     @dias_disp VARCHAR(50), 
@@ -388,6 +389,7 @@ SELECT * FROM metodo_pago;
 SELECT * FROM usuario;
 SELECT * FROM ENTRENADOR;
 SELECT * FROM ROL;
+SELECT * FROM RUTINA;
 
 /* Registro de Usuario */
 /*

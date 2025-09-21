@@ -26,7 +26,6 @@ namespace workout.CapaEntidad
                 SqlCommand cmd = new SqlCommand("SP_REGISTRAR_ALUMNO", conexion);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                // Asegúrate de que los parámetros se agreguen en el mismo orden que están en tu SP
                 cmd.Parameters.AddWithValue("nombre", p_Alumno.nombre);
                 cmd.Parameters.AddWithValue("apellido", p_Alumno.apellido);
                 cmd.Parameters.AddWithValue("correo", p_Alumno.correo);
