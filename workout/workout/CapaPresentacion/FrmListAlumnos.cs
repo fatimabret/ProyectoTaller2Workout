@@ -25,5 +25,10 @@ namespace workout.CapaPresentacion
             List<Alumno> listaAlumnos = logicaAlumno.listarAlumnos();
             List<Entrenador> listaEntrenadores = logicaEntrenador.ListarEntrenadores();
         }
+
+        private void listAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

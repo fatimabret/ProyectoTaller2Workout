@@ -59,6 +59,7 @@ CREATE TABLE ALUMNO
   CONSTRAINT FK_ALUMNO_ENTRENADOR FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR(id_entrenador)
 );
 
+
 CREATE TABLE MEMBRESIA
 (
   id_membresia INT IDENTITY(1,1) NOT NULL,
@@ -141,12 +142,22 @@ INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol
 ('Bret','Fatima','fatimabret@gmail.com','12345',41234723,1,2);
 INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
 ('Bongiovanni','Iara','bongio22@gmail.com','12345',45953428,1,3);
+INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol) values 
+('Perez','Adrian','adrianperez@gmail.com','12345',47832121,1,3);
 SELECT * FROM USUARIO;
 
-INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
-('Mañana (08:00 - 12:00)','Crossfit','Lunes, Miércoles y Viernes',15,3);
-SELECT * FROM ENTRENADOR;
+INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
+(43782712,'Marcos','Perez','Hernia de disco, Dolor de rodilla','Hombre','marcosgonzalez@gmail.com',1,1,'1995-04-12');
+INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
+(42735725,'Samantha','Vazquez','Dolor de rodilla','Mujer','samvazquez@gmail.com',1,2,'2000-08-12');
+SELECT * FROM ALUMNO;
 
+INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
+('Mañana (08:00 - 12:00)','Musculacion','Lunes, Miercoles y Jueves',15,3);
+
+INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
+('Mañana (08:00 - 12:00)','Musculacion','Martes y Jueves',15,4);
+SELECT * FROM ENTRENADOR;
 
 INSERT INTO EJERCICIO(descripcion,serie,repeticiones,descanso,id_entrenador) VALUES
 ('Press Banca',3,10,3,1),
@@ -253,9 +264,12 @@ BEGIN
     WHERE id_usuario = @id_usuario;
 END
 GO
+
 EXEC SP_OBTENER_ID_ENTRENADOR_POR_USUARIO 3; -- entrenador con usuario con id = 3, ejemplo
 
 /*  LISTADO DE TODOS LOS ALUMNOS DE UN ENTRENADOR  */
+GO
+
 GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
     @id_entrenador INT
@@ -275,6 +289,7 @@ BEGIN
     ORDER BY a.apellido ASC, a.nombre ASC;
 END
 GO
+
 EXEC SP_LISTAR_ALUMNOS_POR_ENTRENADOR 1; -- entrenador con id = 1, ejemplo
 
 /*      INICIAR SESION    */

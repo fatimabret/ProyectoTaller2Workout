@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListEntrenador));
             this.label1 = new System.Windows.Forms.Label();
             this.listEntrenadores = new System.Windows.Forms.DataGridView();
-            this.picMascota = new System.Windows.Forms.PictureBox();
             this.clmEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmdias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmhorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -66,16 +66,7 @@
             this.listEntrenadores.RowHeadersVisible = false;
             this.listEntrenadores.Size = new System.Drawing.Size(554, 362);
             this.listEntrenadores.TabIndex = 0;
-            // 
-            // picMascota
-            // 
-            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
-            this.picMascota.Location = new System.Drawing.Point(82, 7);
-            this.picMascota.Name = "picMascota";
-            this.picMascota.Size = new System.Drawing.Size(73, 78);
-            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMascota.TabIndex = 25;
-            this.picMascota.TabStop = false;
+            this.listEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listEntrenadores_CellContentClick);
             // 
             // clmEntrenador
             // 
@@ -116,6 +107,16 @@
             this.clmCupo.Frozen = true;
             this.clmCupo.HeaderText = "CUPO";
             this.clmCupo.Name = "clmCupo";
+            // 
+            // picMascota
+            // 
+            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
+            this.picMascota.Location = new System.Drawing.Point(82, 7);
+            this.picMascota.Name = "picMascota";
+            this.picMascota.Size = new System.Drawing.Size(73, 78);
+            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMascota.TabIndex = 25;
+            this.picMascota.TabStop = false;
             // 
             // FrmListEntrenador
             // 

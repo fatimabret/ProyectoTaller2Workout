@@ -19,22 +19,33 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
             this.idEntrenador = idEntrenador;
+            this.Load += new System.EventHandler(this.FrmAlumnosList_Load);
         }
 
         private void FrmAlumnosList_Load(object sender, EventArgs e)
         {
-            CN_Alumno logicaAlumno = new CN_Alumno();
-            DataTable alumnos = logicaAlumno.listarAlumnosPorEntrenador(idEntrenador);
+            try
+            {
+                CN_Alumno logicaAlumno = new CN_Alumno();
+                DataTable alumnos = logicaAlumno.listarAlumnosPorEntrenador(idEntrenador);
+                dataGridView1.DataSource = alumnos;
+                if (alumnos.Rows.Count > 0)
+                {
+                    // Convertir todos los encabezados a mayúsculas
+                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                    {
+                        col.HeaderText = col.HeaderText.ToUpper();
+                    }
 
-            dataGridView1.DataSource = alumnos;
-
-            // Opcional: cambiar los encabezados de las columnas
-            dataGridView1.Columns["DNI"].HeaderText = "DNI";
-            dataGridView1.Columns["nombre"].HeaderText = "NOMB";
-            dataGridView1.Columns["apellido"].HeaderText = "APELL";
-            dataGridView1.Columns["detalles"].HeaderText = "DETALLES";
-
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar alumnos: " + ex.Message);
+            }
+            
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {

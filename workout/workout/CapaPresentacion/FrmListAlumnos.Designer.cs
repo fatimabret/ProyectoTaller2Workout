@@ -57,6 +57,7 @@
             this.listAlumnos.RowHeadersVisible = false;
             this.listAlumnos.Size = new System.Drawing.Size(479, 362);
             this.listAlumnos.TabIndex = 0;
+            this.listAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listAlumnos_CellContentClick);
             // 
             // DNI
             // 

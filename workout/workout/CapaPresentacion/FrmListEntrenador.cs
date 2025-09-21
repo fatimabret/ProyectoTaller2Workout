@@ -16,5 +16,10 @@ namespace workout.CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void listEntrenadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
