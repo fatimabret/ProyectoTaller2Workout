@@ -28,7 +28,7 @@ namespace workout.CapaEntidad
 
         public string InfoCompleta
         {
-            get { return $"{nombre} {apellido} - {horario_disp} - {dias_disp}"; }
+            get { return $"{apellido} - {nombre} - {horario_disp} - {dias_disp}"; }
         }
 
         public Entrenador()

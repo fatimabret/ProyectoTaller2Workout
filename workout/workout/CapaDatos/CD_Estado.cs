@@ -21,7 +21,7 @@ namespace workout.CapaDatos
                 using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
                 {
                     // Se define el comando SQL para obtener los estados
-                    string query = "SELECT id_estado, tipo, descripcion FROM ESTADO";
+                    string query = "SELECT id_estado, descripcion FROM ESTADO";
                     // Ensures the command is properly disposed of.
                     using (SqlCommand cmd = new SqlCommand(query, conexion))
                     {

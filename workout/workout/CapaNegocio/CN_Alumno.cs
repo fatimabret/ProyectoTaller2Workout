@@ -33,6 +33,10 @@ namespace workout.CapaNegocio
         {
             return alumnoDatos.ListarAlumnosPorEntrenador(idEntrenador);
         }
+        public int ModificarAlumno(Alumno alumno)
+        {
+            return alumnoDatos.ModificarAlumno(alumno);
+        }
 
     }
 }

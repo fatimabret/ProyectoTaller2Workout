@@ -78,7 +78,6 @@
             this.txtApeEntrenador.Name = "txtApeEntrenador";
             this.txtApeEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtApeEntrenador.TabIndex = 38;
-            this.txtApeEntrenador.Text = "Ej.: Perez";
             this.txtApeEntrenador.TextChanged += new System.EventHandler(this.txtApeEntrenador_TextChanged);
             this.txtApeEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtApeEntrenador_Validating);
             // 
@@ -131,7 +130,6 @@
             this.txtDniEntrenador.Name = "txtDniEntrenador";
             this.txtDniEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtDniEntrenador.TabIndex = 33;
-            this.txtDniEntrenador.Text = "Ej.: 12123123";
             this.txtDniEntrenador.TextChanged += new System.EventHandler(this.txtDniEntrenador_TextChanged);
             this.txtDniEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniEntrenador_KeyPress);
             this.txtDniEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtDniEntrenador_Validating);
@@ -142,7 +140,6 @@
             this.txtNomEntrenador.Name = "txtNomEntrenador";
             this.txtNomEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtNomEntrenador.TabIndex = 32;
-            this.txtNomEntrenador.Text = "Ej.: Juan";
             this.txtNomEntrenador.TextChanged += new System.EventHandler(this.txtNomEntrenador_TextChanged);
             this.txtNomEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomEntrenador_Validating);
             // 
@@ -243,7 +240,6 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(326, 20);
             this.txtContraseña.TabIndex = 56;
-            this.txtContraseña.Text = "********";
             this.txtContraseña.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
             this.txtContraseña.Validating += new System.ComponentModel.CancelEventHandler(this.txtContrasena_Validating);
             // 
@@ -275,7 +271,6 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(326, 20);
             this.txtCorreo.TabIndex = 53;
-            this.txtCorreo.Text = "Ej.: juanperez@example.ar";
             this.txtCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.txtCorreo_Validating);
             // 
             // FrmRegistrarEntrenador

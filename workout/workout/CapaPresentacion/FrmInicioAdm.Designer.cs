@@ -105,7 +105,6 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 27;
-            this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
@@ -117,7 +116,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 34);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Consulte Membresia del Alumno";
+            this.label1.Text = "Ingrese DNI del Alumno";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAlumnos

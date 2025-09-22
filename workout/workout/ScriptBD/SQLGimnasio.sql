@@ -190,12 +190,12 @@ SELECT * FROM METODO_PAGO;
 SELECT * FROM MEMBRESIA;
 SELECT * FROM RUTINA;
 SELECT * FROM EJERCICIO;
+SELECT * FROM PAGO;
 /*SELECTS*/
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
 /* Listados simples */
- -- todos los tipos de listados
 GO
 CREATE PROC SP_LISTAR_ESTADOS
 AS
@@ -233,6 +233,28 @@ END
 GO
 
 GO
+CREATE PROCEDURE SP_LIST_ENTRENADOR
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        e.id_entrenador,
+        u.nombre,
+        u.apellido,
+        e.horario_disp,
+        e.dias_disp,
+        e.cupo,
+        u.apellido + ' ' + u.nombre + ' - ' + e.horario_disp + ' - ' + e.dias_disp AS InfoCompleta
+    FROM ENTRENADOR e
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
+    WHERE u.id_estado = 1 
+    ORDER BY u.apellido, u.nombre;
+END
+GO
+
+
+GO
 CREATE PROCEDURE SP_LISTAR_EJERCICIOS
     @id_entrenador INT
 AS
@@ -252,7 +274,7 @@ END
 GO
 
 GO
-CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
+CREATE PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
     @id_alumno INT
 AS
 BEGIN
@@ -269,7 +291,7 @@ END
 GO
 
 GO
-CREATE OR ALTER PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
+CREATE PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
     @id_usuario INT
 AS
 BEGIN
@@ -282,7 +304,7 @@ END
 GO
 
 GO
-CREATE OR ALTER PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
+CREATE PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
     @id_entrenador INT
 AS
 BEGIN
@@ -298,6 +320,44 @@ BEGIN
     INNER JOIN ESTADO e ON a.id_estado = e.id_estado
     WHERE a.id_entrenador = @id_entrenador
     ORDER BY a.apellido ASC, a.nombre ASC;
+END
+GO
+
+/*  BUSQUEDAS   */
+GO
+CREATE PROCEDURE SP_BUSCAR_MEMBRESIA
+    @dni INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @id_alumno INT;
+
+    -- Buscar alumno
+    SELECT @id_alumno = id_alumno
+    FROM ALUMNO
+    WHERE dni = @dni;
+
+    IF @id_alumno IS NULL
+    BEGIN
+        RETURN -3; -- Alumno no existe
+    END
+
+    -- Buscar membresía vigente
+    IF EXISTS (
+        SELECT 1
+        FROM MEMBRESIA
+        WHERE id_alumno = @id_alumno
+          AND fecha_venc >= CAST(GETDATE() AS DATE)
+          AND id_estado = 1
+    )
+    BEGIN
+        RETURN -2; -- Membresía vigente
+    END
+    ELSE
+    BEGIN
+        RETURN -1; -- Membresía no vigente
+    END
 END
 GO
 
@@ -324,6 +384,43 @@ END
 GO
 
 /*      REGISTROS       */
+CREATE PROCEDURE SP_REGISTRAR_MEMBRESIA
+    @dni INT,
+    @id_metodo_pago INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @id_alumno INT;
+    DECLARE @id_membresia INT;
+
+    -- Buscar alumno
+    SELECT @id_alumno = id_alumno 
+    FROM ALUMNO 
+    WHERE dni = @dni;
+
+    IF @id_alumno IS NULL
+    BEGIN
+        RETURN -1; -- Alumno no existe
+    END
+
+    -- monto fijo del sistema
+    DECLARE @monto FLOAT = 20000;
+
+    -- Insertar membresía
+    INSERT INTO MEMBRESIA(fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+    VALUES (GETDATE(), DATEADD(DAY, 30, GETDATE()), @monto, @id_alumno, 1);
+
+    SET @id_membresia = SCOPE_IDENTITY();
+
+    -- Insertar pago asociado
+    INSERT INTO PAGO(importe, id_metodo_pago, id_membresia)
+    VALUES(@monto, @id_metodo_pago, @id_membresia);
+
+    RETURN @id_membresia;
+END
+GO
+
 GO
 CREATE PROC SP_REGISTRAR_ALUMNO
 (
@@ -417,4 +514,79 @@ BEGIN
 	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
 END
 GO
+
+/*  ESTO NO PROBE
+GO
+CREATE PROCEDURE SP_MODIFICAR_USUARIO
+(
+    @id_usuario INT,
+    @apellido VARCHAR(30),
+    @nombre VARCHAR(30),
+    @correo VARCHAR(50),
+    @contrasena VARCHAR(150),
+    @dni INT,
+    @id_estado INT,
+    @id_rol INT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS(SELECT 1 FROM USUARIO WHERE id_usuario = @id_usuario)
+    BEGIN
+        RETURN -1; -- Usuario no existe
+    END
+
+    UPDATE USUARIO
+    SET apellido   = @apellido,
+        nombre     = @nombre,
+        correo     = @correo,
+        contrasena = @contrasena,
+        dni        = @dni,
+        id_estado  = @id_estado,
+        id_rol     = @id_rol
+    WHERE id_usuario = @id_usuario;
+
+    RETURN 1; -- OK
+END
+GO
+
+GO
+CREATE PROCEDURE SP_MODIFICAR_ALUMNO
+(
+    @id_alumno INT,
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30),
+    @correo VARCHAR(30),
+    @detalles VARCHAR(100),
+    @genero VARCHAR(30),
+    @fecha_nac DATE,
+    @dni INT,
+    @id_estado INT,
+    @id_entrenador INT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS(SELECT 1 FROM ALUMNO WHERE id_alumno = @id_alumno)
+    BEGIN
+        RETURN -1; -- Alumno no existe
+    END
+
+    UPDATE ALUMNO
+    SET nombre       = @nombre,
+        apellido     = @apellido,
+        correo       = @correo,
+        detalles     = @detalles,
+        genero       = @genero,
+        fecha_nac    = @fecha_nac,
+        dni          = @dni,
+        id_estado    = @id_estado,
+        id_entrenador = @id_entrenador
+    WHERE id_alumno = @id_alumno;
+
+    RETURN 1; -- OK
+END
+GO  
 /*PROCEDIMIENTOS ALMACENADOS*/

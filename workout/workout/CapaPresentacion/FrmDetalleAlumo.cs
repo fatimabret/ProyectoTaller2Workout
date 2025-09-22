@@ -55,5 +55,10 @@ namespace workout.CapaPresentacion
         {
 
         }
+
+        private void btnBajaAlum_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

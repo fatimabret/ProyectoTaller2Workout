@@ -52,7 +52,7 @@
     <Compile Include="CapaDatos\CD_Entrenador.cs" />
     <Compile Include="CapaDatos\CD_Estado.cs" />
     <Compile Include="CapaDatos\CD_Membresia.cs" />
-    <Compile Include="CapaDatos\CD_MetodoPago.cs" />
+    <Compile Include="CapaDatos\CD_Metodo_Pago.cs" />
     <Compile Include="CapaDatos\CD_Pago.cs" />
     <Compile Include="CapaDatos\CD_Rol.cs" />
     <Compile Include="CapaDatos\CD_Rutina.cs" />
@@ -73,7 +73,10 @@
     <Compile Include="CapaNegocio\CN_Ejercicio.cs" />
     <Compile Include="CapaNegocio\CN_Entrenador.cs" />
     <Compile Include="CapaNegocio\CN_Estado.cs" />
+    <Compile Include="CapaNegocio\CN_Pago.cs" />
     <Compile Include="CapaNegocio\CN_Usuario.cs" />
+    <Compile Include="CapaNegocio\CN_Membresia.cs" />
+    <Compile Include="CapaNegocio\CN_Metodo_Pago.cs" />
     <Compile Include="CapaPresentacion\FrmEstadisticaAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +107,18 @@
     <Compile Include="CapaPresentacion\FrmListPago.Designer.cs">
       <DependentUpon>FrmListPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmModificarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmModificarAlumno.Designer.cs">
+      <DependentUpon>FrmModificarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmModificarUsuario.Designer.cs">
+      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +130,12 @@
     </Compile>
     <Compile Include="CapaPresentacion\FrmRegistrarEjercicio.Designer.cs">
       <DependentUpon>FrmRegistrarEjercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarMembresia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarMembresia.Designer.cs">
+      <DependentUpon>FrmRegistrarMembresia.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmRegistrarRutina.cs">
       <SubType>Form</SubType>
@@ -205,11 +226,20 @@
     <EmbeddedResource Include="CapaPresentacion\FrmListPago.resx">
       <DependentUpon>FrmListPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmModificarAlumno.resx">
+      <DependentUpon>FrmModificarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmModificarUsuario.resx">
+      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmPago.resx">
       <DependentUpon>FrmPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRegistrarEjercicio.resx">
       <DependentUpon>FrmRegistrarEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmRegistrarMembresia.resx">
+      <DependentUpon>FrmRegistrarMembresia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRegistrarRutina.resx">
       <DependentUpon>FrmRegistrarRutina.cs</DependentUpon>

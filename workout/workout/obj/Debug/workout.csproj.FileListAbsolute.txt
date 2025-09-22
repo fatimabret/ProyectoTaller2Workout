@@ -72,3 +72,6 @@ C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRutina.
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmPago.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarEjercicio.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRutina.resources
+C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarMembresia.resources
+C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarAlumno.resources
+C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarUsuario.resources

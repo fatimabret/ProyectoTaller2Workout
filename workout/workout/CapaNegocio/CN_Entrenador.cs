@@ -55,6 +55,10 @@ namespace workout.CapaNegocio
         {
             return entrenadorDatos.ListarEntrenadores();
         }
+        public DataTable ListarEntrenadoresConInfoCompleta()
+        {
+            return entrenadorDatos.ListarEntrenadoresConInfoCompleta();
+        }
 
         public void eliminarEntrenador(string nombre, string apellido)
         {

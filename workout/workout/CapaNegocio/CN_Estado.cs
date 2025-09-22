@@ -11,12 +11,12 @@ namespace workout.CapaNegocio
     public class CN_Estado
     {
         // Se crea una instancia de la capa de datos para acceder a los métodos
-        private CD_Estado objCapaDato = new CD_Estado();
+        private CD_Estado estadoDatos = new CD_Estado();
 
         // Método para obtener la lista de estados de la capa de datos
         public List<Estado> ListarEstados()
         {
-            return objCapaDato.ListarEstados();
+            return estadoDatos.ListarEstados();
         }
     }
 }

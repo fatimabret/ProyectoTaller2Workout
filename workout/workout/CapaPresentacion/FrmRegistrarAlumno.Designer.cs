@@ -96,7 +96,6 @@
             this.txtNombAlumno.Name = "txtNombAlumno";
             this.txtNombAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtNombAlumno.TabIndex = 11;
-            this.txtNombAlumno.Text = "Ej.: Juan";
             this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged);
             // 
             // rbHombre
@@ -139,7 +138,6 @@
             this.txtDniAlumno.Name = "txtDniAlumno";
             this.txtDniAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtDniAlumno.TabIndex = 19;
-            this.txtDniAlumno.Text = "Ej.: 12123123";
             this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
             this.txtDniAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniAlumno_KeyPress);
             // 
@@ -204,7 +202,6 @@
             this.txtApeAlumno.Name = "txtApeAlumno";
             this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtApeAlumno.TabIndex = 26;
-            this.txtApeAlumno.Text = "Ej.: Perez";
             this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
             // 
             // label4
@@ -247,7 +244,6 @@
             this.txtDetallesAlum.Name = "txtDetallesAlum";
             this.txtDetallesAlum.Size = new System.Drawing.Size(326, 44);
             this.txtDetallesAlum.TabIndex = 32;
-            this.txtDetallesAlum.Text = "Ej.: Dolor de rodilla, hernia de disco, etc";
             this.txtDetallesAlum.TextChanged += new System.EventHandler(this.txtDetallesAlum_TextChanged);
             // 
             // label6
@@ -267,7 +263,6 @@
             this.txtCorreoAlum.Name = "txtCorreoAlum";
             this.txtCorreoAlum.Size = new System.Drawing.Size(326, 20);
             this.txtCorreoAlum.TabIndex = 35;
-            this.txtCorreoAlum.Text = "Ej.: juanPerez@gmail.com";
             this.txtCorreoAlum.TextChanged += new System.EventHandler(this.txtCorreoAlum_TextChanged);
             // 
             // lblCorreoAlum

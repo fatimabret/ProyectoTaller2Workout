@@ -137,6 +137,18 @@ namespace workout.CapaDatos
 
             return tablaEntrenadores;
         }
+        public DataTable ListarEntrenadoresConInfoCompleta()
+        {
+            DataTable tabla = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlDataAdapter da = new SqlDataAdapter("SP_LIST_ENTRENADOR", conexion);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(tabla);
+            }
+            return tabla;
+        }
 
         public void EliminarEntrenador(string nombre, string apellido)
         {

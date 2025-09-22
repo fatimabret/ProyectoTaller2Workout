@@ -60,12 +60,12 @@
             // lblSubtituloBienvenida
             // 
             this.lblSubtituloBienvenida.AutoSize = true;
-            this.lblSubtituloBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtituloBienvenida.Location = new System.Drawing.Point(310, 155);
+            this.lblSubtituloBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtituloBienvenida.Location = new System.Drawing.Point(321, 167);
             this.lblSubtituloBienvenida.Name = "lblSubtituloBienvenida";
-            this.lblSubtituloBienvenida.Size = new System.Drawing.Size(202, 15);
+            this.lblSubtituloBienvenida.Size = new System.Drawing.Size(178, 20);
             this.lblSubtituloBienvenida.TabIndex = 2;
-            this.lblSubtituloBienvenida.Text = "Consulte su Membresia o su Rutina";
+            this.lblSubtituloBienvenida.Text = "Ingrese DNI del Aulmno";
             this.lblSubtituloBienvenida.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtDni
@@ -76,7 +76,6 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 3;
-            this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 

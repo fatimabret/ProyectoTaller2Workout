@@ -82,7 +82,7 @@
             this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(225, 345);
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(225, 363);
             this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
             this.btnRegistrarEntrenador.Size = new System.Drawing.Size(179, 29);
             this.btnRegistrarEntrenador.TabIndex = 13;
@@ -97,7 +97,7 @@
             this.btnRegistrarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarAlumno.Location = new System.Drawing.Point(225, 310);
+            this.btnRegistrarAlumno.Location = new System.Drawing.Point(225, 328);
             this.btnRegistrarAlumno.Name = "btnRegistrarAlumno";
             this.btnRegistrarAlumno.Size = new System.Drawing.Size(179, 29);
             this.btnRegistrarAlumno.TabIndex = 14;
@@ -113,7 +113,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 34);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Consulte Membresia del Alumno";
+            this.label1.Text = "Ingrese DNI del Alumno";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtDni
@@ -124,7 +124,6 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 16;
-            this.txtDni.Text = "Ingrese su DNI";
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
@@ -138,9 +137,9 @@
             this.btnConsultarMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarMembresia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConsultarMembresia.Location = new System.Drawing.Point(308, 256);
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(225, 256);
             this.btnConsultarMembresia.Name = "btnConsultarMembresia";
-            this.btnConsultarMembresia.Size = new System.Drawing.Size(196, 29);
+            this.btnConsultarMembresia.Size = new System.Drawing.Size(179, 29);
             this.btnConsultarMembresia.TabIndex = 17;
             this.btnConsultarMembresia.Text = "CONSULTAR MEMBRESIA";
             this.btnConsultarMembresia.UseVisualStyleBackColor = false;
@@ -153,7 +152,7 @@
             this.btnListarAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListarAlumnos.Location = new System.Drawing.Point(424, 310);
+            this.btnListarAlumnos.Location = new System.Drawing.Point(424, 328);
             this.btnListarAlumnos.Name = "btnListarAlumnos";
             this.btnListarAlumnos.Size = new System.Drawing.Size(179, 29);
             this.btnListarAlumnos.TabIndex = 18;
@@ -168,7 +167,7 @@
             this.btnListarEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListarEntrenadores.Location = new System.Drawing.Point(424, 345);
+            this.btnListarEntrenadores.Location = new System.Drawing.Point(424, 363);
             this.btnListarEntrenadores.Name = "btnListarEntrenadores";
             this.btnListarEntrenadores.Size = new System.Drawing.Size(179, 29);
             this.btnListarEntrenadores.TabIndex = 19;
@@ -203,7 +202,7 @@
             this.btnRenovarMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRenovarMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRenovarMembresia.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRenovarMembresia.Location = new System.Drawing.Point(308, 380);
+            this.btnRenovarMembresia.Location = new System.Drawing.Point(424, 256);
             this.btnRenovarMembresia.Name = "btnRenovarMembresia";
             this.btnRenovarMembresia.Size = new System.Drawing.Size(179, 29);
             this.btnRenovarMembresia.TabIndex = 22;

@@ -29,12 +29,12 @@ namespace workout.CapaPresentacion
         private void CargarEntrenadores()
         {
             CN_Entrenador logicaEntrenador = new CN_Entrenador();
-            DataTable listaEntrenadores = logicaEntrenador.ListarEntrenadores();
+            DataTable listaEntrenadores = logicaEntrenador.ListarEntrenadoresConInfoCompleta();
 
             if (listaEntrenadores.Rows.Count > 0)
             {
                 AsigEntrenador.DataSource = listaEntrenadores;
-                AsigEntrenador.DisplayMember = "InfoCompleta"; // nombre, apellido, horario_disp, dias_disp
+                AsigEntrenador.DisplayMember = "InfoCompleta";
                 AsigEntrenador.ValueMember = "id_entrenador";
             }
             else

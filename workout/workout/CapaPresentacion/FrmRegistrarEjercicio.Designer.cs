@@ -50,7 +50,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(326, 20);
             this.textBox1.TabIndex = 86;
-            this.textBox1.Text = "Ej.: 3 - 4 min";
             // 
             // textBox3
             // 
@@ -58,7 +57,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 20);
             this.textBox3.TabIndex = 85;
-            this.textBox3.Text = "Ej.: 3";
             // 
             // label1
             // 
@@ -88,7 +86,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(326, 20);
             this.textBox2.TabIndex = 82;
-            this.textBox2.Text = "Ej.: 8";
             // 
             // picMascota
             // 
@@ -138,7 +135,6 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(326, 20);
             this.txtCorreo.TabIndex = 77;
-            this.txtCorreo.Text = "Ej.: Press Banca";
             // 
             // btnLimpiar
             // 

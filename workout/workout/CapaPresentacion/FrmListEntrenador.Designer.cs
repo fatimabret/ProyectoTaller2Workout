@@ -56,6 +56,7 @@
             this.listEntrenadores.RowHeadersVisible = false;
             this.listEntrenadores.Size = new System.Drawing.Size(503, 362);
             this.listEntrenadores.TabIndex = 0;
+            this.listEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listEntrenadores_CellContentClick);
             // 
             // picMascota
             // 

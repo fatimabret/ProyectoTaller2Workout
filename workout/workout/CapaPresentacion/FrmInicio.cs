@@ -9,6 +9,7 @@ using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -124,7 +125,30 @@ namespace workout.CapaPresentacion
 
         private void btnRenovarMembresia_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDni.Text))
+            {
+                MessageBox.Show("Debe ingresar un DNI válido.");
+                return;
+            }
 
+            int dni = int.Parse(txtDni.Text.Trim());
+            CN_Membresia cnMembresia = new CN_Membresia();
+            int estadoMembresia = cnMembresia.BuscarMembresiaPorDni(dni);
+
+            if (estadoMembresia == -3)
+            {
+                MessageBox.Show("No existe un alumno con ese DNI.");
+            }
+            else if (estadoMembresia == -2)
+            {
+                MessageBox.Show("El alumno ya tiene una membresía vigente.");
+            }
+            else if (estadoMembresia == -1)
+            {
+                // Si está vencida, abrimos el formulario
+                FrmRegistrarMembresia frm = new FrmRegistrarMembresia(dni);
+                frm.ShowDialog();
+            }
         }
     }
 }

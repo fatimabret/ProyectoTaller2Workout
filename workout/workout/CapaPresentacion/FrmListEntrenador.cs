@@ -67,5 +67,9 @@ namespace workout.CapaPresentacion
             }
         }
 
+        private void listEntrenadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

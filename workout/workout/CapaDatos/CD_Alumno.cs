@@ -101,6 +101,36 @@ namespace workout.CapaEntidad
 
             return tablaAlumnos;
         }
+        public int ModificarAlumno(Alumno alumno)
+        {
+            int resultado = -1;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_MODIFICAR_ALUMNO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_alumno", alumno.id_alumno);
+                cmd.Parameters.AddWithValue("@nombre", alumno.nombre);
+                cmd.Parameters.AddWithValue("@apellido", alumno.apellido);
+                cmd.Parameters.AddWithValue("@correo", alumno.correo);
+                cmd.Parameters.AddWithValue("@detalles", alumno.detalles);
+                cmd.Parameters.AddWithValue("@genero", alumno.genero);
+                cmd.Parameters.AddWithValue("@fecha_nac", alumno.fecha_nac);
+                cmd.Parameters.AddWithValue("@dni", alumno.dni);
+                cmd.Parameters.AddWithValue("@id_estado", alumno.id_estado);
+                cmd.Parameters.AddWithValue("@id_entrenador", alumno.id_entrenador);
+
+                SqlParameter returnParameter = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.ReturnValue;
+
+                cmd.ExecuteNonQuery();
+                resultado = (int)returnParameter.Value;
+            }
+
+            return resultado;
+        }
 
     }
 }
