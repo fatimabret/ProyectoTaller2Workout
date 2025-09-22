@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listEntrenadores = new System.Windows.Forms.DataGridView();
             this.picMascota = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -66,11 +67,24 @@
             this.picMascota.TabIndex = 25;
             this.picMascota.TabStop = false;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Location = new System.Drawing.Point(332, 516);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(112, 37);
+            this.btnEliminar.TabIndex = 26;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FrmListEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 589);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listEntrenadores);
@@ -88,5 +102,6 @@
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listEntrenadores;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

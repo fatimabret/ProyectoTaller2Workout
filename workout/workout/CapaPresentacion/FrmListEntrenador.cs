@@ -42,5 +42,30 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Error al cargar entrenadores: " + ex.Message);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (listEntrenadores.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listEntrenadores.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listEntrenadores.Rows[rowIndex].Cells[0].Value?.ToString();
+                var apellido = listEntrenadores.Rows[rowIndex].Cells[1].Value?.ToString();
+
+                CN_Entrenador logicaEntrenador = new CN_Entrenador();
+                //Pasa los datos a la logica de negocio
+                logicaEntrenador.eliminarEntrenador(nombre, apellido);
+
+                // Elimina la fila del DataGridView
+                listEntrenadores.Rows.RemoveAt(rowIndex);
+                MessageBox.Show("Entrenador eliminado correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
+
     }
 }

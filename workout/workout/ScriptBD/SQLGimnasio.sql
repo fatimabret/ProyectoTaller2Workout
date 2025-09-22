@@ -131,8 +131,7 @@ INSERT INTO ROL (id_rol,descripcion) VALUES
 /*ESTADOS*/
 INSERT INTO ESTADO (id_estado, descripcion) VALUES 
 (0, 'Inactivo'),
-(1, 'Activo'),
-(2, 'Suspendido');
+(1, 'Activo')
 
 /*METODOS DE PAGO*/
 INSERT INTO METODO_PAGO (id_metodo_pago, tipo, id_estado) VALUES 
@@ -403,6 +402,19 @@ BEGIN
 
     -- Devuelve el ID generado
     RETURN CAST(SCOPE_IDENTITY() AS INT);
+END
+GO
+
+GO
+CREATE PROCEDURE SP_ELIMINAR_ENTRENADOR(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE USUARIO
+	SET id_estado = 0
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
 END
 GO
 /*PROCEDIMIENTOS ALMACENADOS*/

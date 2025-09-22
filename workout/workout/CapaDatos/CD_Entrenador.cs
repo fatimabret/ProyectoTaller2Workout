@@ -138,5 +138,18 @@ namespace workout.CapaDatos
             return tablaEntrenadores;
         }
 
+        public void EliminarEntrenador(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ELIMINAR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
