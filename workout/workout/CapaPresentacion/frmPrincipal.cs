@@ -22,52 +22,10 @@ namespace workout
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //declaración de variable
-            //int dni;
-            //Valida que los datos que ingrese el usuario sean números
-            //if (!int.TryParse(txtDni.Text, out dni))
-            //{
-            // Mensaje de error si no es un número
-            //errorProvider1.SetError(txtDni, "Solo puede contener numeros");
-            //}
-            string dni = txtDni.Text.Trim();
-
-            // Si está vacío
-            if (string.IsNullOrEmpty(dni))
-            {
-                errorProvider1.SetError(txtDni, "El DNI es obligatorio");
-                return;
-            }
-
-            // Si no son números
-            if (!dni.All(char.IsDigit))
-            {
-                errorProvider1.SetError(txtDni, "El DNI solo puede contener números");
-                return;
-            }
-
-            // Si la longitud no es válida
-            if (dni.Length < 7 || dni.Length > 8)
-            {
-                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
-                return;
-            }
-
-            // Si es correcto
-            errorProvider1.SetError(txtDni, "");
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -82,14 +40,6 @@ namespace workout
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Llama al formulario de membresía
-            FrmMembresia frm = new FrmMembresia();
-
-            frm.ShowDialog();
-            
-        }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -117,8 +67,10 @@ namespace workout
 
         private void btnConsultarRutina_Click(object sender, EventArgs e)
         {
-            //Llama al formulario de rutina
-            FrmEjercicio frm = new FrmEjercicio();
+            if (!DniValido()) return;
+
+            int dni = int.Parse(txtDni.Text);
+            FrmEjercicio frm = new FrmEjercicio(dni);
             frm.ShowDialog();
 
         }
@@ -129,6 +81,70 @@ namespace workout
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private bool DniValido()
+        {
+            string dni = txtDni.Text.Trim();
+
+            if (string.IsNullOrEmpty(dni))
+            {
+                MessageBox.Show("Debe ingresar un DNI.");
+                return false;
+            }
+
+            if (!dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.");
+                return false;
+            }
+
+            return true;
+        }
+        private void btnConsultarMembresia_Click(object sender, EventArgs e)
+        {
+            if (!DniValido()) return;
+
+            int dni = int.Parse(txtDni.Text);
+            FrmMembresia frm = new FrmMembresia(dni);
+            frm.ShowDialog();
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            string dni = txtDni.Text.Trim();
+
+            // Si está vacío
+            if (string.IsNullOrEmpty(dni))
+            {
+                errorProvider1.SetError(txtDni, "El DNI es obligatorio");
+                return;
+            }
+
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return;
+            }
+
+            // Si es correcto
+            errorProvider1.SetError(txtDni, "");
+        }
+
+        private void txtDni_Validating(object sender, CancelEventArgs e)
+        {
+            // Si la longitud no es válida
+            if (txtDni.Text.Length < 7 || txtDni.Text.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                e.Cancel = true;
+                return;
             }
         }
     }

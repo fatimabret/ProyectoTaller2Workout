@@ -218,5 +218,29 @@ namespace workout.CapaPresentacion
             txtCorreoAlum.Clear();
             txtDetallesAlum.Clear();
         }
+
+        private void txtDniAlumno_Validating(object sender, CancelEventArgs e)
+        {
+            string dni = txtDniAlumno.Text.Trim();
+            if (string.IsNullOrEmpty(dni))// está vacío
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI es obligatorio");
+                e.Cancel = true;
+                return;
+            }
+            if (!dni.All(char.IsDigit))// no son números
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI solo puede contener números");
+                e.Cancel = true;
+                return;
+            }
+            if (dni.Length < 7 || dni.Length > 8)// la longitud no es válida
+            {
+                errorProvider1.SetError(txtDniAlumno, "El DNI debe tener entre 7 y 8 dígitos");
+                e.Cancel = true;
+                return;
+            }
+            errorProvider1.SetError(txtDniAlumno, "");
+        }
     }
 }

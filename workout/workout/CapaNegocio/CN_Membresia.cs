@@ -21,5 +21,25 @@ namespace workout.CapaNegocio
         {
             return membresiaDatos.BuscarMembresiaPorDni(dni);
         }
+
+        public Membresia ObtenerMembresiaPorDni(int dni)
+        {
+            return membresiaDatos.ObtenerMembresiaPorDni(dni);
+        }
+
+        public string ObtenerEstadoMembresia(int dni)
+        {
+            int resultado = membresiaDatos.BuscarMembresiaPorDni(dni);
+
+            if (resultado == -3)
+                return "Alumno no encontrado";
+            else if (resultado == -2)
+                return "VIGENTE";
+            else if (resultado == -1)
+                return "VENCIDA";
+            else
+                return "DESCONOCIDO";
+        }
+
     }
 }

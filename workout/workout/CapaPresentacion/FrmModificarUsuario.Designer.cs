@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModificarUsuario));
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.lblCorreoAlum = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,78 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(112, 298);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(326, 20);
-            this.txtCorreo.TabIndex = 110;
-            // 
-            // lblCorreoAlum
-            // 
-            this.lblCorreoAlum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreoAlum.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCorreoAlum.Location = new System.Drawing.Point(112, 270);
-            this.lblCorreoAlum.Name = "lblCorreoAlum";
-            this.lblCorreoAlum.Size = new System.Drawing.Size(323, 25);
-            this.lblCorreoAlum.TabIndex = 109;
-            this.lblCorreoAlum.Text = "Correo Electronico";
-            this.lblCorreoAlum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(109, 234);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(326, 20);
-            this.txtApellido.TabIndex = 104;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(109, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(326, 25);
-            this.label3.TabIndex = 103;
-            this.label3.Text = "Apellido completo";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(109, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(326, 21);
-            this.label2.TabIndex = 102;
-            this.label2.Text = "Nombre completo";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(109, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 24);
-            this.label1.TabIndex = 101;
-            this.label1.Text = "DNI";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(109, 112);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(326, 20);
-            this.txtDni.TabIndex = 100;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(109, 172);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(326, 20);
-            this.txtNombre.TabIndex = 99;
             // 
             // picMascota
             // 
@@ -150,7 +70,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(115, 596);
+            this.label8.Location = new System.Drawing.Point(128, 330);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(323, 31);
             this.label8.TabIndex = 116;
@@ -160,7 +80,7 @@
             // rbActivo
             // 
             this.rbActivo.AutoSize = true;
-            this.rbActivo.Location = new System.Drawing.Point(292, 630);
+            this.rbActivo.Location = new System.Drawing.Point(305, 364);
             this.rbActivo.Name = "rbActivo";
             this.rbActivo.Size = new System.Drawing.Size(55, 17);
             this.rbActivo.TabIndex = 115;
@@ -170,7 +90,7 @@
             // rbInactivo
             // 
             this.rbInactivo.AutoSize = true;
-            this.rbInactivo.Location = new System.Drawing.Point(209, 630);
+            this.rbInactivo.Location = new System.Drawing.Point(222, 364);
             this.rbInactivo.Name = "rbInactivo";
             this.rbInactivo.Size = new System.Drawing.Size(63, 17);
             this.rbInactivo.TabIndex = 114;
@@ -181,7 +101,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(115, 532);
+            this.label7.Location = new System.Drawing.Point(128, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(323, 31);
             this.label7.TabIndex = 113;
@@ -191,7 +111,7 @@
             // cmbDetalles
             // 
             this.cmbDetalles.FormattingEnabled = true;
-            this.cmbDetalles.Location = new System.Drawing.Point(115, 566);
+            this.cmbDetalles.Location = new System.Drawing.Point(128, 300);
             this.cmbDetalles.Name = "cmbDetalles";
             this.cmbDetalles.Size = new System.Drawing.Size(323, 21);
             this.cmbDetalles.TabIndex = 112;
@@ -205,7 +125,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(182, 682);
+            this.btnModificar.Location = new System.Drawing.Point(193, 416);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(196, 29);
             this.btnModificar.TabIndex = 111;
@@ -217,7 +137,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(115, 464);
+            this.label4.Location = new System.Drawing.Point(128, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(323, 31);
             this.label4.TabIndex = 118;
@@ -227,7 +147,7 @@
             // cmbHorario_disp
             // 
             this.cmbHorario_disp.FormattingEnabled = true;
-            this.cmbHorario_disp.Location = new System.Drawing.Point(115, 498);
+            this.cmbHorario_disp.Location = new System.Drawing.Point(128, 232);
             this.cmbHorario_disp.Name = "cmbHorario_disp";
             this.cmbHorario_disp.Size = new System.Drawing.Size(323, 21);
             this.cmbHorario_disp.TabIndex = 117;
@@ -236,7 +156,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(115, 396);
+            this.label5.Location = new System.Drawing.Point(128, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(323, 31);
             this.label5.TabIndex = 120;
@@ -246,14 +166,14 @@
             // cmbDias_disp
             // 
             this.cmbDias_disp.FormattingEnabled = true;
-            this.cmbDias_disp.Location = new System.Drawing.Point(115, 430);
+            this.cmbDias_disp.Location = new System.Drawing.Point(128, 164);
             this.cmbDias_disp.Name = "cmbDias_disp";
             this.cmbDias_disp.Size = new System.Drawing.Size(323, 21);
             this.cmbDias_disp.TabIndex = 119;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 361);
+            this.textBox1.Location = new System.Drawing.Point(125, 95);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(326, 20);
             this.textBox1.TabIndex = 122;
@@ -262,7 +182,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(112, 333);
+            this.label6.Location = new System.Drawing.Point(125, 67);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(326, 25);
             this.label6.TabIndex = 121;
@@ -273,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 736);
+            this.ClientSize = new System.Drawing.Size(547, 480);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -286,14 +206,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbDetalles);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.lblCorreoAlum);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmModificarUsuario";
@@ -305,15 +217,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.Label lblCorreoAlum;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label8;

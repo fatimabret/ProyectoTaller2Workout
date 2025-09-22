@@ -140,6 +140,7 @@
             this.txtDniAlumno.TabIndex = 19;
             this.txtDniAlumno.TextChanged += new System.EventHandler(this.txtDniAlumno_TextChanged);
             this.txtDniAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniAlumno_KeyPress);
+            this.txtDniAlumno.Validating += new System.ComponentModel.CancelEventHandler(this.txtDniAlumno_Validating);
             // 
             // ePDniAlumno
             // 

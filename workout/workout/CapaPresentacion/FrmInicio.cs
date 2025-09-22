@@ -79,12 +79,32 @@ namespace workout.CapaPresentacion
                 e.Handled = true; // Bloquea el caracter
             }
         }
+        private bool DniValido()
+        {
+            string dni = txtDni.Text.Trim();
 
+            if (string.IsNullOrEmpty(dni))
+            {
+                MessageBox.Show("Debe ingresar un DNI.");
+                return false;
+            }
+
+            if (!dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.");
+                return false;
+            }
+
+            return true;
+        }
         private void btnConsultarMembresia_Click(object sender, EventArgs e)
         {
             //Llama al formulario de membresía
-            FrmMembresia frm = new FrmMembresia();
+            if (!DniValido()) return;
 
+            //Llama al formulario de membresía
+            int dni = int.Parse(txtDni.Text);
+            FrmMembresia frm = new FrmMembresia(dni);
             frm.ShowDialog();
         }
 
@@ -125,11 +145,7 @@ namespace workout.CapaPresentacion
 
         private void btnRenovarMembresia_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDni.Text))
-            {
-                MessageBox.Show("Debe ingresar un DNI válido.");
-                return;
-            }
+            if (!DniValido()) return;
 
             int dni = int.Parse(txtDni.Text.Trim());
             CN_Membresia cnMembresia = new CN_Membresia();
@@ -145,7 +161,6 @@ namespace workout.CapaPresentacion
             }
             else if (estadoMembresia == -1)
             {
-                // Si está vencida, abrimos el formulario
                 FrmRegistrarMembresia frm = new FrmRegistrarMembresia(dni);
                 frm.ShowDialog();
             }

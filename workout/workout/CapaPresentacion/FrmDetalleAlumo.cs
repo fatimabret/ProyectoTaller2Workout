@@ -20,6 +20,7 @@ namespace workout.CapaPresentacion
 
         private void btnVerMembresia_Click(object sender, EventArgs e)
         {
+            /*
             CN_Alumno logicaAlumno = new CN_Alumno();
             //Obtiene el nombre del alumno
             string nombre = txtNombre.Text;
@@ -29,6 +30,7 @@ namespace workout.CapaPresentacion
             //Llama al formulario de membresía
             FrmMembresia frm = new FrmMembresia();
             frm.ShowDialog();
+            */
         }
 
         private void button3_Click(object sender, EventArgs e)

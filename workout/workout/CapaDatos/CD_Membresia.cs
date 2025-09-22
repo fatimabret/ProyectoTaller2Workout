@@ -59,5 +59,37 @@ namespace workout.CapaDatos
 
             return resultado;
         }
+        public Membresia ObtenerMembresiaPorDni(int dni)
+        {
+            Membresia membresia = null;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_MEMBRESIA_POR_DNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        membresia = new Membresia
+                        {
+                            id_membresia = Convert.ToInt32(dr["id_membresia"]),
+                            fecha_pago = Convert.ToDateTime(dr["fecha_pago"]),
+                            fecha_venc = Convert.ToDateTime(dr["fecha_venc"]),
+                            monto = Convert.ToDouble(dr["monto"]),
+                            id_alumno = dni,
+                            id_estado = dr["Estado"].ToString() == "VIGENTE" ? 1 : 0
+                        };
+                    }
+                }
+            }
+
+            return membresia;
+        }
+
     }
 }

@@ -94,5 +94,16 @@ namespace workout.CapaPresentacion
         {
 
         }
+
+        private void txtDni_Validating(object sender, CancelEventArgs e)
+        {
+            // Si la longitud no es válida
+            if (txtDni.Text.Length < 7 || txtDni.Text.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

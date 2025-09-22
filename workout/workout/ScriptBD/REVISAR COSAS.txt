@@ -1,0 +1,27 @@
+	REVISAR CODIGO INSERT DEL SQL
+
+AGREGAR EN TODO:
+- DISTINTOS METODOS DE BUSQUEDA EN LOS LISTADOS (fecha, alfabetica, barra de búsqueda)
+- COMENTARIOS
+
+Principal:
+- Btn consultar rutina (FrmEjercicio)
+
+Inicio Adm:
+- Enlazar campo dni con btn consultar pago
+- Btn consultar pago con datos alumno (apellido, nombre) pago (importe) metodo_pago (tipo) membresia (fecha_pago, fecha_venc)
+- Listar entrenador (algo con eliminar)
+- Listar pagos
+- Listas agregar btn para modificar datos de persona
+- Listar pagos 
+- Listar usuario
+- Registrar usuarios
+
+Inicio Recep:
+- Listar entrenadores el asunto con eliminar
+
+Inicio Entr:
+- Enlazar el campo dni mande a el btn registrar rutina para asignar al alumno
+- En consultar rutina: visualizar rutina, datos del alumno, enlazar btn editar rutina y eliminar rutina
+- Del registrar rutinas que vuelva al inicio entrenador
+- Registrar ejercicio

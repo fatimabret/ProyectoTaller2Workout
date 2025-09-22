@@ -66,8 +66,8 @@ namespace workout.CapaPresentacion
         private void ConslRutina_Click(object sender, EventArgs e)
         {
             //Llama al formulario de rutina
-            FrmRutina frm = new FrmRutina();
-
+            int dni = int.Parse(txtDni.Text);
+            FrmRutina frm = new FrmRutina(dni);
             frm.ShowDialog();
         }
 
@@ -88,6 +88,17 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
             //Cierra el formulario anterior
             this.Close();
+        }
+
+        private void txtDni_Validating(object sender, CancelEventArgs e)
+        {
+            // Si la longitud no es válida
+            if (txtDni.Text.Length < 7 || txtDni.Text.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }

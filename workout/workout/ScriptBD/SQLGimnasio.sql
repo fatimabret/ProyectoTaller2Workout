@@ -234,7 +234,7 @@ BEGIN
 END
 GO
 
-GO
+GO -- para registrar alumno
 CREATE PROCEDURE SP_LIST_ENTRENADOR
 AS
 BEGIN
@@ -254,7 +254,6 @@ BEGIN
     ORDER BY u.apellido, u.nombre;
 END
 GO
-
 
 GO
 CREATE PROCEDURE SP_LISTAR_EJERCICIOS
@@ -360,6 +359,29 @@ BEGIN
     BEGIN
         RETURN -1; -- Membresía no vigente
     END
+END
+GO
+
+GO
+CREATE PROCEDURE SP_OBTENER_MEMBRESIA_POR_DNI
+    @dni INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 1 
+        m.id_membresia,
+        m.fecha_pago,
+        m.fecha_venc,
+        m.monto,
+        CASE 
+            WHEN m.fecha_venc >= CAST(GETDATE() AS DATE) THEN 'VIGENTE'
+            ELSE 'VENCIDA'
+        END AS Estado
+    FROM MEMBRESIA m
+    INNER JOIN ALUMNO a ON m.id_alumno = a.id_alumno
+    WHERE a.dni = @dni
+    ORDER BY m.fecha_pago DESC; -- La más reciente
 END
 GO
 

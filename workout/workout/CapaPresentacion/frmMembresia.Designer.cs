@@ -32,10 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPagado = new System.Windows.Forms.Label();
             this.lblVence = new System.Windows.Forms.Label();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,25 +71,16 @@
             this.lblVence.Text = "Vence el";
             this.lblVence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblPrecio
+            // lblEstado
             // 
-            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(114, 216);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(180, 23);
-            this.lblPrecio.TabIndex = 3;
-            this.lblPrecio.Text = "Precio de la cuota a abonar: $";
-            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "¡Estado!";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(0, 47);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(258, 23);
+            this.lblEstado.TabIndex = 4;
+            this.lblEstado.Text = "¡Estado ";
+            this.lblEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEstado.Click += new System.EventHandler(this.lblEstado_Click);
             // 
             // picMascota
             // 
@@ -102,11 +94,33 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(106, 92);
+            this.panel1.Controls.Add(this.lblDni);
+            this.panel1.Controls.Add(this.lblEstado);
+            this.panel1.Location = new System.Drawing.Point(106, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(259, 156);
+            this.panel1.Size = new System.Drawing.Size(258, 182);
             this.panel1.TabIndex = 23;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblDni
+            // 
+            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDni.Location = new System.Drawing.Point(18, 13);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(192, 23);
+            this.lblDni.TabIndex = 24;
+            this.lblDni.Text = "DNI Alumno: ";
+            this.lblDni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(114, 216);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(180, 23);
+            this.lblPrecio.TabIndex = 3;
+            this.lblPrecio.Text = "Precio de la cuota a abonar: $";
+            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMembresia
             // 
@@ -133,9 +147,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPagado;
         private System.Windows.Forms.Label lblVence;
-        private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblPrecio;
     }
 }

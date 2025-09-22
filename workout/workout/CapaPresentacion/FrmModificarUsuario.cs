@@ -21,7 +21,7 @@ namespace workout.CapaPresentacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario
+            /*Usuario usuario = new Usuario
             {
                 id_usuario = Convert.ToInt32(txtDni.Text),
                 nombre = txtNombre.Text,
@@ -43,6 +43,7 @@ namespace workout.CapaPresentacion
             else
                 MessageBox.Show("Error: el usuario no existe.");
         }
+            */
     }
     }
 }

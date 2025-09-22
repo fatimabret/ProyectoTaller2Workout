@@ -21,7 +21,7 @@ namespace workout.CapaPresentacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Alumno alumno = new Alumno
+            /*Alumno alumno = new Alumno
             {
                 id_alumno = Convert.ToInt32(txtDni.Text),
                 nombre = txtNombre.Text,
@@ -41,7 +41,7 @@ namespace workout.CapaPresentacion
             if (resultado == 1)
                 MessageBox.Show("Alumno actualizado con éxito.");
             else
-                MessageBox.Show("Error: el alumno no existe.");
+                MessageBox.Show("Error: el alumno no existe.");*/
         }
     }
 }

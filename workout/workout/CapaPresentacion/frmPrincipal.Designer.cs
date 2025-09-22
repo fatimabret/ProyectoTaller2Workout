@@ -76,8 +76,9 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(301, 25);
             this.txtDni.TabIndex = 3;
-            this.txtDni.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // btnConsultarMembresia
             // 
@@ -94,7 +95,7 @@
             this.btnConsultarMembresia.TabIndex = 4;
             this.btnConsultarMembresia.Text = "CONSULTAR MEMBRESIA";
             this.btnConsultarMembresia.UseVisualStyleBackColor = false;
-            this.btnConsultarMembresia.Click += new System.EventHandler(this.button1_Click);
+            this.btnConsultarMembresia.Click += new System.EventHandler(this.btnConsultarMembresia_Click);
             // 
             // btnConsultarRutina
             // 
@@ -186,7 +187,7 @@
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmPrincipal";
             this.Text = "Workout";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
