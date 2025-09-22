@@ -20,7 +20,7 @@ namespace workout.CapaPresentacion
             InitializeComponent();
             this.Load += new System.EventHandler(this.FrmListAlumnos_Load);
         }
-        
+        CN_Alumno logicaAlumno = new CN_Alumno();
         private void FrmListAlumnos_Load(object sender, EventArgs e)
         {
             try
@@ -46,6 +46,27 @@ namespace workout.CapaPresentacion
         private void listAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (listAlumnos.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listAlumnos.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listAlumnos.Rows[rowIndex].Cells[1].Value?.ToString();
+                var apellido = listAlumnos.Rows[rowIndex].Cells[2].Value?.ToString();
+                //Pasa los datos a la logica de negocio
+                logicaAlumno.eliminarAlumno(nombre, apellido);
+
+                MessageBox.Show("Alumno dado de baja correctamente.");
+                this.FrmListAlumnos_Load(sender, e); // Recarga la lista de entrenadores
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
         }
     }
 }

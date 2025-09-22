@@ -57,9 +57,8 @@ namespace workout.CapaPresentacion
                 //Pasa los datos a la logica de negocio
                 logicaEntrenador.eliminarEntrenador(nombre, apellido);
 
-                // Elimina la fila del DataGridView
-                listEntrenadores.Rows.RemoveAt(rowIndex);
                 MessageBox.Show("Entrenador eliminado correctamente.");
+                this.FrmListEntrenador_Load(sender, e); // Recarga la lista de entrenadores
             }
             else
             {

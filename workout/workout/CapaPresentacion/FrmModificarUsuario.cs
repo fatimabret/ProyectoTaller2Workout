@@ -36,7 +36,7 @@ namespace workout.CapaPresentacion
             };
 
             CN_Usuario logicaUsuario = new CN_Usuario();
-            int resultado = logicaUsuario.Modificar(usuario);
+            int resultado = logicaUsuario.modificar(usuario);
 
             if (resultado == 1)
                 MessageBox.Show("Usuario actualizado con éxito.");

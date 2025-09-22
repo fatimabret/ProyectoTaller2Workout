@@ -224,11 +224,13 @@ BEGIN
         u.apellido,
         e.horario_disp,
         e.dias_disp,
-		e.cupo
+		e.cupo,
+		es.descripcion AS 'Estado'
     FROM ENTRENADOR e
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
     WHERE u.id_estado = 1 
-    ORDER BY u.apellido, u.nombre;
+    ORDER BY u.apellido, u.nombre,es.descripcion;
 END
 GO
 
