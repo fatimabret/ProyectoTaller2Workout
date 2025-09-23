@@ -217,6 +217,26 @@ BEGIN
     END
 END
 GO
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO_DNI
+    @dni INT
+AS
+BEGIN
+    SELECT a.dni, 
+           a.nombre, 
+           a.apellido,
+           m.fecha_pago,
+           m.fecha_venc, 
+           u.nombre AS Entrenador, 
+           es.descripcion
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
+    INNER JOIN ESTADO es ON a.id_estado = es.id_estado
+    WHERE a.dni = @dni;  
+END
+GO
 
 GO
 CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR

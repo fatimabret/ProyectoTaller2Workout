@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblCredenciales = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -126,11 +127,19 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(432, 329);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 51;
+            // 
             // FrmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 392);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCredenciales);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label1);
@@ -158,5 +167,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCredenciales;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

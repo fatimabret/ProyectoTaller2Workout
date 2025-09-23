@@ -34,6 +34,8 @@
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBuscador = new System.Windows.Forms.Button();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +45,7 @@
             this.listAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listAlumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.listAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listAlumnos.Location = new System.Drawing.Point(29, 115);
+            this.listAlumnos.Location = new System.Drawing.Point(25, 167);
             this.listAlumnos.Name = "listAlumnos";
             this.listAlumnos.RowHeadersVisible = false;
             this.listAlumnos.Size = new System.Drawing.Size(479, 362);
@@ -74,7 +76,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(299, 484);
+            this.btnEliminar.Location = new System.Drawing.Point(295, 536);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 27;
@@ -85,7 +87,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificar.Location = new System.Drawing.Point(135, 484);
+            this.btnModificar.Location = new System.Drawing.Point(131, 536);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(112, 37);
             this.btnModificar.TabIndex = 28;
@@ -93,11 +95,34 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
+            // btnBuscador
+            // 
+            this.btnBuscador.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscador.Location = new System.Drawing.Point(392, 124);
+            this.btnBuscador.Name = "btnBuscador";
+            this.btnBuscador.Size = new System.Drawing.Size(112, 37);
+            this.btnBuscador.TabIndex = 29;
+            this.btnBuscador.Text = "Buscar";
+            this.btnBuscador.UseVisualStyleBackColor = false;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            this.txtBuscador.Location = new System.Drawing.Point(67, 129);
+            this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(301, 25);
+            this.txtBuscador.TabIndex = 47;
+            this.txtBuscador.Text = "Ingrese el DNI";
+            // 
             // FrmListAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 533);
+            this.ClientSize = new System.Drawing.Size(540, 596);
+            this.Controls.Add(this.txtBuscador);
+            this.Controls.Add(this.btnBuscador);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.picMascota);
@@ -120,5 +145,7 @@
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnBuscador;
+        private System.Windows.Forms.TextBox txtBuscador;
     }
 }

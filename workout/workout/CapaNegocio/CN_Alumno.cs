@@ -24,6 +24,11 @@ namespace workout.CapaNegocio
             return alumnoDatos.BuscarAlumno(p_nombre, p_apellido);
         }
 
+        public DataTable buscarAlumnoDni(int p_dni)
+        {
+            return alumnoDatos.BuscarAlumnoDni(p_dni);
+        }
+
         public DataTable listarAlumnos()
         {
             return alumnoDatos.ListarAlumnos();

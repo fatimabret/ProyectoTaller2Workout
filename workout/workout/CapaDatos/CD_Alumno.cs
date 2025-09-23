@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using workout.CapaDatos;
 
 namespace workout.CapaEntidad
@@ -134,5 +135,22 @@ namespace workout.CapaEntidad
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public DataTable BuscarAlumnoDni(int p_dni)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_BUSCAR_ALUMNO_DNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", p_dni);
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla.Rows.Count >= 0 ? tabla : null;
+            }
+        }
+
     }
 }

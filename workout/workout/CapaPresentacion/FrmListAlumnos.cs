@@ -25,7 +25,6 @@ namespace workout.CapaPresentacion
         {
             try
             {
-                CN_Alumno logicaAlumno = new CN_Alumno();
                 DataTable alumnos = logicaAlumno.listarAlumnos();
                 listAlumnos.DataSource = alumnos;
                 if (alumnos.Rows.Count > 0)
@@ -87,6 +86,29 @@ namespace workout.CapaPresentacion
             else
             {
                 MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            int dni = int.Parse(txtBuscador.Text);
+            MessageBox.Show("Buscando alumno con DNI: " + dni);
+            try
+            {
+                DataTable alumno = logicaAlumno.buscarAlumnoDni(dni);
+                listAlumnos.DataSource = alumno;
+                if (alumno.Rows.Count >= 0)
+                {
+                    // Convertir todos los encabezados a mayúsculas
+                    foreach (DataGridViewColumn col in listAlumnos.Columns)
+                    {
+                        col.HeaderText = col.HeaderText.ToUpper();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se encontro un alumno registrado: " + ex.Message);
             }
         }
     }
