@@ -33,6 +33,7 @@
             this.listEntrenadores = new System.Windows.Forms.DataGridView();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.listEntrenadores.Location = new System.Drawing.Point(26, 127);
             this.listEntrenadores.Name = "listEntrenadores";
             this.listEntrenadores.RowHeadersVisible = false;
-            this.listEntrenadores.Size = new System.Drawing.Size(503, 362);
+            this.listEntrenadores.Size = new System.Drawing.Size(567, 362);
             this.listEntrenadores.TabIndex = 0;
             this.listEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listEntrenadores_CellContentClick);
             // 
@@ -80,11 +81,22 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Location = new System.Drawing.Point(127, 516);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 37);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Modificar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmListEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 589);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label1);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listEntrenadores;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button button1;
     }
 }

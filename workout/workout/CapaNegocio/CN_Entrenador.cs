@@ -63,6 +63,11 @@ namespace workout.CapaNegocio
         public void eliminarEntrenador(string nombre, string apellido)
         {
             entrenadorDatos.EliminarEntrenador(nombre, apellido);
-        }   
+        }
+
+        public int buscarEntrenador(string nombre, string apellido)
+        {
+            return entrenadorDatos.BuscarEntrenador(nombre, apellido);
+        }
     }
 }

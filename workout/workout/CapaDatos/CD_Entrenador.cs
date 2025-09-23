@@ -163,5 +163,23 @@ namespace workout.CapaDatos
             }
         }
 
+        public int BuscarEntrenador(string nombre, string apellido)
+        {
+            int id_entrenador = -1;
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_BUSCAR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    id_entrenador = Convert.ToInt32(result);
+                }
+            }
+            return id_entrenador;
+        }
     }
 }

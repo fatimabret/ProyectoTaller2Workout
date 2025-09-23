@@ -1,4 +1,4 @@
-CREATE DATABASE workout;
+ï»¿CREATE DATABASE workout;
 use workout;
 
 /*DEFINICON DE TABLAS*/
@@ -154,10 +154,10 @@ INSERT INTO USUARIO(apellido, nombre, correo, contrasena, dni, id_estado, id_rol
 
 /*ENTRENADOR*/
 INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
-('Mañana (08:00 - 12:00)','Musculacion','Lunes, Miercoles y Jueves',15,3);
+('MaÃ±ana (08:00 - 12:00)','Musculacion','Lunes, Miercoles y Jueves',15,3);
 
 INSERT INTO ENTRENADOR(horario_disp, detalles, dias_disp, cupo, id_usuario) values 
-('Mañana (08:00 - 12:00)','Musculacion','Martes y Jueves',15,4);
+('MaÃ±ana (08:00 - 12:00)','Musculacion','Martes y Jueves',15,4);
 
 /*ALUMNOS*/
 INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
@@ -195,6 +195,54 @@ SELECT * FROM PAGO;
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
 
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM ALUMNO
+        WHERE nombre = @nombre AND apellido = @apellido
+    )
+    BEGIN
+        SELECT id_alumno
+        FROM ALUMNO
+        WHERE nombre = @nombre AND apellido = @apellido;
+    END
+    ELSE
+    BEGIN
+        SELECT -1 AS id_alumno; -- si no existe
+    END
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM USUARIO u
+        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
+        WHERE u.nombre = @nombre AND u.apellido = @apellido
+    )
+    BEGIN
+        SELECT e.id_entrenador
+        FROM USUARIO u
+        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
+        WHERE u.nombre = @nombre AND u.apellido = @apellido;
+    END
+    ELSE
+    BEGIN
+        SELECT -1 AS id_entrenador; -- si no existe
+    END
+END
+GO
+
 /* Listados simples */
 GO
 CREATE PROC SP_LISTAR_ESTADOS
@@ -208,10 +256,12 @@ GO
 CREATE PROC SP_LISTAR_ALUMNOS
 AS
 BEGIN
-    SELECT a.dni, a.nombre,a.apellido,m.fecha_pago,m.fecha_venc, u.nombre FROM ALUMNO a 
+    SELECT a.dni, a.nombre,a.apellido,m.fecha_pago,m.fecha_venc, u.nombre AS 'Entrenador', es.descripcion FROM ALUMNO a 
 	INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
 	INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
-	INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario  ORDER BY a.apellido ASC;
+	INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
+	INNER JOIN ESTADO es ON a.id_estado = es.id_estado
+	ORDER BY es.descripcion,a.apellido ASC;
 END
 GO
 
@@ -229,8 +279,7 @@ BEGIN
     FROM ENTRENADOR e
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
 	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
-    WHERE u.id_estado = 1 
-    ORDER BY u.apellido, u.nombre,es.descripcion;
+    ORDER BY es.descripcion, u.nombre,u.apellido;
 END
 GO
 
@@ -344,7 +393,7 @@ BEGIN
         RETURN -3; -- Alumno no existe
     END
 
-    -- Buscar membresía vigente
+    -- Buscar membresÃ­a vigente
     IF EXISTS (
         SELECT 1
         FROM MEMBRESIA
@@ -353,11 +402,11 @@ BEGIN
           AND id_estado = 1
     )
     BEGIN
-        RETURN -2; -- Membresía vigente
+        RETURN -2; -- MembresÃ­a vigente
     END
     ELSE
     BEGIN
-        RETURN -1; -- Membresía no vigente
+        RETURN -1; -- MembresÃ­a no vigente
     END
 END
 GO
@@ -381,7 +430,7 @@ BEGIN
     FROM MEMBRESIA m
     INNER JOIN ALUMNO a ON m.id_alumno = a.id_alumno
     WHERE a.dni = @dni
-    ORDER BY m.fecha_pago DESC; -- La más reciente
+    ORDER BY m.fecha_pago DESC; -- La mÃ¡s reciente
 END
 GO
 
@@ -398,7 +447,7 @@ BEGIN
     BEGIN
         SELECT id_usuario, id_rol
         FROM USUARIO
-        WHERE correo = @correo AND contrasena = @contrasena;
+        WHERE correo = @correo AND contrasena = @contrasena AND id_estado = 1;
     END
     ELSE
     BEGIN
@@ -406,6 +455,40 @@ BEGIN
     END
 END
 GO
+
+GO
+CREATE OR ALTER PROC SP_INICIAR_SESION
+(
+    @correo VARCHAR(30),
+    @contrasena VARCHAR(30)
+)
+AS
+BEGIN
+    IF EXISTS(SELECT 1 FROM USUARIO WHERE correo = @correo AND contrasena = @contrasena)
+    BEGIN
+        -- Caso estado = 0 â†’ devuelve -2 como id_rol
+        IF EXISTS(SELECT 1 FROM USUARIO WHERE correo = @correo AND contrasena = @contrasena AND id_estado = 0)
+        BEGIN
+            SELECT id_usuario, -2 AS id_rol
+            FROM USUARIO
+            WHERE correo = @correo AND contrasena = @contrasena AND id_estado = 0;
+        END
+        ELSE
+        BEGIN
+            -- Caso estado = 1 â†’ devuelve normal
+            SELECT id_usuario, id_rol
+            FROM USUARIO
+            WHERE correo = @correo AND contrasena = @contrasena AND id_estado = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Usuario o contraseÃ±a incorrectos
+        SELECT -1 AS id_usuario, -1 AS id_rol;
+    END
+END
+GO
+
 
 /*      REGISTROS       */
 CREATE PROCEDURE SP_REGISTRAR_MEMBRESIA
@@ -431,7 +514,7 @@ BEGIN
     -- monto fijo del sistema
     DECLARE @monto FLOAT = 20000;
 
-    -- Insertar membresía
+    -- Insertar membresÃ­a
     INSERT INTO MEMBRESIA(fecha_pago, fecha_venc, monto, id_alumno, id_estado)
     VALUES (GETDATE(), DATEADD(DAY, 30, GETDATE()), @monto, @id_alumno, 1);
 
@@ -494,10 +577,10 @@ BEGIN
 
     IF NOT EXISTS(SELECT 1 FROM ROL WHERE id_rol = @id_rol)
     BEGIN
-        RETURN -2; -- Rol inválido
+        RETURN -2; -- Rol invÃ¡lido
     END
 
-    -- Inserción
+    -- InserciÃ³n
     INSERT INTO dbo.Usuario (apellido, nombre, correo, contrasena, dni, id_estado, id_rol)
     VALUES (@apellido, @nombre, @correo, @contrasena, @dni, @id_estado, @id_rol);
 
@@ -517,7 +600,7 @@ CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
 )
 AS
 BEGIN
-    -- Inserción
+    -- InserciÃ³n
     INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp, cupo, id_usuario)
     VALUES (@horario_disp, @detalles, @dias_disp, @cupo, @id_usuario);
 
@@ -539,78 +622,35 @@ BEGIN
 END
 GO
 
-/*  ESTO NO PROBE
 GO
-CREATE PROCEDURE SP_MODIFICAR_USUARIO
-(
-    @id_usuario INT,
-    @apellido VARCHAR(30),
-    @nombre VARCHAR(30),
-    @correo VARCHAR(50),
-    @contrasena VARCHAR(150),
-    @dni INT,
-    @id_estado INT,
-    @id_rol INT
+CREATE PROCEDURE SP_ELIMINAR_ALUMNO(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
 )
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    IF NOT EXISTS(SELECT 1 FROM USUARIO WHERE id_usuario = @id_usuario)
-    BEGIN
-        RETURN -1; -- Usuario no existe
-    END
-
-    UPDATE USUARIO
-    SET apellido   = @apellido,
-        nombre     = @nombre,
-        correo     = @correo,
-        contrasena = @contrasena,
-        dni        = @dni,
-        id_estado  = @id_estado,
-        id_rol     = @id_rol
-    WHERE id_usuario = @id_usuario;
-
-    RETURN 1; -- OK
+	UPDATE ALUMNO
+	SET id_estado = 0
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
 END
 GO
 
 GO
-CREATE PROCEDURE SP_MODIFICAR_ALUMNO
-(
-    @id_alumno INT,
-    @nombre VARCHAR(30),
-    @apellido VARCHAR(30),
-    @correo VARCHAR(30),
-    @detalles VARCHAR(100),
-    @genero VARCHAR(30),
-    @fecha_nac DATE,
-    @dni INT,
-    @id_estado INT,
-    @id_entrenador INT
+CREATE PROCEDURE SP_MODIFICAR_ALUMNO(
+	@id_alumno int,
+	@genero VARCHAR(30),
+	@detalles VARCHAR(100),
+	@id_estado int,
+	@id_entrenador int
 )
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    IF NOT EXISTS(SELECT 1 FROM ALUMNO WHERE id_alumno = @id_alumno)
-    BEGIN
-        RETURN -1; -- Alumno no existe
-    END
-
-    UPDATE ALUMNO
-    SET nombre       = @nombre,
-        apellido     = @apellido,
-        correo       = @correo,
-        detalles     = @detalles,
-        genero       = @genero,
-        fecha_nac    = @fecha_nac,
-        dni          = @dni,
-        id_estado    = @id_estado,
-        id_entrenador = @id_entrenador
-    WHERE id_alumno = @id_alumno;
-
-    RETURN 1; -- OK
+	UPDATE ALUMNO
+	SET genero = @genero,
+	detalles = @detalles,
+	id_estado = @id_estado,
+	id_entrenador = @id_entrenador
+	WHERE id_alumno = @id_alumno;
 END
-GO  
+GO
 /*PROCEDIMIENTOS ALMACENADOS*/

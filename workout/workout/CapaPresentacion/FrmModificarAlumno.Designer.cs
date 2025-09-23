@@ -43,7 +43,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.rbActivo = new System.Windows.Forms.RadioButton();
             this.rbInactivo = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // picMascota
@@ -75,7 +77,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(177, 394);
+            this.btnModificar.Location = new System.Drawing.Point(169, 394);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(196, 29);
             this.btnModificar.TabIndex = 84;
@@ -166,7 +168,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(117, 309);
+            this.label8.Location = new System.Drawing.Point(18, 12);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(323, 31);
             this.label8.TabIndex = 106;
@@ -176,7 +178,7 @@
             // rbActivo
             // 
             this.rbActivo.AutoSize = true;
-            this.rbActivo.Location = new System.Drawing.Point(294, 343);
+            this.rbActivo.Location = new System.Drawing.Point(197, 56);
             this.rbActivo.Name = "rbActivo";
             this.rbActivo.Size = new System.Drawing.Size(55, 17);
             this.rbActivo.TabIndex = 104;
@@ -186,21 +188,29 @@
             // rbInactivo
             // 
             this.rbInactivo.AutoSize = true;
-            this.rbInactivo.Location = new System.Drawing.Point(211, 343);
+            this.rbInactivo.Location = new System.Drawing.Point(114, 56);
             this.rbInactivo.Name = "rbInactivo";
             this.rbInactivo.Size = new System.Drawing.Size(63, 17);
             this.rbInactivo.TabIndex = 103;
             this.rbInactivo.Text = "Inactivo";
             this.rbInactivo.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.rbInactivo);
+            this.panel1.Controls.Add(this.rbActivo);
+            this.panel1.Location = new System.Drawing.Point(99, 297);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(369, 91);
+            this.panel1.TabIndex = 107;
+            // 
             // FrmModificarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 446);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.rbActivo);
-            this.Controls.Add(this.rbInactivo);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbEntrenador);
             this.Controls.Add(this.label6);
@@ -215,6 +225,8 @@
             this.Name = "FrmModificarAlumno";
             this.Text = "Modificar Datos Alumno";
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +248,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbActivo;
         private System.Windows.Forms.RadioButton rbInactivo;
+        private System.Windows.Forms.Panel panel1;
     }
 }

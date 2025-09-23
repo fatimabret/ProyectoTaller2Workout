@@ -9,39 +9,76 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using workout.CapaEntidad;
 using workout.CapaNegocio;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace workout.CapaPresentacion
 {
     public partial class FrmModificarAlumno : Form
     {
-        public FrmModificarAlumno()
+        private string nombre;
+        private string apellido;
+        public FrmModificarAlumno(string p_nombre,string p_apellido)
         {
             InitializeComponent();
+            nombre = p_nombre;
+            apellido = p_apellido;
+            CargarEntrenadores();
         }
-
+        CN_Alumno logicaAlumno = new CN_Alumno();
+        CN_Entrenador logicaEntrenador = new CN_Entrenador();
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            /*Alumno alumno = new Alumno
+            MessageBox.Show(nombre+apellido);
+            int id_alumno = logicaAlumno.buscarAlumno(nombre,apellido);
+            MessageBox.Show("idAlumno"+id_alumno);
+            string detalles = txtDetalles.Text;
+            string genero = rbHombre.Checked ? "Hombre" : rbMujer.Checked ? "Mujer" : "Otro";
+            int estado = rbActivo.Checked ? 1 : rbInactivo.Checked ? 0 : 2;
+            
+            // Obtenemos el texto seleccionado
+            string entrenador = cmbEntrenador.Text; 
+            MessageBox.Show(entrenador);
+
+            // Separar la parte del nombre/apellido
+            string[] partes = entrenador.Split(new string[] { " - " }, StringSplitOptions.None);
+            string nombreApellido = partes[0].Trim(); // "Bongiovanni Iara"
+
+            // Separar apellido y nombre
+            string[] palabras = nombreApellido.Split(' ');
+            if (palabras.Length > 1)
             {
-                id_alumno = Convert.ToInt32(txtDni.Text),
-                nombre = txtNombre.Text,
-                apellido = txtApellido.Text,
-                correo = txtCorreo.Text,
-                detalles = txtDetalles.Text,
-                genero = rbHombre.Checked ? "Hombre" : rbMujer.Checked ? "Mujer" : "Otro",
-                fecha_nac = dtpFechaNac.Value,
-                dni = Convert.ToInt32(txtDni.Text),
-                id_estado = (rbActivo.Checked) ? 1 : 0,
-                id_entrenador = Convert.ToInt32(cmbEntrenador.SelectedValue)
-            };
+                apellido = palabras[0]; // "Bongiovanni"
+                nombre = palabras[1];   // "Iara"
+            }
+            
+            int idEntrenador = logicaEntrenador.buscarEntrenador(nombre,apellido);
+            MessageBox.Show(id_alumno+detalles+genero+estado+idEntrenador);
+            logicaAlumno.modificarAlumno(id_alumno,detalles,genero,estado,idEntrenador);
+            
+            //Llama al formulario de administrador
+            FrmListAlumnos frmListaAlumnos = new FrmListAlumnos();
+            //oculta el formulario actual
+            this.Hide();
+            //setea el nuevo formulario como el actual
+            frmListaAlumnos.ShowDialog();
+            //cierra el formulario anterior
+            this.Close();
+        }
+        private void CargarEntrenadores()
+        {
+            CN_Entrenador logicaEntrenador = new CN_Entrenador();
+            DataTable listaEntrenadores = logicaEntrenador.ListarEntrenadoresConInfoCompleta();
 
-            CN_Alumno logicaAlumno = new CN_Alumno();
-            int resultado = logicaAlumno.ModificarAlumno(alumno);
-
-            if (resultado == 1)
-                MessageBox.Show("Alumno actualizado con éxito.");
+            if (listaEntrenadores.Rows.Count > 0)
+            {
+                cmbEntrenador.DataSource = listaEntrenadores;
+                cmbEntrenador.DisplayMember = "InfoCompleta";
+                cmbEntrenador.ValueMember = "id_entrenador";
+            }
             else
-                MessageBox.Show("Error: el alumno no existe.");*/
+            {
+                MessageBox.Show("No hay entrenadores registrados. Registre uno para continuar.", "Aviso");
+            }
         }
     }
 }

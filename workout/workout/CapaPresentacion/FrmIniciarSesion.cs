@@ -63,6 +63,10 @@ namespace workout.CapaPresentacion
                 //cierra el formulario anterior
                 this.Close();
             }
+            if (idRol == -2)
+            {
+                lblCredenciales.Text = "USUARIO DADO DE BAJA.";
+            }
             else
             {
                 lblCredenciales.Text = "CREDENCIALES INVALIDAS!!!!";

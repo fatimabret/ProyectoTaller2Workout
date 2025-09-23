@@ -68,5 +68,26 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("No hay ninguna fila seleccionada.");
             }
         }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            if (listAlumnos.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listAlumnos.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listAlumnos.Rows[rowIndex].Cells[1].Value?.ToString();
+                var apellido = listAlumnos.Rows[rowIndex].Cells[2].Value?.ToString();
+                //Pasa los datos al formulario de modificar alumno
+                this.Hide();
+                FrmModificarAlumno modificarAlumno = new FrmModificarAlumno(nombre, apellido);
+                modificarAlumno.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
     }
 }

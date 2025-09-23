@@ -49,24 +49,21 @@ namespace workout.CapaEntidad
         {
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
-                //Abre la conexion a la base de datos
                 conexion.Open();
-                //Se define el comando SQL para registrar el usuario
+
                 SqlCommand cmd = new SqlCommand("SP_BUSCAR_ALUMNO", conexion);
-                //Pasa los parametros a la consulta
-                cmd.Parameters.AddWithValue("nombre", p_nombre);
-                cmd.Parameters.AddWithValue("apellido", p_apellido);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                // Parámetro para capturar el RETURN
-                SqlParameter returnValue = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
-                returnValue.Direction = ParameterDirection.ReturnValue;
-                // Ejecutar el SP
-                cmd.ExecuteNonQuery();
-                // Lee el valor devuelto por la BD
-                id_alumno = (int)returnValue.Value;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre", p_nombre);
+                cmd.Parameters.AddWithValue("@apellido", p_apellido);
+
+                
+                int id_alumno = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return id_alumno;
             }
-            return id_alumno;
         }
+
 
         public DataTable ListarAlumnos()
         {
@@ -101,7 +98,7 @@ namespace workout.CapaEntidad
 
             return tablaAlumnos;
         }
-        public int ModificarAlumno(Alumno alumno)
+        public int ModificarAlumno(int p_id_alumno,string p_detalles, string p_genero, int p_estado, int p_entrenador)
         {
             int resultado = -1;
 
@@ -110,17 +107,11 @@ namespace workout.CapaEntidad
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_MODIFICAR_ALUMNO", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@id_alumno", alumno.id_alumno);
-                cmd.Parameters.AddWithValue("@nombre", alumno.nombre);
-                cmd.Parameters.AddWithValue("@apellido", alumno.apellido);
-                cmd.Parameters.AddWithValue("@correo", alumno.correo);
-                cmd.Parameters.AddWithValue("@detalles", alumno.detalles);
-                cmd.Parameters.AddWithValue("@genero", alumno.genero);
-                cmd.Parameters.AddWithValue("@fecha_nac", alumno.fecha_nac);
-                cmd.Parameters.AddWithValue("@dni", alumno.dni);
-                cmd.Parameters.AddWithValue("@id_estado", alumno.id_estado);
-                cmd.Parameters.AddWithValue("@id_entrenador", alumno.id_entrenador);
+                cmd.Parameters.AddWithValue("@id_alumno", p_id_alumno);
+                cmd.Parameters.AddWithValue("@detalles", p_detalles);
+                cmd.Parameters.AddWithValue("@genero", p_genero);
+                cmd.Parameters.AddWithValue("@id_estado",p_estado);
+                cmd.Parameters.AddWithValue("@id_entrenador", p_entrenador);
 
                 SqlParameter returnParameter = cmd.Parameters.Add("ReturnValue", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.ReturnValue;

@@ -18,7 +18,7 @@ namespace workout.CapaPresentacion
             InitializeComponent();
             this.Load += new System.EventHandler(this.FrmListEntrenador_Load);
         }
-
+        CN_Entrenador logicaEntrenador = new CN_Entrenador();
         private void FrmListEntrenador_Load(object sender, EventArgs e)
         {
             try
@@ -53,7 +53,7 @@ namespace workout.CapaPresentacion
                 var nombre = listEntrenadores.Rows[rowIndex].Cells[0].Value?.ToString();
                 var apellido = listEntrenadores.Rows[rowIndex].Cells[1].Value?.ToString();
 
-                CN_Entrenador logicaEntrenador = new CN_Entrenador();
+                
                 //Pasa los datos a la logica de negocio
                 logicaEntrenador.eliminarEntrenador(nombre, apellido);
 
