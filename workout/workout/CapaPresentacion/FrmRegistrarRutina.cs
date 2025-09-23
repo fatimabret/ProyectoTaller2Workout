@@ -17,10 +17,12 @@ namespace workout.CapaPresentacion
     {
         private int idEntrenador;
 
-        public FrmRegistrarRutina(int idEntrenador)
+        private int dniAlumno;
+        public FrmRegistrarRutina(int dni, int idEntrenador)
         {
             InitializeComponent();
             this.idEntrenador = idEntrenador;
+            dniAlumno = dni;
         }
 
         private void FrmRegistrarRutina_Load(object sender, EventArgs e)

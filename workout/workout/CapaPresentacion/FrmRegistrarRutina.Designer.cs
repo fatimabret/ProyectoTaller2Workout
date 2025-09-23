@@ -63,7 +63,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimpiar.Location = new System.Drawing.Point(280, 590);
+            this.btnLimpiar.Location = new System.Drawing.Point(292, 538);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(196, 29);
             this.btnLimpiar.TabIndex = 62;
@@ -80,7 +80,7 @@
             this.btnRegistrarRutina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarRutina.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarRutina.Location = new System.Drawing.Point(280, 555);
+            this.btnRegistrarRutina.Location = new System.Drawing.Point(292, 503);
             this.btnRegistrarRutina.Name = "btnRegistrarRutina";
             this.btnRegistrarRutina.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrarRutina.TabIndex = 57;
@@ -128,7 +128,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(41, 555);
+            this.button1.Location = new System.Drawing.Point(53, 503);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 30);
             this.button1.TabIndex = 117;
@@ -142,9 +142,9 @@
             this.dgvRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRutina.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colEjercicio});
-            this.dgvRutina.Location = new System.Drawing.Point(84, 198);
+            this.dgvRutina.Location = new System.Drawing.Point(84, 172);
             this.dgvRutina.Name = "dgvRutina";
-            this.dgvRutina.Size = new System.Drawing.Size(371, 176);
+            this.dgvRutina.Size = new System.Drawing.Size(371, 282);
             this.dgvRutina.TabIndex = 130;
             this.dgvRutina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRutina_CellContentClick);
             // 
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 652);
+            this.ClientSize = new System.Drawing.Size(548, 594);
             this.Controls.Add(this.cmbDias);
             this.Controls.Add(this.dgvRutina);
             this.Controls.Add(this.button1);

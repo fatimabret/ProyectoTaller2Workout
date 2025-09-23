@@ -31,7 +31,24 @@ namespace workout.CapaPresentacion
             //Cierra el formulario anterior
             this.Close();
         }
+        private bool DniValido()
+        {
+            string dni = txtDni.Text.Trim();
 
+            if (string.IsNullOrEmpty(dni))
+            {
+                MessageBox.Show("Debe ingresar un DNI.");
+                return false;
+            }
+
+            if (!dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.");
+                return false;
+            }
+
+            return true;
+        }
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
             string dni = txtDni.Text.Trim();
@@ -56,15 +73,17 @@ namespace workout.CapaPresentacion
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Solo permitir números y la tecla Backspace
+            // Permite números y teclas de control
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Bloquea el caracter
+                e.Handled = true;
             }
         }
 
         private void ConslRutina_Click(object sender, EventArgs e)
         {
+            if (!DniValido()) return;
+
             //Llama al formulario de rutina
             int dni = int.Parse(txtDni.Text);
             FrmRutina frm = new FrmRutina(dni);
@@ -80,25 +99,23 @@ namespace workout.CapaPresentacion
 
         private void btnRutinas_Click(object sender, EventArgs e)
         {
+            if (!DniValido()) return;
+
+
+            int dni = int.Parse(txtDni.Text);
             //Llama al formulario de registrar rutina
-            FrmRegistrarRutina frm = new FrmRegistrarRutina(idEntrenador);
+            FrmRegistrarRutina frm = new FrmRegistrarRutina(dni,idEntrenador);
             //Oculta el formulario actual
             this.Hide();
             //Setea el nuevo formulario como el actual
             frm.ShowDialog();
-            //Cierra el formulario anterior
-            this.Close();
+            this.Show();
+
         }
 
-        private void txtDni_Validating(object sender, CancelEventArgs e)
+        private void FrmInicioEntr_Load(object sender, EventArgs e)
         {
-            // Si la longitud no es válida
-            if (txtDni.Text.Length < 7 || txtDni.Text.Length > 8)
-            {
-                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
-                e.Cancel = true;
-                return;
-            }
+
         }
     }
 }

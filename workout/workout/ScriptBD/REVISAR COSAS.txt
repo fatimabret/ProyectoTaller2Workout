@@ -5,15 +5,13 @@ AGREGAR EN TODO:
 - COMENTARIOS
 
 Principal:
-- Btn consultar rutina (FrmEjercicio)
+- Consultar rutina (ver de un alumno, esta el dni enlazado) FrmEjercicio
 
 Inicio Adm:
-- Enlazar campo dni con btn consultar pago
-- Btn consultar pago con datos alumno (apellido, nombre) pago (importe) metodo_pago (tipo) membresia (fecha_pago, fecha_venc)
+- Consultar pago con datos: alumno (apellido, nombre), pago (importe), metodo_pago (tipo), membresia (fecha_pago, fecha_venc)
 - Listar entrenador (algo con eliminar)
 - Listar pagos
 - Listas agregar btn para modificar datos de persona
-- Listar pagos 
 - Listar usuario
 - Registrar usuarios
 
@@ -21,7 +19,11 @@ Inicio Recep:
 - Listar entrenadores el asunto con eliminar
 
 Inicio Entr:
-- Enlazar el campo dni mande a el btn registrar rutina para asignar al alumno
+- Registrar rutina (que asigne al alumno, esta el dni enlazado)
 - En consultar rutina: visualizar rutina, datos del alumno, enlazar btn editar rutina y eliminar rutina
-- Del registrar rutinas que vuelva al inicio entrenador
 - Registrar ejercicio
+
+Vistas pendientes:
+- Pago
+- Estadistica pago
+- Estadistica alumno

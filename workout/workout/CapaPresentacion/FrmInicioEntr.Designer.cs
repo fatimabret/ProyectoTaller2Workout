@@ -85,7 +85,6 @@
             this.txtDni.TabIndex = 38;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
-            this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // label1
             // 
@@ -179,6 +178,7 @@
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioEntr";
             this.Text = "Workout Entrenador";
+            this.Load += new System.EventHandler(this.FrmInicioEntr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

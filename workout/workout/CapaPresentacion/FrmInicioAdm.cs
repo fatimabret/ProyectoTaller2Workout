@@ -89,21 +89,33 @@ namespace workout.CapaPresentacion
                 e.Handled = true; // Bloquea el caracter
             }
         }
+        private bool DniValido()
+        {
+            string dni = txtDni.Text.Trim();
 
+            if (string.IsNullOrEmpty(dni))
+            {
+                MessageBox.Show("Debe ingresar un DNI.");
+                return false;
+            }
+
+            if (!dni.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.");
+                return false;
+            }
+
+            return true;
+        }
         private void btnConsultarPago_Click(object sender, EventArgs e)
         {
+            if (!DniValido()) return;
 
+            //Llama al formulario de pago
+            int dni = int.Parse(txtDni.Text);
+            FrmPago frm = new FrmPago(dni);
+            frm.ShowDialog();
         }
 
-        private void txtDni_Validating(object sender, CancelEventArgs e)
-        {
-            // Si la longitud no es válida
-            if (txtDni.Text.Length < 7 || txtDni.Text.Length > 8)
-            {
-                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
-                e.Cancel = true;
-                return;
-            }
-        }
     }
 }

@@ -24,20 +24,43 @@ namespace workout.CapaPresentacion
             apellido = p_apellido;
             CargarEntrenadores();
         }
+
         CN_Alumno logicaAlumno = new CN_Alumno();
         CN_Entrenador logicaEntrenador = new CN_Entrenador();
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(nombre+apellido);
             int id_alumno = logicaAlumno.buscarAlumno(nombre,apellido);
-            MessageBox.Show("idAlumno"+id_alumno);
+            if (id_alumno <= 0)
+            {
+                MessageBox.Show("No se encontró el alumno seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string detalles = txtDetalles.Text;
+            if (string.IsNullOrWhiteSpace(txtDetalles.Text))
+            {
+                MessageBox.Show("El campo 'Detalles' no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDetalles.Focus();
+                return;
+            }
+
             string genero = rbHombre.Checked ? "Hombre" : rbMujer.Checked ? "Mujer" : "Otro";
+            if (string.IsNullOrEmpty(genero))
+            {
+                MessageBox.Show("Debe seleccionar un género.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int estado = rbActivo.Checked ? 1 : rbInactivo.Checked ? 0 : 2;
-            
+            if (estado == -1)
+            {
+                MessageBox.Show("Debe seleccionar un estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Obtenemos el texto seleccionado
             string entrenador = cmbEntrenador.Text; 
-            MessageBox.Show(entrenador);
 
             // Separar la parte del nombre/apellido
             string[] partes = entrenador.Split(new string[] { " - " }, StringSplitOptions.None);
@@ -52,7 +75,6 @@ namespace workout.CapaPresentacion
             }
             
             int idEntrenador = logicaEntrenador.buscarEntrenador(nombre,apellido);
-            MessageBox.Show(id_alumno+detalles+genero+estado+idEntrenador);
             logicaAlumno.modificarAlumno(id_alumno,detalles,genero,estado,idEntrenador);
             
             //Llama al formulario de administrador
