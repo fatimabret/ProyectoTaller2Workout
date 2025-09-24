@@ -136,5 +136,15 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("No hay ninguna fila seleccionada.");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picMascota_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

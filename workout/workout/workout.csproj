@@ -89,6 +89,12 @@
     <Compile Include="CapaPresentacion\FrmEstadisticaPago.Designer.cs">
       <DependentUpon>FrmEstadisticaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmListaUsuarios.Designer.cs">
+      <DependentUpon>FrmListaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmListEntrenador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CapaPresentacion\FrmDetalleAlumo.resx">
       <DependentUpon>FrmDetalleAlumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmListaUsuarios.resx">
+      <DependentUpon>FrmListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmListEntrenador.resx">
       <DependentUpon>FrmListEntrenador.cs</DependentUpon>

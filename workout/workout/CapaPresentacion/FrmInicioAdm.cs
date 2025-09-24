@@ -124,5 +124,13 @@ namespace workout.CapaPresentacion
             listaPagos.ShowDialog();
             this.Close();
         }
+
+        private void btnListaUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmListaUsuarios listaUsuarios = new FrmListaUsuarios();
+            this.Hide();
+            listaUsuarios.ShowDialog();
+            this.Close();
+        }
     }
 }

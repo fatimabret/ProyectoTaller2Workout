@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using workout.CapaEntidad;
 using workout.CapaDatos;
+using System.Data;
 
 namespace workout.CapaNegocio
 {
@@ -19,6 +20,16 @@ namespace workout.CapaNegocio
         public (int idUsuario, int idRol) iniciarSesion(string correo, string contrasena)
         {
             return usuarioDatos.IniciarSesion(correo, contrasena);
+        }
+
+        public DataTable buscarUsuarioDni(int dni)
+        {
+            return usuarioDatos.BuscarUsuarioDni(dni);
+        }
+
+        public DataTable listarUsuarios()
+        {
+            return usuarioDatos.ListarUsuarios();
         }
 
     }

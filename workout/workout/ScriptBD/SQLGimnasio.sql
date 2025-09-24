@@ -257,6 +257,40 @@ END
 GO
 
 GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_USUARIO_DNI
+    @dni INT
+AS
+BEGIN
+	SELECT	u.dni,
+			u.nombre,
+			u.apellido,
+			r.descripcion AS 'Rol',
+			es.descripcion AS 'Estado'
+    FROM USUARIO u
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
+	INNER JOIN ROL r ON u.id_rol = r.id_rol
+    WHERE u.dni = @dni;  
+END
+GO
+
+
+GO
+CREATE OR ALTER PROCEDURE SP_LISTAR_USUARIOS
+AS
+BEGIN
+	SELECT	u.dni,
+			u.nombre,
+			u.apellido,
+			r.descripcion AS 'Rol',
+			es.descripcion AS 'Estado'
+    FROM USUARIO u
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
+	INNER JOIN ROL r ON u.id_rol = r.id_rol
+	ORDER BY r.descripcion ASC ;
+END
+GO
+
+GO
 CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR
     @nombre VARCHAR(30),
     @apellido VARCHAR(30)
@@ -513,26 +547,6 @@ END
 GO
 
 /*      INICIAR SESION    */
-GO
-CREATE PROC SP_INICIAR_SESION
-(
-    @correo VARCHAR(30),
-    @contrasena VARCHAR(30)
-)
-AS
-BEGIN
-    IF EXISTS(SELECT 1 FROM USUARIO WHERE correo = @correo AND contrasena = @contrasena)
-    BEGIN
-        SELECT id_usuario, id_rol
-        FROM USUARIO
-        WHERE correo = @correo AND contrasena = @contrasena AND id_estado = 1;
-    END
-    ELSE
-    BEGIN
-        SELECT -1 AS id_usuario, -1 AS id_rol;
-    END
-END
-GO
 
 GO
 CREATE OR ALTER PROC SP_INICIAR_SESION

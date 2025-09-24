@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioAdm));
-            this.btnListaEntrenadores = new System.Windows.Forms.Button();
             this.btnRegistrarRecepcionista = new System.Windows.Forms.Button();
             this.btnConsultarPago = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -40,7 +39,7 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnListaAlumnos = new System.Windows.Forms.Button();
-            this.btnListaRecepcionista = new System.Windows.Forms.Button();
+            this.btnListaUsuarios = new System.Windows.Forms.Button();
             this.btnListaPagos = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,21 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnListaEntrenadores
-            // 
-            this.btnListaEntrenadores.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnListaEntrenadores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListaEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaEntrenadores.Location = new System.Drawing.Point(477, 3);
-            this.btnListaEntrenadores.Name = "btnListaEntrenadores";
-            this.btnListaEntrenadores.Size = new System.Drawing.Size(195, 29);
-            this.btnListaEntrenadores.TabIndex = 30;
-            this.btnListaEntrenadores.Text = "LISTA ENTRENADORES";
-            this.btnListaEntrenadores.UseVisualStyleBackColor = false;
-            this.btnListaEntrenadores.Click += new System.EventHandler(this.btnListaEntrenadores_Click);
             // 
             // btnRegistrarRecepcionista
             // 
@@ -190,19 +174,20 @@
             this.btnListaAlumnos.UseVisualStyleBackColor = false;
             this.btnListaAlumnos.Click += new System.EventHandler(this.btnListaAlumnos_Click);
             // 
-            // btnListaRecepcionista
+            // btnListaUsuarios
             // 
-            this.btnListaRecepcionista.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnListaRecepcionista.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListaRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaRecepcionista.Location = new System.Drawing.Point(402, 409);
-            this.btnListaRecepcionista.Name = "btnListaRecepcionista";
-            this.btnListaRecepcionista.Size = new System.Drawing.Size(195, 29);
-            this.btnListaRecepcionista.TabIndex = 34;
-            this.btnListaRecepcionista.Text = "LISTA USUARIOS";
-            this.btnListaRecepcionista.UseVisualStyleBackColor = false;
+            this.btnListaUsuarios.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnListaUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListaUsuarios.Location = new System.Drawing.Point(402, 409);
+            this.btnListaUsuarios.Name = "btnListaUsuarios";
+            this.btnListaUsuarios.Size = new System.Drawing.Size(195, 29);
+            this.btnListaUsuarios.TabIndex = 34;
+            this.btnListaUsuarios.Text = "LISTA USUARIOS";
+            this.btnListaUsuarios.UseVisualStyleBackColor = false;
+            this.btnListaUsuarios.Click += new System.EventHandler(this.btnListaUsuarios_Click);
             // 
             // btnListaPagos
             // 
@@ -249,11 +234,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 492);
             this.Controls.Add(this.btnListaPagos);
-            this.Controls.Add(this.btnListaRecepcionista);
+            this.Controls.Add(this.btnListaUsuarios);
             this.Controls.Add(this.btnListaAlumnos);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnListaEntrenadores);
             this.Controls.Add(this.btnRegistrarRecepcionista);
             this.Controls.Add(this.btnConsultarPago);
             this.Controls.Add(this.txtDni);
@@ -276,7 +260,6 @@
 
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnListaEntrenadores;
         private System.Windows.Forms.Button btnRegistrarRecepcionista;
         private System.Windows.Forms.Button btnConsultarPago;
         private System.Windows.Forms.TextBox txtDni;
@@ -286,7 +269,7 @@
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Button btnListaAlumnos;
-        private System.Windows.Forms.Button btnListaRecepcionista;
+        private System.Windows.Forms.Button btnListaUsuarios;
         private System.Windows.Forms.Button btnListaPagos;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }

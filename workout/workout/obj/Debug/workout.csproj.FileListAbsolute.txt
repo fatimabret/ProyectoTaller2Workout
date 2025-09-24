@@ -78,3 +78,4 @@ C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarUsuario
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarAlumno.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarMembresia.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarEntrenador.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmListaUsuarios.resources

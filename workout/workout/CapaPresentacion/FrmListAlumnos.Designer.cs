@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListAlumnos));
             this.listAlumnos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.picMascota = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscador = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -62,16 +62,7 @@
             this.label1.Size = new System.Drawing.Size(180, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "LISTA DE ALUMNOS";
-            // 
-            // picMascota
-            // 
-            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
-            this.picMascota.Location = new System.Drawing.Point(66, 21);
-            this.picMascota.Name = "picMascota";
-            this.picMascota.Size = new System.Drawing.Size(73, 78);
-            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMascota.TabIndex = 22;
-            this.picMascota.TabStop = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnEliminar
             // 
@@ -129,6 +120,17 @@
             this.button1.Text = "ACTIVAR";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // picMascota
+            // 
+            this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
+            this.picMascota.Location = new System.Drawing.Point(66, 21);
+            this.picMascota.Name = "picMascota";
+            this.picMascota.Size = new System.Drawing.Size(73, 78);
+            this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMascota.TabIndex = 22;
+            this.picMascota.TabStop = false;
+            this.picMascota.Click += new System.EventHandler(this.picMascota_Click);
             // 
             // FrmListAlumnos
             // 
