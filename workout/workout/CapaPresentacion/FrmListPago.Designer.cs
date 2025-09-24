@@ -30,14 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListPago));
             this.label1 = new System.Windows.Forms.Label();
-            this.listAlumnos = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENCIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listPagos = new System.Windows.Forms.DataGridView();
             this.picMascota = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.btnBuscador = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.listPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,50 +48,16 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "LISTA DE PAGOS";
             // 
-            // listAlumnos
+            // listPagos
             // 
-            this.listAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.listAlumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.listAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DNI,
-            this.Column2,
-            this.PAGO,
-            this.VENCIMIENTO,
-            this.Column1});
-            this.listAlumnos.Location = new System.Drawing.Point(58, 106);
-            this.listAlumnos.Name = "listAlumnos";
-            this.listAlumnos.RowHeadersVisible = false;
-            this.listAlumnos.Size = new System.Drawing.Size(479, 362);
-            this.listAlumnos.TabIndex = 23;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "NOMB APELL";
-            this.Column2.Name = "Column2";
-            // 
-            // PAGO
-            // 
-            this.PAGO.HeaderText = "PAGO";
-            this.PAGO.Name = "PAGO";
-            this.PAGO.ReadOnly = true;
-            // 
-            // VENCIMIENTO
-            // 
-            this.VENCIMIENTO.HeaderText = "VENCIMIENTO";
-            this.VENCIMIENTO.Name = "VENCIMIENTO";
-            this.VENCIMIENTO.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ENTRENADOR";
-            this.Column1.Name = "Column1";
+            this.listPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listPagos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.listPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listPagos.Location = new System.Drawing.Point(68, 167);
+            this.listPagos.Name = "listPagos";
+            this.listPagos.RowHeadersVisible = false;
+            this.listPagos.Size = new System.Drawing.Size(479, 362);
+            this.listPagos.TabIndex = 23;
             // 
             // picMascota
             // 
@@ -106,17 +69,41 @@
             this.picMascota.TabIndex = 25;
             this.picMascota.TabStop = false;
             // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            this.txtBuscador.Location = new System.Drawing.Point(95, 124);
+            this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(301, 25);
+            this.txtBuscador.TabIndex = 51;
+            this.txtBuscador.Text = "Ingrese el DNI";
+            // 
+            // btnBuscador
+            // 
+            this.btnBuscador.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscador.Location = new System.Drawing.Point(420, 119);
+            this.btnBuscador.Name = "btnBuscador";
+            this.btnBuscador.Size = new System.Drawing.Size(112, 37);
+            this.btnBuscador.TabIndex = 50;
+            this.btnBuscador.Text = "Buscar";
+            this.btnBuscador.UseVisualStyleBackColor = false;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
+            // 
             // FrmListPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 522);
+            this.ClientSize = new System.Drawing.Size(591, 604);
+            this.Controls.Add(this.txtBuscador);
+            this.Controls.Add(this.btnBuscador);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listAlumnos);
+            this.Controls.Add(this.listPagos);
             this.Name = "FrmListPago";
             this.Text = "FrmListPago";
-            ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).EndInit();
+            this.Load += new System.EventHandler(this.FrmListPago_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.listPagos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,11 +114,8 @@
 
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView listAlumnos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PAGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VENCIMIENTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridView listPagos;
+        private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Button btnBuscador;
     }
 }

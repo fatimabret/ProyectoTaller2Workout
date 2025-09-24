@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using workout.CapaEntidad;
 using workout.CapaNegocio;
 
@@ -163,6 +164,19 @@ namespace workout.CapaDatos
             }
         }
 
+        public void ActivarEntrenador(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public int BuscarEntrenador(string nombre, string apellido)
         {
             int id_entrenador = -1;
@@ -178,8 +192,41 @@ namespace workout.CapaDatos
                 {
                     id_entrenador = Convert.ToInt32(result);
                 }
+                MessageBox.Show("ID Entrenador encontrado: " + id_entrenador); // Línea de depuración
             }
             return id_entrenador;
+        }
+
+        public DataTable BuscarEntrenadorDni(int p_dni)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_BUSCAR_ENTRENADOR_DNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", p_dni);
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla.Rows.Count >= 0 ? tabla : null;
+            }
+        }
+
+        public void ModificarEntrenador(int id_entrenador, int p_cupo, string horario_disp, string dias_disp, string detalles)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_MODIFICAR_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_entrenador", id_entrenador);
+                cmd.Parameters.AddWithValue("@cupo", p_cupo);
+                cmd.Parameters.AddWithValue("@horario_disp", horario_disp);
+                cmd.Parameters.AddWithValue("@dias_disp", dias_disp);
+                cmd.Parameters.AddWithValue("@detalles", detalles);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -21,12 +21,12 @@ namespace workout.CapaPresentacion
             this.idEntrenador = idEntrenador;
             this.Load += new System.EventHandler(this.FrmAlumnosList_Load);
         }
-
+        CN_Alumno logicaAlumno = new CN_Alumno();
         private void FrmAlumnosList_Load(object sender, EventArgs e)
         {
             try
             {
-                CN_Alumno logicaAlumno = new CN_Alumno();
+
                 DataTable alumnos = logicaAlumno.listarAlumnosPorEntrenador(idEntrenador);
                 dataGridView1.DataSource = alumnos;
                 if (alumnos.Rows.Count > 0)
@@ -55,5 +55,6 @@ namespace workout.CapaPresentacion
         {
 
         }
+
     }
 }

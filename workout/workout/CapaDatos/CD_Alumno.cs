@@ -13,8 +13,6 @@ namespace workout.CapaEntidad
 {
     public class CD_Alumno
     {
-        int id_alumno = 0;
-        
         public int RegistrarAlumno(Alumno p_Alumno)
         {
             int id_alumno_registrado = -1;
@@ -135,6 +133,20 @@ namespace workout.CapaEntidad
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void ActivarAlumno(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_ALUMNO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
         public DataTable BuscarAlumnoDni(int p_dni)
         {

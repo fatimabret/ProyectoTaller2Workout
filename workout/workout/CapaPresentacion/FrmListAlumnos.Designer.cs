@@ -36,6 +36,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBuscador = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(295, 536);
+            this.btnEliminar.Location = new System.Drawing.Point(341, 535);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 27;
@@ -87,11 +88,11 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificar.Location = new System.Drawing.Point(131, 536);
+            this.btnModificar.Location = new System.Drawing.Point(47, 536);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(112, 37);
             this.btnModificar.TabIndex = 28;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
@@ -115,12 +116,26 @@
             this.txtBuscador.Size = new System.Drawing.Size(301, 25);
             this.txtBuscador.TabIndex = 47;
             this.txtBuscador.Text = "Ingrese el DNI";
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(192, 536);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 37);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "ACTIVAR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmListAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 596);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnBuscador);
             this.Controls.Add(this.btnModificar);
@@ -147,5 +162,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBuscador;
         private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Button button1;
     }
 }

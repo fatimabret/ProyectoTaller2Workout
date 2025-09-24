@@ -51,7 +51,7 @@ namespace workout.CapaNegocio
         {
             return entrenadorDatos.ListarAlumnosPorEntrenador(id_entrenador);
         }
-        public DataTable ListarEntrenadores()
+        public DataTable listarEntrenadores()
         {
             return entrenadorDatos.ListarEntrenadores();
         }
@@ -65,9 +65,24 @@ namespace workout.CapaNegocio
             entrenadorDatos.EliminarEntrenador(nombre, apellido);
         }
 
+        public void activarEntrenador(string nombre, string apellido)
+        {
+            entrenadorDatos.ActivarEntrenador(nombre, apellido);
+        }
+
         public int buscarEntrenador(string nombre, string apellido)
         {
             return entrenadorDatos.BuscarEntrenador(nombre, apellido);
+        }
+
+        public DataTable buscarEntrenadorDni(int p_dni)
+        {
+            return entrenadorDatos.BuscarEntrenadorDni(p_dni);
+        }
+
+        public void modificarEntrenador(int id_entrenador,int p_cupo, string horario_disp, string dias_disp, string detalles)
+        {
+            entrenadorDatos.ModificarEntrenador(id_entrenador, p_cupo, horario_disp, dias_disp, detalles);
         }
     }
 }

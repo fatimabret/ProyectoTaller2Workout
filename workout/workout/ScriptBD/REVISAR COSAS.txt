@@ -8,15 +8,9 @@ Principal:
 - Consultar rutina (ver de un alumno, esta el dni enlazado) FrmEjercicio
 
 Inicio Adm:
-- Consultar pago con datos: alumno (apellido, nombre), pago (importe), metodo_pago (tipo), membresia (fecha_pago, fecha_venc)
-- Listar entrenador (algo con eliminar)
-- Listar pagos
 - Listas agregar btn para modificar datos de persona
 - Listar usuario
 - Registrar usuarios
-
-Inicio Recep:
-- Listar entrenadores el asunto con eliminar
 
 Inicio Entr:
 - Registrar rutina (que asigne al alumno, esta el dni enlazado)
@@ -27,3 +21,4 @@ Vistas pendientes:
 - Pago
 - Estadistica pago
 - Estadistica alumno
+AGREGAR VALIDACIONES AL BUSCADOR POR DNI DE ENTRENADOR, PAGOS Y ALUMNOS

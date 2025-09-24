@@ -57,7 +57,7 @@
             this.btnListaEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaEntrenadores.Location = new System.Drawing.Point(402, 374);
+            this.btnListaEntrenadores.Location = new System.Drawing.Point(477, 3);
             this.btnListaEntrenadores.Name = "btnListaEntrenadores";
             this.btnListaEntrenadores.Size = new System.Drawing.Size(195, 29);
             this.btnListaEntrenadores.TabIndex = 30;
@@ -72,7 +72,7 @@
             this.btnRegistrarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(201, 409);
+            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(402, 374);
             this.btnRegistrarRecepcionista.Name = "btnRegistrarRecepcionista";
             this.btnRegistrarRecepcionista.Size = new System.Drawing.Size(195, 29);
             this.btnRegistrarRecepcionista.TabIndex = 29;
@@ -201,7 +201,7 @@
             this.btnListaRecepcionista.Name = "btnListaRecepcionista";
             this.btnListaRecepcionista.Size = new System.Drawing.Size(195, 29);
             this.btnListaRecepcionista.TabIndex = 34;
-            this.btnListaRecepcionista.Text = "LISTA RECEPCIONISTA";
+            this.btnListaRecepcionista.Text = "LISTA USUARIOS";
             this.btnListaRecepcionista.UseVisualStyleBackColor = false;
             // 
             // btnListaPagos
@@ -211,12 +211,13 @@
             this.btnListaPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaPagos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaPagos.Location = new System.Drawing.Point(301, 444);
+            this.btnListaPagos.Location = new System.Drawing.Point(201, 409);
             this.btnListaPagos.Name = "btnListaPagos";
             this.btnListaPagos.Size = new System.Drawing.Size(195, 29);
             this.btnListaPagos.TabIndex = 35;
             this.btnListaPagos.Text = "LISTA PAGOS";
             this.btnListaPagos.UseVisualStyleBackColor = false;
+            this.btnListaPagos.Click += new System.EventHandler(this.btnListaPagos_Click);
             // 
             // picMascota
             // 

@@ -102,5 +102,7 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("No hay entrenadores registrados. Registre uno para continuar.", "Aviso");
             }
         }
+
+        
     }
 }

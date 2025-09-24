@@ -46,5 +46,10 @@ namespace workout.CapaNegocio
         {
             alumnoDatos.EliminarAlumno(p_nombre, p_apellido);
         }
+
+        public void activarAlumno(string p_nombre, string p_apellido)
+        {
+            alumnoDatos.ActivarAlumno(p_nombre, p_apellido);
+        }
     }
 }

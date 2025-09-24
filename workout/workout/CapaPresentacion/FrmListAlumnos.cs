@@ -92,7 +92,6 @@ namespace workout.CapaPresentacion
         private void btnBuscador_Click(object sender, EventArgs e)
         {
             int dni = int.Parse(txtBuscador.Text);
-            MessageBox.Show("Buscando alumno con DNI: " + dni);
             try
             {
                 DataTable alumno = logicaAlumno.buscarAlumnoDni(dni);
@@ -109,6 +108,32 @@ namespace workout.CapaPresentacion
             catch (Exception ex)
             {
                 MessageBox.Show("No se encontro un alumno registrado: " + ex.Message);
+            }
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listAlumnos.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listAlumnos.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listAlumnos.Rows[rowIndex].Cells[1].Value?.ToString();
+                var apellido = listAlumnos.Rows[rowIndex].Cells[2].Value?.ToString();
+                //Pasa los datos a la logica de negocio
+                logicaAlumno.activarAlumno(nombre, apellido);
+
+                MessageBox.Show("Alumno activado correctamente.");
+                this.FrmListAlumnos_Load(sender, e); // Recarga la lista de entrenadores
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,21 @@ namespace workout.CapaNegocio
 {
     public class CN_Pago
     {
-        private CD_Pago datos = new CD_Pago();
+        private CD_Pago pagosDatos = new CD_Pago();
 
         public int RegistrarPago(Pago pago)
         {
-            return datos.RegistrarPago(pago);
+            return pagosDatos.RegistrarPago(pago);
+        }
+
+        public DataTable listarPagos()
+        {
+            return pagosDatos.ListarPagos();
+        }
+
+        public DataTable buscarPagosDni(int dni)
+        {
+            return pagosDatos.BuscarPagosDni(dni);
         }
     }
 }

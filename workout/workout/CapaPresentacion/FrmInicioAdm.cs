@@ -117,5 +117,12 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
         }
 
+        private void btnListaPagos_Click(object sender, EventArgs e)
+        {
+            FrmListPago listaPagos = new FrmListPago();
+            this.Hide();
+            listaPagos.ShowDialog();
+            this.Close();
+        }
     }
 }

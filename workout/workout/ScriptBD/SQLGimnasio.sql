@@ -119,7 +119,6 @@ CREATE TABLE PAGO
 );
 /*DEFINICION DE TABLAS*/
 
-
 /*INSERTS*/
 
 /*ROLES*/
@@ -217,6 +216,7 @@ BEGIN
     END
 END
 GO
+
 GO
 CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO_DNI
     @dni INT
@@ -227,14 +227,32 @@ BEGIN
            a.apellido,
            m.fecha_pago,
            m.fecha_venc, 
-           u.nombre AS Entrenador, 
-           es.descripcion
+           u.nombre AS 'Entrenador', 
+           es.descripcion AS 'Estado'
     FROM ALUMNO a
     INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
     INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
     INNER JOIN ESTADO es ON a.id_estado = es.id_estado
     WHERE a.dni = @dni;  
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR_DNI
+    @dni INT
+AS
+BEGIN
+	SELECT	u.nombre,
+			u.apellido,
+			e.horario_disp,
+			e.dias_disp,
+			e.cupo,
+			es.descripcion AS 'Estado'
+    FROM ENTRENADOR e INNER JOIN USUARIO u
+	ON e.id_usuario = u.id_usuario
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
+    WHERE u.dni = @dni;  
 END
 GO
 
@@ -340,6 +358,46 @@ BEGIN
     FROM EJERCICIO e
     WHERE e.id_entrenador = @id_entrenador
     ORDER BY e.id_ejercicio;
+END
+GO
+
+GO
+CREATE PROCEDURE SP_LISTAR_PAGOS
+AS
+BEGIN
+    SELECT 
+		a.apellido,
+		a.nombre,
+		p.importe AS 'importe',
+		mp.tipo,
+		m.fecha_pago AS 'pago',
+		m.fecha_venc AS 'vencimiento'
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+	INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+	INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
+    ORDER BY m.fecha_pago desc;
+END
+GO
+
+GO
+CREATE PROCEDURE SP_BUSCAR_PAGOS_DNI
+	@dni INT
+AS
+BEGIN
+    SELECT 
+		a.apellido,
+		a.nombre,
+		p.importe AS 'importe',
+		mp.tipo,
+		m.fecha_pago AS 'pago',
+		m.fecha_venc AS 'vencimiento'
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+	INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+	INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
+	WHERE a.dni = @dni
+    ORDER BY m.fecha_pago desc;
 END
 GO
 
@@ -656,6 +714,33 @@ END
 GO
 
 GO
+CREATE PROCEDURE SP_ACTIVAR_ALUMNO(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE ALUMNO
+	SET id_estado = 1
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+END
+GO
+
+GO
+CREATE PROCEDURE SP_ACTIVAR_ENTRENADOR(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE USUARIO
+	SET id_estado = 1
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+END
+GO
+
+
+GO
 CREATE PROCEDURE SP_MODIFICAR_ALUMNO(
 	@id_alumno int,
 	@genero VARCHAR(30),
@@ -673,4 +758,25 @@ BEGIN
 	WHERE id_alumno = @id_alumno;
 END
 GO
+
+GO
+CREATE PROCEDURE SP_MODIFICAR_ENTRENADOR(
+	@id_entrenador int,
+	@horario_disp VARCHAR(30),
+	@dias_disp VARCHAR(30),
+	@detalles VARCHAR(30),
+	@cupo int
+)
+AS
+BEGIN
+	UPDATE ENTRENADOR
+	SET horario_disp = @horario_disp,
+	dias_disp = @dias_disp,
+	detalles = @detalles,
+	cupo = @cupo
+	WHERE id_entrenador = @id_entrenador;
+END
+GO
+
+
 /*PROCEDIMIENTOS ALMACENADOS*/

@@ -113,11 +113,11 @@
     <Compile Include="CapaPresentacion\FrmModificarAlumno.Designer.cs">
       <DependentUpon>FrmModificarAlumno.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\FrmModificarUsuario.cs">
+    <Compile Include="CapaPresentacion\FrmModificarEntrenador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\FrmModificarUsuario.Designer.cs">
-      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\FrmModificarEntrenador.Designer.cs">
+      <DependentUpon>FrmModificarEntrenador.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmPago.cs">
       <SubType>Form</SubType>
@@ -229,8 +229,8 @@
     <EmbeddedResource Include="CapaPresentacion\FrmModificarAlumno.resx">
       <DependentUpon>FrmModificarAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\FrmModificarUsuario.resx">
-      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\FrmModificarEntrenador.resx">
+      <DependentUpon>FrmModificarEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmPago.resx">
       <DependentUpon>FrmPago.cs</DependentUpon>

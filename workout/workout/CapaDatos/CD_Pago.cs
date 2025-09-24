@@ -35,6 +35,37 @@ namespace workout.CapaDatos
 
             return resultado;
         }
+
+        public DataTable ListarPagos()
+        {
+            DataTable tablaPagos = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_LISTAR_PAGOS", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tablaPagos);
+            }
+
+            return tablaPagos;
+        }
+
+        public DataTable BuscarPagosDni(int p_dni)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_BUSCAR_PAGOS_DNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", p_dni);
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla.Rows.Count >= 0 ? tabla : null;
+            }
+        }
     }
 }
 
