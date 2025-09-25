@@ -32,5 +32,15 @@ namespace workout.CapaNegocio
             return usuarioDatos.ListarUsuarios();
         }
 
+        public void activarUsuario(string nombre, string apellido)
+        {
+            usuarioDatos.ActivarUsuario(nombre, apellido);
+        }
+
+        public void eliminarUsuario(string nombre, string apellido)
+        {
+            usuarioDatos.EliminarUsuario(nombre, apellido);
+
+        }
     }
 }

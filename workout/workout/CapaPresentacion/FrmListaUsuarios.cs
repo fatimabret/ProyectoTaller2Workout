@@ -61,5 +61,47 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Error al cargar alumnos: " + ex.Message);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (listUsuarios.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listUsuarios.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listUsuarios.Rows[rowIndex].Cells[1].Value?.ToString();
+                var apellido = listUsuarios.Rows[rowIndex].Cells[2].Value?.ToString();
+                //Pasa los datos a la logica de negocio
+                logicaUsuario.eliminarUsuario(nombre, apellido);
+
+                MessageBox.Show("Alumno dado de baja correctamente.");
+                this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
+
+        private void btnActivarUsuario_Click(object sender, EventArgs e)
+        {
+            if (listUsuarios.CurrentRow != null)
+            {
+                //Obtiene el indice de la fila seleccionada
+                int rowIndex = listUsuarios.CurrentCell.RowIndex;
+                //obtiene el nombre y apellido de la fila seleccionada
+                var nombre = listUsuarios.Rows[rowIndex].Cells[1].Value?.ToString();
+                var apellido = listUsuarios.Rows[rowIndex].Cells[2].Value?.ToString();
+                //Pasa los datos a la logica de negocio
+                logicaUsuario.activarUsuario(nombre, apellido);
+
+                MessageBox.Show("Alumno activado correctamente.");
+                this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
     }
 }

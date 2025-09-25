@@ -1,7 +1,6 @@
 	REVISAR CODIGO INSERT DEL SQL
 
 AGREGAR EN TODO:
-- DISTINTOS METODOS DE BUSQUEDA EN LOS LISTADOS (fecha, alfabetica, barra de búsqueda)
 - COMENTARIOS
 
 Principal:
@@ -9,8 +8,7 @@ Principal:
 
 Inicio Adm:
 - Listas agregar btn para modificar datos de persona
-- Listar usuario
-- Registrar usuarios
+- Registrar usuarios/Recepcionista
 
 Inicio Entr:
 - Registrar rutina (que asigne al alumno, esta el dni enlazado)
@@ -24,4 +22,3 @@ Vistas pendientes:
 
 AGREGAR VALIDACIONES AL BUSCADOR POR DNI DE ENTRENADOR, PAGOS, USUARIOS Y ALUMNOS
 RESOLVER CONSULTAR PAGO DE ADMINISTRADOR
-AGREGAR ELIMINAR Y ACTIVAR A USUARIOS

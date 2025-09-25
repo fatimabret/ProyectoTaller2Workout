@@ -99,6 +99,32 @@ namespace workout.CapaDatos
             return dt;
         }
 
+        public void ActivarUsuario(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_USUARIO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarUsuario(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ELIMINAR_USUARIO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
 

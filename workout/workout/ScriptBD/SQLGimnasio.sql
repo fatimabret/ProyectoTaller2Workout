@@ -481,6 +481,7 @@ BEGIN
     FROM ALUMNO a
     INNER JOIN ESTADO e ON a.id_estado = e.id_estado
     WHERE a.id_entrenador = @id_entrenador
+	AND a.id_estado = 1
     ORDER BY a.apellido ASC, a.nombre ASC;
 END
 GO
@@ -702,6 +703,33 @@ END
 GO
 
 GO
+CREATE PROCEDURE SP_ELIMINAR_USUARIO(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE USUARIO
+	SET id_estado = 0
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+END
+GO
+
+
+GO
+CREATE PROCEDURE SP_ACTIVAR_USUARIO(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE USUARIO
+	SET id_estado = 1
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+END
+GO
+
+GO
 CREATE PROCEDURE SP_ELIMINAR_ENTRENADOR(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)
@@ -710,6 +738,20 @@ AS
 BEGIN
 	UPDATE USUARIO
 	SET id_estado = 0
+	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+END
+GO
+
+
+GO
+CREATE PROCEDURE SP_ACTIVAR_ENTRENADOR(
+	@nombre VARCHAR(30),
+	@apellido VARCHAR(30)
+)
+AS
+BEGIN
+	UPDATE USUARIO
+	SET id_estado = 1
 	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
 END
 GO
@@ -740,18 +782,6 @@ BEGIN
 END
 GO
 
-GO
-CREATE PROCEDURE SP_ACTIVAR_ENTRENADOR(
-	@nombre VARCHAR(30),
-	@apellido VARCHAR(30)
-)
-AS
-BEGIN
-	UPDATE USUARIO
-	SET id_estado = 1
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
-END
-GO
 
 
 GO

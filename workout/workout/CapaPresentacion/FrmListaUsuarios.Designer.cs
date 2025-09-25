@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListaUsuarios));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnActivarUsuario = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.btnBuscador = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -40,16 +40,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnActivarUsuario
             // 
-            this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(111, 547);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 37);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "ACTIVAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnActivarUsuario.BackColor = System.Drawing.Color.Lime;
+            this.btnActivarUsuario.ForeColor = System.Drawing.Color.Black;
+            this.btnActivarUsuario.Location = new System.Drawing.Point(111, 547);
+            this.btnActivarUsuario.Name = "btnActivarUsuario";
+            this.btnActivarUsuario.Size = new System.Drawing.Size(112, 37);
+            this.btnActivarUsuario.TabIndex = 56;
+            this.btnActivarUsuario.Text = "ACTIVAR";
+            this.btnActivarUsuario.UseVisualStyleBackColor = false;
+            this.btnActivarUsuario.Click += new System.EventHandler(this.btnActivarUsuario_Click);
             // 
             // txtBuscador
             // 
@@ -82,6 +83,7 @@
             this.btnEliminar.TabIndex = 52;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label1
             // 
@@ -119,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 619);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnActivarUsuario);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnBuscador);
             this.Controls.Add(this.btnEliminar);
@@ -138,7 +140,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnActivarUsuario;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Button btnBuscador;
         private System.Windows.Forms.Button btnEliminar;
