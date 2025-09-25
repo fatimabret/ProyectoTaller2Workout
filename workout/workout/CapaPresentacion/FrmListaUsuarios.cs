@@ -21,7 +21,32 @@ namespace workout.CapaPresentacion
 
         private void btnBuscador_Click(object sender, EventArgs e)
         {
-            int dni = int.Parse(txtBuscador.Text);
+            string dniTexto = txtBuscador.Text.Trim();
+
+            // Validaciones
+            if (string.IsNullOrEmpty(dniTexto))
+            {
+                MessageBox.Show("Debe ingresar un DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            if (!dniTexto.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            if (dniTexto.Length < 7 || dniTexto.Length > 8)
+            {
+                MessageBox.Show("El DNI debe tener entre 7 y 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            int dni = int.Parse(dniTexto);
+
             try
             {
                 DataTable usuario = logicaUsuario.buscarUsuarioDni(dni);
@@ -58,7 +83,7 @@ namespace workout.CapaPresentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar alumnos: " + ex.Message);
+                MessageBox.Show("Error al cargar: " + ex.Message);
             }
         }
 
@@ -74,7 +99,7 @@ namespace workout.CapaPresentacion
                 //Pasa los datos a la logica de negocio
                 logicaUsuario.eliminarUsuario(nombre, apellido);
 
-                MessageBox.Show("Alumno dado de baja correctamente.");
+                MessageBox.Show("Usuario dado de baja correctamente.");
                 this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
             }
             else
@@ -95,12 +120,20 @@ namespace workout.CapaPresentacion
                 //Pasa los datos a la logica de negocio
                 logicaUsuario.activarUsuario(nombre, apellido);
 
-                MessageBox.Show("Alumno activado correctamente.");
+                MessageBox.Show("Usuario activado correctamente.");
                 this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
             }
             else
             {
                 MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
+
+        private void txtBuscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea caracteres no numéricos
             }
         }
     }

@@ -8,9 +8,13 @@ namespace workout.CapaEntidad
 {
     public class Rutina
     {
-        private int id_alumno { get; set; }
-        private int id_ejercicio { get; set; }
-        private DateTime dia { get; set; }
-        private int id_estado { get; set; }
+        public int Dni { get; set; }
+        public string Entrenador { get; set; }
+        public string Horario { get; set; }
+        public string FechaRutina { get; set; }
+        public string Ejercicio { get; set; }
+        public int Series { get; set; }
+        public int Repeticiones { get; set; }
+        public int Descanso { get; set; }
     }
 }

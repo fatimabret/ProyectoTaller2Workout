@@ -242,5 +242,21 @@ namespace workout.CapaPresentacion
             }
             errorProvider1.SetError(txtDniAlumno, "");
         }
+
+        private void txtNombAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea caracteres no numéricos
+            }
+        }
+
+        private void txtApeAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea caracteres no numéricos
+            }
+        }
     }
 }

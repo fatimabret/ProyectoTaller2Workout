@@ -74,21 +74,10 @@
     <Compile Include="CapaNegocio\CN_Entrenador.cs" />
     <Compile Include="CapaNegocio\CN_Estado.cs" />
     <Compile Include="CapaNegocio\CN_Pago.cs" />
+    <Compile Include="CapaNegocio\CN_Rutina.cs" />
     <Compile Include="CapaNegocio\CN_Usuario.cs" />
     <Compile Include="CapaNegocio\CN_Membresia.cs" />
     <Compile Include="CapaNegocio\CN_Metodo_Pago.cs" />
-    <Compile Include="CapaPresentacion\FrmEstadisticaAlumno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\FrmEstadisticaAlumno.Designer.cs">
-      <DependentUpon>FrmEstadisticaAlumno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CapaPresentacion\FrmEstadisticaPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaPresentacion\FrmEstadisticaPago.Designer.cs">
-      <DependentUpon>FrmEstadisticaPago.cs</DependentUpon>
-    </Compile>
     <Compile Include="CapaPresentacion\FrmListaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +131,12 @@
     </Compile>
     <Compile Include="CapaPresentacion\FrmRegistrarMembresia.Designer.cs">
       <DependentUpon>FrmRegistrarMembresia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarRecepcionista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarRecepcionista.Designer.cs">
+      <DependentUpon>FrmRegistrarRecepcionista.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmRegistrarRutina.cs">
       <SubType>Form</SubType>
@@ -249,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRegistrarMembresia.resx">
       <DependentUpon>FrmRegistrarMembresia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmRegistrarRecepcionista.resx">
+      <DependentUpon>FrmRegistrarRecepcionista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRegistrarRutina.resx">
       <DependentUpon>FrmRegistrarRutina.cs</DependentUpon>

@@ -72,8 +72,32 @@ namespace workout.CapaPresentacion
 
         private void btnBuscador_Click(object sender, EventArgs e)
         {
-            int dni = int.Parse(txtBuscador.Text);
-         
+            string dniTexto = txtBuscador.Text.Trim();
+
+            // Validaciones
+            if (string.IsNullOrEmpty(dniTexto))
+            {
+                MessageBox.Show("Debe ingresar un DNI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            if (!dniTexto.All(char.IsDigit))
+            {
+                MessageBox.Show("El DNI solo puede contener números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            if (dniTexto.Length < 7 || dniTexto.Length > 8)
+            {
+                MessageBox.Show("El DNI debe tener entre 7 y 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBuscador.Focus();
+                return;
+            }
+
+            int dni = int.Parse(dniTexto);
+
             try
             {
                 DataTable entrenador = logicaEntrenador.buscarEntrenadorDni(dni);
@@ -140,6 +164,15 @@ namespace workout.CapaPresentacion
             else
             {
                 MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
+        }
+
+        private void txtBuscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números y teclas de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

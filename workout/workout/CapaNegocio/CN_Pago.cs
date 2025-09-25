@@ -27,5 +27,10 @@ namespace workout.CapaNegocio
         {
             return pagosDatos.BuscarPagosDni(dni);
         }
+        public Pago obtenerUltimoPagoPorDni(int dni)
+        {
+            return pagosDatos.ObtenerUltimoPagoPorDni(dni);
+        }
+
     }
 }

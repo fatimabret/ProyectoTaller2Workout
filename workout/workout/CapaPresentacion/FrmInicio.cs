@@ -94,7 +94,12 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("El DNI solo puede contener números.");
                 return false;
             }
-
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return false;
+            }
             return true;
         }
         private void btnConsultarMembresia_Click(object sender, EventArgs e)

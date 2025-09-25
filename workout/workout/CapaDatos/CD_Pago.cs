@@ -66,6 +66,39 @@ namespace workout.CapaDatos
                 return tabla.Rows.Count >= 0 ? tabla : null;
             }
         }
+        public Pago ObtenerUltimoPagoPorDni(int p_dni)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_ULTIMO_PAGO_DNI", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", p_dni);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    return new Pago
+                    {
+                        id_pago = Convert.ToInt32(dr["id_pago"]),
+                        importe = Convert.ToDouble(dr["importe"]),
+                        id_metodo_pago = Convert.ToInt32(dr["id_metodo_pago"]),
+                        id_membresia = Convert.ToInt32(dr["id_membresia"]),
+                        fecha_pago = Convert.ToDateTime(dr["fecha_pago"]),
+                        fecha_venc = Convert.ToDateTime(dr["fecha_venc"]),
+                        id_estado = Convert.ToInt32(dr["id_estado"]),
+                        modo_pago = dr["modo_pago"].ToString()
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
     }
+
 }
 

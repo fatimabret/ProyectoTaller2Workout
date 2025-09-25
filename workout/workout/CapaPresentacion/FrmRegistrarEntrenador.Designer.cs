@@ -79,6 +79,7 @@
             this.txtApeEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtApeEntrenador.TabIndex = 38;
             this.txtApeEntrenador.TextChanged += new System.EventHandler(this.txtApeEntrenador_TextChanged);
+            this.txtApeEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApeEntrenador_KeyPress);
             this.txtApeEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtApeEntrenador_Validating);
             // 
             // label3
@@ -141,6 +142,7 @@
             this.txtNomEntrenador.Size = new System.Drawing.Size(326, 20);
             this.txtNomEntrenador.TabIndex = 32;
             this.txtNomEntrenador.TextChanged += new System.EventHandler(this.txtNomEntrenador_TextChanged);
+            this.txtNomEntrenador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomEntrenador_KeyPress);
             this.txtNomEntrenador.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomEntrenador_Validating);
             // 
             // lblTitulo

@@ -32,7 +32,9 @@ namespace workout.CapaPresentacion
         private void btnListaAlumnos_Click(object sender, EventArgs e)
         {
             FrmListAlumnos frm = new FrmListAlumnos();
+            this.Hide();
             frm.ShowDialog();
+            this.Show();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -48,7 +50,9 @@ namespace workout.CapaPresentacion
 
         private void btnRegistrarRecepcionista_Click(object sender, EventArgs e)
         {
-
+            FrmRegistrarRecepcionista frm = new FrmRegistrarRecepcionista();
+            frm.ShowDialog();
+            this.Show();
         }
 
         private void btnListaEntrenadores_Click(object sender, EventArgs e)
@@ -104,7 +108,12 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("El DNI solo puede contener números.");
                 return false;
             }
-
+            // Si la longitud no es válida
+            if (dni.Length < 7 || dni.Length > 8)
+            {
+                errorProvider1.SetError(txtDni, "El DNI debe tener entre 7 y 8 dígitos");
+                return false;
+            }
             return true;
         }
         private void btnConsultarPago_Click(object sender, EventArgs e)
@@ -122,7 +131,7 @@ namespace workout.CapaPresentacion
             FrmListPago listaPagos = new FrmListPago();
             this.Hide();
             listaPagos.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void btnListaUsuarios_Click(object sender, EventArgs e)
@@ -130,7 +139,7 @@ namespace workout.CapaPresentacion
             FrmListaUsuarios listaUsuarios = new FrmListaUsuarios();
             this.Hide();
             listaUsuarios.ShowDialog();
-            this.Close();
+            this.Show();
         }
     }
 }

@@ -105,6 +105,7 @@
             this.txtBuscador.TabIndex = 49;
             this.txtBuscador.Text = "Ingrese el DNI";
             this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
+            this.txtBuscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscador_KeyPress);
             // 
             // btnBuscador
             // 

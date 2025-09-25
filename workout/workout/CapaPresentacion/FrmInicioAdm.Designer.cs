@@ -56,7 +56,7 @@
             this.btnRegistrarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(402, 374);
+            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(201, 409);
             this.btnRegistrarRecepcionista.Name = "btnRegistrarRecepcionista";
             this.btnRegistrarRecepcionista.Size = new System.Drawing.Size(195, 29);
             this.btnRegistrarRecepcionista.TabIndex = 29;
@@ -196,7 +196,7 @@
             this.btnListaPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaPagos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaPagos.Location = new System.Drawing.Point(201, 409);
+            this.btnListaPagos.Location = new System.Drawing.Point(402, 374);
             this.btnListaPagos.Name = "btnListaPagos";
             this.btnListaPagos.Size = new System.Drawing.Size(195, 29);
             this.btnListaPagos.TabIndex = 35;

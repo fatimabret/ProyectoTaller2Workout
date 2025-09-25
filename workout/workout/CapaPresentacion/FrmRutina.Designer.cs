@@ -35,12 +35,10 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDias = new System.Windows.Forms.Label();
-            this.lblEntrenador = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lblHorario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -93,23 +91,12 @@
             // 
             this.lblDias.AutoSize = true;
             this.lblDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDias.Location = new System.Drawing.Point(184, 76);
+            this.lblDias.Location = new System.Drawing.Point(184, 77);
             this.lblDias.Name = "lblDias";
             this.lblDias.Size = new System.Drawing.Size(33, 13);
             this.lblDias.TabIndex = 42;
             this.lblDias.Text = "Días:";
             this.lblDias.Click += new System.EventHandler(this.lblDias_Click);
-            // 
-            // lblEntrenador
-            // 
-            this.lblEntrenador.AutoSize = true;
-            this.lblEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenador.Location = new System.Drawing.Point(184, 63);
-            this.lblEntrenador.Name = "lblEntrenador";
-            this.lblEntrenador.Size = new System.Drawing.Size(62, 13);
-            this.lblEntrenador.TabIndex = 41;
-            this.lblEntrenador.Text = "Entrenador:";
-            this.lblEntrenador.Click += new System.EventHandler(this.lblEntrenador_Click);
             // 
             // picMascota
             // 
@@ -125,7 +112,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(182, 25);
+            this.lblTitulo.Location = new System.Drawing.Point(147, 39);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(172, 25);
             this.lblTitulo.TabIndex = 38;
@@ -166,17 +153,6 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // lblHorario
-            // 
-            this.lblHorario.AutoSize = true;
-            this.lblHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHorario.Location = new System.Drawing.Point(184, 50);
-            this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(44, 13);
-            this.lblHorario.TabIndex = 40;
-            this.lblHorario.Text = "Horario:";
-            this.lblHorario.Click += new System.EventHandler(this.lblHorario_Click);
-            // 
             // FrmRutina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,8 +162,6 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblDias);
-            this.Controls.Add(this.lblEntrenador);
-            this.Controls.Add(this.lblHorario);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmRutina";
@@ -208,11 +182,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label lblDias;
-        private System.Windows.Forms.Label lblEntrenador;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label lblHorario;
     }
 }

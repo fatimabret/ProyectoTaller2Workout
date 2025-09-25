@@ -61,6 +61,7 @@
             this.txtBuscador.Size = new System.Drawing.Size(301, 25);
             this.txtBuscador.TabIndex = 55;
             this.txtBuscador.Text = "Ingrese el DNI";
+            this.txtBuscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscador_KeyPress);
             // 
             // btnBuscador
             // 

@@ -170,6 +170,13 @@ INSERT INTO MEMBRESIA(fecha_pago,fecha_venc,monto,id_alumno,id_estado) VALUES
 ('2025-09-21','2025-10-21',20000,1,1);
 INSERT INTO MEMBRESIA(fecha_pago,fecha_venc,monto,id_alumno,id_estado) VALUES
 ('2025-09-21','2025-10-21',20000,2,1);
+
+/*PAGO*/
+INSERT INTO PAGO(importe,id_metodo_pago,id_membresia) VALUES
+(20000,2,1);
+INSERT INTO PAGO(importe,id_metodo_pago,id_membresia) VALUES
+(20000,1,2);
+
 /*EJERCICIOS*/
 INSERT INTO EJERCICIO(descripcion,serie,repeticiones,descanso,id_entrenador) VALUES
 ('Press Banca',3,10,3,1),
@@ -193,86 +200,31 @@ SELECT * FROM PAGO;
 /*SELECTS*/
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
-
 GO
-CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO
-    @nombre VARCHAR(30),
-    @apellido VARCHAR(30)
-AS
-BEGIN
-    IF EXISTS (
-        SELECT 1
-        FROM ALUMNO
-        WHERE nombre = @nombre AND apellido = @apellido
-    )
-    BEGIN
-        SELECT id_alumno
-        FROM ALUMNO
-        WHERE nombre = @nombre AND apellido = @apellido;
-    END
-    ELSE
-    BEGIN
-        SELECT -1 AS id_alumno; -- si no existe
-    END
-END
-GO
-
-GO
-CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO_DNI
+CREATE OR ALTER PROCEDURE SP_CONSULTAR_RUTINA_ALUMNO
     @dni INT
 AS
 BEGIN
-    SELECT a.dni, 
-           a.nombre, 
-           a.apellido,
-           m.fecha_pago,
-           m.fecha_venc, 
-           u.nombre AS 'Entrenador', 
-           es.descripcion AS 'Estado'
+    SET NOCOUNT ON;
+
+    SELECT 
+        a.dni,
+        u.nombre + ' ' + u.apellido AS Entrenador,
+        e.horario_disp AS Horario,
+        r.dia AS FechaRutina,
+        ej.descripcion AS Ejercicio,
+        ej.serie AS Series,
+        ej.repeticiones AS Repeticiones,
+        ej.descanso AS Descanso
     FROM ALUMNO a
-    INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
-    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
-    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
-    INNER JOIN ESTADO es ON a.id_estado = es.id_estado
-    WHERE a.dni = @dni;  
+    INNER JOIN RUTINA r ON r.id_alumno = a.id_alumno
+    INNER JOIN EJERCICIO ej ON ej.id_ejercicio = r.id_ejercicio
+    INNER JOIN ENTRENADOR e ON e.id_entrenador = ej.id_entrenador
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
+    WHERE a.dni = @dni
+    ORDER BY r.dia, ej.descripcion;
 END
 GO
-
-GO
-CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR_DNI
-    @dni INT
-AS
-BEGIN
-	SELECT	u.nombre,
-			u.apellido,
-			e.horario_disp,
-			e.dias_disp,
-			e.cupo,
-			es.descripcion AS 'Estado'
-    FROM ENTRENADOR e INNER JOIN USUARIO u
-	ON e.id_usuario = u.id_usuario
-	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
-    WHERE u.dni = @dni;  
-END
-GO
-
-GO
-CREATE OR ALTER PROCEDURE SP_BUSCAR_USUARIO_DNI
-    @dni INT
-AS
-BEGIN
-	SELECT	u.dni,
-			u.nombre,
-			u.apellido,
-			r.descripcion AS 'Rol',
-			es.descripcion AS 'Estado'
-    FROM USUARIO u
-	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
-	INNER JOIN ROL r ON u.id_rol = r.id_rol
-    WHERE u.dni = @dni;  
-END
-GO
-
 
 GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_USUARIOS
@@ -290,32 +242,6 @@ BEGIN
 END
 GO
 
-GO
-CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR
-    @nombre VARCHAR(30),
-    @apellido VARCHAR(30)
-AS
-BEGIN
-    IF EXISTS (
-        SELECT 1
-        FROM USUARIO u
-        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
-        WHERE u.nombre = @nombre AND u.apellido = @apellido
-    )
-    BEGIN
-        SELECT e.id_entrenador
-        FROM USUARIO u
-        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
-        WHERE u.nombre = @nombre AND u.apellido = @apellido;
-    END
-    ELSE
-    BEGIN
-        SELECT -1 AS id_entrenador; -- si no existe
-    END
-END
-GO
-
-/* Listados simples */
 GO
 CREATE PROC SP_LISTAR_ESTADOS
 AS
@@ -415,27 +341,6 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_BUSCAR_PAGOS_DNI
-	@dni INT
-AS
-BEGIN
-    SELECT 
-		a.apellido,
-		a.nombre,
-		p.importe AS 'importe',
-		mp.tipo,
-		m.fecha_pago AS 'pago',
-		m.fecha_venc AS 'vencimiento'
-    FROM ALUMNO a
-    INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
-	INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
-	INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
-	WHERE a.dni = @dni
-    ORDER BY m.fecha_pago desc;
-END
-GO
-
-GO
 CREATE PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
     @id_alumno INT
 AS
@@ -487,6 +392,131 @@ END
 GO
 
 /*  BUSQUEDAS   */
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM ALUMNO
+        WHERE nombre = @nombre AND apellido = @apellido
+    )
+    BEGIN
+        SELECT id_alumno
+        FROM ALUMNO
+        WHERE nombre = @nombre AND apellido = @apellido;
+    END
+    ELSE
+    BEGIN
+        SELECT -1 AS id_alumno; -- si no existe
+    END
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ALUMNO_DNI
+    @dni INT
+AS
+BEGIN
+    SELECT a.dni, 
+           a.nombre, 
+           a.apellido,
+           m.fecha_pago,
+           m.fecha_venc, 
+           u.nombre AS 'Entrenador', 
+           es.descripcion AS 'Estado'
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
+    INNER JOIN ESTADO es ON a.id_estado = es.id_estado
+    WHERE a.dni = @dni;  
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR_DNI
+    @dni INT
+AS
+BEGIN
+	SELECT	u.nombre,
+			u.apellido,
+			e.horario_disp,
+			e.dias_disp,
+			e.cupo,
+			es.descripcion AS 'Estado'
+    FROM ENTRENADOR e INNER JOIN USUARIO u
+	ON e.id_usuario = u.id_usuario
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
+    WHERE u.dni = @dni;  
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_ENTRENADOR
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM USUARIO u
+        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
+        WHERE u.nombre = @nombre AND u.apellido = @apellido
+    )
+    BEGIN
+        SELECT e.id_entrenador
+        FROM USUARIO u
+        INNER JOIN ENTRENADOR e ON u.id_usuario = e.id_usuario
+        WHERE u.nombre = @nombre AND u.apellido = @apellido;
+    END
+    ELSE
+    BEGIN
+        SELECT -1 AS id_entrenador; -- si no existe
+    END
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_BUSCAR_USUARIO_DNI
+    @dni INT
+AS
+BEGIN
+	SELECT	u.dni,
+			u.nombre,
+			u.apellido,
+			r.descripcion AS 'Rol',
+			es.descripcion AS 'Estado'
+    FROM USUARIO u
+	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
+	INNER JOIN ROL r ON u.id_rol = r.id_rol
+    WHERE u.dni = @dni;  
+END
+GO
+
+GO
+CREATE PROCEDURE SP_BUSCAR_PAGOS_DNI
+	@dni INT
+AS
+BEGIN
+    SELECT 
+		a.apellido,
+		a.nombre,
+		p.importe AS 'importe',
+		mp.tipo,
+		m.fecha_pago AS 'pago',
+		m.fecha_venc AS 'vencimiento'
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+	INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+	INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
+	WHERE a.dni = @dni
+    ORDER BY m.fecha_pago desc;
+END
+GO
+
 GO
 CREATE PROCEDURE SP_BUSCAR_MEMBRESIA
     @dni INT
@@ -547,6 +577,34 @@ BEGIN
 END
 GO
 
+GO
+CREATE PROCEDURE SP_OBTENER_ULTIMO_PAGO_DNI
+    @dni INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT TOP 1
+        p.id_pago,
+        p.importe,
+        p.id_metodo_pago,
+        p.id_membresia,
+        m.fecha_pago,
+        m.fecha_venc,
+        mp.tipo AS modo_pago,
+        CASE 
+            WHEN m.fecha_venc >= CAST(GETDATE() AS DATE) THEN 1 -- vigente
+            ELSE 0 -- vencida
+        END AS id_estado
+    FROM ALUMNO a
+    INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+    INNER JOIN PAGO p ON p.id_membresia = m.id_membresia
+    INNER JOIN METODO_PAGO mp ON p.id_metodo_pago = mp.id_metodo_pago
+    WHERE a.dni = @dni
+    ORDER BY m.fecha_pago DESC;
+END
+GO
+
 /*      INICIAR SESION    */
 
 GO
@@ -584,6 +642,36 @@ GO
 
 
 /*      REGISTROS       */
+GO
+CREATE PROCEDURE SP_REGISTRAR_RUTINA -- Falla un poquito
+    @dni INT,
+    @id_ejercicio INT,
+    @dia VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @id_alumno INT;
+
+    -- Buscar alumno
+    SELECT @id_alumno = id_alumno
+    FROM ALUMNO
+    WHERE dni = @dni;
+
+    IF @id_alumno IS NULL
+    BEGIN
+        RETURN -1; -- Alumno no existe
+    END
+
+    -- Insertar rutina
+    INSERT INTO RUTINA(dia, id_alumno, id_ejercicio, id_estado)
+    VALUES(@dia, @id_alumno, @id_ejercicio, 1);
+
+    RETURN 1; -- éxito
+END
+GO
+
+GO
 CREATE PROCEDURE SP_REGISTRAR_MEMBRESIA
     @dni INT,
     @id_metodo_pago INT

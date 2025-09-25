@@ -108,19 +108,33 @@ namespace workout.CapaPresentacion
 
         private void btnRegistrarRutina_Click(object sender, EventArgs e)
         {
-            /*
-             * foreach (DataGridViewRow row in dgvRutina.Rows)
+            if (string.IsNullOrEmpty(cmbDias.Text))
+            {
+                MessageBox.Show("Debe seleccionar un día para la rutina.");
+                return;
+            }
+
+            string diaSeleccionado = cmbDias.Text;
+            CN_Rutina logicaRutina = new CN_Rutina();
+
+            int registros = 0;
+
+            foreach (DataGridViewRow row in dgvRutina.Rows)
             {
                 if (row.Cells["colEjercicio"].Value != null)
                 {
                     int idEjercicio = Convert.ToInt32(row.Cells["colEjercicio"].Value);
 
-                    // logicaRutina.RegistrarRutina(id_alumno, idEjercicio, dia);
+                    int resultado = logicaRutina.RegistrarRutina(dniAlumno, idEjercicio, diaSeleccionado);
+
+                    if (resultado > 0) registros++;
                 }
             }
 
-            MessageBox.Show("Rutina guardada con éxito.");
-            */
+            if (registros > 0)
+                MessageBox.Show("Rutina registrada con éxito para " + registros + " ejercicios.");
+            else
+                MessageBox.Show("No se pudo registrar la rutina.");
         }
 
         private void cmbDias_SelectedIndexChanged(object sender, EventArgs e)

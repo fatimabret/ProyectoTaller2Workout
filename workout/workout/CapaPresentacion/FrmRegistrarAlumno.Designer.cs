@@ -97,6 +97,7 @@
             this.txtNombAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtNombAlumno.TabIndex = 11;
             this.txtNombAlumno.TextChanged += new System.EventHandler(this.txtNombAlumno_TextChanged);
+            this.txtNombAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombAlumno_KeyPress);
             // 
             // rbHombre
             // 
@@ -204,6 +205,7 @@
             this.txtApeAlumno.Size = new System.Drawing.Size(326, 20);
             this.txtApeAlumno.TabIndex = 26;
             this.txtApeAlumno.TextChanged += new System.EventHandler(this.txtApeAlumno_TextChanged);
+            this.txtApeAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApeAlumno_KeyPress);
             // 
             // label4
             // 

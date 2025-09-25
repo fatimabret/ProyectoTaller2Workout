@@ -307,5 +307,21 @@ namespace workout.CapaPresentacion
             txtContraseña.Clear();
             txtCorreo.Clear();
         }
+
+        private void txtNomEntrenador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea caracteres no numéricos
+            }
+        }
+
+        private void txtApeEntrenador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // bloquea caracteres no numéricos
+            }
+        }
     }
 }
