@@ -209,10 +209,8 @@ BEGIN
 
     SELECT 
         a.dni,
-        u.nombre + ' ' + u.apellido AS Entrenador,
-        e.horario_disp AS Horario,
-        r.dia AS FechaRutina,
-        ej.descripcion AS Ejercicio,
+        r.dia AS Dia,
+		ej.descripcion AS Ejercicio,
         ej.serie AS Series,
         ej.repeticiones AS Repeticiones,
         ej.descanso AS Descanso
@@ -220,7 +218,6 @@ BEGIN
     INNER JOIN RUTINA r ON r.id_alumno = a.id_alumno
     INNER JOIN EJERCICIO ej ON ej.id_ejercicio = r.id_ejercicio
     INNER JOIN ENTRENADOR e ON e.id_entrenador = ej.id_entrenador
-    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
     WHERE a.dni = @dni
     ORDER BY r.dia, ej.descripcion;
 END
@@ -238,7 +235,8 @@ BEGIN
     FROM USUARIO u
 	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
 	INNER JOIN ROL r ON u.id_rol = r.id_rol
-	ORDER BY r.descripcion ASC ;
+	WHERE u.id_rol = 2 OR u.id_rol = 3
+	ORDER BY r.descripcion ASC 
 END
 GO
 
@@ -643,7 +641,7 @@ GO
 
 /*      REGISTROS       */
 GO
-CREATE PROCEDURE SP_REGISTRAR_RUTINA -- Falla un poquito
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_RUTINA
     @dni INT,
     @id_ejercicio INT,
     @dia VARCHAR(30)
@@ -653,23 +651,28 @@ BEGIN
 
     DECLARE @id_alumno INT;
 
-    -- Buscar alumno
-    SELECT @id_alumno = id_alumno
-    FROM ALUMNO
-    WHERE dni = @dni;
-
-    IF @id_alumno IS NULL
+    -- Validar existencia del alumno
+    IF NOT EXISTS(SELECT 1 FROM ALUMNO a WHERE a.dni = @dni)
     BEGIN
-        RETURN -1; -- Alumno no existe
+        RETURN -1; -- No existe el alumno
     END
+    ELSE
+    BEGIN
+        -- Obtener id_alumno
+        SELECT @id_alumno = id_alumno
+        FROM ALUMNO
+        WHERE dni = @dni;
 
-    -- Insertar rutina
-    INSERT INTO RUTINA(dia, id_alumno, id_ejercicio, id_estado)
-    VALUES(@dia, @id_alumno, @id_ejercicio, 1);
+        -- Insertar rutina
+        INSERT INTO RUTINA(dia, id_alumno, id_ejercicio, id_estado)
+        VALUES(@dia, @id_alumno, @id_ejercicio, 1);
 
-    RETURN 1; -- éxito
+        RETURN 1; -- Éxito
+    END
 END
 GO
+
+
 
 GO
 CREATE PROCEDURE SP_REGISTRAR_MEMBRESIA

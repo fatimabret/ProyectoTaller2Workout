@@ -213,8 +213,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtSeries;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -223,7 +221,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.TextBox txtMinutos;

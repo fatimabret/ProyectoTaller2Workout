@@ -29,63 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRutina));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaRutina = new System.Windows.Forms.DataGridView();
             this.lblDias = new System.Windows.Forms.Label();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaRutina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // listaRutina
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.column,
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(61, 113);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(401, 393);
-            this.dataGridView1.TabIndex = 43;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // column
-            // 
-            this.column.Frozen = true;
-            this.column.HeaderText = "EJERCICIO";
-            this.column.Name = "column";
-            this.column.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "SERIES";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "REPETICIONES";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.Frozen = true;
-            this.Column3.HeaderText = "DESCANSO";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.listaRutina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listaRutina.EnableHeadersVisualStyles = false;
+            this.listaRutina.Location = new System.Drawing.Point(61, 113);
+            this.listaRutina.Name = "listaRutina";
+            this.listaRutina.RowHeadersVisible = false;
+            this.listaRutina.Size = new System.Drawing.Size(401, 393);
+            this.listaRutina.TabIndex = 43;
+            this.listaRutina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblDias
             // 
@@ -160,14 +123,14 @@
             this.ClientSize = new System.Drawing.Size(530, 609);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.listaRutina);
             this.Controls.Add(this.lblDias);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmRutina";
             this.Text = "Rutinas Entrenador";
             this.Load += new System.EventHandler(this.FrmRutina_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaRutina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,11 +139,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridView listaRutina;
         private System.Windows.Forms.Label lblDias;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label lblTitulo;

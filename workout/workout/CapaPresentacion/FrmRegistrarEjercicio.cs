@@ -15,10 +15,12 @@ namespace workout.CapaPresentacion
     public partial class FrmRegistrarEjercicio : Form
     {
         private int idEntrenador;
-        public FrmRegistrarEjercicio(int idEntrenador)
+        private int dniAlumno;
+        public FrmRegistrarEjercicio(int idEntrenador,int dni)
         {
             InitializeComponent();
             this.idEntrenador = idEntrenador;
+            this.dniAlumno = dni;
         }
 
         private void FrmRegistrarEjercicio_Load(object sender, EventArgs e)
@@ -109,6 +111,11 @@ namespace workout.CapaPresentacion
                 {
                     MessageBox.Show("Error al registrar el ejercicio.", "Error");
                 }
+
+                this.Hide();
+                FrmRegistrarRutina rutinaForm = new FrmRegistrarRutina(dniAlumno, idEntrenador);
+                rutinaForm.ShowDialog();
+                this.Close();
             }
             catch (Exception ex)
             {

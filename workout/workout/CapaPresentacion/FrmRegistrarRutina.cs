@@ -58,7 +58,7 @@ namespace workout.CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Llama al formulario de registrar rutina
-            FrmRegistrarEjercicio frm = new FrmRegistrarEjercicio(idEntrenador);
+            FrmRegistrarEjercicio frm = new FrmRegistrarEjercicio(idEntrenador,dniAlumno);
             frm.ShowDialog();
         }
 
@@ -124,9 +124,10 @@ namespace workout.CapaPresentacion
                 if (row.Cells["colEjercicio"].Value != null)
                 {
                     int idEjercicio = Convert.ToInt32(row.Cells["colEjercicio"].Value);
-
-                    int resultado = logicaRutina.RegistrarRutina(dniAlumno, idEjercicio, diaSeleccionado);
-
+                    MessageBox.Show("ID Ejercicio seleccionado: " + idEjercicio);
+                    MessageBox.Show("DNI Alumno: " + dniAlumno);
+                    int resultado = logicaRutina.registrarRutina(dniAlumno, idEjercicio, diaSeleccionado);
+                    MessageBox.Show("Resultado de la inserción: " + resultado);
                     if (resultado > 0) registros++;
                 }
             }

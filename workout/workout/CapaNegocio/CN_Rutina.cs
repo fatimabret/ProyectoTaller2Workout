@@ -17,7 +17,7 @@ namespace workout.CapaNegocio
             return datosRutina.ConsultarRutinaPorDni(dni);
         }
 
-        public int RegistrarRutina(int dni, int idEjercicio, string dia)
+        public int registrarRutina(int dni, int idEjercicio, string dia)
         {
             return datosRutina.RegistrarRutina(dni, idEjercicio, dia);
         }
