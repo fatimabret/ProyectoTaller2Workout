@@ -64,7 +64,7 @@ namespace workout.CapaPresentacion
 
             if (datos.Rows.Count > 0)
             {
-                lblDias.Text = "Fecha: " + Convert.ToDateTime(datos.Rows[0]["FechaRutina"]).ToString("dd/MM/yyyy");
+                lblDias.Text = "Día: " + datos.Rows[0]["FechaRutina"].ToString();
 
                 dataGridView1.DataSource = datos;
 

@@ -3,22 +3,11 @@
 AGREGAR EN TODO:
 - COMENTARIOS
 
-Principal:
-- Consultar rutina (ver de un alumno, esta el dni enlazado) FrmEjercicio
-
 Inicio Adm:
 - Listas agregar btn para modificar datos de persona
-- Registrar usuarios/Recepcionista
 
 Inicio Entr:
-- Registrar rutina (que asigne al alumno, esta el dni enlazado)
-- En consultar rutina: visualizar rutina, datos del alumno, enlazar btn editar rutina y eliminar rutina
-- Registrar ejercicio
+- Registrar rutina (que asigne al alumno, esta el dni enlazado) FALLA
+- En consultar rutina: visualizar rutina, enlazar btn editar y eliminar rutina
 
-Vistas pendientes:
-- Pago
-- Estadistica pago
-- Estadistica alumno
-
-AGREGAR VALIDACIONES AL BUSCADOR POR DNI DE ENTRENADOR, PAGOS, USUARIOS Y ALUMNOS
-RESOLVER CONSULTAR PAGO DE ADMINISTRADOR
+LISTAR USUARIOS: NO FIGUREN LOS ADM

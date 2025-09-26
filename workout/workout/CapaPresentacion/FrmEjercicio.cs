@@ -47,7 +47,7 @@ namespace workout.CapaPresentacion
             {
                 lblEntrenador.Text = "Entrenador: " + datos.Rows[0]["Entrenador"].ToString();
                 lblHorario.Text = "Horario: " + datos.Rows[0]["horario"].ToString();
-                lblDias.Text = "Fecha: " + Convert.ToDateTime(datos.Rows[0]["FechaRutina"]).ToString("dd/MM/yyyy");
+                lblDias.Text = "Día: " + datos.Rows[0]["FechaRutina"].ToString();
 
                 dataGridView1.DataSource = datos;
 

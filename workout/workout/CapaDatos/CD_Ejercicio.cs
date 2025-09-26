@@ -31,11 +31,11 @@ namespace workout.CapaDatos
                 SqlCommand cmd = new SqlCommand("SP_REGISTRAR_EJERCICIO", conexion);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("descripcion", p_Ejercicio.descripcion);
-                cmd.Parameters.AddWithValue("serie", p_Ejercicio.serie);
-                cmd.Parameters.AddWithValue("repeticion", p_Ejercicio.repeticion);
-                cmd.Parameters.AddWithValue("descanso", p_Ejercicio.descanso);
-                cmd.Parameters.AddWithValue("id_entrenador", p_Ejercicio.id_entrenador);
+                cmd.Parameters.AddWithValue("@descripcion", p_Ejercicio.descripcion);
+                cmd.Parameters.AddWithValue("@serie", p_Ejercicio.serie);
+                cmd.Parameters.AddWithValue("@repeticion", p_Ejercicio.repeticion);
+                cmd.Parameters.AddWithValue("@descanso", p_Ejercicio.descanso);
+                cmd.Parameters.AddWithValue("@id_entrenador", p_Ejercicio.id_entrenador);
 
                 // Parámetro para capturar el valor de retorno del SP
                 object result = cmd.ExecuteScalar();

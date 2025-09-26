@@ -791,6 +791,25 @@ END
 GO
 
 GO
+CREATE PROCEDURE SP_REGISTRAR_EJERCICIO
+    @descripcion   VARCHAR(30),
+    @serie         INT,
+    @repeticion    INT,
+    @descanso      INT,
+    @id_entrenador INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO EJERCICIO (descripcion, serie, repeticiones, descanso, id_entrenador)
+    VALUES (@descripcion, @serie, @repeticion, @descanso, @id_entrenador);
+
+    -- Retorna el ID del ejercicio recién insertado
+    SELECT SCOPE_IDENTITY() AS id_ejercicio;
+END
+GO
+
+GO
 CREATE PROCEDURE SP_ELIMINAR_USUARIO(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)

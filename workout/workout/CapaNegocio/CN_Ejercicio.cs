@@ -16,5 +16,9 @@ namespace workout.CapaNegocio
         {
             return ejercicioDatos.ListarEjercicios(id_entrenador);
         }
+        public int RegistrarEjercicio(Ejercicio ejercicio)
+        {
+            return ejercicioDatos.RegistrarEjercicio(ejercicio);
+        }
     }
 }

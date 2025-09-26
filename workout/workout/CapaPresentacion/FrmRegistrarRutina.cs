@@ -58,7 +58,7 @@ namespace workout.CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             //Llama al formulario de registrar rutina
-            FrmRegistrarEjercicio frm = new FrmRegistrarEjercicio();
+            FrmRegistrarEjercicio frm = new FrmRegistrarEjercicio(idEntrenador);
             frm.ShowDialog();
         }
 

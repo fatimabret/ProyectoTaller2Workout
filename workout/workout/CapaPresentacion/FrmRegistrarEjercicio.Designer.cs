@@ -29,34 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarEjercicio));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMinutos = new System.Windows.Forms.TextBox();
+            this.txtSeries = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRepeticiones = new System.Windows.Forms.TextBox();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtEjercicio = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.txtMinuto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMinutos
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 335);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 20);
-            this.textBox1.TabIndex = 86;
+            this.txtMinutos.Location = new System.Drawing.Point(120, 335);
+            this.txtMinutos.Name = "txtMinutos";
+            this.txtMinutos.Size = new System.Drawing.Size(326, 20);
+            this.txtMinutos.TabIndex = 86;
+            this.txtMinutos.TextChanged += new System.EventHandler(this.txtMinutos_TextChanged_1);
             // 
-            // textBox3
+            // txtSeries
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 204);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(326, 20);
-            this.textBox3.TabIndex = 85;
+            this.txtSeries.Location = new System.Drawing.Point(120, 204);
+            this.txtSeries.Name = "txtSeries";
+            this.txtSeries.Size = new System.Drawing.Size(326, 20);
+            this.txtSeries.TabIndex = 85;
+            this.txtSeries.TextChanged += new System.EventHandler(this.txtSeries_TextChanged);
+            this.txtSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeries_KeyPress);
             // 
             // label1
             // 
@@ -66,7 +70,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 25);
             this.label1.TabIndex = 84;
-            this.label1.Text = "Ingrese los minutos de descanso";
+            this.label1.Text = "Ingrese los Minutos de Descanso";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -80,12 +84,14 @@
             this.label2.Text = "Ingrese el número de Repeticiones";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // txtRepeticiones
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 267);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 20);
-            this.textBox2.TabIndex = 82;
+            this.txtRepeticiones.Location = new System.Drawing.Point(120, 267);
+            this.txtRepeticiones.Name = "txtRepeticiones";
+            this.txtRepeticiones.Size = new System.Drawing.Size(326, 20);
+            this.txtRepeticiones.TabIndex = 82;
+            this.txtRepeticiones.TextChanged += new System.EventHandler(this.txtRepeticiones_TextChanged);
+            this.txtRepeticiones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRepeticiones_KeyPress);
             // 
             // picMascota
             // 
@@ -129,12 +135,13 @@
             this.label8.Text = "Ingrese Ejercicio";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCorreo
+            // txtEjercicio
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(120, 136);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(326, 20);
-            this.txtCorreo.TabIndex = 77;
+            this.txtEjercicio.Location = new System.Drawing.Point(120, 136);
+            this.txtEjercicio.Name = "txtEjercicio";
+            this.txtEjercicio.Size = new System.Drawing.Size(326, 20);
+            this.txtEjercicio.TabIndex = 77;
+            this.txtEjercicio.TextChanged += new System.EventHandler(this.txtEjercicio_TextChanged);
             // 
             // btnLimpiar
             // 
@@ -151,43 +158,54 @@
             this.btnLimpiar.TabIndex = 76;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // btnRegistrarEntrenador
+            // btnRegistrar
             // 
-            this.btnRegistrarEntrenador.AutoEllipsis = true;
-            this.btnRegistrarEntrenador.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnRegistrarEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRegistrarEntrenador.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(171, 391);
-            this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
-            this.btnRegistrarEntrenador.Size = new System.Drawing.Size(196, 29);
-            this.btnRegistrarEntrenador.TabIndex = 75;
-            this.btnRegistrarEntrenador.Text = "REGISTRAR";
-            this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
-            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
+            this.btnRegistrar.AutoEllipsis = true;
+            this.btnRegistrar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRegistrar.Location = new System.Drawing.Point(171, 391);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(196, 29);
+            this.btnRegistrar.TabIndex = 75;
+            this.btnRegistrar.Text = "REGISTRAR";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // txtMinuto
+            // 
+            this.txtMinuto.Location = new System.Drawing.Point(120, 335);
+            this.txtMinuto.Name = "txtMinuto";
+            this.txtMinuto.Size = new System.Drawing.Size(326, 20);
+            this.txtMinuto.TabIndex = 86;
+            //this.txtMinuto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinuto_KeyPress);
             // 
             // FrmRegistrarEjercicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 483);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtMinutos);
+            this.Controls.Add(this.txtSeries);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtRepeticiones);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.txtEjercicio);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnRegistrarEntrenador);
+            this.Controls.Add(this.btnRegistrar);
             this.Name = "FrmRegistrarEjercicio";
             this.Text = "FrmRegistrarEjercicio";
+            this.Load += new System.EventHandler(this.FrmRegistrarEjercicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,16 +215,19 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSeries;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRepeticiones;
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnRegistrarEntrenador;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.TextBox txtMinutos;
+        private System.Windows.Forms.TextBox txtEjercicio;
+        private System.Windows.Forms.TextBox txtMinuto;
     }
 }
