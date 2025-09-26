@@ -42,8 +42,7 @@ namespace workout.CapaPresentacion
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-
-        private void txtMinuto_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtMinutos_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
@@ -122,5 +121,6 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
     }
 }

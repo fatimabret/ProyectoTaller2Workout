@@ -58,7 +58,6 @@ namespace workout.CapaPresentacion
         private void FrmRutina_Load(object sender, EventArgs e)
         {
             CN_Rutina logicaRutina = new CN_Rutina();
-            lblTitulo.Text = "Rutina de Usuario: " + dniAlumno;
 
             try
             {
@@ -66,11 +65,17 @@ namespace workout.CapaPresentacion
                 listaRutina.DataSource = rutina;
                 if (rutina.Rows.Count > 0)
                 {
+                    lblTitulo.Text = "Rutina de Alumno: " + dniAlumno;
                     // Convertir todos los encabezados a mayúsculas
                     foreach (DataGridViewColumn col in listaRutina.Columns)
                     {
                         col.HeaderText = col.HeaderText.ToUpper();
                     }
+                }
+                else
+                {
+                    lblTitulo.Text = "No tiene una rutina registrada.";
+                    listaRutina.DataSource = null;
                 }
             }
             catch (Exception ex)

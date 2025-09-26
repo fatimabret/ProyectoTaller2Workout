@@ -39,40 +39,30 @@ namespace workout.CapaPresentacion
         private void FrmEjercicio_Load(object sender, EventArgs e)
         {
             CN_Rutina logicaRutina = new CN_Rutina();
-            DataTable datos = logicaRutina.ConsultarRutinaPorDni(dniAlumno);
 
-            lblTitulo.Text = "Rutina de Usuario: " + dniAlumno;
-
-            if (datos.Rows.Count > 0)
+            try
             {
-                lblEntrenador.Text = "Entrenador: " + datos.Rows[0]["Entrenador"].ToString();
-                lblHorario.Text = "Horario: " + datos.Rows[0]["horario"].ToString();
-                lblDias.Text = "Día: " + datos.Rows[0]["FechaRutina"].ToString();
-
-                dataGridView1.DataSource = datos;
-
-                // Ocultar columnas que ya mostramos arriba
-                if (dataGridView1.Columns.Contains("dni"))
-                    dataGridView1.Columns["dni"].Visible = false;
-                if (dataGridView1.Columns.Contains("Entrenador"))
-                    dataGridView1.Columns["Entrenador"].Visible = false;
-                if (dataGridView1.Columns.Contains("Horario"))
-                    dataGridView1.Columns["Horario"].Visible = false;
-                if (dataGridView1.Columns.Contains("FechaRutina"))
-                    dataGridView1.Columns["FechaRutina"].Visible = false;
-
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                DataTable rutina = logicaRutina.ConsultarRutinaPorDni(dniAlumno);
+                listaRutina.DataSource = rutina;
+                if (rutina.Rows.Count > 0)
                 {
-                    col.HeaderText = col.HeaderText.ToUpper();
+                    lblTitulo.Text = "Rutina de Usuario: " + dniAlumno;
+
+                    // Convertir todos los encabezados a mayúsculas
+                    foreach (DataGridViewColumn col in listaRutina.Columns)
+                    {
+                        col.HeaderText = col.HeaderText.ToUpper();
+                    }
+                }
+                else
+                {
+                    lblTitulo.Text = "No tiene una rutina registrada.";
+                    listaRutina.DataSource = null;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lblEntrenador.Text = "";
-                lblHorario.Text = "";
-                lblDias.Text = "";
-                lblTitulo.Text = "No tiene una rutina registrada.";
-                dataGridView1.DataSource = null;
+                MessageBox.Show("Error al cargar: " + ex.Message);
             }
         }
 

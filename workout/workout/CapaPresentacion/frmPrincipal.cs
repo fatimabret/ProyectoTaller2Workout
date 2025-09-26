@@ -69,8 +69,9 @@ namespace workout
         {
             if (!DniValido()) return;
 
+            //Llama al formulario de rutina
             int dni = int.Parse(txtDni.Text);
-            FrmEjercicio frm = new FrmEjercicio(dni);
+            FrmRutina frm = new FrmRutina(dni);
             frm.ShowDialog();
 
         }

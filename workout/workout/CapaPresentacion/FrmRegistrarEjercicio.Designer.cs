@@ -52,6 +52,7 @@
             this.txtMinutos.Size = new System.Drawing.Size(326, 20);
             this.txtMinutos.TabIndex = 86;
             this.txtMinutos.TextChanged += new System.EventHandler(this.txtMinutos_TextChanged_1);
+            this.txtMinutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinutos_KeyPress);
             // 
             // txtSeries
             // 
@@ -183,8 +184,7 @@
             this.txtMinuto.Name = "txtMinuto";
             this.txtMinuto.Size = new System.Drawing.Size(326, 20);
             this.txtMinuto.TabIndex = 86;
-            //this.txtMinuto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.txtMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinuto_KeyPress);
+            //this.txtMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMinuto_KeyPress);
             // 
             // FrmRegistrarEjercicio
             // 
