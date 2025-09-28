@@ -144,6 +144,12 @@
     <Compile Include="CapaPresentacion\FrmRegistrarRutina.Designer.cs">
       <DependentUpon>FrmRegistrarRutina.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmRegistrarUsuario.Designer.cs">
+      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmRutina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRegistrarRutina.resx">
       <DependentUpon>FrmRegistrarRutina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmRegistrarUsuario.resx">
+      <DependentUpon>FrmRegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmRutina.resx">
       <DependentUpon>FrmRutina.cs</DependentUpon>

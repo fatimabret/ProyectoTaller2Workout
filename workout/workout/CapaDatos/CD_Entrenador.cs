@@ -20,16 +20,6 @@ namespace workout.CapaDatos
 
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
-                CD_Usuario usuarioDatos = new CD_Usuario();
-
-                // Crea el usuario y obtiene su ID
-                int id_usuario = usuarioDatos.Registrar(p_Entrenador);
-
-                // Validar si la creación del usuario fue exitosa
-                if (id_usuario < 0)
-                {
-                    return id_usuario; // Retorna -1, -2, etc. según el SP de usuario
-                }
 
                 conexion.Open();
 
@@ -38,11 +28,17 @@ namespace workout.CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Parámetros de entrada
+                cmd.Parameters.AddWithValue("@nombre", p_Entrenador.nombre);
+                cmd.Parameters.AddWithValue("@apellido", p_Entrenador.apellido);
+                cmd.Parameters.AddWithValue("@dni", p_Entrenador.dni);
+                cmd.Parameters.AddWithValue("@correo", p_Entrenador.correo);
+                cmd.Parameters.AddWithValue("@contrasena", p_Entrenador.contrasena);
+                cmd.Parameters.AddWithValue("@id_rol", p_Entrenador.id_rol);
+                cmd.Parameters.AddWithValue("@id_estado", p_Entrenador.id_estado);
                 cmd.Parameters.AddWithValue("@horario_disp", p_Entrenador.horario_disp);
                 cmd.Parameters.AddWithValue("@dias_disp", p_Entrenador.dias_disp);
                 cmd.Parameters.AddWithValue("@cupo", p_Entrenador.cupo);
                 cmd.Parameters.AddWithValue("@detalles", p_Entrenador.detalles);
-                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
 
                 // Parámetro para capturar el RETURN VALUE del SP
                 SqlParameter returnParam = new SqlParameter("@ReturnVal", SqlDbType.Int);

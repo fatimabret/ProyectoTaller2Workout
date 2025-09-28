@@ -771,24 +771,52 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_REGISTRAR_ENTRENADOR
-(
-    @horario_disp VARCHAR(50), 
-    @dias_disp VARCHAR(50), 
-    @detalles VARCHAR(30),
-    @cupo INT,
-    @id_usuario INT
-)
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_ENTRENADOR
+    /*DATOS USUARIO*/
+    @apellido     VARCHAR(30),
+    @nombre       VARCHAR(30),
+    @correo       VARCHAR(50),
+    @contrasena   VARCHAR(150),
+    @dni          INT,
+    @id_estado    INT,
+    @id_rol       INT,
+    /*DATOS ENTRENADOR*/
+    @horario_disp VARCHAR(50),
+    @dias_disp    VARCHAR(50),
+    @detalles     VARCHAR(30),
+    @cupo         INT
 AS
 BEGIN
-    -- Inserción
+    SET NOCOUNT ON;
+
+    DECLARE @id_usuario INT;
+
+    -- 1) Ejecutar SP_REGISTRAR_USUARIO y guardar el valor retornado
+    EXEC @id_usuario = SP_REGISTRAR_USUARIO
+        @apellido,
+        @nombre,
+        @correo,
+        @contrasena,
+        @dni,
+        @id_estado,
+        @id_rol;
+
+    -- Si devolvió error, salir
+    IF @id_usuario < 0
+    BEGIN
+        RETURN @id_usuario; -- -1 si ya existe, -2 si rol inválido
+    END
+
+    -- 2) Insertar el entrenador con el id_usuario recién creado
     INSERT INTO dbo.ENTRENADOR (horario_disp, detalles, dias_disp, cupo, id_usuario)
     VALUES (@horario_disp, @detalles, @dias_disp, @cupo, @id_usuario);
 
-    -- Devuelve el ID generado
-    RETURN CAST(SCOPE_IDENTITY() AS INT);
+    -- 3) Devolver el id_entrenador generado
+    SELECT CAST(SCOPE_IDENTITY() AS INT) AS id_entrenador;
 END
 GO
+
+
 
 GO
 CREATE PROCEDURE SP_REGISTRAR_EJERCICIO

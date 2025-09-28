@@ -23,12 +23,6 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
         }
 
-        private void btnEntrenadores_Click(object sender, EventArgs e)
-        {
-            FrmRegistrarEntrenador frm = new FrmRegistrarEntrenador();
-            frm.ShowDialog();
-        }
-
         private void btnListaAlumnos_Click(object sender, EventArgs e)
         {
             FrmListAlumnos frm = new FrmListAlumnos();
@@ -140,6 +134,12 @@ namespace workout.CapaPresentacion
             this.Hide();
             listaUsuarios.ShowDialog();
             this.Show();
+        }
+
+        private void btnRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarUsuario registrarUsuario = new FrmRegistrarUsuario();
+            registrarUsuario.ShowDialog();
         }
     }
 }

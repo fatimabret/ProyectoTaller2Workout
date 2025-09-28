@@ -35,18 +35,18 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlumnos = new System.Windows.Forms.Button();
-            this.btnEntrenadores = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnListaAlumnos = new System.Windows.Forms.Button();
             this.btnListaUsuarios = new System.Windows.Forms.Button();
             this.btnListaPagos = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegistrarRecepcionista
@@ -117,21 +117,6 @@
             this.btnAlumnos.Text = "REGISTRAR ALUMNO";
             this.btnAlumnos.UseVisualStyleBackColor = false;
             this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
-            // 
-            // btnEntrenadores
-            // 
-            this.btnEntrenadores.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnEntrenadores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrenadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEntrenadores.Location = new System.Drawing.Point(201, 374);
-            this.btnEntrenadores.Name = "btnEntrenadores";
-            this.btnEntrenadores.Size = new System.Drawing.Size(195, 29);
-            this.btnEntrenadores.TabIndex = 24;
-            this.btnEntrenadores.Text = "REGISTRAR ENTRENADOR";
-            this.btnEntrenadores.UseVisualStyleBackColor = false;
-            this.btnEntrenadores.Click += new System.EventHandler(this.btnEntrenadores_Click);
             // 
             // btnCerrarSesion
             // 
@@ -204,6 +189,25 @@
             this.btnListaPagos.UseVisualStyleBackColor = false;
             this.btnListaPagos.Click += new System.EventHandler(this.btnListaPagos_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnRegistrarUsuario
+            // 
+            this.btnRegistrarUsuario.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRegistrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(201, 374);
+            this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(195, 29);
+            this.btnRegistrarUsuario.TabIndex = 36;
+            this.btnRegistrarUsuario.Text = "REGISTRAR USUARIO";
+            this.btnRegistrarUsuario.UseVisualStyleBackColor = false;
+            this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
+            // 
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
@@ -224,15 +228,12 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // FrmInicioAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.btnRegistrarUsuario);
             this.Controls.Add(this.btnListaPagos);
             this.Controls.Add(this.btnListaUsuarios);
             this.Controls.Add(this.btnListaAlumnos);
@@ -243,14 +244,13 @@
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAlumnos);
-            this.Controls.Add(this.btnEntrenadores);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioAdm";
             this.Text = "Workout Administrador";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,12 +265,12 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAlumnos;
-        private System.Windows.Forms.Button btnEntrenadores;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Button btnListaAlumnos;
         private System.Windows.Forms.Button btnListaUsuarios;
         private System.Windows.Forms.Button btnListaPagos;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnRegistrarUsuario;
     }
 }

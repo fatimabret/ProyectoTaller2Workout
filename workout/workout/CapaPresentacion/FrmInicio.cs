@@ -113,14 +113,6 @@ namespace workout.CapaPresentacion
             frm.ShowDialog();
         }
 
-        private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
-        {
-            //Llama al formulario de registrar entrenador
-            FrmRegistrarEntrenador frm = new FrmRegistrarEntrenador();
-
-            frm.ShowDialog();
-        }
-
         private void btnListarAlumnos_Click(object sender, EventArgs e)
         {
             //Llama al formulario de membresía

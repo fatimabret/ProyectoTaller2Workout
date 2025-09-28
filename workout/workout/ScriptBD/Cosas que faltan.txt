@@ -1,11 +1,8 @@
+
+		/**NO HECHO**/
+
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-** REGISTRAR USUARIO **
-Como registrar 1 usuario con distintos roles
-Registrar los campos originales que tienen en comun
-Cuando vamos a seleccionar el rol, que sea una lista desplegable
-Si es entrenador, rol = 3, desplegar un formulario nuevo y registrar los datos de el entrenador
-En la base de datos se va a tener un solo registar usuario y aparte un registrar entrenador, nada mas
 
 **ACTIVAR USUARIO O ALUMNO**
 se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
@@ -21,4 +18,17 @@ se modifican los datos y se vuelve a setear
 
 GENERADOR DE PDF PARA EL ALUMNO CON LOS DATOS DEL CLIENTE, PAGOS, FECHA Y DEL GIMNASIO
 
+Agregar algunas fechas del año pasado y de meses anteriores
+Filtro de membresias, por mes, año
+
 MANUAL DE USUARIO
+
+
+		/**HECHO**/
+
+** REGISTRAR USUARIO **
+Como registrar 1 usuario con distintos roles
+Registrar los campos originales que tienen en comun
+Cuando vamos a seleccionar el rol, que sea una lista desplegable
+Si es entrenador, rol = 3, desplegar un formulario nuevo y registrar los datos de el entrenador
+En la base de datos se va a tener un solo registar usuario y aparte un registrar entrenador, nada mas
