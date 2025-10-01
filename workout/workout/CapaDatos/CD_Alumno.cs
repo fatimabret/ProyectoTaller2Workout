@@ -126,7 +126,7 @@ namespace workout.CapaEntidad
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ELIMINAR_ALUMNO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ELIMINAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);
@@ -139,7 +139,7 @@ namespace workout.CapaEntidad
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_ALUMNO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);

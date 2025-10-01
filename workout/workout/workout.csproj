@@ -186,11 +186,11 @@
     <Compile Include="CapaPresentacion\FrmEjercicio.Designer.cs">
       <DependentUpon>FrmEjercicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="CapaPresentacion\FrmInicio.cs">
+    <Compile Include="CapaPresentacion\FrmInicioRec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaPresentacion\FrmInicio.Designer.cs">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
+    <Compile Include="CapaPresentacion\FrmInicioRec.Designer.cs">
+      <DependentUpon>FrmInicioRec.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmListAlumnos.cs">
       <SubType>Form</SubType>
@@ -278,8 +278,8 @@
     <EmbeddedResource Include="CapaPresentacion\FrmEjercicio.resx">
       <DependentUpon>FrmEjercicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CapaPresentacion\FrmInicio.resx">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
+    <EmbeddedResource Include="CapaPresentacion\FrmInicioRec.resx">
+      <DependentUpon>FrmInicioRec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmListAlumnos.resx">
       <DependentUpon>FrmListAlumnos.cs</DependentUpon>
@@ -324,6 +324,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\recargar.png" />
     <Content Include="ScriptBD\workout.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

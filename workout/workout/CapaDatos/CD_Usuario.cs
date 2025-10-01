@@ -85,13 +85,14 @@ namespace workout.CapaDatos
             return dt;
         }
 
-        public DataTable ListarUsuarios()
+        public DataTable ListarUsuarios(int p_id_Usuario)
         {
             DataTable dt = new DataTable();
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_LISTAR_USUARIOS", conexion);
+                cmd.Parameters.AddWithValue("@id_usuario", p_id_Usuario);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -104,7 +105,7 @@ namespace workout.CapaDatos
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_USUARIO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);
@@ -117,7 +118,7 @@ namespace workout.CapaDatos
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ELIMINAR_USUARIO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ELIMINAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);

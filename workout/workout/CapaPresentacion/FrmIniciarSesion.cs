@@ -24,13 +24,13 @@ namespace workout.CapaPresentacion
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             var resultado = logicaUsuario.iniciarSesion(txtCorreoInicioSes.Text, txtContraseña.Text);
-            int idUsuario = resultado.idUsuario;
+            int id_usuario = resultado.idUsuario;
             int idRol = resultado.idRol;
 
             if (idRol == 1)
             {
                 //Llama al formulario de administrador
-                FrmInicioAdm frmAdmin = new FrmInicioAdm();
+                FrmInicioAdm frmAdmin = new FrmInicioAdm(id_usuario);
                 //oculta el formulario actual
                 this.Hide();
                 //setea el nuevo formulario como el actual
@@ -41,7 +41,7 @@ namespace workout.CapaPresentacion
             else if (idRol == 2)
             {
                 //Llama al formulario de recepcionista
-                FrmInicioRec frmRecep = new FrmInicioRec();
+                FrmInicioRec frmRecep = new FrmInicioRec(id_usuario);
                 //oculta el formulario actual
                 this.Hide();
                 //setea el nuevo formulario como el actual
@@ -53,7 +53,7 @@ namespace workout.CapaPresentacion
             {
                 // Antes de abrir el inicio del entrenador, buscamos su id_entrenador
                 CN_Entrenador logicaEntrenador = new CN_Entrenador();
-                int idEntrenador = logicaEntrenador.ObtenerIdEntrenadorPorUsuario(idUsuario);
+                int idEntrenador = logicaEntrenador.ObtenerIdEntrenadorPorUsuario(id_usuario);
 
                 FrmInicioEntr frmEntr = new FrmInicioEntr(idEntrenador);
                 //oculta el formulario actual

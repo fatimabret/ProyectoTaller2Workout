@@ -147,12 +147,12 @@ namespace workout.CapaDatos
             return tabla;
         }
 
-        public void EliminarEntrenador(string nombre, string apellido)
+        public void ActivarEntrenador(string nombre, string apellido)
         {
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ELIMINAR_ENTRENADOR", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ACTIVAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);
@@ -160,12 +160,12 @@ namespace workout.CapaDatos
             }
         }
 
-        public void ActivarEntrenador(string nombre, string apellido)
+        public void EliminarEntrenador(string nombre, string apellido)
         {
             using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_ACTIVAR_ENTRENADOR", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ELIMINAR", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);

@@ -225,6 +225,7 @@ GO
 
 GO
 CREATE OR ALTER PROCEDURE SP_LISTAR_USUARIOS
+	@id_usuario INT
 AS
 BEGIN
 	SELECT	u.dni,
@@ -235,7 +236,7 @@ BEGIN
     FROM USUARIO u
 	INNER JOIN ESTADO es ON u.id_estado = es.id_estado
 	INNER JOIN ROL r ON u.id_rol = r.id_rol
-	WHERE u.id_rol = 2 OR u.id_rol = 3
+	WHERE u.id_usuario != @id_usuario
 	ORDER BY r.descripcion ASC 
 END
 GO
@@ -816,8 +817,6 @@ BEGIN
 END
 GO
 
-
-
 GO
 CREATE PROCEDURE SP_REGISTRAR_EJERCICIO
     @descripcion   VARCHAR(30),
@@ -836,88 +835,55 @@ BEGIN
     SELECT SCOPE_IDENTITY() AS id_ejercicio;
 END
 GO
-
 GO
-CREATE PROCEDURE SP_ELIMINAR_USUARIO(
+CREATE PROCEDURE SP_ACTIVAR(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)
 )
 AS
 BEGIN
-	UPDATE USUARIO
-	SET id_estado = 0
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+	IF EXISTS(SELECT u.nombre,u.apellido FROM USUARIO u WHERE u.nombre = @nombre AND u.apellido = @apellido)
+	BEGIN
+		UPDATE USUARIO
+		SET id_estado = 1
+		WHERE nombre = @nombre AND apellido = @apellido;
+	END
+	ELSE
+	BEGIN
+		IF EXISTS(SELECT a.nombre,a.apellido FROM ALUMNO a WHERE a.nombre = @nombre AND a.apellido = @apellido)
+		BEGIN
+			UPDATE ALUMNO
+			SET id_estado = 1
+			WHERE nombre = @nombre AND apellido = @apellido;
+		END
+	END
 END
 GO
 
-
 GO
-CREATE PROCEDURE SP_ACTIVAR_USUARIO(
+CREATE PROCEDURE SP_ELIMINAR(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)
 )
 AS
 BEGIN
-	UPDATE USUARIO
-	SET id_estado = 1
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
+	IF EXISTS(SELECT u.nombre,u.apellido FROM USUARIO u WHERE u.nombre = @nombre AND u.apellido = @apellido)
+	BEGIN
+		UPDATE USUARIO
+		SET id_estado = 0
+		WHERE nombre = @nombre AND apellido = @apellido;
+	END
+	ELSE
+	BEGIN
+		IF EXISTS(SELECT a.nombre,a.apellido FROM ALUMNO a WHERE a.nombre = @nombre AND a.apellido = @apellido)
+		BEGIN
+			UPDATE ALUMNO
+			SET id_estado = 0
+			WHERE nombre = @nombre AND apellido = @apellido;
+		END
+	END
 END
 GO
-
-GO
-CREATE PROCEDURE SP_ELIMINAR_ENTRENADOR(
-	@nombre VARCHAR(30),
-	@apellido VARCHAR(30)
-)
-AS
-BEGIN
-	UPDATE USUARIO
-	SET id_estado = 0
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
-END
-GO
-
-
-GO
-CREATE PROCEDURE SP_ACTIVAR_ENTRENADOR(
-	@nombre VARCHAR(30),
-	@apellido VARCHAR(30)
-)
-AS
-BEGIN
-	UPDATE USUARIO
-	SET id_estado = 1
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
-END
-GO
-
-GO
-CREATE PROCEDURE SP_ELIMINAR_ALUMNO(
-	@nombre VARCHAR(30),
-	@apellido VARCHAR(30)
-)
-AS
-BEGIN
-	UPDATE ALUMNO
-	SET id_estado = 0
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
-END
-GO
-
-GO
-CREATE PROCEDURE SP_ACTIVAR_ALUMNO(
-	@nombre VARCHAR(30),
-	@apellido VARCHAR(30)
-)
-AS
-BEGIN
-	UPDATE ALUMNO
-	SET id_estado = 1
-	WHERE nombre LIKE @nombre AND apellido LIKE @apellido;
-END
-GO
-
-
 
 GO
 CREATE PROCEDURE SP_MODIFICAR_ALUMNO(

@@ -3,13 +3,6 @@
 
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-
-**ACTIVAR USUARIO O ALUMNO**
-se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
-el proc almacenado evalua busca entre alumnos o entrenadores
-se setea a 1 el estado
-PARA DESACTIVAR USUARIO ES LO MISMO
-
 **MODIFICACION DE USUARIOS,ALUMNO**
 se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
 trae todos los datos del usuario y setea en los campos del formulario
@@ -32,3 +25,11 @@ Registrar los campos originales que tienen en comun
 Cuando vamos a seleccionar el rol, que sea una lista desplegable
 Si es entrenador, rol = 3, desplegar un formulario nuevo y registrar los datos de el entrenador
 En la base de datos se va a tener un solo registar usuario y aparte un registrar entrenador, nada mas
+
+Recargar Lista de usuarios
+
+**ACTIVAR USUARIO O ALUMNO**
+se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
+el proc almacenado evalua busca entre alumnos o entrenadores
+se setea a 1 el estado
+PARA DESACTIVAR USUARIO ES LO MISMO

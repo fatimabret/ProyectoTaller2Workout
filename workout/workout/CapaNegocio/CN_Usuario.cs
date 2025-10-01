@@ -27,9 +27,9 @@ namespace workout.CapaNegocio
             return usuarioDatos.BuscarUsuarioDni(dni);
         }
 
-        public DataTable listarUsuarios()
+        public DataTable listarUsuarios(int p_id_Usuario)
         {
-            return usuarioDatos.ListarUsuarios();
+            return usuarioDatos.ListarUsuarios(p_id_Usuario);
         }
 
         public void activarUsuario(string nombre, string apellido)

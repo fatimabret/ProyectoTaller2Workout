@@ -35,6 +35,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnRecargar = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
@@ -55,7 +56,7 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(83, 141);
+            this.txtBuscador.Location = new System.Drawing.Point(101, 141);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(301, 25);
@@ -107,6 +108,17 @@
             this.listUsuarios.Size = new System.Drawing.Size(479, 362);
             this.listUsuarios.TabIndex = 49;
             // 
+            // btnRecargar
+            // 
+            this.btnRecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnRecargar.Image")));
+            this.btnRecargar.Location = new System.Drawing.Point(41, 141);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(54, 23);
+            this.btnRecargar.TabIndex = 57;
+            this.btnRecargar.Text = "Recargar";
+            this.btnRecargar.UseVisualStyleBackColor = true;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
@@ -122,6 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 619);
+            this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.btnActivarUsuario);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnBuscador);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listUsuarios;
+        private System.Windows.Forms.Button btnRecargar;
     }
 }

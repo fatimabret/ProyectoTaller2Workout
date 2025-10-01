@@ -12,9 +12,11 @@ namespace workout.CapaPresentacion
 {
     public partial class FrmInicioAdm : Form
     {
-        public FrmInicioAdm()
+        int id_Usuario;
+        public FrmInicioAdm(int p_id_Usuario)
         {
             InitializeComponent();
+            id_Usuario = p_id_Usuario;
         }
 
         private void btnAlumnos_Click(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace workout.CapaPresentacion
 
         private void btnListaUsuarios_Click(object sender, EventArgs e)
         {
-            FrmListaUsuarios listaUsuarios = new FrmListaUsuarios();
+            FrmListaUsuarios listaUsuarios = new FrmListaUsuarios(id_Usuario);
             this.Hide();
             listaUsuarios.ShowDialog();
             this.Show();

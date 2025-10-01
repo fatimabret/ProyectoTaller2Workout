@@ -14,9 +14,11 @@ namespace workout.CapaPresentacion
     public partial class FrmListaUsuarios : Form
     {
         CN_Usuario logicaUsuario = new CN_Usuario();
-        public FrmListaUsuarios()
+        int id_Usuario;
+        public FrmListaUsuarios(int p_id_Usuario)
         {
             InitializeComponent();
+            id_Usuario = p_id_Usuario;
         }
 
         private void btnBuscador_Click(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace workout.CapaPresentacion
         {
             try
             {
-                DataTable usuarios = logicaUsuario.listarUsuarios();
+                DataTable usuarios = logicaUsuario.listarUsuarios(id_Usuario);
                 listUsuarios.DataSource = usuarios;
                 if (usuarios.Rows.Count > 0)
                 {
@@ -135,6 +137,11 @@ namespace workout.CapaPresentacion
             {
                 e.Handled = true; // bloquea caracteres no numéricos
             }
+        }
+
+        private void btnRecargar_Click(object sender, EventArgs e)
+        {
+            this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
         }
     }
 }
