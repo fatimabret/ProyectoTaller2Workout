@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarUsuario));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,14 +46,16 @@
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(139, 212);
+            this.label2.Location = new System.Drawing.Point(119, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(203, 21);
             this.label2.TabIndex = 104;
@@ -63,7 +66,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(139, 149);
+            this.label1.Location = new System.Drawing.Point(119, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(256, 24);
             this.label1.TabIndex = 103;
@@ -72,23 +75,25 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(142, 176);
+            this.txtDni.Location = new System.Drawing.Point(122, 129);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(326, 20);
             this.txtDni.TabIndex = 101;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(142, 236);
+            this.txtNom.Location = new System.Drawing.Point(122, 189);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(326, 20);
             this.txtNom.TabIndex = 100;
+            this.txtNom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(154, 94);
+            this.lblTitulo.Location = new System.Drawing.Point(134, 47);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(243, 31);
             this.lblTitulo.TabIndex = 99;
@@ -96,16 +101,17 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(142, 423);
+            this.txtContraseña.Location = new System.Drawing.Point(122, 376);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(326, 20);
             this.txtContraseña.TabIndex = 98;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(133, 395);
+            this.label4.Location = new System.Drawing.Point(113, 348);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 25);
             this.label4.TabIndex = 97;
@@ -116,7 +122,7 @@
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(142, 331);
+            this.label8.Location = new System.Drawing.Point(122, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 21);
             this.label8.TabIndex = 96;
@@ -125,10 +131,11 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(142, 355);
+            this.txtCorreo.Location = new System.Drawing.Point(122, 308);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(326, 20);
             this.txtCorreo.TabIndex = 95;
+            this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             // 
             // btnLimpiar
             // 
@@ -139,7 +146,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimpiar.Location = new System.Drawing.Point(190, 567);
+            this.btnLimpiar.Location = new System.Drawing.Point(179, 538);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(196, 29);
             this.btnLimpiar.TabIndex = 94;
@@ -148,16 +155,17 @@
             // 
             // txtApe
             // 
-            this.txtApe.Location = new System.Drawing.Point(142, 292);
+            this.txtApe.Location = new System.Drawing.Point(122, 245);
             this.txtApe.Name = "txtApe";
             this.txtApe.Size = new System.Drawing.Size(326, 20);
             this.txtApe.TabIndex = 93;
+            this.txtApe.TextChanged += new System.EventHandler(this.txtApe_TextChanged);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(142, 264);
+            this.label3.Location = new System.Drawing.Point(122, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 25);
             this.label3.TabIndex = 92;
@@ -173,7 +181,7 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrar.Location = new System.Drawing.Point(190, 532);
+            this.btnRegistrar.Location = new System.Drawing.Point(179, 503);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(196, 29);
             this.btnRegistrar.TabIndex = 91;
@@ -184,7 +192,7 @@
             // picMascota
             // 
             this.picMascota.Image = ((System.Drawing.Image)(resources.GetObject("picMascota.Image")));
-            this.picMascota.Location = new System.Drawing.Point(60, 68);
+            this.picMascota.Location = new System.Drawing.Point(40, 21);
             this.picMascota.Name = "picMascota";
             this.picMascota.Size = new System.Drawing.Size(73, 78);
             this.picMascota.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,7 +202,7 @@
             // cmbRol
             // 
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(142, 490);
+            this.cmbRol.Location = new System.Drawing.Point(122, 443);
             this.cmbRol.Name = "cmbRol";
             this.cmbRol.Size = new System.Drawing.Size(326, 21);
             this.cmbRol.TabIndex = 105;
@@ -203,18 +211,22 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(139, 461);
+            this.label5.Location = new System.Drawing.Point(119, 414);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 26);
             this.label5.TabIndex = 106;
             this.label5.Text = "Seleccione el Rol";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmRegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 633);
+            this.ClientSize = new System.Drawing.Size(547, 584);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.label2);
@@ -235,6 +247,7 @@
             this.Text = "FrmRegistrarUsuario";
             this.Load += new System.EventHandler(this.FrmRegistrarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +271,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

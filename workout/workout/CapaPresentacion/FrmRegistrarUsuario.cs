@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using workout.CapaEntidad;
@@ -90,6 +91,92 @@ namespace workout.CapaPresentacion
                 }
             }
         }
-        
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el DNI solo contenga números
+            if (!int.TryParse(txtDni.Text, out int dni))
+            {
+                errorProvider1.SetError(txtDni, "Solo puede contener numeros");
+            }
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el nombre solo contenga letras
+            if (int.TryParse(txtNom.Text, out int nombre))
+            {
+                errorProvider1.SetError(txtNom, "Solo puede contener letras de A-Z");
+            }
+        }
+
+        private void txtApe_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el apellido solo contenga letras
+            if (int.TryParse(txtApe.Text, out int nombre))
+            {
+                errorProvider1.SetError(txtApe, "Solo puede contener letras de A-Z");
+            }
+        }
+        private bool EsCorreoValido(string correo)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(correo, patron);
+        }
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            // Validar Correo
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "Debe ingresar un correo electrónico");
+                return;
+            }
+            else if (!EsCorreoValido(txtCorreo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtCorreo, "Formato de correo inválido");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtCorreo, "");
+            }
+        }
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(txtDni.Text))
+            {
+                MessageBox.Show("El campo DNI no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDni.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApe.Text))
+            {
+                MessageBox.Show("El campo APELLIDO no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApe.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                MessageBox.Show("El campo CORREO no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCorreo.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNom.Text))
+            {
+                MessageBox.Show("El campo NOMBRE no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNom.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

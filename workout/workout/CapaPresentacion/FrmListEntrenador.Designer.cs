@@ -37,6 +37,7 @@
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.btnBuscador = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnRecargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(204, 39);
+            this.label1.Location = new System.Drawing.Point(215, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 20);
             this.label1.TabIndex = 24;
@@ -54,8 +55,9 @@
             // listEntrenadores
             // 
             this.listEntrenadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.listEntrenadores.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.listEntrenadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listEntrenadores.Location = new System.Drawing.Point(26, 153);
+            this.listEntrenadores.Location = new System.Drawing.Point(42, 170);
             this.listEntrenadores.Name = "listEntrenadores";
             this.listEntrenadores.RowHeadersVisible = false;
             this.listEntrenadores.Size = new System.Drawing.Size(567, 362);
@@ -76,7 +78,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(414, 542);
+            this.btnEliminar.Location = new System.Drawing.Point(444, 558);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 26;
@@ -87,7 +89,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificar.Location = new System.Drawing.Point(64, 542);
+            this.btnModificar.Location = new System.Drawing.Point(94, 558);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(112, 37);
             this.btnModificar.TabIndex = 27;
@@ -98,10 +100,10 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(89, 115);
+            this.txtBuscador.Location = new System.Drawing.Point(121, 123);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(301, 25);
+            this.txtBuscador.Size = new System.Drawing.Size(370, 25);
             this.txtBuscador.TabIndex = 49;
             this.txtBuscador.Text = "Ingrese el DNI";
             this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
@@ -110,7 +112,7 @@
             // btnBuscador
             // 
             this.btnBuscador.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscador.Location = new System.Drawing.Point(414, 110);
+            this.btnBuscador.Location = new System.Drawing.Point(497, 118);
             this.btnBuscador.Name = "btnBuscador";
             this.btnBuscador.Size = new System.Drawing.Size(112, 37);
             this.btnBuscador.TabIndex = 48;
@@ -122,7 +124,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(234, 542);
+            this.button1.Location = new System.Drawing.Point(273, 558);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 37);
             this.button1.TabIndex = 50;
@@ -130,11 +132,26 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnRecargar
+            // 
+            this.btnRecargar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecargar.Image = global::workout.Properties.Resources.rec;
+            this.btnRecargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecargar.Location = new System.Drawing.Point(42, 124);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(73, 25);
+            this.btnRecargar.TabIndex = 58;
+            this.btnRecargar.Text = "Recargar";
+            this.btnRecargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRecargar.UseVisualStyleBackColor = true;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
             // FrmListEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 614);
+            this.ClientSize = new System.Drawing.Size(648, 620);
+            this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnBuscador);
@@ -162,5 +179,6 @@
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Button btnBuscador;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRecargar;
     }
 }

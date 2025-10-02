@@ -97,5 +97,10 @@ namespace workout.CapaPresentacion
                 e.Handled = true;
             }
         }
+
+        private void btnRecargar_Click(object sender, EventArgs e)
+        {
+            this.FrmListPago_Load(sender, e); // Recarga la lista de pagos
+        }
     }
 }

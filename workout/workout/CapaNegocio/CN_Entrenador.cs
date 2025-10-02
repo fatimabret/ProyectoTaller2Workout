@@ -84,5 +84,10 @@ namespace workout.CapaNegocio
         {
             entrenadorDatos.ModificarEntrenador(id_entrenador, p_cupo, horario_disp, dias_disp, detalles);
         }
+        public DataRow obtenerEntrenadorPorId(int id_entrenador)
+        {
+            return entrenadorDatos.ObtenerEntrenadorPorId(id_entrenador);
+        }
+
     }
 }

@@ -53,7 +53,7 @@ namespace workout.CapaPresentacion
 
         private void txtApeAlumno_TextChanged(object sender, EventArgs e)
         {
-            //Validar que el nombre solo contenga letras
+            //Validar que el apellido solo contenga letras
             if (int.TryParse(txtApeAlumno.Text, out int nombre))
             {
                 ePApeAlumno.SetError(txtApeAlumno, "Solo puede contener letras de A-Z");
@@ -180,7 +180,13 @@ namespace workout.CapaPresentacion
                     nombre, apellido, dni, fechaNac, genero , correo, detalles, idEntrenador);
 
                 if (id_alumno > 0)
+                {
                     MessageBox.Show("Alumno registrado con éxito");
+
+                    dni = int.Parse(txtDniAlumno.Text.Trim());
+                    FrmRegistrarMembresia frm = new FrmRegistrarMembresia(dni);
+                    frm.ShowDialog();
+                }
                 else
                     MessageBox.Show("El Alumno fue registrado previamente");
             }
@@ -245,18 +251,12 @@ namespace workout.CapaPresentacion
 
         private void txtNombAlumno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // bloquea caracteres no numéricos
-            }
+            
         }
 
         private void txtApeAlumno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // bloquea caracteres no numéricos
-            }
+            
         }
     }
 }

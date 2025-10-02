@@ -34,6 +34,7 @@
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.btnBuscador = new System.Windows.Forms.Button();
+            this.btnRecargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(242, 41);
+            this.label1.Location = new System.Drawing.Point(235, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 20);
             this.label1.TabIndex = 24;
@@ -52,11 +53,12 @@
             // 
             this.listPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listPagos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.listPagos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.listPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listPagos.Location = new System.Drawing.Point(68, 167);
+            this.listPagos.Location = new System.Drawing.Point(46, 167);
             this.listPagos.Name = "listPagos";
             this.listPagos.RowHeadersVisible = false;
-            this.listPagos.Size = new System.Drawing.Size(479, 362);
+            this.listPagos.Size = new System.Drawing.Size(501, 362);
             this.listPagos.TabIndex = 23;
             // 
             // picMascota
@@ -72,7 +74,7 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(95, 124);
+            this.txtBuscador.Location = new System.Drawing.Point(128, 124);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(301, 25);
@@ -83,7 +85,7 @@
             // btnBuscador
             // 
             this.btnBuscador.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscador.Location = new System.Drawing.Point(420, 119);
+            this.btnBuscador.Location = new System.Drawing.Point(435, 119);
             this.btnBuscador.Name = "btnBuscador";
             this.btnBuscador.Size = new System.Drawing.Size(112, 37);
             this.btnBuscador.TabIndex = 50;
@@ -91,11 +93,26 @@
             this.btnBuscador.UseVisualStyleBackColor = false;
             this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
+            // btnRecargar
+            // 
+            this.btnRecargar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecargar.Image = global::workout.Properties.Resources.rec;
+            this.btnRecargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecargar.Location = new System.Drawing.Point(46, 125);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(73, 25);
+            this.btnRecargar.TabIndex = 61;
+            this.btnRecargar.Text = "Recargar";
+            this.btnRecargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRecargar.UseVisualStyleBackColor = true;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
             // FrmListPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 604);
+            this.ClientSize = new System.Drawing.Size(591, 566);
+            this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnBuscador);
             this.Controls.Add(this.picMascota);
@@ -118,5 +135,6 @@
         private System.Windows.Forms.DataGridView listPagos;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Button btnBuscador;
+        private System.Windows.Forms.Button btnRecargar;
     }
 }

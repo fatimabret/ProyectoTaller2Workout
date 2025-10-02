@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using workout.CapaEntidad;
@@ -56,12 +57,11 @@ namespace workout.CapaPresentacion
 
         private void FrmModificarEntrenador_Load(object sender, EventArgs e)
         {
-            // Configurar los ComboBox para que no permitan edición manual
+            // Configuración de combos (ya lo tenías)
             cmbHorario_disp.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDias_disp.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDetalles.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Cargar opciones de Horario
             cmbHorario_disp.Items.AddRange(new string[]
             {
                 "Mañana (08:00 - 12:00)",
@@ -69,7 +69,6 @@ namespace workout.CapaPresentacion
                 "Noche (18:00 - 22:00)"
             });
 
-            // Cargar opciones de Días
             cmbDias_disp.Items.AddRange(new string[]
             {
                 "Lunes a Viernes",
@@ -78,7 +77,6 @@ namespace workout.CapaPresentacion
                 "Sábados"
             });
 
-            // Cargar opciones de Especialización
             cmbDetalles.Items.AddRange(new string[]
             {
                 "Musculación",
@@ -87,10 +85,78 @@ namespace workout.CapaPresentacion
                 "Cardio Funcional"
             });
 
-            // Seleccionar la primera opción por defecto (índice 0)
-            cmbHorario_disp.SelectedIndex = 0;
-            cmbDias_disp.SelectedIndex = 0;
-            cmbDetalles.SelectedIndex = 0;
+            // 1. Buscar ID entrenador
+            int id_entrenador = logicaEntrenador.buscarEntrenador(nombre, apellido);
+            if (id_entrenador <= 0) return;
+
+            // 2. Obtener datos del entrenador
+            DataRow datos = logicaEntrenador.obtenerEntrenadorPorId(id_entrenador);
+
+            if (datos != null)
+            {
+                txtNom.Text = datos["nombre"].ToString();
+                txtApe.Text = datos["apellido"].ToString();
+                txtDni.Text = datos["dni"].ToString();
+                txtCorreo.Text = datos["correo"].ToString();
+
+                hsCupo.Value = Convert.ToInt32(datos["cupo"]);
+                lblCupoVal.Text = datos["cupo"].ToString();
+
+                cmbHorario_disp.SelectedItem = datos["horario_disp"].ToString();
+                cmbDias_disp.SelectedItem = datos["dias_disp"].ToString();
+                cmbDetalles.SelectedItem = datos["detalles"].ToString();
+            }
+
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el nombre solo contenga letras
+            if (int.TryParse(txtNom.Text, out int nombre))
+            {
+                errorProvider1.SetError(txtNom, "Solo puede contener letras de A-Z");
+            }
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el DNI solo contenga números
+            if (!int.TryParse(txtDni.Text, out int dni))
+            {
+                errorProvider1.SetError(txtDni, "Solo puede contener numeros");
+            }
+        }
+
+        private void txtApe_TextChanged(object sender, EventArgs e)
+        {
+            //Validar que el apellido solo contenga letras
+            if (int.TryParse(txtApe.Text, out int nombre))
+            {
+                errorProvider1.SetError(txtApe, "Solo puede contener letras de A-Z");
+            }
+        }
+        private bool EsCorreoValido(string correo)
+        {
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(correo, patron);
+        }
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            // Validar Correo
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "Debe ingresar un correo electrónico");
+                return;
+            }
+            else if (!EsCorreoValido(txtCorreo.Text.Trim()))
+            {
+                errorProvider1.SetError(txtCorreo, "Formato de correo inválido");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtCorreo, "");
+            }
         }
     }
 }

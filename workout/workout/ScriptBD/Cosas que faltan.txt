@@ -1,13 +1,9 @@
-
 		/**NO HECHO**/
 
-MODIFICAR PARA ELIMINAR PROC ALMACENADOS
+Registrar alumno no ejecuta el id alumno de registrar
 
-**MODIFICACION DE USUARIOS,ALUMNO**
-se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
-trae todos los datos del usuario y setea en los campos del formulario
-si es un rb, debe estar seleccionado
-se modifican los datos y se vuelve a setear
+
+MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
 GENERADOR DE PDF PARA EL ALUMNO CON LOS DATOS DEL CLIENTE, PAGOS, FECHA Y DEL GIMNASIO
 
@@ -18,6 +14,12 @@ MANUAL DE USUARIO
 
 
 		/**HECHO**/
+
+**MODIFICACION DE USUARIOS (casi el de entrenador),ALUMNO**
+se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
+trae todos los datos del usuario y setea en los campos del formulario
+si es un rb, debe estar seleccionado
+se modifican los datos y se vuelve a setear
 
 ** REGISTRAR USUARIO **
 Como registrar 1 usuario con distintos roles

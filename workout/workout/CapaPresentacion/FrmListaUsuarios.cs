@@ -141,7 +141,7 @@ namespace workout.CapaPresentacion
 
         private void btnRecargar_Click(object sender, EventArgs e)
         {
-            this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de entrenadores
+            this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de usuarios
         }
     }
 }

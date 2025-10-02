@@ -38,8 +38,8 @@ namespace workout.CapaEntidad
                 // Parámetro para capturar el valor de retorno del SP
                 object result = cmd.ExecuteScalar();
 
-                id_alumno_registrado = (result != null && result != DBNull.Value)
-                                       ? Convert.ToInt32(result): -1;
+                //(result != null && result != DBNull.Value)
+                id_alumno_registrado = Convert.ToInt32(result);
             }
 
             return id_alumno_registrado;
@@ -62,8 +62,6 @@ namespace workout.CapaEntidad
                 return id_alumno;
             }
         }
-
-
         public DataTable ListarAlumnos()
         {
             DataTable tablaAlumnos = new DataTable();
@@ -147,6 +145,23 @@ namespace workout.CapaEntidad
             }
         }
 
+        public DataRow ObtenerAlumno(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_ALUMNO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+
+                return tabla.Rows.Count > 0 ? tabla.Rows[0] : null;
+            }
+        }
 
         public DataTable BuscarAlumnoDni(int p_dni)
         {

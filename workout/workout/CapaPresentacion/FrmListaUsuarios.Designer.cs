@@ -45,7 +45,7 @@
             // 
             this.btnActivarUsuario.BackColor = System.Drawing.Color.Lime;
             this.btnActivarUsuario.ForeColor = System.Drawing.Color.Black;
-            this.btnActivarUsuario.Location = new System.Drawing.Point(111, 547);
+            this.btnActivarUsuario.Location = new System.Drawing.Point(128, 558);
             this.btnActivarUsuario.Name = "btnActivarUsuario";
             this.btnActivarUsuario.Size = new System.Drawing.Size(112, 37);
             this.btnActivarUsuario.TabIndex = 56;
@@ -56,7 +56,7 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(101, 141);
+            this.txtBuscador.Location = new System.Drawing.Point(116, 141);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(301, 25);
@@ -67,9 +67,10 @@
             // btnBuscador
             // 
             this.btnBuscador.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscador.Location = new System.Drawing.Point(408, 136);
+            this.btnBuscador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscador.Location = new System.Drawing.Point(423, 137);
             this.btnBuscador.Name = "btnBuscador";
-            this.btnBuscador.Size = new System.Drawing.Size(112, 37);
+            this.btnBuscador.Size = new System.Drawing.Size(112, 35);
             this.btnBuscador.TabIndex = 54;
             this.btnBuscador.Text = "Buscar";
             this.btnBuscador.UseVisualStyleBackColor = false;
@@ -79,7 +80,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(311, 547);
+            this.btnEliminar.Location = new System.Drawing.Point(328, 558);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 52;
@@ -101,21 +102,25 @@
             // 
             this.listUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.listUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.listUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listUsuarios.Location = new System.Drawing.Point(41, 179);
+            this.listUsuarios.Location = new System.Drawing.Point(37, 179);
             this.listUsuarios.Name = "listUsuarios";
             this.listUsuarios.RowHeadersVisible = false;
-            this.listUsuarios.Size = new System.Drawing.Size(479, 362);
+            this.listUsuarios.Size = new System.Drawing.Size(498, 362);
             this.listUsuarios.TabIndex = 49;
             // 
             // btnRecargar
             // 
-            this.btnRecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnRecargar.Image")));
-            this.btnRecargar.Location = new System.Drawing.Point(41, 141);
+            this.btnRecargar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecargar.Image = global::workout.Properties.Resources.rec;
+            this.btnRecargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecargar.Location = new System.Drawing.Point(37, 141);
             this.btnRecargar.Name = "btnRecargar";
-            this.btnRecargar.Size = new System.Drawing.Size(54, 23);
+            this.btnRecargar.Size = new System.Drawing.Size(73, 25);
             this.btnRecargar.TabIndex = 57;
             this.btnRecargar.Text = "Recargar";
+            this.btnRecargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRecargar.UseVisualStyleBackColor = true;
             this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
             // 
@@ -133,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 619);
+            this.ClientSize = new System.Drawing.Size(576, 619);
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.btnActivarUsuario);
             this.Controls.Add(this.txtBuscador);

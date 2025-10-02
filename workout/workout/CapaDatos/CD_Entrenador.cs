@@ -208,6 +208,22 @@ namespace workout.CapaDatos
                 return tabla.Rows.Count >= 0 ? tabla : null;
             }
         }
+        public DataRow ObtenerEntrenadorPorId(int id_entrenador)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_ENTRENADOR", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_entrenador", id_entrenador);
+
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+
+                return tabla.Rows.Count > 0 ? tabla.Rows[0] : null;
+            }
+        }
 
         public void ModificarEntrenador(int id_entrenador, int p_cupo, string horario_disp, string dias_disp, string detalles)
         {

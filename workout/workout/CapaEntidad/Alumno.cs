@@ -32,9 +32,5 @@ namespace workout.CapaEntidad
             this.id_entrenador = p_id_entrenador; 
         }
 
-        public Alumno()
-        {
-        
-        }
     }
 }

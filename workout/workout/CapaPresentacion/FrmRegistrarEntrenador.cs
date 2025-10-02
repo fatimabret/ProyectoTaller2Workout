@@ -108,5 +108,10 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
+
+        private void cmbDiasDisponibles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

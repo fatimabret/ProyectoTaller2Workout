@@ -554,6 +554,30 @@ END
 GO
 
 GO
+CREATE PROCEDURE SP_OBTENER_ALUMNO
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        a.id_alumno,
+        a.nombre,
+        a.apellido,
+        a.dni,
+        a.correo,
+        a.fecha_nac,
+        a.genero,
+        a.detalles,
+        a.id_estado,
+        a.id_entrenador
+    FROM ALUMNO a
+    WHERE a.nombre = @nombre AND a.apellido = @apellido;
+END
+GO
+
+GO
 CREATE PROCEDURE SP_OBTENER_MEMBRESIA_POR_DNI
     @dni INT
 AS
@@ -905,21 +929,48 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_MODIFICAR_ENTRENADOR(
-	@id_entrenador int,
-	@horario_disp VARCHAR(30),
-	@dias_disp VARCHAR(30),
-	@detalles VARCHAR(30),
-	@cupo int
-)
+CREATE OR ALTER PROCEDURE SP_MODIFICAR_ENTRENADOR
+    @id_entrenador INT,
+    @cupo INT,
+    @horario_disp VARCHAR(50),
+    @dias_disp VARCHAR(50),
+    @detalles VARCHAR(50)
 AS
 BEGIN
-	UPDATE ENTRENADOR
-	SET horario_disp = @horario_disp,
-	dias_disp = @dias_disp,
-	detalles = @detalles,
-	cupo = @cupo
-	WHERE id_entrenador = @id_entrenador;
+    SET NOCOUNT ON;
+
+    UPDATE ENTRENADOR
+    SET 
+        cupo = @cupo,
+        horario_disp = @horario_disp,
+        dias_disp = @dias_disp,
+        detalles = @detalles
+    WHERE id_entrenador = @id_entrenador;
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_OBTENER_ENTRENADOR
+    @id_entrenador INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        e.id_entrenador,
+        u.id_usuario,
+        u.nombre,
+        u.apellido,
+        u.dni,
+        u.correo,
+        u.id_estado,
+        e.cupo,
+        e.horario_disp,
+        e.dias_disp,
+        e.detalles
+    FROM ENTRENADOR e
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario
+    WHERE e.id_entrenador = @id_entrenador;
 END
 GO
 /*PROCEDIMIENTOS ALMACENADOS*/

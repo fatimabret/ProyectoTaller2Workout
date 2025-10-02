@@ -325,6 +325,7 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="Resources\recargar.png" />
+    <None Include="Resources\rec.ico" />
     <Content Include="ScriptBD\workout.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

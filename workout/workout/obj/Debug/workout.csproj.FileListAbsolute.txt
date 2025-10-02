@@ -83,3 +83,4 @@ C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarEntrena
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRecepcionista.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRecepcionista.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarUsuario.resources
+C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarUsuario.resources

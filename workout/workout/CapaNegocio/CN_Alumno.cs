@@ -51,5 +51,10 @@ namespace workout.CapaNegocio
         {
             alumnoDatos.ActivarAlumno(p_nombre, p_apellido);
         }
+        public DataRow obtenerAlumno(string nombre, string apellido)
+        {
+            return alumnoDatos.ObtenerAlumno(nombre, apellido);
+        }
+
     }
 }

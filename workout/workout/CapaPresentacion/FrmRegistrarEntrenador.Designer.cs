@@ -132,6 +132,7 @@
             this.cmbDiasDisponibles.Name = "cmbDiasDisponibles";
             this.cmbDiasDisponibles.Size = new System.Drawing.Size(326, 21);
             this.cmbDiasDisponibles.TabIndex = 50;
+            this.cmbDiasDisponibles.SelectedIndexChanged += new System.EventHandler(this.cmbDiasDisponibles_SelectedIndexChanged);
             // 
             // cmbEspecializacion
             // 
@@ -161,7 +162,6 @@
             this.btnLimpiar.TabIndex = 52;
             this.btnLimpiar.Text = "CANCELAR";
             this.btnLimpiar.UseVisualStyleBackColor = false;
-
             // 
             // FrmRegistrarEntrenador
             // 
