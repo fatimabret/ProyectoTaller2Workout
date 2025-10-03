@@ -5,9 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.tool.xml;
+using PdfSharp.Pdf;
+using TheArtOfDev.HtmlRenderer.PdfSharp;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +22,7 @@ namespace workout.CapaPresentacion
     {
         private int dniAlumno;
         private double montoMembresia = 20000;
+        CN_Alumno logicaAlumno = new CN_Alumno();
         public FrmRegistrarMembresia(int dni)
         {
             InitializeComponent();
@@ -83,20 +83,20 @@ namespace workout.CapaPresentacion
                 {
                     var result = MessageBox.Show("Membresía registrada con éxito.\n\n¿Desea generar el comprobante?",
                         "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
+                    //Alumno alumno = logicaAlumno.buscarAlumnoDni(dniAlumno);
                     if (result == DialogResult.Yes)
                     {
                         // Cargar plantilla HTML
                         string Texto_Html = Properties.Resources.plantilla.ToString();
 
-                        // 🔹 Reemplazar datos (ejemplo: si los obtenés de variables / textbox)
+                        // Reemplazar datos
                         Texto_Html = Texto_Html.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
-                        Texto_Html = Texto_Html.Replace("@NOMBRE", textNombre.Text);
-                        Texto_Html = Texto_Html.Replace("@APELLIDO", textApellido.Text);
+                        //Texto_Html = Texto_Html.Replace("@NOMBRE", textNombre.Text);
+                        //Texto_Html = Texto_Html.Replace("@APELLIDO", textApellido.Text);
                         Texto_Html = Texto_Html.Replace("@DNI", dniAlumno.ToString());
-                        Texto_Html = Texto_Html.Replace("@CORREO", textCorreo.Text);
-                        Texto_Html = Texto_Html.Replace("@MEMBRESIA", resultado.ToString()); // el ID generado
-                        Texto_Html = Texto_Html.Replace("@CATEGORIA", cbCategoria.Text);
+                        //Texto_Html = Texto_Html.Replace("@CORREO", textCorreo.Text);
+                        Texto_Html = Texto_Html.Replace("@MEMBRESIA", resultado.ToString());
+                        //Texto_Html = Texto_Html.Replace("@CATEGORIA", cbCategoria.Text);
                         Texto_Html = Texto_Html.Replace("@METODO", cbMetodoPago.Text);
                         Texto_Html = Texto_Html.Replace("@IMPORTE", montoMembresia.ToString("N2"));
                         Texto_Html = Texto_Html.Replace("@MONTO", montoMembresia.ToString("N2"));
@@ -107,21 +107,14 @@ namespace workout.CapaPresentacion
 
                         if (guardar.ShowDialog() == DialogResult.OK)
                         {
-                            using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
-                            {
-                                Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
-                                PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
-                                pdf.Open();
+                            // Crear PDF
+                            PdfDocument pdf = new PdfDocument();
+                            //PdfGenerator.AddPdfPages(pdf, Texto_Html, PdfSharp.PageSize.A4);
 
-                                using (StringReader sr = new StringReader(Texto_Html))
-                                {
-                                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, sr);
-                                }
+                            // Guardar PDF
+                            pdf.Save(guardar.FileName);
 
-                                pdf.Close();
-                                stream.Close();
-                                MessageBox.Show("PDF generado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
+                            MessageBox.Show("PDF generado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
