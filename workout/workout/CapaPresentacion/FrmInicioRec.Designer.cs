@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioRec));
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
+            this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.btnRegistrarAlumno = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -75,19 +75,20 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnRegistrarEntrenador
+            // btnRegistrarUsuario
             // 
-            this.btnRegistrarEntrenador.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnRegistrarEntrenador.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarEntrenador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(225, 363);
-            this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
-            this.btnRegistrarEntrenador.Size = new System.Drawing.Size(179, 29);
-            this.btnRegistrarEntrenador.TabIndex = 13;
-            this.btnRegistrarEntrenador.Text = "REGISTRAR ENTRENADOR";
-            this.btnRegistrarEntrenador.UseVisualStyleBackColor = false;
+            this.btnRegistrarUsuario.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRegistrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(424, 328);
+            this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            this.btnRegistrarUsuario.Size = new System.Drawing.Size(179, 29);
+            this.btnRegistrarUsuario.TabIndex = 13;
+            this.btnRegistrarUsuario.Text = "REGISTRAR USUARIO";
+            this.btnRegistrarUsuario.UseVisualStyleBackColor = false;
+            this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
             // 
             // btnRegistrarAlumno
             // 
@@ -150,7 +151,7 @@
             this.btnListarAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListarAlumnos.Location = new System.Drawing.Point(424, 328);
+            this.btnListarAlumnos.Location = new System.Drawing.Point(225, 363);
             this.btnListarAlumnos.Name = "btnListarAlumnos";
             this.btnListarAlumnos.Size = new System.Drawing.Size(179, 29);
             this.btnListarAlumnos.TabIndex = 18;
@@ -226,7 +227,7 @@
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistrarAlumno);
-            this.Controls.Add(this.btnRegistrarEntrenador);
+            this.Controls.Add(this.btnRegistrarUsuario);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioRec";
@@ -243,7 +244,7 @@
 
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Button btnRegistrarEntrenador;
+        private System.Windows.Forms.Button btnRegistrarUsuario;
         private System.Windows.Forms.Button btnRegistrarAlumno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDni;

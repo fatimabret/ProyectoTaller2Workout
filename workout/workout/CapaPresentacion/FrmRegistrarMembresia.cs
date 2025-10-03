@@ -75,7 +75,7 @@ namespace workout.CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Membresía registrada con éxito. ID generado: " + resultado);
+                    MessageBox.Show("Membresía registrada con éxito");
                     this.Close();
                 }
             }

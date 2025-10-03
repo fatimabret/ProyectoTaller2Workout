@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicioAdm));
-            this.btnRegistrarRecepcionista = new System.Windows.Forms.Button();
             this.btnConsultarPago = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,21 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnRegistrarRecepcionista
-            // 
-            this.btnRegistrarRecepcionista.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnRegistrarRecepcionista.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarRecepcionista.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarRecepcionista.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarRecepcionista.Location = new System.Drawing.Point(201, 409);
-            this.btnRegistrarRecepcionista.Name = "btnRegistrarRecepcionista";
-            this.btnRegistrarRecepcionista.Size = new System.Drawing.Size(195, 29);
-            this.btnRegistrarRecepcionista.TabIndex = 29;
-            this.btnRegistrarRecepcionista.Text = "REGISTRAR RECEPCIONISTA";
-            this.btnRegistrarRecepcionista.UseVisualStyleBackColor = false;
-            this.btnRegistrarRecepcionista.Click += new System.EventHandler(this.btnRegistrarRecepcionista_Click);
             // 
             // btnConsultarPago
             // 
@@ -151,7 +135,7 @@
             this.btnListaAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaAlumnos.Location = new System.Drawing.Point(402, 339);
+            this.btnListaAlumnos.Location = new System.Drawing.Point(201, 374);
             this.btnListaAlumnos.Name = "btnListaAlumnos";
             this.btnListaAlumnos.Size = new System.Drawing.Size(195, 29);
             this.btnListaAlumnos.TabIndex = 33;
@@ -166,7 +150,7 @@
             this.btnListaUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaUsuarios.Location = new System.Drawing.Point(402, 409);
+            this.btnListaUsuarios.Location = new System.Drawing.Point(301, 409);
             this.btnListaUsuarios.Name = "btnListaUsuarios";
             this.btnListaUsuarios.Size = new System.Drawing.Size(195, 29);
             this.btnListaUsuarios.TabIndex = 34;
@@ -200,7 +184,7 @@
             this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(201, 374);
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(402, 339);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
             this.btnRegistrarUsuario.Size = new System.Drawing.Size(195, 29);
             this.btnRegistrarUsuario.TabIndex = 36;
@@ -239,7 +223,6 @@
             this.Controls.Add(this.btnListaAlumnos);
             this.Controls.Add(this.picMascota);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnRegistrarRecepcionista);
             this.Controls.Add(this.btnConsultarPago);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label1);
@@ -260,7 +243,6 @@
 
         private System.Windows.Forms.PictureBox picMascota;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnRegistrarRecepcionista;
         private System.Windows.Forms.Button btnConsultarPago;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label1;

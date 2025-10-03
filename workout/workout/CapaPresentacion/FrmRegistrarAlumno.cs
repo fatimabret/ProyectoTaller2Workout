@@ -117,13 +117,6 @@ namespace workout.CapaPresentacion
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtDetallesAlum.Text))
-            {
-                MessageBox.Show("El campo DETALLES no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDetallesAlum.Focus();
-                return false;
-            }
-
             if (string.IsNullOrWhiteSpace(txtNombAlumno.Text))
             {
                 MessageBox.Show("El campo NOMBRE no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

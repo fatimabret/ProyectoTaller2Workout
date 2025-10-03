@@ -151,5 +151,12 @@ namespace workout.CapaPresentacion
                 frm.ShowDialog();
             }
         }
+
+        private void btnRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            int id_rol = 2;
+            FrmRegistrarUsuario registrarUsuario = new FrmRegistrarUsuario(id_rol);
+            registrarUsuario.ShowDialog();
+        }
     }
 }

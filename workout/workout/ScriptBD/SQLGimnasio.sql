@@ -46,7 +46,7 @@ CREATE TABLE ENTRENADOR
 CREATE TABLE ALUMNO
 (
   id_alumno INT IDENTITY(1,1) NOT NULL,
-  detalles VARCHAR(100) NOT NULL,
+  detalles VARCHAR(100),
   genero VARCHAR(30) NOT NULL,
   apellido VARCHAR(30) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
@@ -758,7 +758,7 @@ BEGIN
     INSERT INTO dbo.Alumno (nombre, apellido, dni, fecha_nac, genero, correo, detalles,id_estado, id_entrenador) 
     VALUES (@nombre,@apellido,@dni,@fecha_nac,@genero,@correo,@detalles,@id_estado, @id_entrenador);
 
-	RETURN CAST(SCOPE_IDENTITY() AS INT);
+	SELECT CAST(SCOPE_IDENTITY() AS INT) AS id_alumno;
 END
 GO
 

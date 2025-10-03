@@ -1,7 +1,5 @@
 		/**NO HECHO**/
 
-Registrar alumno no ejecuta el id alumno de registrar
-
 
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
@@ -35,3 +33,6 @@ se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
 el proc almacenado evalua busca entre alumnos o entrenadores
 se setea a 1 el estado
 PARA DESACTIVAR USUARIO ES LO MISMO
+
+Registrar alumno no ejecuta el id alumno de registrar
+

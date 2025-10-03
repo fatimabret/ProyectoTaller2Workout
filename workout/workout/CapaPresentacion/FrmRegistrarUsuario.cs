@@ -16,24 +16,36 @@ namespace workout.CapaPresentacion
 {
     public partial class FrmRegistrarUsuario : Form
     {
-        public FrmRegistrarUsuario()
+        int id_rol;
+        public FrmRegistrarUsuario(int p_id_rol)
         {
             InitializeComponent();
+            id_rol = p_id_rol;
         }
 
         private void FrmRegistrarUsuario_Load(object sender, EventArgs e)
         {
             // Configurar los ComboBox para que no permitan edición manual
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            
 
-            // Cargar opciones de Rol
-            cmbRol.Items.AddRange(new string[]
+            if (id_rol != 2)
             {
+                // Cargar opciones de Rol
+                cmbRol.Items.AddRange(new string[]
+                {
                 "Administrador",
                 "Entrenador",
                 "Recepcionista"
-            });
+                });
+            }
+            else {
+                // Cargar opciones de Rol
+                cmbRol.Items.AddRange(new string[]
+                {
+                "Entrenador",
+                "Recepcionista"
+                });
+            }
 
         }
 

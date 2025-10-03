@@ -188,7 +188,6 @@ namespace workout.CapaDatos
                 {
                     id_entrenador = Convert.ToInt32(result);
                 }
-                MessageBox.Show("ID Entrenador encontrado: " + id_entrenador); // Línea de depuración
             }
             return id_entrenador;
         }

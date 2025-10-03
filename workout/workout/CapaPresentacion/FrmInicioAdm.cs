@@ -44,12 +44,6 @@ namespace workout.CapaPresentacion
             this.Close();
         }
 
-        private void btnRegistrarRecepcionista_Click(object sender, EventArgs e)
-        {
-            FrmRegistrarRecepcionista frm = new FrmRegistrarRecepcionista();
-            frm.ShowDialog();
-            this.Show();
-        }
 
         private void btnListaEntrenadores_Click(object sender, EventArgs e)
         {
@@ -140,7 +134,8 @@ namespace workout.CapaPresentacion
 
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            FrmRegistrarUsuario registrarUsuario = new FrmRegistrarUsuario();
+            int id_rol = 1;
+            FrmRegistrarUsuario registrarUsuario = new FrmRegistrarUsuario(id_rol);
             registrarUsuario.ShowDialog();
         }
     }
