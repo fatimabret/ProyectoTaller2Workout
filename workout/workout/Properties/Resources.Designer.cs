@@ -81,6 +81,39 @@ namespace workout.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Comprobante - Workout&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: Arial, sans-serif;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        .ticket {
+        ///            border: 2px solid black;
+        ///            padding: 15px;
+        ///            margin: auto;
+        ///            width: 80%;
+        ///            max-width: 600px;
+        ///        }
+        ///
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///        table.border th,
+        ///        table.border td {
+        ///          [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string plantilla {
+            get {
+                return ResourceManager.GetString("plantilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap rec {

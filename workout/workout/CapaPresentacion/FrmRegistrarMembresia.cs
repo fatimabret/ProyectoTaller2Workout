@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using workout.CapaDatos;
 using workout.CapaEntidad;
 using workout.CapaNegocio;
@@ -75,7 +81,54 @@ namespace workout.CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Membresía registrada con éxito");
+                    var result = MessageBox.Show("Membresía registrada con éxito.\n\n¿Desea generar el comprobante?",
+                        "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Cargar plantilla HTML
+                        string Texto_Html = Properties.Resources.plantilla.ToString();
+
+                        // 🔹 Reemplazar datos (ejemplo: si los obtenés de variables / textbox)
+                        Texto_Html = Texto_Html.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
+                        Texto_Html = Texto_Html.Replace("@NOMBRE", textNombre.Text);
+                        Texto_Html = Texto_Html.Replace("@APELLIDO", textApellido.Text);
+                        Texto_Html = Texto_Html.Replace("@DNI", dniAlumno.ToString());
+                        Texto_Html = Texto_Html.Replace("@CORREO", textCorreo.Text);
+                        Texto_Html = Texto_Html.Replace("@MEMBRESIA", resultado.ToString()); // el ID generado
+                        Texto_Html = Texto_Html.Replace("@CATEGORIA", cbCategoria.Text);
+                        Texto_Html = Texto_Html.Replace("@METODO", cbMetodoPago.Text);
+                        Texto_Html = Texto_Html.Replace("@IMPORTE", montoMembresia.ToString("N2"));
+                        Texto_Html = Texto_Html.Replace("@MONTO", montoMembresia.ToString("N2"));
+
+                        SaveFileDialog guardar = new SaveFileDialog();
+                        guardar.FileName = string.Format("Comprobante_{0}.pdf", resultado);
+                        guardar.Filter = "PDF Files | *.pdf";
+
+                        if (guardar.ShowDialog() == DialogResult.OK)
+                        {
+                            using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                            {
+                                Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
+                                PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
+                                pdf.Open();
+
+                                using (StringReader sr = new StringReader(Texto_Html))
+                                {
+                                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, sr);
+                                }
+
+                                pdf.Close();
+                                stream.Close();
+                                MessageBox.Show("PDF generado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Membresía registrada con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                     this.Close();
                 }
             }
@@ -84,6 +137,7 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Error al registrar membresía: " + ex.Message);
             }
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

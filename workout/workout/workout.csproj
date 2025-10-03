@@ -315,6 +315,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\plantilla.bmp" />
+    <Content Include="Resources\plantilla.html" />
     <None Include="Resources\recargar.png" />
     <None Include="Resources\rec.ico" />
     <Content Include="ScriptBD\workout.txt" />
