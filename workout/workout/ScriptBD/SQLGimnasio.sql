@@ -421,6 +421,7 @@ BEGIN
     SELECT a.dni, 
            a.nombre, 
            a.apellido,
+		   a.correo,
            m.fecha_pago,
            m.fecha_venc, 
            u.nombre AS 'Entrenador', 
