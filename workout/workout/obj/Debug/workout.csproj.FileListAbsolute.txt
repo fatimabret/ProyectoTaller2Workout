@@ -83,3 +83,11 @@ C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarEntrena
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarRecepcionista.resources
 C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarUsuario.resources
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmRegistrarUsuario.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\HtmlRenderer.PdfSharp.dll
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.csproj.Up2Date
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\itextsharp.dll
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\itextsharp.xml
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\System.Memory.dll
+C:\Users\ariel\source\proyectoTaller2\workout\workout\bin\Debug\System.Numerics.Vectors.dll

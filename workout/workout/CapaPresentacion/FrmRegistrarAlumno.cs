@@ -15,6 +15,9 @@ namespace workout.CapaPresentacion
 {
     public partial class FrmRegistrarAlumno : Form
     {
+        //Variable de la logica de negocios
+        CN_Alumno logicaAlumno = new CN_Alumno();
+
         public FrmRegistrarAlumno()
         {
             InitializeComponent();
@@ -141,9 +144,7 @@ namespace workout.CapaPresentacion
                 return;
             }
 
-            //Variable de la logica de negocios
-            CN_Alumno logicaAlumno = new CN_Alumno();
-
+            
             //Obtiene los datos de los campos de la vista
             if (!int.TryParse(txtDniAlumno.Text, out int dni))
             {
