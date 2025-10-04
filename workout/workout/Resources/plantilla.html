@@ -6,32 +6,64 @@
         body {
             font-family: Arial, sans-serif;
             font-size: 12px;
+            background-color: #f9f9f9;
         }
 
         .ticket {
             border: 2px solid black;
-            padding: 15px;
+            padding: 20px;
             margin: auto;
             width: 80%;
             max-width: 600px;
+            background-color: white;
         }
 
         table.border {
             border-collapse: collapse;
         }
 
-        table.border th,
-        table.border td {
-            padding: 5px;
-            border: 1px solid black;
-        }
+            table.border th,
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
 
-        h4 {
+        h3, h4 {
             margin: 0px;
         }
 
         .separador {
             height: 15px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .header-info {
+            font-size: 11px;
+        }
+
+        .total-box {
+            text-align: right;
+            font-weight: bold;
+            font-size: 14px;
+            border-top: 2px solid black;
+            padding-top: 5px;
+        }
+
+        .titulo {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .subtitulo {
+            font-size: 12px;
+        }
+
+        .gris {
+            background-color: #D8D8D8;
         }
     </style>
 </head>
@@ -40,19 +72,20 @@
         <table style="width:100%">
             <tr>
                 <td style="width:20%" align="center" valign="middle">
-                    <div style="width:80px;height:80px;border:1px solid #ccc;display:flex;align-items:center;justify-content:center;">LOGO</div>
+                    
                 </td>
 
                 <td style="width:60%" align="center" valign="top">
                     <table>
-                        <tr><td align="center"><h4>WORKOUT</h4></td></tr>
-                        <tr><td align="center">Comprobante de Pago</td></tr>
+                        <tr><td align="center" class="titulo">WORKOUT</td></tr>
+                        <tr><td align="center" class="subtitulo">Comprobante de Pago</td></tr>
+                        <tr><td align="center" class="header-info">Mail: workout@gmail.com | Tel: (3794) 658-221</td></tr>
                     </table>
                 </td>
 
                 <td style="width:20%">
                     <table class="border" style="width:100%">
-                        <tr><td align="center" style="background-color:#D8D8D8">RECIBO</td></tr>
+                        <tr><td align="center" class="gris"><strong>RECIBO</strong></td></tr>
                         <tr><td align="center">Fecha: @FECHA</td></tr>
                     </table>
                 </td>
@@ -84,6 +117,13 @@
                         <tr><td>Monto Total:</td><td style="border-bottom:1px solid black">$@MONTO</td></tr>
                     </table>
                 </td>
+            </tr>
+
+            <tr><td colspan="3" class="separador"></td></tr>
+
+            <!-- Total final -->
+            <tr>
+                <td colspan="3" class="total-box">TOTAL: $@MONTO</td>
             </tr>
         </table>
     </div>

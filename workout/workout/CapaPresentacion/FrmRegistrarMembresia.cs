@@ -1,18 +1,11 @@
-﻿using System.IO;                  // FileStream, StringReader
-using iTextSharp.text;             // Document, PageSize
+﻿using iTextSharp.text;             // Document, PageSize
 using iTextSharp.text.pdf;         // PdfWriter
 using iTextSharp.tool.xml;         // XMLWorkerHelper                                   // Para XMLWorkerHelper
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;                  // FileStream, StringReader
 using System.Windows.Forms;
-using System.Xml.Linq;
 using workout.CapaEntidad;
 using workout.CapaNegocio;
 
@@ -97,19 +90,11 @@ namespace workout.CapaPresentacion
                         Texto_Html = Texto_Html.Replace("@NOMBRE", row["nombre"].ToString());
                         Texto_Html = Texto_Html.Replace("@APELLIDO", row["apellido"].ToString());
                         Texto_Html = Texto_Html.Replace("@DNI", row["dni"].ToString());
-
-                        // Estos dependen de que el SP los devuelva
                         Texto_Html = Texto_Html.Replace("@CORREO", row.Table.Columns.Contains("correo") ? row["correo"].ToString() : "");
                         Texto_Html = Texto_Html.Replace("@MEMBRESIA", resultado.ToString());
                         Texto_Html = Texto_Html.Replace("@METODO", cbMetodoPago.Text);
                         Texto_Html = Texto_Html.Replace("@IMPORTE", montoMembresia.ToString("N2"));
                         Texto_Html = Texto_Html.Replace("@MONTO", montoMembresia.ToString("N2"));
-
-                        // Extras del SP
-                        Texto_Html = Texto_Html.Replace("@FECHAPAGO", row["fecha_pago"].ToString());
-                        Texto_Html = Texto_Html.Replace("@FECHAVENC", row["fecha_venc"].ToString());
-                        Texto_Html = Texto_Html.Replace("@ENTRENADOR", row["Entrenador"].ToString());
-                        Texto_Html = Texto_Html.Replace("@ESTADO", row["Estado"].ToString());
                     }
                     else
                     {
@@ -118,6 +103,7 @@ namespace workout.CapaPresentacion
 
                     if (result == DialogResult.Yes)
                     {
+
                         using (SaveFileDialog saveFile = new SaveFileDialog())
                         {
                             saveFile.Filter = "PDF (*.pdf)|*.pdf";
@@ -130,7 +116,6 @@ namespace workout.CapaPresentacion
                                     Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
                                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                                     pdfDoc.Open();
-
                                     using (StringReader sr = new StringReader(Texto_Html))
                                     {
                                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
