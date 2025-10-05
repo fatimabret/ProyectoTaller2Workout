@@ -143,5 +143,10 @@ namespace workout.CapaPresentacion
         {
             this.FrmListaUsuarios_Load(sender, e); // Recarga la lista de usuarios
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

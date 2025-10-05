@@ -37,6 +37,7 @@
             this.listUsuarios = new System.Windows.Forms.DataGridView();
             this.btnRecargar = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // 
             this.btnActivarUsuario.BackColor = System.Drawing.Color.Lime;
             this.btnActivarUsuario.ForeColor = System.Drawing.Color.Black;
-            this.btnActivarUsuario.Location = new System.Drawing.Point(128, 558);
+            this.btnActivarUsuario.Location = new System.Drawing.Point(225, 557);
             this.btnActivarUsuario.Name = "btnActivarUsuario";
             this.btnActivarUsuario.Size = new System.Drawing.Size(112, 37);
             this.btnActivarUsuario.TabIndex = 56;
@@ -80,7 +81,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(328, 558);
+            this.btnEliminar.Location = new System.Drawing.Point(368, 557);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 52;
@@ -134,11 +135,23 @@
             this.picMascota.TabIndex = 51;
             this.picMascota.TabStop = false;
             // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnModificar.Location = new System.Drawing.Point(83, 557);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(112, 37);
+            this.btnModificar.TabIndex = 58;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // FrmListaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 619);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.btnActivarUsuario);
             this.Controls.Add(this.txtBuscador);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView listUsuarios;
         private System.Windows.Forms.Button btnRecargar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

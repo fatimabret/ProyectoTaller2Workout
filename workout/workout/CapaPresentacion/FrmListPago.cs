@@ -21,6 +21,24 @@ namespace workout.CapaPresentacion
         CN_Pago logicaPago = new CN_Pago();
         private void FrmListPago_Load(object sender, EventArgs e)
         {
+            dtpDesde.Format = DateTimePickerFormat.Custom;
+            dtpDesde.CustomFormat = "dd/MM/yyyy";
+            dtpDesde.Width = 100; // lo hace más angosto
+
+            dtpHasta.Format = DateTimePickerFormat.Custom;
+            dtpHasta.CustomFormat = "dd/MM/yyyy";
+            dtpHasta.Width = 100;
+
+            // Configurar los ComboBox para que no permitan edición manual
+            cmbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Cargar opciones de Especialización
+            cmbEstado.Items.AddRange(new string[]
+            {
+                "Activo",
+                "Inactivo"
+            });
+
             try
             {
                 DataTable pagos = logicaPago.listarPagos();
@@ -102,5 +120,6 @@ namespace workout.CapaPresentacion
         {
             this.FrmListPago_Load(sender, e); // Recarga la lista de pagos
         }
+
     }
 }
