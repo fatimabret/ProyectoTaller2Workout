@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -137,6 +139,94 @@ namespace workout.CapaPresentacion
             int id_rol = 1;
             FrmRegistrarUsuario registrarUsuario = new FrmRegistrarUsuario(id_rol);
             registrarUsuario.ShowDialog();
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog seleccionabk = new SaveFileDialog();
+            seleccionabk.Filter = "Archivo de respaldo (*.bak)|*.bak";
+            seleccionabk.InitialDirectory = @"C:\Users\ariel\source\proyectoTaller2\workout\workout\ScriptBD\backup";
+            seleccionabk.Title = "Selecciona dónde guardar el respaldo";
+
+            if (seleccionabk.ShowDialog() == DialogResult.OK)
+            {
+                string ruta = seleccionabk.FileName;
+
+                // Conexión al servidor SQL Server
+                string cadena = "Data Source=DESKTOP-VPVDQTP;Initial Catalog=master;Integrated Security=True;";
+
+                try
+                {
+                    using (SqlConnection conexion = new SqlConnection(cadena))
+                    {
+                        conexion.Open();
+
+                        string sqlBackup = $@"
+                            BACKUP DATABASE workout
+                            TO DISK = '{ruta}'
+                            WITH INIT, STATS = 10;
+                        ";
+
+                        using (SqlCommand cmd = new SqlCommand(sqlBackup, conexion))
+                        {
+                            cmd.CommandTimeout = 600; // por si la BD es grande
+                            cmd.ExecuteNonQuery();
+                        }
+                        
+                        MessageBox.Show("Backup realizado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al generar el backup: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog seleccionaRestore = new OpenFileDialog();
+            seleccionaRestore.Filter = "Archivo de respaldo (*.bak)|*.bak";
+            seleccionaRestore.InitialDirectory = @"C:\backups";
+            seleccionaRestore.Title = "Selecciona el archivo de respaldo";
+
+            if (seleccionaRestore.ShowDialog() == DialogResult.OK)
+            {
+                string ruta = seleccionaRestore.FileName;
+                string cadena = "Data Source=DESKTOP-VPVDQTP;Initial Catalog=master;Integrated Security=True;";
+
+                try
+                {
+                    using (SqlConnection conexion = new SqlConnection(cadena))
+                    {
+                        conexion.Open();
+
+                        // 1Poner la base en modo usuario unico para liberar conexiones
+                        string setSingleUser = "ALTER DATABASE workout SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+                        new SqlCommand(setSingleUser, conexion).ExecuteNonQuery();
+
+                        // Restaurar la base desde el archivo .bak
+                        string restoreSql = $@"
+                            RESTORE DATABASE workout
+                            FROM DISK = '{ruta}'
+                            WITH REPLACE, STATS = 10;
+                        ";
+                        new SqlCommand(restoreSql, conexion).ExecuteNonQuery();
+
+                        //vuelve a multi usuario
+                        string setMultiUser = "ALTER DATABASE workout SET MULTI_USER;";
+                        new SqlCommand(setMultiUser, conexion).ExecuteNonQuery();
+
+                        MessageBox.Show("Base de datos restaurada correctamente.",
+                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al restaurar el backup: " + ex.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

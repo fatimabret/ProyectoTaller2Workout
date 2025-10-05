@@ -43,6 +43,9 @@
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBackup = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnRestaurar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -212,11 +215,43 @@
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBackup.Location = new System.Drawing.Point(201, 444);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(195, 29);
+            this.btnBackup.TabIndex = 37;
+            this.btnBackup.Text = "GENERAR BACKUP";
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestaurar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRestaurar.Location = new System.Drawing.Point(402, 444);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(195, 29);
+            this.btnRestaurar.TabIndex = 38;
+            this.btnRestaurar.Text = "RESTAURAR DATOS";
+            this.btnRestaurar.UseVisualStyleBackColor = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
             // FrmInicioAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.btnRestaurar);
+            this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.btnRegistrarUsuario);
             this.Controls.Add(this.btnListaPagos);
             this.Controls.Add(this.btnListaUsuarios);
@@ -254,5 +289,8 @@
         private System.Windows.Forms.Button btnListaPagos;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnRegistrarUsuario;
+        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button btnRestaurar;
     }
 }
