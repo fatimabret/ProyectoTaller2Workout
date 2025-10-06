@@ -1,18 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\",
+  "WorkspaceRootPath": "C:\\Taller\\workout\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\users\\ariel\\source\\proyectotaller2\\workout\\workout\\capapresentacion\\frmlistpago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capanegocio\\cn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capanegocio\\cn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmmodificarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmmodificarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmlistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmlistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\taller\\workout\\workout\\capapresentacion\\frmlistpago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmlistpago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\users\\ariel\\source\\proyectotaller2\\workout\\workout\\capapresentacion\\frmmodificaralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmmodificaralumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|c:\\users\\ariel\\source\\proyectotaller2\\workout\\workout\\capapresentacion\\frmlistalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F44568C8-A5AD-4D71-AEE8-7C28A7EE1D2D}|workout\\workout.csproj|solutionrelative:workout\\capapresentacion\\frmlistalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,35 +38,61 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmListAlumnos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmListAlumnos.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmListAlumnos.cs",
-              "ToolTip": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmListAlumnos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmListAlumnos.cs [Dise\u00F1o]",
+              "DocumentIndex": 0,
+              "Title": "CD_Usuario.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaDatos\\CD_Usuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaDatos\\CD_Usuario.cs",
+              "RelativeToolTip": "workout\\CapaDatos\\CD_Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T20:06:41.88Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-10-06T06:05:19.179Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmModificarAlumno.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmModificarAlumno.cs",
-              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmModificarAlumno.cs",
-              "ToolTip": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmModificarAlumno.cs [Dise\u00F1o]",
-              "RelativeToolTip": "workout\\CapaPresentacion\\FrmModificarAlumno.cs [Dise\u00F1o]",
+              "Title": "CN_Usuario.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Usuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaNegocio\\CN_Usuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaNegocio\\CN_Usuario.cs",
+              "RelativeToolTip": "workout\\CapaNegocio\\CN_Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T20:06:21.965Z",
+              "WhenOpened": "2025-10-06T06:05:17.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmModificarUsuario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmModificarUsuario.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmModificarUsuario.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmModificarUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmModificarUsuario.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T05:14:46.325Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "FrmListaUsuarios.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmListaUsuarios.cs",
+              "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmListaUsuarios.cs",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmListaUsuarios.cs [Dise\u00F1o]",
+              "RelativeToolTip": "workout\\CapaPresentacion\\FrmListaUsuarios.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T05:07:20.891Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FrmListPago.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmListPago.cs",
+              "DocumentMoniker": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmListPago.cs",
               "RelativeDocumentMoniker": "workout\\CapaPresentacion\\FrmListPago.cs",
-              "ToolTip": "C:\\Users\\ariel\\source\\proyectoTaller2\\workout\\workout\\CapaPresentacion\\FrmListPago.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Taller\\workout\\workout\\CapaPresentacion\\FrmListPago.cs [Dise\u00F1o]",
               "RelativeToolTip": "workout\\CapaPresentacion\\FrmListPago.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T19:32:15.743Z",

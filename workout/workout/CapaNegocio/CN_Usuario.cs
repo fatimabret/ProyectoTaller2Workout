@@ -42,5 +42,18 @@ namespace workout.CapaNegocio
             usuarioDatos.EliminarUsuario(nombre, apellido);
 
         }
+        public DataRow ObtenerUsuario(string nombre, string apellido)
+        {
+            CD_Usuario datos = new CD_Usuario();
+            return datos.ObtenerUsuario(nombre, apellido);
+        }
+
+        public void ModificarUsuario(int id_usuario, string nombre, string apellido, int dni, string correo)
+        {
+            CD_Usuario datos = new CD_Usuario();
+            datos.ModificarUsuario(id_usuario, nombre, apellido, dni, correo);
+        }
+
+
     }
 }

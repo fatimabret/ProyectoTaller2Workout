@@ -42,7 +42,14 @@ namespace workout.CapaPresentacion
             int cupo = int.Parse(lblCupoVal.Text);
             string horario_disp = cmbHorario_disp.SelectedItem?.ToString();
             string dias_disp = cmbDias_disp.SelectedItem?.ToString();
+
+            if (cmbDetalles.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar una especialización.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string detalles = cmbDetalles.SelectedItem.ToString();
+
             logicaEntrenador.modificarEntrenador(id_entrenador,cupo, horario_disp, dias_disp, detalles);
             FrmListEntrenador listaEntrenadores = new FrmListEntrenador();
             this.Hide();

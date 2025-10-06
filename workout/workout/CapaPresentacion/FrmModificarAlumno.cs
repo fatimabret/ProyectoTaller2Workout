@@ -154,46 +154,6 @@ namespace workout.CapaPresentacion
             }
         }
 
-        private void fechaNacAlumno_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDetalles_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbEntrenador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbInactivo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbActivo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbHombre_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbMujer_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbOtro_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmModificarAlumno_Load(object sender, EventArgs e)
         {
             DataRow alumno = logicaAlumno.obtenerAlumno(nombre, apellido);

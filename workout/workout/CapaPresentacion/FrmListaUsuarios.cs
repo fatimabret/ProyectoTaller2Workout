@@ -146,7 +146,33 @@ namespace workout.CapaPresentacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (listUsuarios.CurrentRow != null)
+            {
+                int rowIndex = listUsuarios.CurrentCell.RowIndex;
+                string nombre = listUsuarios.Rows[rowIndex].Cells["nombre"].Value?.ToString();
+                string apellido = listUsuarios.Rows[rowIndex].Cells["apellido"].Value?.ToString();
+                string rol = listUsuarios.Rows[rowIndex].Cells["Rol"].Value?.ToString();
 
+                this.Hide();
+
+                if (rol == "Entrenador")
+                {
+                    FrmModificarEntrenador frm = new FrmModificarEntrenador(nombre, apellido);
+                    frm.ShowDialog();
+                }
+                else // Administrador o Recepcionista
+                {
+                    FrmModificarUsuario frm = new FrmModificarUsuario(nombre, apellido);
+                    frm.ShowDialog();
+                }
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna fila seleccionada.");
+            }
         }
+
     }
 }

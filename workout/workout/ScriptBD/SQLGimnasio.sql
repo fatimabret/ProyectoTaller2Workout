@@ -558,6 +558,18 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE SP_OBTENER_USUARIO
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT id_usuario, nombre, apellido, dni, correo
+    FROM USUARIO
+    WHERE nombre = @nombre AND apellido = @apellido;
+END
+GO
+
 GO
 CREATE PROCEDURE SP_OBTENER_ALUMNO
     @nombre VARCHAR(30),
@@ -930,6 +942,28 @@ BEGIN
 	id_estado = @id_estado,
 	id_entrenador = @id_entrenador
 	WHERE id_alumno = @id_alumno;
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_MODIFICAR_USUARIO
+(
+    @id_usuario INT,
+    @nombre VARCHAR(30),
+    @apellido VARCHAR(30),
+    @dni INT,
+    @correo VARCHAR(50)
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE USUARIO
+    SET nombre = @nombre,
+        apellido = @apellido,
+        dni = @dni,
+        correo = @correo
+    WHERE id_usuario = @id_usuario;
 END
 GO
 

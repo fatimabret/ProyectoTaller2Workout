@@ -105,7 +105,6 @@
             this.txtDetalles.Name = "txtDetalles";
             this.txtDetalles.Size = new System.Drawing.Size(326, 44);
             this.txtDetalles.TabIndex = 94;
-            this.txtDetalles.TextChanged += new System.EventHandler(this.txtDetalles_TextChanged);
             // 
             // label5
             // 
@@ -136,7 +135,6 @@
             this.cmbEntrenador.Name = "cmbEntrenador";
             this.cmbEntrenador.Size = new System.Drawing.Size(369, 21);
             this.cmbEntrenador.TabIndex = 101;
-            this.cmbEntrenador.SelectedIndexChanged += new System.EventHandler(this.cmbEntrenador_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -158,7 +156,6 @@
             this.rbOtro.TabIndex = 99;
             this.rbOtro.Text = "Otro";
             this.rbOtro.UseVisualStyleBackColor = true;
-            this.rbOtro.CheckedChanged += new System.EventHandler(this.rbOtro_CheckedChanged);
             // 
             // rbMujer
             // 
@@ -169,7 +166,6 @@
             this.rbMujer.TabIndex = 98;
             this.rbMujer.Text = "Mujer";
             this.rbMujer.UseVisualStyleBackColor = true;
-            this.rbMujer.CheckedChanged += new System.EventHandler(this.rbMujer_CheckedChanged);
             // 
             // rbHombre
             // 
@@ -180,7 +176,6 @@
             this.rbHombre.TabIndex = 97;
             this.rbHombre.Text = "Hombre";
             this.rbHombre.UseVisualStyleBackColor = true;
-            this.rbHombre.CheckedChanged += new System.EventHandler(this.rbHombre_CheckedChanged);
             // 
             // label8
             // 
@@ -202,7 +197,6 @@
             this.rbActivo.TabIndex = 104;
             this.rbActivo.Text = "Activo";
             this.rbActivo.UseVisualStyleBackColor = true;
-            this.rbActivo.CheckedChanged += new System.EventHandler(this.rbActivo_CheckedChanged);
             // 
             // rbInactivo
             // 
@@ -213,7 +207,6 @@
             this.rbInactivo.TabIndex = 103;
             this.rbInactivo.Text = "Inactivo";
             this.rbInactivo.UseVisualStyleBackColor = true;
-            this.rbInactivo.CheckedChanged += new System.EventHandler(this.rbInactivo_CheckedChanged);
             // 
             // panel1
             // 
@@ -253,7 +246,6 @@
             this.fechaNacAlumno.Size = new System.Drawing.Size(200, 20);
             this.fechaNacAlumno.TabIndex = 115;
             this.fechaNacAlumno.Value = new System.DateTime(2013, 1, 1, 0, 0, 0, 0);
-            this.fechaNacAlumno.ValueChanged += new System.EventHandler(this.fechaNacAlumno_ValueChanged);
             // 
             // label4
             // 

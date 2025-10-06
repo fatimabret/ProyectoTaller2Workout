@@ -13,7 +13,7 @@ MANUAL DE USUARIO
 
 		/**HECHO**/
 
-**MODIFICACION DE USUARIOS (casi el de entrenador),ALUMNO**
+**MODIFICACION DE USUARIOS, ALUMNO**
 se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo
 trae todos los datos del usuario y setea en los campos del formulario
 si es un rb, debe estar seleccionado

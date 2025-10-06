@@ -125,6 +125,40 @@ namespace workout.CapaDatos
                 cmd.ExecuteNonQuery();
             }
         }
+        public DataRow ObtenerUsuario(string nombre, string apellido)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_USUARIO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+            }
+        }
+
+        public void ModificarUsuario(int id_usuario, string nombre, string apellido, int dni, string correo)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_MODIFICAR_USUARIO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@apellido", apellido);
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@correo", correo);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
     }
 }

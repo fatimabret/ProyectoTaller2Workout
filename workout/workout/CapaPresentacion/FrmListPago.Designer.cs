@@ -80,10 +80,10 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(144, 124);
+            this.txtBuscador.Location = new System.Drawing.Point(127, 124);
             this.txtBuscador.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(339, 25);
+            this.txtBuscador.Size = new System.Drawing.Size(356, 25);
             this.txtBuscador.TabIndex = 51;
             this.txtBuscador.Text = "Ingrese el DNI";
             this.txtBuscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscador_KeyPress);
@@ -104,7 +104,7 @@
             this.btnRecargar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRecargar.Image = global::workout.Properties.Resources.rec;
             this.btnRecargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecargar.Location = new System.Drawing.Point(65, 125);
+            this.btnRecargar.Location = new System.Drawing.Point(48, 125);
             this.btnRecargar.Name = "btnRecargar";
             this.btnRecargar.Size = new System.Drawing.Size(73, 25);
             this.btnRecargar.TabIndex = 61;
