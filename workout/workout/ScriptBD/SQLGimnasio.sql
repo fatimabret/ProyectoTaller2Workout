@@ -1012,4 +1012,53 @@ BEGIN
     WHERE e.id_entrenador = @id_entrenador;
 END
 GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_FILTRAR_PAGOS_FECHA
+    @desde DATETIME,
+    @hasta DATETIME,
+    @estado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF @estado = 2
+    BEGIN
+        
+        SELECT 
+            a.apellido,
+            a.nombre,
+            p.importe AS 'importe',
+            mp.tipo,
+            m.fecha_pago AS 'pago',
+            m.fecha_venc AS 'vencimiento'
+        FROM ALUMNO a
+        INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+        INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+        INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
+        WHERE m.fecha_pago BETWEEN @desde AND @hasta
+        ORDER BY m.fecha_pago DESC;
+    END
+    ELSE
+    BEGIN
+        
+        SELECT 
+            a.apellido,
+            a.nombre,
+            p.importe AS 'importe',
+            mp.tipo,
+            m.fecha_pago AS 'pago',
+            m.fecha_venc AS 'vencimiento'
+        FROM ALUMNO a
+        INNER JOIN MEMBRESIA m ON m.id_alumno = a.id_alumno
+        INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+        INNER JOIN METODO_PAGO mp ON mp.id_metodo_pago = p.id_metodo_pago
+        WHERE m.fecha_pago BETWEEN @desde AND @hasta
+          AND m.id_estado = @estado
+        ORDER BY m.fecha_pago DESC;
+    END
+END
+GO
+
+
 /*PROCEDIMIENTOS ALMACENADOS*/

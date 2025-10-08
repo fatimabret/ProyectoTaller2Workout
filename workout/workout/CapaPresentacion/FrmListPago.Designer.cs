@@ -41,6 +41,7 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -125,7 +126,7 @@
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(250, 183);
+            this.lblHasta.Location = new System.Drawing.Point(203, 182);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(43, 13);
             this.lblHasta.TabIndex = 65;
@@ -134,7 +135,7 @@
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(489, 175);
+            this.cmbEstado.Location = new System.Drawing.Point(415, 174);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(94, 21);
             this.cmbEstado.TabIndex = 66;
@@ -142,7 +143,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(432, 184);
+            this.lblEstado.Location = new System.Drawing.Point(358, 183);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(51, 13);
             this.lblEstado.TabIndex = 67;
@@ -152,21 +153,33 @@
             // 
             this.dtpDesde.Location = new System.Drawing.Point(95, 177);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(134, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(104, 20);
             this.dtpDesde.TabIndex = 68;
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(299, 176);
+            this.dtpHasta.Location = new System.Drawing.Point(252, 175);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(118, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(95, 20);
             this.dtpHasta.TabIndex = 69;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFiltrar.Location = new System.Drawing.Point(515, 170);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(86, 37);
+            this.btnFiltrar.TabIndex = 70;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // FrmListPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 618);
+            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.lblEstado);
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

@@ -98,6 +98,22 @@ namespace workout.CapaDatos
             }
         }
 
+        public DataTable FiltrarPorFecha(DateTime p_desde, DateTime p_hasta, int p_estado)
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_FILTRAR_PAGOS_FECHA", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desde", p_desde);
+                cmd.Parameters.AddWithValue("@hasta", p_hasta);
+                cmd.Parameters.AddWithValue("@estado", p_estado);
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla.Rows.Count >= 0 ? tabla : null;
+            }
+        }
     }
 
 }

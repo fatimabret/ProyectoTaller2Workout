@@ -121,5 +121,23 @@ namespace workout.CapaPresentacion
             this.FrmListPago_Load(sender, e); // Recarga la lista de pagos
         }
 
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            DateTime desde = dtpDesde.Value.Date;
+            DateTime hasta = dtpHasta.Value.Date;
+            int estado = 2;
+            if (cmbEstado.SelectedItem != null)
+            {
+                string texto = cmbEstado.SelectedItem.ToString();
+                if (texto == "Activo")
+                    estado = 1;
+                else if (texto == "Inactivo")
+                    estado = 0;
+            }
+
+            CN_Pago logicaPago = new CN_Pago();
+            listPagos.DataSource = logicaPago.filtrarPorFecha(desde, hasta, estado);
+
+        }
     }
 }

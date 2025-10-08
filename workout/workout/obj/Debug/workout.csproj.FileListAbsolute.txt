@@ -155,3 +155,4 @@ C:\Taller\workout\workout\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Taller\workout\workout\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Taller\workout\workout\obj\Debug\workout.csproj.Up2Date
 C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarUsuario.resources
+C:\Users\ariel\source\proyectoTaller2\workout\workout\obj\Debug\workout.CapaPresentacion.FrmModificarUsuario.resources

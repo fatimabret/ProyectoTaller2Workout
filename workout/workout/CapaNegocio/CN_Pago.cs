@@ -32,5 +32,10 @@ namespace workout.CapaNegocio
             return pagosDatos.ObtenerUltimoPagoPorDni(dni);
         }
 
+        public DataTable filtrarPorFecha(DateTime p_desde, DateTime p_hasta, int p_estado)
+        {
+           return pagosDatos.FiltrarPorFecha(p_desde, p_hasta, p_estado);
+        }
+        
     }
 }
