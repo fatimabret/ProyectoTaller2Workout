@@ -38,7 +38,13 @@ namespace workout.CapaDatos
                 cmd.Parameters.AddWithValue("@id_ejercicio", idEjercicio);
                 cmd.Parameters.AddWithValue("@dia", dia);
 
-                return cmd.ExecuteNonQuery(); // devuelve 1 si se insertó bien
+                SqlParameter returnParam = new SqlParameter("@ReturnVal", SqlDbType.Int);
+                returnParam.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(returnParam);
+
+                cmd.ExecuteNonQuery();
+
+                return Convert.ToInt32(returnParam.Value); // devuelve 1 si se insertó bien
             }
         }
     }

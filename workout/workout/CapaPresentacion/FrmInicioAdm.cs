@@ -145,7 +145,7 @@ namespace workout.CapaPresentacion
         {
             SaveFileDialog seleccionabk = new SaveFileDialog();
             seleccionabk.Filter = "Archivo de respaldo (*.bak)|*.bak";
-            seleccionabk.InitialDirectory = @"C:\Users\ariel\source\proyectoTaller2\workout\workout\ScriptBD\backup";
+            seleccionabk.InitialDirectory = @"C:\Taller\workout\workout\ScriptBD\backup";
             seleccionabk.Title = "Selecciona dónde guardar el respaldo";
 
             if (seleccionabk.ShowDialog() == DialogResult.OK)
@@ -153,7 +153,7 @@ namespace workout.CapaPresentacion
                 string ruta = seleccionabk.FileName;
 
                 // Conexión al servidor SQL Server
-                string cadena = "Data Source=DESKTOP-VPVDQTP;Initial Catalog=master;Integrated Security=True;";
+                string cadena = "Data Source=DESKTOP-80HNL37;Initial Catalog=master;Integrated Security=True;";
 
                 try
                 {
@@ -193,7 +193,7 @@ namespace workout.CapaPresentacion
             if (seleccionaRestore.ShowDialog() == DialogResult.OK)
             {
                 string ruta = seleccionaRestore.FileName;
-                string cadena = "Data Source=DESKTOP-VPVDQTP;Initial Catalog=master;Integrated Security=True;";
+                string cadena = "Data Source=DESKTOP-80HNL37;Initial Catalog=master;Integrated Security=True;";
 
                 try
                 {

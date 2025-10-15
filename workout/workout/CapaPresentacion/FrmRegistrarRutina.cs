@@ -126,9 +126,9 @@ namespace workout.CapaPresentacion
                     int idEjercicio = Convert.ToInt32(row.Cells["colEjercicio"].Value);
                    
                     int resultado = logicaRutina.registrarRutina(dniAlumno, idEjercicio, diaSeleccionado);
-                   
+                   MessageBox.Show("Resultado de inserción: " + resultado);
                     if (resultado > 0) registros++;
-                }
+                }   
             }
 
             if (registros > 0)

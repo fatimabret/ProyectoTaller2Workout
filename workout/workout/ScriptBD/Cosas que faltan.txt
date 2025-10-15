@@ -1,17 +1,20 @@
 		/**NO HECHO**/
 
-
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-GENERADOR DE PDF PARA EL ALUMNO CON LOS DATOS DEL CLIENTE, PAGOS, FECHA Y DEL GIMNASIO
+botón en lista de alumnos para generar ultimo comprobante actual
 
-Agregar algunas fechas del año pasado y de meses anteriores
-Filtro de membresias, por mes, año
+mensajes que alumnos adeudan pagos mensuales y que aparezcan en la lista de pagos o alumnos que adeudan o están atrasados
+
+reporte alumnos, pagos, estadisticos (graficos)
 
 MANUAL DE USUARIO
 
-
 		/**HECHO**/
+Agregar algunas fechas del año pasado y de meses anteriores
+Filtro de membresias, por mes, año
+
+GENERADOR DE PDF PARA EL ALUMNO CON LOS DATOS DEL CLIENTE, PAGOS, FECHA Y DEL GIMNASIO
 
 **MODIFICACION DE USUARIOS, ALUMNO**
 se selecciona la fila, obtiene el nombre y el apellido y se pasa al metodo

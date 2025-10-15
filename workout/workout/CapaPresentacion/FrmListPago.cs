@@ -139,5 +139,10 @@ namespace workout.CapaPresentacion
             listPagos.DataSource = logicaPago.filtrarPorFecha(desde, hasta, estado);
 
         }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
