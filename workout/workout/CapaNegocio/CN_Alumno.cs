@@ -56,5 +56,9 @@ namespace workout.CapaNegocio
             return alumnoDatos.ObtenerAlumno(nombre, apellido);
         }
 
+        public DataTable ListarAlumnosConCuotaVencida()
+        {
+            return alumnoDatos.ObtenerAlumnosConCuotaVencida();
+        }
     }
 }

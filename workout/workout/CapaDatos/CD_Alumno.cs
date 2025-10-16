@@ -179,5 +179,27 @@ namespace workout.CapaEntidad
             }
         }
 
+        public DataTable ObtenerAlumnosConCuotaVencida()
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ALUMNOS_CUOTA_VENCIDA", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(tabla);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error en la consulta de cuotas vencidas: " + ex.Message);
+                }
+            }
+
+            return tabla;
+        }
     }
 }

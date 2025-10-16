@@ -266,6 +266,7 @@
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioAdm";
             this.Text = "Workout Administrador";
+            this.Load += new System.EventHandler(this.FrmInicioAdm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -232,6 +232,7 @@
             this.Controls.Add(this.lblBienvenida);
             this.Name = "FrmInicioRec";
             this.Text = "Workout Recepcionista";
+            this.Load += new System.EventHandler(this.FrmInicioRec_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

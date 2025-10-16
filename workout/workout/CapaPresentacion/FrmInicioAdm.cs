@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using workout.CapaNegocio;
 
 namespace workout.CapaPresentacion
 {
@@ -227,6 +228,41 @@ namespace workout.CapaPresentacion
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void FrmInicioAdm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CN_Alumno logicaAlumno = new CN_Alumno();
+                DataTable dt = logicaAlumno.ListarAlumnosConCuotaVencida();
+
+                if (dt.Rows.Count > 0)
+                {
+                    string mensaje = "⚠️ Alumnos con cuota vencida:\n\n";
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string nombre = row["nombre"].ToString();
+                        string apellido = row["apellido"].ToString();
+                        string fechaVenc = row["ultima_fecha_venc"] == DBNull.Value
+                            ? "sin membresía"
+                            : Convert.ToDateTime(row["ultima_fecha_venc"]).ToShortDateString();
+
+                        mensaje += $"{apellido}, {nombre} - Venció: {fechaVenc}\n";
+                    }
+
+                    MessageBox.Show(mensaje, "Aviso de cuotas vencidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("No hay alumnos con cuotas vencidas 👌", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

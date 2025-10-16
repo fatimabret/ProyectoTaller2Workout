@@ -1060,4 +1060,21 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE SP_ALUMNOS_CUOTA_VENCIDA
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        a.id_alumno,
+        a.nombre,
+        a.apellido,
+        m.fecha_venc AS ultima_fecha_venc
+    FROM ALUMNO a
+    LEFT JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+    WHERE m.id_membresia IS NULL       -- Alumnos sin membresía
+       OR m.fecha_venc < GETDATE()      -- Membresías vencidas
+END
+GO
+
 /*PROCEDIMIENTOS ALMACENADOS*/
