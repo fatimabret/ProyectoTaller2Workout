@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using workout.CapaDatos;
 using workout.CapaEntidad;
 using workout.CapaNegocio;
+using System.IO;                  // FileStream, StringReader
+using iTextSharp.text;             // Document, PageSize
+using iTextSharp.text.pdf;         // PdfWriter
+using iTextSharp.tool.xml;         // XMLWorkerHelper                                   // Para XMLWorkerHelper
 
 namespace workout.CapaPresentacion
 {
@@ -185,5 +189,89 @@ namespace workout.CapaPresentacion
             this.FrmListAlumnos_Load(sender, e); // Recarga la lista de alumnos
 
         }
+
+        private void btnComprobante_Click(object sender, EventArgs e)
+        {
+            if (listAlumnos.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un alumno.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Obtener DNI desde la fila seleccionada
+                int dniAlumno = Convert.ToInt32(listAlumnos.CurrentRow.Cells["dni"].Value);
+
+                // Buscar los datos del último pago real del alumno
+                CN_Membresia logicaMembresia = new CN_Membresia();
+                DataTable dtPago = logicaMembresia.ObtenerUltimoPagoPorDni(dniAlumno);
+
+                if (dtPago == null || dtPago.Rows.Count == 0)
+                {
+                    MessageBox.Show("El alumno no tiene pagos registrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                DataRow datosPago = dtPago.Rows[0];
+
+                // Buscar datos personales del alumno
+                DataTable dtAlumno = logicaAlumno.buscarAlumnoDni(dniAlumno);
+                if (dtAlumno == null || dtAlumno.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron datos del alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DataRow rowAlumno = dtAlumno.Rows[0];
+
+                // Cargar plantilla HTML
+                string textoHtml = Properties.Resources.plantilla.ToString();
+                string estadoTexto = Convert.ToInt32(datosPago["id_estado"]) == 1 ? "VIGENTE" : "VENCIDA";
+
+                // Reemplazar variables con datos reales
+                textoHtml = textoHtml.Replace("@FECHA", Convert.ToDateTime(datosPago["fecha_pago"]).ToString("dd/MM/yyyy"));
+                textoHtml = textoHtml.Replace("@NOMBRE", rowAlumno["nombre"].ToString());
+                textoHtml = textoHtml.Replace("@APELLIDO", rowAlumno["apellido"].ToString());
+                textoHtml = textoHtml.Replace("@DNI", rowAlumno["dni"].ToString());
+                textoHtml = textoHtml.Replace("@CORREO", rowAlumno.Table.Columns.Contains("correo") ? rowAlumno["correo"].ToString() : "");
+                textoHtml = textoHtml.Replace("@MEMBRESIA", datosPago["id_membresia"].ToString());
+                textoHtml = textoHtml.Replace("@METODO", datosPago["modo_pago"].ToString());
+                textoHtml = textoHtml.Replace("@IMPORTE", Convert.ToDecimal(datosPago["importe"]).ToString("N2"));
+                textoHtml = textoHtml.Replace("@MONTO", Convert.ToDecimal(datosPago["importe"]).ToString("N2"));
+                textoHtml = textoHtml.Replace("@ESTADO", estadoTexto);
+
+                // Generar PDF
+                using (SaveFileDialog saveFile = new SaveFileDialog())
+                {
+                    saveFile.Filter = "PDF (*.pdf)|*.pdf";
+                    saveFile.FileName = $"Comprobante_{rowAlumno["apellido"]}_{rowAlumno["nombre"]}.pdf";
+
+                    if (saveFile.ShowDialog() == DialogResult.OK)
+                    {
+                        using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                        {
+                            Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                            pdfDoc.Open();
+
+                            using (StringReader sr = new StringReader(textoHtml))
+                            {
+                                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                            }
+
+                            pdfDoc.Close();
+                        }
+
+                        MessageBox.Show("PDF generado correctamente en:\n" + saveFile.FileName,
+                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar comprobante: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

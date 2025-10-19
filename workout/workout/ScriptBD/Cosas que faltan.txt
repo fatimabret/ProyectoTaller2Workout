@@ -2,8 +2,6 @@
 
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-botón en lista de alumnos para generar ultimo comprobante actual
-
 mensajes que alumnos adeudan pagos mensuales y que aparezcan en la lista de pagos o alumnos que adeudan o están atrasados
 
 reporte alumnos, pagos, estadisticos (graficos)
@@ -11,6 +9,9 @@ reporte alumnos, pagos, estadisticos (graficos)
 MANUAL DE USUARIO
 
 		/**HECHO**/
+
+botón en lista de alumnos para generar ultimo comprobante actual
+
 Agregar algunas fechas del año pasado y de meses anteriores
 Filtro de membresias, por mes, año
 

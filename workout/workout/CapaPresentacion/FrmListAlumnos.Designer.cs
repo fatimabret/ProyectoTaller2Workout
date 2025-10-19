@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.picMascota = new System.Windows.Forms.PictureBox();
             this.btnRecargar = new System.Windows.Forms.Button();
+            this.btnComprobante = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             this.SuspendLayout();
@@ -70,9 +71,9 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(384, 563);
+            this.btnEliminar.Location = new System.Drawing.Point(439, 573);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(112, 37);
+            this.btnEliminar.Size = new System.Drawing.Size(98, 37);
             this.btnEliminar.TabIndex = 27;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -81,9 +82,9 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificar.Location = new System.Drawing.Point(90, 564);
+            this.btnModificar.Location = new System.Drawing.Point(177, 573);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(112, 37);
+            this.btnModificar.Size = new System.Drawing.Size(98, 37);
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -116,9 +117,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(235, 564);
+            this.button1.Location = new System.Drawing.Point(308, 573);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 37);
+            this.button1.Size = new System.Drawing.Size(98, 37);
             this.button1.TabIndex = 48;
             this.button1.Text = "ACTIVAR";
             this.button1.UseVisualStyleBackColor = false;
@@ -149,11 +150,23 @@
             this.btnRecargar.UseVisualStyleBackColor = true;
             this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
             // 
+            // btnComprobante
+            // 
+            this.btnComprobante.BackColor = System.Drawing.Color.Gray;
+            this.btnComprobante.Location = new System.Drawing.Point(38, 573);
+            this.btnComprobante.Name = "btnComprobante";
+            this.btnComprobante.Size = new System.Drawing.Size(98, 37);
+            this.btnComprobante.TabIndex = 61;
+            this.btnComprobante.Text = "COMPROBANTE";
+            this.btnComprobante.UseVisualStyleBackColor = false;
+            this.btnComprobante.Click += new System.EventHandler(this.btnComprobante_Click);
+            // 
             // FrmListAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 622);
+            this.ClientSize = new System.Drawing.Size(580, 630);
+            this.Controls.Add(this.btnComprobante);
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscador);
@@ -184,5 +197,6 @@
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRecargar;
+        private System.Windows.Forms.Button btnComprobante;
     }
 }

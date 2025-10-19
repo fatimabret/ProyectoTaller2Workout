@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,10 @@ namespace workout.CapaNegocio
                 return "VENCIDA";
             else
                 return "DESCONOCIDO";
+        }
+        public DataTable ObtenerUltimoPagoPorDni(int dni)
+        {
+            return membresiaDatos.ObtenerUltimoPagoPorDni(dni);
         }
 
     }
