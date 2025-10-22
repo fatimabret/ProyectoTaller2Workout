@@ -201,5 +201,16 @@ namespace workout.CapaEntidad
 
             return tabla;
         }
+
+        public void ActualizarEstadosAlumnos()
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ACTUALIZAR_ESTADO_ALUMNOS", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

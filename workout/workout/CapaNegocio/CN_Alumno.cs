@@ -60,5 +60,10 @@ namespace workout.CapaNegocio
         {
             return alumnoDatos.ObtenerAlumnosConCuotaVencida();
         }
+
+        public void ActualizarEstados()
+        {
+           alumnoDatos.ActualizarEstadosAlumnos();
+        }
     }
 }

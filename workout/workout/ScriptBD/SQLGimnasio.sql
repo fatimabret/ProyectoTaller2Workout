@@ -198,13 +198,54 @@ SELECT * FROM RUTINA;
 SELECT * FROM EJERCICIO;
 /*SELECTS*/
 
-/*Para probar el backup*/
+/*  Para probar el backup   */
 DELETE FROM PAGO;
 DELETE FROM MEMBRESIA;
 DELETE FROM RUTINA;
 DELETE FROM ALUMNO;
 
+/*      TRIGGERS        */
+
+GO
+CREATE OR ALTER TRIGGER TRG_ACTUALIZAR_ESTADO_ALUMNO_POR_MEMBRESIA
+ON MEMBRESIA
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Actualiza los alumnos con membresías vencidas a estado INACTIVO (0)
+    UPDATE A
+    SET A.id_estado = 0
+    FROM ALUMNO A
+    INNER JOIN MEMBRESIA M ON A.id_alumno = M.id_alumno
+    WHERE M.fecha_venc < CAST(GETDATE() AS DATE);
+
+    -- Actualiza los alumnos con membresías vigentes a estado ACTIVO (1)
+    UPDATE A
+    SET A.id_estado = 1
+    FROM ALUMNO A
+    INNER JOIN MEMBRESIA M ON A.id_alumno = M.id_alumno
+    WHERE M.fecha_venc >= CAST(GETDATE() AS DATE);
+END
+GO
+
+/*      TRIGGERS        */
+
 /*          PROCEDIMIENTOS ALMACENADOS          */
+GO
+CREATE OR ALTER PROCEDURE SP_ACTUALIZAR_ESTADO_ALUMNOS
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Forzar la ejecución del trigger actualizando la misma fecha_venc (sin cambiarla realmente)
+    UPDATE MEMBRESIA
+    SET fecha_venc = fecha_venc
+    WHERE id_membresia IS NOT NULL;
+END
+GO
+
 GO
 CREATE OR ALTER PROCEDURE SP_CONSULTAR_RUTINA_ALUMNO
     @dni INT
@@ -254,16 +295,33 @@ BEGIN
 END
 GO
 
-GO
-CREATE PROC SP_LISTAR_ALUMNOS
+CREATE OR ALTER PROCEDURE SP_LISTAR_ALUMNOS
 AS
 BEGIN
-    SELECT a.dni, a.nombre,a.apellido,m.fecha_pago,m.fecha_venc, u.nombre AS 'Entrenador', es.descripcion FROM ALUMNO a 
-	INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
-	INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
-	INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
-	INNER JOIN ESTADO es ON a.id_estado = es.id_estado
-	ORDER BY es.descripcion,a.apellido ASC;
+    SET NOCOUNT ON;
+
+    SELECT 
+        a.dni, 
+        a.nombre,
+        a.apellido,
+        m.fecha_pago,
+        m.fecha_venc,
+        u.nombre AS 'Entrenador',
+        es.descripcion AS 'Estado'
+    FROM ALUMNO a
+    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
+    INNER JOIN ESTADO es ON a.id_estado = es.id_estado
+    INNER JOIN (
+        SELECT id_alumno, 
+               MAX(fecha_pago) AS UltimoPago
+        FROM MEMBRESIA
+        GROUP BY id_alumno
+    ) ult ON a.id_alumno = ult.id_alumno
+    INNER JOIN MEMBRESIA m 
+        ON m.id_alumno = ult.id_alumno 
+        AND m.fecha_pago = ult.UltimoPago
+    ORDER BY es.descripcion, a.apellido ASC;
 END
 GO
 
@@ -876,6 +934,7 @@ BEGIN
     SELECT SCOPE_IDENTITY() AS id_ejercicio;
 END
 GO
+
 GO
 CREATE PROCEDURE SP_ACTIVAR(
 	@nombre VARCHAR(30),
@@ -1071,9 +1130,24 @@ BEGIN
         a.apellido,
         m.fecha_venc AS ultima_fecha_venc
     FROM ALUMNO a
-    LEFT JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
-    WHERE m.id_membresia IS NULL       -- Alumnos sin membresía
-       OR m.fecha_venc < GETDATE()      -- Membresías vencidas
+    INNER JOIN (
+        SELECT id_alumno, MAX(fecha_pago) AS UltimoPago
+        FROM MEMBRESIA
+        GROUP BY id_alumno
+    ) ult ON a.id_alumno = ult.id_alumno
+    INNER JOIN MEMBRESIA m 
+        ON m.id_alumno = ult.id_alumno
+        AND m.fecha_pago = ult.UltimoPago
+    WHERE m.fecha_venc < GETDATE()   -- Solo verifica la última membresía
+    UNION
+    -- Incluir alumnos sin ninguna membresía registrada
+    SELECT 
+        a.id_alumno,
+        a.nombre,
+        a.apellido,
+        NULL AS ultima_fecha_venc
+    FROM ALUMNO a
+    WHERE NOT EXISTS (SELECT 1 FROM MEMBRESIA m WHERE m.id_alumno = a.id_alumno);
 END
 GO
 

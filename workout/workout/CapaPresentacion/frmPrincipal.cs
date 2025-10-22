@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
+using workout.CapaNegocio;
 using workout.CapaPresentacion;
 
 namespace workout
@@ -113,7 +114,17 @@ namespace workout
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            try
+            {
+                CN_Alumno alumnoNegocio = new CN_Alumno();
+                alumnoNegocio.ActualizarEstados();
 
+                Console.WriteLine("Estados de alumnos actualizados correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar estados: " + ex.Message);
+            }
         }
 
         private void txtDni_TextChanged(object sender, EventArgs e)
