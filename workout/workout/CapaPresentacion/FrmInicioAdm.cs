@@ -144,10 +144,15 @@ namespace workout.CapaPresentacion
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
+            // fecha y hora (ej: workout_backup_2025-10-06_21-45-32.bak)
+            string fechaHora = DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");
+            string nombreArchivo = $"workout_backup_{fechaHora}.bak";
+
             SaveFileDialog seleccionabk = new SaveFileDialog();
             seleccionabk.Filter = "Archivo de respaldo (*.bak)|*.bak";
             seleccionabk.InitialDirectory = @"C:\Taller\workout\workout\ScriptBD\backup";
             seleccionabk.Title = "Selecciona dónde guardar el respaldo";
+            seleccionabk.FileName = nombreArchivo;
 
             if (seleccionabk.ShowDialog() == DialogResult.OK)
             {
@@ -174,7 +179,7 @@ namespace workout.CapaPresentacion
                             cmd.ExecuteNonQuery();
                         }
                         
-                        MessageBox.Show("Backup realizado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Backup realizado con éxito.\nArchivo: {nombreArchivo}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -263,6 +268,14 @@ namespace workout.CapaPresentacion
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnReportEstadist_Click(object sender, EventArgs e)
+        {
+            FrmReporteEstadistica reporteEstadistica = new FrmReporteEstadistica();
+            this.Hide();
+            reporteEstadistica.ShowDialog();
+            this.Show();
         }
     }
 }

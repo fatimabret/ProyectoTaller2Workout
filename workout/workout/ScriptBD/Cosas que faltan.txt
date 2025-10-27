@@ -2,13 +2,17 @@
 
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-mensajes que alumnos adeudan pagos mensuales y que aparezcan en la lista de pagos o alumnos que adeudan o están atrasados
-
-reporte alumnos, pagos, estadisticos (graficos)
+agregar mas datos de ejemplo y generar el backup
 
 MANUAL DE USUARIO
 
 		/**HECHO**/
+
+reporte alumnos, pagos, estadisticos (graficos)
+
+backup guarda con fecha y hora
+
+mensajes que alumnos adeudan pagos mensuales y que aparezcan en la lista de pagos o alumnos que adeudan o están atrasados
 
 botón en lista de alumnos para generar ultimo comprobante actual
 

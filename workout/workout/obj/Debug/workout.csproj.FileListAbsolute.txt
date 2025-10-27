@@ -226,3 +226,4 @@ C:\Users\ariel\source\taller2\workout\workout\obj\Debug\workout.csproj.CoreCompi
 C:\Users\ariel\source\taller2\workout\workout\obj\Debug\workout.csproj.Up2Date
 C:\Users\ariel\source\taller2\workout\workout\obj\Debug\workout.exe
 C:\Users\ariel\source\taller2\workout\workout\obj\Debug\workout.pdb
+C:\Taller\workout\workout\obj\Debug\workout.CapaPresentacion.FrmReporteEstadistica.resources

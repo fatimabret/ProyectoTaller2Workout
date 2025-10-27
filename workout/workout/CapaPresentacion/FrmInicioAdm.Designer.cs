@@ -46,6 +46,7 @@
             this.btnBackup = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnReportEstadist = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,7 +61,7 @@
             this.btnConsultarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarPago.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConsultarPago.Location = new System.Drawing.Point(300, 268);
+            this.btnConsultarPago.Location = new System.Drawing.Point(283, 262);
             this.btnConsultarPago.Name = "btnConsultarPago";
             this.btnConsultarPago.Size = new System.Drawing.Size(196, 29);
             this.btnConsultarPago.TabIndex = 28;
@@ -71,7 +72,7 @@
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(242, 225);
+            this.txtDni.Location = new System.Drawing.Point(225, 219);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 10, 3, 15);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(301, 25);
@@ -83,7 +84,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(236, 180);
+            this.label1.Location = new System.Drawing.Point(219, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 34);
             this.label1.TabIndex = 26;
@@ -97,7 +98,7 @@
             this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlumnos.Location = new System.Drawing.Point(201, 339);
+            this.btnAlumnos.Location = new System.Drawing.Point(82, 325);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(195, 29);
             this.btnAlumnos.TabIndex = 25;
@@ -112,7 +113,7 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(630, 102);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(621, 102);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(111, 26);
             this.btnCerrarSesion.TabIndex = 23;
@@ -124,7 +125,7 @@
             // 
             this.lblBienvenida.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBienvenida.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBienvenida.Location = new System.Drawing.Point(230, 102);
+            this.lblBienvenida.Location = new System.Drawing.Point(213, 96);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(318, 78);
             this.lblBienvenida.TabIndex = 22;
@@ -138,7 +139,7 @@
             this.btnListaAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaAlumnos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaAlumnos.Location = new System.Drawing.Point(201, 374);
+            this.btnListaAlumnos.Location = new System.Drawing.Point(82, 360);
             this.btnListaAlumnos.Name = "btnListaAlumnos";
             this.btnListaAlumnos.Size = new System.Drawing.Size(195, 29);
             this.btnListaAlumnos.TabIndex = 33;
@@ -153,7 +154,7 @@
             this.btnListaUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaUsuarios.Location = new System.Drawing.Point(301, 409);
+            this.btnListaUsuarios.Location = new System.Drawing.Point(484, 360);
             this.btnListaUsuarios.Name = "btnListaUsuarios";
             this.btnListaUsuarios.Size = new System.Drawing.Size(195, 29);
             this.btnListaUsuarios.TabIndex = 34;
@@ -168,7 +169,7 @@
             this.btnListaPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListaPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaPagos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnListaPagos.Location = new System.Drawing.Point(402, 374);
+            this.btnListaPagos.Location = new System.Drawing.Point(283, 360);
             this.btnListaPagos.Name = "btnListaPagos";
             this.btnListaPagos.Size = new System.Drawing.Size(195, 29);
             this.btnListaPagos.TabIndex = 35;
@@ -187,7 +188,7 @@
             this.btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(402, 339);
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(283, 325);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
             this.btnRegistrarUsuario.Size = new System.Drawing.Size(195, 29);
             this.btnRegistrarUsuario.TabIndex = 36;
@@ -208,7 +209,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(661, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(652, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(49, 45);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -222,7 +223,7 @@
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBackup.Location = new System.Drawing.Point(201, 444);
+            this.btnBackup.Location = new System.Drawing.Point(200, 395);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(195, 29);
             this.btnBackup.TabIndex = 37;
@@ -237,7 +238,7 @@
             this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRestaurar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRestaurar.Location = new System.Drawing.Point(402, 444);
+            this.btnRestaurar.Location = new System.Drawing.Point(401, 395);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(195, 29);
             this.btnRestaurar.TabIndex = 38;
@@ -245,11 +246,27 @@
             this.btnRestaurar.UseVisualStyleBackColor = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
+            // btnReportEstadist
+            // 
+            this.btnReportEstadist.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnReportEstadist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportEstadist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportEstadist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportEstadist.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReportEstadist.Location = new System.Drawing.Point(484, 325);
+            this.btnReportEstadist.Name = "btnReportEstadist";
+            this.btnReportEstadist.Size = new System.Drawing.Size(195, 29);
+            this.btnReportEstadist.TabIndex = 39;
+            this.btnReportEstadist.Text = "REPORTE Y ESTADISTICAS";
+            this.btnReportEstadist.UseVisualStyleBackColor = false;
+            this.btnReportEstadist.Click += new System.EventHandler(this.btnReportEstadist_Click);
+            // 
             // FrmInicioAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 492);
+            this.ClientSize = new System.Drawing.Size(800, 453);
+            this.Controls.Add(this.btnReportEstadist);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.btnRegistrarUsuario);
@@ -293,5 +310,6 @@
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button btnRestaurar;
+        private System.Windows.Forms.Button btnReportEstadist;
     }
 }

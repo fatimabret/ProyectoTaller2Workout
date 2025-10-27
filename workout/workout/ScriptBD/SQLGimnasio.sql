@@ -1,6 +1,10 @@
 ﻿CREATE DATABASE workout;
 use workout;
 
+GO
+ALTER AUTHORIZATION ON DATABASE::[workout] TO [sa];
+GO
+
 /*DEFINICON DE TABLAS*/
 CREATE TABLE ROL
 (
@@ -288,7 +292,7 @@ END
 GO
 
 GO
-CREATE PROC SP_LISTAR_ESTADOS
+CREATE OR ALTER PROCEDURE SP_LISTAR_ESTADOS
 AS
 BEGIN
     SELECT id_estado, descripcion FROM ESTADO;
@@ -307,7 +311,8 @@ BEGIN
         m.fecha_pago,
         m.fecha_venc,
         u.nombre AS 'Entrenador',
-        es.descripcion AS 'Estado'
+        es.descripcion AS 'Estado',
+        a.correo
     FROM ALUMNO a
     INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
@@ -326,7 +331,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_LISTAR_ENTRENADORES
+CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADORES
 AS
 BEGIN
     SELECT 
@@ -344,7 +349,7 @@ END
 GO
 
 GO -- para registrar alumno
-CREATE PROCEDURE SP_LIST_ENTRENADOR
+CREATE OR ALTER PROCEDURE SP_LIST_ENTRENADOR
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -365,7 +370,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_LISTAR_EJERCICIOS
+CREATE OR ALTER PROCEDURE SP_LISTAR_EJERCICIOS
     @id_entrenador INT
 AS
 BEGIN
@@ -384,7 +389,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_LISTAR_PAGOS
+CREATE OR ALTER PROCEDURE SP_LISTAR_PAGOS
 AS
 BEGIN
     SELECT 
@@ -403,7 +408,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
+CREATE OR ALTER PROCEDURE SP_LISTAR_ENTRENADOR_POR_ALUMNO
     @id_alumno INT
 AS
 BEGIN
@@ -420,7 +425,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
+CREATE OR ALTER PROCEDURE SP_OBTENER_ID_ENTRENADOR_POR_USUARIO
     @id_usuario INT
 AS
 BEGIN
@@ -433,7 +438,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
+CREATE OR ALTER PROCEDURE SP_LISTAR_ALUMNOS_POR_ENTRENADOR
     @id_entrenador INT
 AS
 BEGIN
@@ -560,7 +565,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_BUSCAR_PAGOS_DNI
+CREATE OR ALTER PROCEDURE SP_BUSCAR_PAGOS_DNI
 	@dni INT
 AS
 BEGIN
@@ -581,7 +586,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_BUSCAR_MEMBRESIA
+CREATE OR ALTER PROCEDURE SP_BUSCAR_MEMBRESIA
     @dni INT
 AS
 BEGIN
@@ -630,7 +635,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_OBTENER_ALUMNO
+CREATE OR ALTER PROCEDURE SP_OBTENER_ALUMNO
     @nombre VARCHAR(30),
     @apellido VARCHAR(30)
 AS
@@ -654,7 +659,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_OBTENER_MEMBRESIA_POR_DNI
+CREATE OR ALTER PROCEDURE SP_OBTENER_MEMBRESIA_POR_DNI
     @dni INT
 AS
 BEGIN
@@ -677,7 +682,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_OBTENER_ULTIMO_PAGO_DNI
+CREATE OR ALTER PROCEDURE SP_OBTENER_ULTIMO_PAGO_DNI
     @dni INT
 AS
 BEGIN
@@ -772,7 +777,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_REGISTRAR_MEMBRESIA
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_MEMBRESIA
     @dni INT,
     @id_metodo_pago INT
 AS
@@ -810,7 +815,7 @@ END
 GO
 
 GO
-CREATE PROC SP_REGISTRAR_ALUMNO
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_ALUMNO
 (
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30),
@@ -838,7 +843,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_REGISTRAR_USUARIO
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_USUARIO
 (
     @apellido VARCHAR(30),
     @nombre VARCHAR(30),
@@ -917,7 +922,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_REGISTRAR_EJERCICIO
+CREATE OR ALTER PROCEDURE SP_REGISTRAR_EJERCICIO
     @descripcion   VARCHAR(30),
     @serie         INT,
     @repeticion    INT,
@@ -936,7 +941,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_ACTIVAR(
+CREATE OR ALTER PROCEDURE SP_ACTIVAR(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)
 )
@@ -961,7 +966,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_ELIMINAR(
+CREATE OR ALTER PROCEDURE SP_ELIMINAR(
 	@nombre VARCHAR(30),
 	@apellido VARCHAR(30)
 )
@@ -986,7 +991,7 @@ END
 GO
 
 GO
-CREATE PROCEDURE SP_MODIFICAR_ALUMNO(
+CREATE OR ALTER PROCEDURE SP_MODIFICAR_ALUMNO(
 	@id_alumno int,
 	@genero VARCHAR(30),
 	@detalles VARCHAR(100),
@@ -1148,6 +1153,73 @@ BEGIN
         NULL AS ultima_fecha_venc
     FROM ALUMNO a
     WHERE NOT EXISTS (SELECT 1 FROM MEMBRESIA m WHERE m.id_alumno = a.id_alumno);
+END
+GO
+
+GO
+CREATE OR ALTER PROCEDURE SP_REPORTE_ESTADISTICA
+    @desde DATE,
+    @hasta DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Recaudación total y cantidad de pagos
+    DECLARE @TotalRecaudado FLOAT = (
+        SELECT ISNULL(SUM(p.importe),0)
+        FROM PAGO p
+        INNER JOIN MEMBRESIA m ON p.id_membresia = m.id_membresia
+        WHERE m.fecha_pago BETWEEN @desde AND @hasta
+    );
+
+    DECLARE @CantidadPagos INT = (
+        SELECT COUNT(*)
+        FROM MEMBRESIA
+        WHERE fecha_pago BETWEEN @desde AND @hasta
+    );
+
+    -- Nuevos alumnos, primer pago
+    DECLARE @NuevosAlumnos INT = (
+        SELECT COUNT(DISTINCT a.id_alumno)
+        FROM ALUMNO a
+        INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+        WHERE m.fecha_pago BETWEEN @desde AND @hasta
+    );
+
+    -- Bajas, membresías vencidas
+    DECLARE @Bajas INT = (
+        SELECT COUNT(DISTINCT a.id_alumno)
+        FROM ALUMNO a
+        INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+        WHERE m.fecha_venc BETWEEN @desde AND @hasta
+        AND m.fecha_venc < GETDATE()
+    );
+
+    -- Altas, alumnos activos
+    DECLARE @Altas INT = (
+        SELECT COUNT(DISTINCT a.id_alumno)
+        FROM ALUMNO a
+        INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+        WHERE m.fecha_pago BETWEEN @desde AND @hasta
+        AND m.fecha_venc >= GETDATE()
+    );
+
+    -- Recaudación por día, para el gráfico
+    SELECT 
+        CAST(m.fecha_pago AS DATE) AS Fecha,
+        SUM(p.importe) AS TotalRecaudado
+    FROM MEMBRESIA m
+    INNER JOIN PAGO p ON m.id_membresia = p.id_membresia
+    WHERE m.fecha_pago BETWEEN @desde AND @hasta
+    GROUP BY CAST(m.fecha_pago AS DATE)
+    ORDER BY Fecha;
+
+    SELECT 
+        @TotalRecaudado AS TotalRecaudado,
+        @CantidadPagos AS CantidadPagos,
+        @NuevosAlumnos AS NuevosAlumnos,
+        @Bajas AS Bajas,
+        @Altas AS Altas;
 END
 GO
 
