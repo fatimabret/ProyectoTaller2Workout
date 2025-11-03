@@ -145,7 +145,7 @@ namespace workout.CapaPresentacion
         private void btnBackup_Click(object sender, EventArgs e)
         {
             // fecha y hora (ej: workout_backup_2025-10-06_21-45-32.bak)
-            string fechaHora = DateTime.Now.ToString("yyyy-MM-dd_HH:mm:ss");
+            string fechaHora = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             string nombreArchivo = $"workout_backup_{fechaHora}.bak";
 
             SaveFileDialog seleccionabk = new SaveFileDialog();
@@ -179,7 +179,7 @@ namespace workout.CapaPresentacion
                             cmd.ExecuteNonQuery();
                         }
                         
-                        MessageBox.Show("Backup realizado con éxito.\nArchivo: {nombreArchivo}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Backup realizado con éxito.\nArchivo: "+ nombreArchivo, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)

@@ -72,9 +72,11 @@ CREATE TABLE MEMBRESIA
   monto FLOAT NOT NULL,
   id_alumno INT NOT NULL,
   id_estado INT NOT NULL,
+  id_entrenador INT NULL,
   CONSTRAINT PK_membresia PRIMARY KEY (id_membresia),
   CONSTRAINT FK_membresia_alumno FOREIGN KEY (id_alumno) REFERENCES ALUMNO(id_alumno),
-  CONSTRAINT FK_membresia_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado)
+  CONSTRAINT FK_membresia_estado FOREIGN KEY (id_estado) REFERENCES ESTADO(id_estado),
+  CONSTRAINT FK_membresia_entrenador FOREIGN KEY (id_entrenador) REFERENCES ENTRENADOR(id_entrenador)
 );
 
 CREATE TABLE EJERCICIO
@@ -168,6 +170,227 @@ INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entre
 INSERT INTO ALUMNO(dni,nombre,apellido,detalles,genero,correo,id_estado,id_entrenador,fecha_nac)VALUES 
 (42735725,'Samantha','Vazquez','Dolor de rodilla','Mujer','samvazquez@gmail.com',1,2,'2000-08-12');
 
+/* ALUMNOS (ENERO–OCTUBRE 2025) */
+INSERT INTO ALUMNO (dni, nombre, apellido, detalles, genero, correo, id_estado, id_entrenador, fecha_nac) VALUES
+(32111111, 'Mariana', 'Aiello', 'Lumbalgia leve', 'Hombre', 'aiello.mariano@gmail.com', 1, 1, '1990-05-14'),
+(32111112, 'Federico', 'Barco', 'Sedentarismo', 'Hombre', 'barco.fede@gmail.com', 1, 1, '1994-07-09'),
+(32111113, 'Juan Carlos', 'Cardozo', 'Dolor lumbar', 'Hombre', 'cardozo.jc@gmail.com', 1, 1, '1989-02-22'),
+(32111114, 'Paula', 'Maidana', 'Tonificación', 'Mujer', 'maidana.paula@gmail.com', 1, 1, '1998-11-15'),
+(32111115, 'Marta', 'Marcori', 'Rehabilitación de rodilla', 'Mujer', 'marta.marcori@gmail.com', 1, 1, '1987-03-17'),
+(32111116, 'Nancy', 'Soto', 'Sedentarismo', 'Mujer', 'nancy.soto@gmail.com', 1, 1, '1996-09-23'),
+(32111117, 'Gonzalo', 'Ferreyra', 'Baja de peso', 'Hombre', 'gonferreyra@gmail.com', 1, 1, '1993-04-11'),
+(32111118, 'Lucas', 'Villalba', 'Tonificación', 'Hombre', 'lucasvillalba@gmail.com', 1, 1, '1995-06-01'),
+(32111119, 'Diego', 'Ramos', 'Rehabilitación hombro', 'Hombre', 'diegoramos@gmail.com', 1, 1, '1985-01-08'),
+(32111120, 'Mariela', 'Gutierrez', 'Musculación', 'Mujer', 'mariela.gutierrez@gmail.com', 1, 1, '1997-12-21'),
+(32111121, 'Adriana', 'Funes', 'Tonificación', 'Mujer', 'adrianafunes@gmail.com', 1, 1, '1989-03-12'),
+(32111122, 'Sabrina', 'Ojeda', 'Resistencia', 'Mujer', 'sabrinaojeda@gmail.com', 1, 1, '1992-10-04'),
+(32111123, 'Ruben', 'Alonso', 'Rehabilitación', 'Hombre', 'rubenalonso@gmail.com', 1, 1, '1986-11-09'),
+(32111124, 'Antonella', 'Peralta', 'Tonificación', 'Mujer', 'antonellaperalta@gmail.com', 1, 1, '1998-05-27'),
+(32111125, 'Mario', 'Gonzalez', 'Postura', 'Hombre', 'mario.gonzalez@gmail.com', 1, 1, '1990-02-17'),
+(32111126, 'Laura', 'Rossi', 'Cardio', 'Mujer', 'laurarossi@gmail.com', 1, 2, '1994-06-30'),
+(32111127, 'Camila', 'Fernandez', 'Tonificación', 'Mujer', 'camilafernandez@gmail.com', 1, 2, '2001-04-22'),
+(32111128, 'Matias', 'Bianchi', 'Fuerza general', 'Hombre', 'matiasbianchi@gmail.com', 1, 2, '1993-01-28'),
+(32111129, 'Lucia', 'Sosa', 'Baja de peso', 'Mujer', 'luciasosa@gmail.com', 1, 2, '1997-08-08'),
+(32111130, 'Pedro', 'Ramirez', 'Musculación', 'Hombre', 'pedroramirez@gmail.com', 1, 2, '1984-02-19'),
+(32111131, 'Soledad', 'Cabrera', 'Tonificación', 'Mujer', 'soledadcabrera@gmail.com', 1, 2, '1990-09-13'),
+(32111132, 'Julian', 'Mendez', 'Cardio', 'Hombre', 'julianmendez@gmail.com', 1, 2, '1992-12-02'),
+(32111133, 'Brenda', 'Vega', 'Fuerza', 'Mujer', 'brendavega@gmail.com', 1, 2, '1998-07-14'),
+(32111134, 'Florencia', 'Benitez', 'Postura', 'Mujer', 'florenciabenitez@gmail.com', 1, 2, '1995-11-09'),
+(32111135, 'Sebastian', 'Pereyra', 'Resistencia', 'Hombre', 'sebapereyra@gmail.com', 1, 2, '1987-03-05'),
+(32111136, 'Ignacio', 'Molina', 'Tonificación', 'Hombre', 'ignaciomolina@gmail.com', 1, 2, '1999-01-20'),
+(32111137, 'Daniela', 'Juarez', 'Fuerza', 'Mujer', 'danielajuarez@gmail.com', 1, 2, '1991-09-26'),
+(32111138, 'Hernan', 'Acosta', 'Cardio', 'Hombre', 'hernanacosta@gmail.com', 1, 2, '1986-10-16'),
+(32111139, 'Cintia', 'Diaz', 'Rehabilitación', 'Mujer', 'cintiadiaz@gmail.com', 1, 2, '1993-12-25'),
+(32111140, 'Leandro', 'Campos', 'Baja de peso', 'Hombre', 'leandrocampo@gmail.com', 1, 2, '1992-04-18');
+
+/*  MEMBRESIAS (ENERO–OCTUBRE 2025)    */
+-- Alumno 1022
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-01-10', '2025-02-10', 19500, 1022, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1023
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-02-12', '2025-03-12', 20000, 1023, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1024
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-03-05', '2025-04-05', 21000, 1024, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1025
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-03-25', '2025-04-25', 19000, 1025, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1026
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-04-08', '2025-05-08', 22000, 1026, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (22000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1027
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-04-20', '2025-05-20', 20000, 1027, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1028
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-05-02', '2025-06-02', 21000, 1028, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1029
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-05-15', '2025-06-15', 19500, 1029, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1030
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-06-01', '2025-07-01', 20500, 1030, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1031
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-06-15', '2025-07-15', 21000, 1031, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1032
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-07-01', '2025-08-01', 20000, 1032, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1033
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-07-12', '2025-08-12', 21500, 1033, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1034
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-07-25', '2025-08-25', 20500, 1034, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1035
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-08-01', '2025-09-01', 19000, 1035, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1036
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-08-15', '2025-09-15', 21000, 1036, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1037
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-09-01', '2025-10-01', 20000, 1037, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1038
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-09-05', '2025-10-05', 21500, 1038, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1039
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-09-10', '2025-10-10', 20500, 1039, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1040
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-09-20', '2025-10-20', 22000, 1040, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (22000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1041
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-09-30', '2025-10-30', 21000, 1041, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1042
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-01', '2025-11-01', 19500, 1042, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1043
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-03', '2025-11-03', 20500, 1043, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1044
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-05', '2025-11-05', 20000, 1044, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1045
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-07', '2025-11-07', 21000, 1045, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 2, SCOPE_IDENTITY());
+
+-- Alumno 1046
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-09', '2025-11-09', 22000, 1046, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (22000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1047
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-11', '2025-11-11', 19500, 1047, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (19500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1048
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-13', '2025-11-13', 20000, 1048, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20000, 1, SCOPE_IDENTITY());
+
+-- Alumno 1049
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-15', '2025-11-15', 21500, 1049, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21500, 2, SCOPE_IDENTITY());
+
+-- Alumno 1050
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-18', '2025-11-18', 20500, 1050, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (20500, 1, SCOPE_IDENTITY());
+
+-- Alumno 1051
+INSERT INTO MEMBRESIA (fecha_pago, fecha_venc, monto, id_alumno, id_estado)
+VALUES ('2025-10-20', '2025-11-20', 21000, 1051, 1);
+INSERT INTO PAGO (importe, id_metodo_pago, id_membresia)
+VALUES (21000, 2, SCOPE_IDENTITY());
+
+/*  control de los inserts anteriores   */
+SELECT a.id_alumno, a.nombre, a.apellido, m.fecha_pago, m.fecha_venc, p.importe
+FROM ALUMNO a
+JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
+JOIN PAGO p ON m.id_membresia = p.id_membresia
+ORDER BY a.id_alumno;
+
 /*MEMBRESIAS*/
 INSERT INTO MEMBRESIA(fecha_pago,fecha_venc,monto,id_alumno,id_estado) VALUES
 ('2025-09-21','2025-10-21',20000,1,1);
@@ -234,9 +457,66 @@ BEGIN
 END
 GO
 
+GO
+CREATE OR ALTER TRIGGER TRG_MEMBRESIA_RENOVACION
+ON MEMBRESIA
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Desactivar todas las membresías anteriores del mismo alumno
+    UPDATE M
+    SET M.id_estado = 0
+    FROM MEMBRESIA M
+    INNER JOIN INSERTED I ON M.id_alumno = I.id_alumno
+    WHERE M.id_membresia <> I.id_membresia;
+
+    -- Activar la nueva membresía
+    UPDATE M
+    SET M.id_estado = 1
+    FROM MEMBRESIA M
+    INNER JOIN INSERTED I ON M.id_membresia = I.id_membresia;
+
+    -- Actualizar el estado del alumno a activo
+    UPDATE A
+    SET A.id_estado = 1
+    FROM ALUMNO A
+    INNER JOIN INSERTED I ON A.id_alumno = I.id_alumno;
+END
+GO
+
 /*      TRIGGERS        */
 
 /*          PROCEDIMIENTOS ALMACENADOS          */
+GO
+CREATE OR ALTER PROCEDURE SP_ACTUALIZAR_MEMBRESIAS_VENCIDAS
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @hoy DATE = CAST(GETDATE() AS DATE);
+
+    -- Desactivar membresías vencidas
+    UPDATE MEMBRESIA
+    SET id_estado = 0
+    WHERE fecha_venc < @hoy
+      AND id_estado = 1;
+
+    -- Actualizar alumnos que ya no tienen membresías vigentes
+    UPDATE A
+    SET A.id_estado = 0
+    FROM ALUMNO A
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM MEMBRESIA M
+        WHERE M.id_alumno = A.id_alumno
+          AND M.fecha_venc >= @hoy
+          AND M.id_estado = 1
+    );
+END
+GO
+
 GO
 CREATE OR ALTER PROCEDURE SP_ACTUALIZAR_ESTADO_ALUMNOS
 AS
@@ -314,8 +594,6 @@ BEGIN
         es.descripcion AS 'Estado',
         a.correo
     FROM ALUMNO a
-    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
-    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
     INNER JOIN ESTADO es ON a.id_estado = es.id_estado
     INNER JOIN (
         SELECT id_alumno, 
@@ -326,6 +604,9 @@ BEGIN
     INNER JOIN MEMBRESIA m 
         ON m.id_alumno = ult.id_alumno 
         AND m.fecha_pago = ult.UltimoPago
+        
+    INNER JOIN ENTRENADOR e ON m.id_entrenador = e.id_entrenador 
+    INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
     ORDER BY es.descripcion, a.apellido ASC;
 END
 GO
@@ -494,13 +775,15 @@ BEGIN
            m.fecha_pago,
            m.fecha_venc, 
            u.nombre AS 'Entrenador', 
-           es.descripcion AS 'Estado'
+           es_m.descripcion AS 'Estado'
     FROM ALUMNO a
     INNER JOIN MEMBRESIA m ON a.id_alumno = m.id_alumno
-    INNER JOIN ENTRENADOR e ON a.id_entrenador = e.id_entrenador 
+    INNER JOIN ENTRENADOR e ON m.id_entrenador = e.id_entrenador 
     INNER JOIN USUARIO u ON e.id_usuario = u.id_usuario 
     INNER JOIN ESTADO es ON a.id_estado = es.id_estado
-    WHERE a.dni = @dni;  
+    INNER JOIN ESTADO es_m ON m.id_estado = es_m.id_estado
+    WHERE a.dni = @dni
+    ORDER BY m.fecha_pago DESC;
 END
 GO
 
@@ -786,9 +1069,11 @@ BEGIN
 
     DECLARE @id_alumno INT;
     DECLARE @id_membresia INT;
+    DECLARE @id_entrenador INT;
 
-    -- Buscar alumno
-    SELECT @id_alumno = id_alumno 
+    -- Buscar alumno y su entrenador actual
+    SELECT @id_alumno = id_alumno,
+           @id_entrenador = id_entrenador
     FROM ALUMNO 
     WHERE dni = @dni;
 
@@ -800,9 +1085,9 @@ BEGIN
     -- monto fijo del sistema
     DECLARE @monto FLOAT = 20000;
 
-    -- Insertar membresía
-    INSERT INTO MEMBRESIA(fecha_pago, fecha_venc, monto, id_alumno, id_estado)
-    VALUES (GETDATE(), DATEADD(DAY, 30, GETDATE()), @monto, @id_alumno, 1);
+    -- Insertar membresía con entrenador actual
+    INSERT INTO MEMBRESIA(fecha_pago, fecha_venc, monto, id_alumno, id_estado, id_entrenador)
+    VALUES (GETDATE(), DATEADD(DAY, 30, GETDATE()), @monto, @id_alumno, 1, @id_entrenador);
 
     SET @id_membresia = SCOPE_IDENTITY();
 
@@ -1000,12 +1285,18 @@ CREATE OR ALTER PROCEDURE SP_MODIFICAR_ALUMNO(
 )
 AS
 BEGIN
+    -- Actualizar tabla ALUMNO
 	UPDATE ALUMNO
 	SET genero = @genero,
 	detalles = @detalles,
 	id_estado = @id_estado,
 	id_entrenador = @id_entrenador
 	WHERE id_alumno = @id_alumno;
+
+    -- Actualizar en la tabla MEMBRESIA
+	UPDATE MEMBRESIA
+	SET id_entrenador = @id_entrenador
+	WHERE id_alumno = @id_alumno AND id_estado = 1;
 END
 GO
 

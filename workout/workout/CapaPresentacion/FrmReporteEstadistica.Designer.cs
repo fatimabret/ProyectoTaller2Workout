@@ -171,13 +171,13 @@
             this.chartPagos.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartPagos.Legends.Add(legend1);
-            this.chartPagos.Location = new System.Drawing.Point(364, 158);
+            this.chartPagos.Location = new System.Drawing.Point(307, 158);
             this.chartPagos.Name = "chartPagos";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartPagos.Series.Add(series1);
-            this.chartPagos.Size = new System.Drawing.Size(460, 243);
+            this.chartPagos.Size = new System.Drawing.Size(560, 269);
             this.chartPagos.TabIndex = 77;
             this.chartPagos.Text = "Recaudación diaria por membresías entre";
             this.chartPagos.Click += new System.EventHandler(this.chartPagos_Click);
@@ -190,9 +190,9 @@
             this.panel1.Controls.Add(this.lblAltas);
             this.panel1.Controls.Add(this.lblTotalRecaudado);
             this.panel1.Controls.Add(this.lblNuevosAlum);
-            this.panel1.Location = new System.Drawing.Point(37, 191);
+            this.panel1.Location = new System.Drawing.Point(12, 190);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 187);
+            this.panel1.Size = new System.Drawing.Size(278, 188);
             this.panel1.TabIndex = 78;
             // 
             // FrmReporteEstadistica

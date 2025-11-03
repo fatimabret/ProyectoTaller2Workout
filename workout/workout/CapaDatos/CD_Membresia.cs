@@ -107,6 +107,16 @@ namespace workout.CapaDatos
 
             return dt;
         }
+        public void ActualizarMembresiasVencidas()
+        {
+            using (SqlConnection conexion = new SqlConnection(Conexion.CadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ACTUALIZAR_MEMBRESIAS_VENCIDAS", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+            }
+        }
 
     }
 }

@@ -1,12 +1,19 @@
+DESKTOP-80HNL37/Fatima
+DESKTOP-VPVDQTP/ariel
+
 		/**NO HECHO**/
 
 MODIFICAR PARA ELIMINAR PROC ALMACENADOS
 
-agregar mas datos de ejemplo y generar el backup
-
 MANUAL DE USUARIO
 
 		/**HECHO**/
+
+modificación de asignación entrenadores: a alumnos que muestre el historial de fechas membresías anteriores muestre a los entrenadores en ese momento
+
+historial de pago: los anteriores sean inactivos y el ultimo activo (mientras este vigente)
+
+agregar mas datos de ejemplo y generar el backup
 
 reporte alumnos, pagos, estadisticos (graficos)
 

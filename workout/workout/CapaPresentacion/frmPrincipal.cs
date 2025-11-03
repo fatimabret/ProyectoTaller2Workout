@@ -119,6 +119,9 @@ namespace workout
                 CN_Alumno alumnoNegocio = new CN_Alumno();
                 alumnoNegocio.ActualizarEstados();
 
+                CN_Membresia logicaMembresia = new CN_Membresia();
+                logicaMembresia.ActualizarMembresiasVencidas();
+
                 Console.WriteLine("Estados de alumnos actualizados correctamente.");
             }
             catch (Exception ex)
